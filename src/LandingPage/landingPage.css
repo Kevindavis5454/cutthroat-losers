@@ -1,0 +1,48 @@
+/*LANDING PAGE */
+
+.landing-section {
+    text-align: center;
+    margin: 20px auto;
+}
+
+ol.how-ordered {
+    list-style: inside;
+}
+
+ul.rules {
+    list-style: inside;
+}
+
+.login-register {
+    display: flex;
+}
+
+.login-left {
+    width: 50%;
+    height: 700px;
+}
+
+.login-right {
+    width: 50%;
+    height: 700px;
+}
+
+.landing-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    text-align: center;
+}
+
+.landing-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.landing-nav-buttons {
+    display: flex;
+    flex-direction: row;
+    align-content: space-between;
+}
