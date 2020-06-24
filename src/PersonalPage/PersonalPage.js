@@ -1,5 +1,6 @@
 import React from "react";
 import "./personalpage.css"
+import {Link} from "react-router-dom";
 
 class PersonalPage extends React.Component {
 
@@ -18,7 +19,7 @@ class PersonalPage extends React.Component {
                 <div className='personal-content'>
                     <div className="flex-container">
                         <div className="flex-cell">
-                            <div className="flex-item">1</div>
+                        <div className="flex-item"><Link to='/weighttracker'>Weight Tracker</Link></div>
                         </div>
                         <div className="flex-cell">
                             <div className="flex-item">2</div>

@@ -9,6 +9,7 @@ import Home from "./LandingPage/Home";
 import About from "./LandingPage/About";
 import HowToUse from "./LandingPage/HowToUse";
 import Rules from "./LandingPage/Rules";
+import WeightTracking from './WeightTracking/WeightTracking';
 
 class App extends React.Component {
 
@@ -31,6 +32,7 @@ class App extends React.Component {
                     <Route path='/about' component={About} />
                     <Route path='/howtouse' component={HowToUse} />
                     <Route path='/rules' component={Rules} />
+                    <Route path='/weighttracker' component={WeightTracking} />
 
                 </div>
             </div>
