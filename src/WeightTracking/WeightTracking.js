@@ -1,10 +1,8 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import { VictoryChart, VictoryGroup, VictoryVoronoiContainer, VictoryTooltip, VictoryLine, VictoryScatter } from 'victory'
 import {Link} from "react-router-dom";
 import "./WeightTracking.css"
 
-/*height={400} width={400}*/
 
 class WeightTracking extends React.Component {
     render() {

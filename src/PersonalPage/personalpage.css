@@ -7,23 +7,21 @@
 
 .personal-content {
     width: 75%;
+
 }
 
-.image-cropper {
-    width: 200px;
-    height: 200px;
+.circular--portrait {
     position: relative;
+    width: 20vw;
+    height: 20vw;
     overflow: hidden;
     border-radius: 50%;
 }
-.profile-pic {
-    /*display: inline-block;*/
-    /*margin: 0 auto;*/
-    /*margin-left: -50%;*/ /*centers the image*/
-    height: auto;
-    width: 100%
+.circular--portrait img {
+    width: 100%;
+    height: 100%;
+    /*object-fit: cover;*/
 }
-
 .flex-container {
     display: flex;
     justify-content: start;
@@ -54,6 +52,17 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 100%;
+
+}
+
+@media screen and (max-width: 44em) {
+
+    .flex-cell {
+        flex: 1 1 auto;
+    }
+
+    .content-div {
+        flex-direction: column;
+        align-items: center;
+    }
 }

@@ -1,17 +1,15 @@
 import React from "react";
-import "./personalpage.css"
-import {Link} from "react-router-dom";
-import WeightTracking from "../WeightTracking/WeightTracking";
+import "./grouppage.css";
 import { Route } from "react-router-dom";
-import WorkoutTracking from "../WorkoutTracking/WorkoutTracking";
-import PersonalSabotages from "../PersonalSabotages/PersonalSabotages";
-import Points from "../Points/Points";
 import Bingo from "../Bingo/Bingo";
 import Chat from "../Chat/Chat";
+import GroupWeightTracking from "../GroupWeightTracking/GroupWeightTracking";
+import GroupWorkoutTracking from "../GroupWorkoutTracking/GroupWorkoutTracking";
 import BingoGame from "../Bingo/BingoGame";
+import GroupSabotages from "../GroupSabotages/GroupSabotages";
+import GroupPoints from "../GroupPoints/GroupPoints";
 
-
-class PersonalPageHome extends React.Component {
+class GroupPageHome extends React.Component {
 
     render () {
 
@@ -20,32 +18,32 @@ class PersonalPageHome extends React.Component {
                 <div className="flex-container">
                     <div className="flex-cell">
                         <div className="flex-item">
-                                <Route path='/personal' component={WeightTracking} />
+                            <Route path='/group' component={GroupWeightTracking} />
                         </div>
                     </div>
                     <div className="flex-cell">
                         <div className="flex-item">
-                            <Route path='/personal' component={WorkoutTracking} />
+                            <Route path='/group' component={GroupWorkoutTracking} />
                         </div>
                     </div>
                     <div className="flex-cell">
                         <div className="flex-item">
-                            <Route path='/personal' component={PersonalSabotages} />
+                            <Route path='/group' component={GroupSabotages} />
                         </div>
                     </div>
                     <div className="flex-cell">
                         <div className="flex-item">
-                            <Route path='/personal' component={Points} />
+                            <Route path='/group' component={GroupPoints} />
                         </div>
                     </div>
                     <div className="flex-cell">
                         <div className="flex-item">
-                            <Route path='/personal' component={BingoGame} />
+                            <Route path='/group' component={BingoGame} />
                         </div>
                     </div>
                     <div className="flex-cell">
                         <div className="flex-item">
-                            <Route path='/personal' component={Chat} />
+                            <Route path='/group' component={Chat}/>
                         </div>
                     </div>
                 </div>
@@ -54,4 +52,4 @@ class PersonalPageHome extends React.Component {
     }
 }
 
-export default PersonalPageHome
+export default GroupPageHome

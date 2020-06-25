@@ -1,155 +1,131 @@
 /*Credit needed: https://my.logomakr.com/give_credit
-                                       http://www.cssplay.co.uk/menus/pro_dropline.html*/
+                                       */
 .header-title {
     text-align: center;
 }
 
-.nav {
-    height:35px;
-    background: url(./pro_line_0.gif) repeat-x;
-    position:relative;
-    font-family:arial, verdana, sans-serif;
-    font-size:11px;
-    width:100%;
-    z-index:500;
-    margin: 15px auto;
-    margin-bottom: 40px;
+body {
+    -webkit-animation: bugfix infinite 1s;
 }
 
-.nav .table {
-    display:table;
-    margin:0 auto;
+@-webkit-keyframes bugfix {
+    from {
+        padding: 0;
+    }
+    to {
+        padding: 0;
+    }
+}
+input[type=checkbox]#button {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
 }
 
-.nav .select,
-.nav .current {
-    margin:0;
-    padding:0;
-    list-style:none;
-    display:table-cell;
-    white-space:nowrap;
+label.nav-button-label {
+    display: none;
+    cursor: pointer;
+    user-select: none;
 }
 
-.nav li {
-    margin:0;
-    padding:0;
-    height:auto;
-    float:left;
-}
-
-.nav .select a {
-    display:block;
-    height:35px;
-    float:left;
-    background: url(./pro_line_0.gif);
-    padding:0 30px 0 30px;
-    text-decoration:none;
-    line-height:35px;
-    white-space:nowrap;
-    color:#ddd;
-}
-
-.nav .current a {
-    display:block;
-    height:35px;
-    float:left;
-    background: url(./pro_line_2.gif);
-    padding:0 0 0 15px;
-    text-decoration:none;
-    line-height:35px;
-    white-space:nowrap;
-    color:#fff;
-}
-
-
-.nav .current a b {
-    display:block;
-    padding:0 30px 0 15px;
-    background:url(./pro_line_2.gif) right top;
-}
-
-.nav .select a:hover,
-.nav .select li:hover a {
-    background: url(./pro_line_1.gif);
-    padding:0 0 0 15px;
-    cursor:pointer;
-    color:#fff;
-}
-
-.nav .select a:hover b,
-.nav .select li:hover a b {
-    display:block;
-    float:left;
-    padding:0 30px 0 15px;
-    background:url(./pro_line_1.gif) right top;
-    cursor:pointer;
-}
-
-.nav .select_sub {
-    display:none;
-}
-
-/* IE6 only */
-.nav table {
-    border-collapse:collapse;
-    margin:-1px;
-    font-size:1em;
-    width:0;
-    height:0;
-}
-
-.nav .sub {
-    display:table;
-    margin:0 auto;
-    padding:0;
-    list-style:none;
-}
-
-.nav .sub_active .current_sub a,
-.nav .sub_active a:hover {
-    background:transparent;
-    color:#f00;
-}
-
-.nav .select :hover .select_sub,
-.nav .current .show {
-    display:block;
-    position:absolute;
-    width:750px;
-    top:35px;
-    background:url(./back_0.gif);
-    padding:0;
-    z-index:100;
-    left:0;
-    text-align:center;
+/* background for li / select */
+/* custom-dropdown */
+nav[role="custom-dropdown"] {
+    /* position: relative;*/
     width: 100%;
+    display: flex;
+    margin: 2em 2em 5em 2em;
+}
+nav[role="custom-dropdown"] a,
+nav[role="custom-dropdown"] label {
+    color: #ccc;
+    text-decoration: none;
+    font: 1.4em sans-serif;
+    transition: color .3s ease-in-out;
+}
+nav[role="custom-dropdown"] ul {
+    padding: 0;
+    margin: 0 auto;
+    width: 100%;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+nav[role="custom-dropdown"] ul > li {
+    /*float: left;*/
+    padding: .55em .55em;
+    /*display: inline-block;*/
+    /*margin-left: .20em;
+    margin-right: .20em;*/
+    width: 20%;
+    background-image: url(https://raw.github.com/TimPietrusky/mantisbt-is-a-rockstar/master/rockstar/img/bg_dark_grey.png);
+    text-align: center;
+    transition-duration: .3s;
+    transition-timing-function: ease-in-out;
+    transition-property: box-shadow, color;
+    box-shadow: 0 0.05em 0.25em 0 rgba(0, 0, 0, 0.35);
+    cursor: pointer;
+}
+nav[role="custom-dropdown"] ul > li:hover {
+    background-color: rgba(0, 0, 0, 0.85);
+    color: #fff;
+    box-shadow: 0 0.05em 0.25em 0 rgba(0, 0, 0, 0.35), inset 0 0 0 2em rgba(0, 0, 0, 0.3);
+}
+nav[role="custom-dropdown"] ul > li:hover > a {
+    color: #fff;
 }
 
-.nav .current .show {
-    z-index:10;
-}
+/* small screens */
+@media screen and (max-width: 44em) {
+    html,
+    body {
+        margin: 0;
+    }
 
-.nav .select :hover .sub li a,
-.nav .current .show .sub li a {
-    display:block;
-    float:left;
-    background:transparent;
-    padding:0 10px 0 10px;
-    margin:0;
-    white-space:nowrap;
-    border:0;
-    color:#444;
-}
+    nav[role="custom-dropdown"] {
+        display: flex;
+        flex-direction: column;
+    }
 
-.nav .current .sub li.sub_show a {
-    color:#088;
-    cursor:default;
-    background:url(./back_1.gif);
-}
-
-.nav .select :hover .sub li a:hover,
-.nav .current .sub li a:hover {
-    visibility:visible;
-    color:#088;
-    background:url(./back_1.gif);
+    nav[role="custom-dropdown"] ul {
+        display: none;
+        height: 100%;
+    }
+    nav[role="custom-dropdown"] label {
+        position: relative;
+        display: block;
+        width: 100%;
+        min-height: 1em;
+        padding: .2em;
+        font-size: 1.1em;
+        margin: 0;
+        border: 0.15em solid rgba(60, 60, 60, 0.2);
+        background-image: url(https://raw.github.com/TimPietrusky/mantisbt-is-a-rockstar/master/rockstar/img/bg_dark_grey.png);
+    }
+    nav[role="custom-dropdown"] label:after {
+        /*position: absolute;*/
+        right: .25em;
+        top: 0;
+        content: "\2261";
+        font-size: 2em;
+    }
+    nav[role="custom-dropdown"] input[type=checkbox]:checked ~ label:after {
+        color: #222;
+    }
+    nav[role="custom-dropdown"] input[type=checkbox]:checked ~ ul {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    nav[role="custom-dropdown"] input[type=checkbox]:checked ~ ul > li {
+        width: 100%;
+        opacity: .8;
+        text-align: left;
+    }
+    nav[role="custom-dropdown"] input[type=checkbox]:checked ~ ul > li:after {
+        position: absolute;
+        right: .25em;
+        content: "\203A";
+        font: bold 1.4em sans-serif;
+    }
 }
