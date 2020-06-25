@@ -1,11 +1,18 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { VictoryChart, VictoryGroup, VictoryVoronoiContainer, VictoryTooltip, VictoryLine, VictoryScatter } from 'victory'
+import {Link} from "react-router-dom";
+import "./WeightTracking.css"
+
+/*height={400} width={400}*/
 
 class WeightTracking extends React.Component {
     render() {
         return (
-<VictoryChart height={400} width={400}
+            <div className='weight-tracker-box'>
+                <h3>Starting Weight: 200</h3>
+                <Link to='/personal/weighttracker'>
+<VictoryChart viewBox="0, 0, width, height"
         containerComponent={<VictoryVoronoiContainer/>}
       >
           <VictoryGroup
@@ -48,6 +55,9 @@ class WeightTracking extends React.Component {
             />
           </VictoryGroup>
        </VictoryChart>
+                </Link>
+                <h3>Current Weight: 184</h3>
+                </div>
     );
     }
 }

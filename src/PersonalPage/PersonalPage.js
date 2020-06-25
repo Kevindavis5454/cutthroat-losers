@@ -1,6 +1,14 @@
 import React from "react";
 import "./personalpage.css"
 import {Link} from "react-router-dom";
+import { Route } from 'react-router-dom'
+import WeightTracking from "../WeightTracking/WeightTracking";
+import PersonalPageHome from "./PersonalPageHome";
+import WorkoutTracking from "../WorkoutTracking/WorkoutTracking";
+import PersonalSabotages from "../PersonalSabotages/PersonalSabotages";
+import Points from "../Points/Points";
+import Bingo from "../Bingo/Bingo";
+import Chat from "../Chat/Chat";
 
 class PersonalPage extends React.Component {
 
@@ -17,26 +25,13 @@ class PersonalPage extends React.Component {
                 </div>
                 <hr></hr>
                 <div className='personal-content'>
-                    <div className="flex-container">
-                        <div className="flex-cell">
-                        <div className="flex-item"><Link to='/weighttracker'>Weight Tracker</Link></div>
-                        </div>
-                        <div className="flex-cell">
-                            <div className="flex-item">2</div>
-                        </div>
-                        <div className="flex-cell">
-                            <div className="flex-item">3</div>
-                        </div>
-                        <div className="flex-cell">
-                            <div className="flex-item">4</div>
-                        </div>
-                        <div className="flex-cell">
-                            <div className="flex-item">5</div>
-                        </div>
-                        <div className="flex-cell">
-                            <div className="flex-item">6</div>
-                        </div>
-                    </div>
+                <Route exact path='/personal' component={PersonalPageHome} />
+                <Route path='/personal/weighttracker' component={WeightTracking} />
+                <Route path='/personal/workouttracker' component={WorkoutTracking} />
+                <Route path='/personal/sabotages' component={PersonalSabotages} />
+                <Route path='/personal/points' component={Points} />
+                <Route path='/personal/bingo' component={Bingo} />
+                <Route path='/personal/chat' component={Chat} />
                 </div>
             </>
         )

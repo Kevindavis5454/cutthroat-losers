@@ -32,7 +32,6 @@ class App extends React.Component {
                     <Route path='/about' component={About} />
                     <Route path='/howtouse' component={HowToUse} />
                     <Route path='/rules' component={Rules} />
-                    <Route path='/weighttracker' component={WeightTracking} />
 
                 </div>
             </div>

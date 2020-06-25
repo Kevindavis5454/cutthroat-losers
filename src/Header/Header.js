@@ -18,61 +18,33 @@ class Header extends React.Component {
                     <div className="table">
 
                         <ul className="select">
-                            <Link to='/personal'><li><b>Personal Page</b></li></Link>
+                            <Link to='/personal'><li><b>Home</b></li></Link>
                         </ul>
 
                         <ul className="select">
-                            <li><a href="#nogo"><b>Joseph Turner</b></a>
+                            <li><a href="#nogo"><b>Personal Stats</b></a>
                                 <div className="select_sub">
                                     <ul className="sub">
-                                        <li><a href="#nogo">Fishermen at Sea</a></li>
-                                        <li><a href="#nogo">The Shipwreck</a></li>
-                                        <li><a href="#nogo">The Vale of Ashburnham</a></li>
-                                        <li><a href="#nogo">Crossing the Brook</a></li>
+                                        <li><Link to='/personal/weighttracker'>Weight Tracker</Link></li>
+                                        <li><Link to='/personal/workouttracker'>Workout Tracker</Link></li>
+                                        <li><Link to='/personal/sabotages'>Current Sabotages</Link></li>
+                                        <li><Link to='/personal/points'>Current Points</Link></li>
+                                        <li><Link to='/personal/bingo'>Bingo</Link></li>
+                                        <li><Link to='/personal/chat'>Chat</Link></li>
                                     </ul>
                                 </div>
                             </li>
                         </ul>
 
                         <ul className="select">
-                            <li><a href="#nogo"><b>John Constable</b></a>
+                            <li><a href="#nogo"><b>Group Info</b></a>
                                 <div className="select_sub show">
                                     <ul className="sub">
-                                        <li><a href="#nogo">The Hay Wain</a></li>
-                                        <li><a href="#nogo">Brighton Beach</a></li>
-                                        <li><a href="#nogo">Malvern Hall</a></li>
-                                        <li><a href="#nogo">Salisbury Cathedral</a></li>
-                                        <li><a href="#nogo">Weymouth Bay</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                        </ul>
-
-
-                        <ul className="select">
-                            <li><a href="#nogo"><b>Henri Matisse</b></a>
-                                <div className="select_sub">
-                                    <ul className="sub">
-                                        <li><a href="#nogo">The Girl with Green Eyes</a></li>
-                                        <li><a href="#nogo">The Dream</a></li>
-                                        <li><a href="#nogo">Woman in Blue</a></li>
-                                        <li><a href="#nogo">The Yellow Dress</a></li>
-                                        <li><a href="#nogo">The Piano Lesson</a></li>
-                                    </ul>
-                                </div>
-                            </li>
-                        </ul>
-
-
-                        <ul className="select">
-                            <li><a href="#nogo"><b>Paul Cezanne</b></a>
-                                <div className="select_sub">
-                                    <ul className="sub">
-                                        <li><a href="#nogo">The Large Bathers</a></li>
-                                        <li><a href="#nogo">Onions and Bottles</a></li>
-                                        <li><a href="#nogo">Mardi Gras</a></li>
-                                        <li><a href="#nogo">Still Life</a></li>
-                                        <li><a href="#nogo">Boy in a Red Waistcoat</a></li>
+                                        <li><a href="#nogo">n/a</a></li>
+                                        <li><a href="#nogo">n/a</a></li>
+                                        <li><a href="#nogo">n/a</a></li>
+                                        <li><a href="#nogo">n/a</a></li>
+                                        <li><a href="#nogo">n/a</a></li>
                                     </ul>
                                 </div>
                             </li>
