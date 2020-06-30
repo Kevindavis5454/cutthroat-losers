@@ -22,7 +22,7 @@ class Header extends React.Component {
                             <li><Link to='/personal'>Home</Link></li>
                             <li><Link to='/personal'>Personal</Link></li>
                             <li><Link to='/group'>Group</Link></li>
-                            <li><a href="#">Contact</a></li>
+                            <li><Link to='/personal/contact'>Contact</Link></li>
                         </ul>
                 </nav>
             </>
