@@ -1,0 +1,24 @@
+.login-block {
+    float: left;
+    margin: 0 49px 25px 0;
+    width: 260px;
+}
+
+.login-block form {
+    border: 3px solid #ccc;
+    padding: 20px;
+}
+.login-block .active-form {
+    border-color: red;
+}
+
+.login-block input[type="text"],
+.login-block input[type="password"] {
+    border-color: #eeeeee #cccccc #cccccc #eeeeee;
+    border-right: 1px solid #cccccc;
+    border-style: solid;
+    border-width: 1px;
+    margin: 0 0 15px;
+    padding: 10px;
+    width: 200px;
+}

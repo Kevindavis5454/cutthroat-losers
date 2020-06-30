@@ -17,7 +17,7 @@ class GroupPage extends React.Component {
             <>
                 <div className='personal-menu'>
                     <div className='circular--portrait'>
-                        <img src="" alt='Profile Picture' className='profile-pic'></img>
+                        <img src={require("../Header/LogoMakr_37X4P2.png")} alt='Logo' className='profile-pic'></img>
                     </div>
                     <h3>Group Name</h3>
                     <h4>Members Playing:</h4>
