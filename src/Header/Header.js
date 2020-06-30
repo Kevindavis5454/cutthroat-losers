@@ -19,7 +19,7 @@ class Header extends React.Component {
                         <label htmlFor="button" onClick className='nav-button-label'></label>
 
                         <ul>
-                            <li><Link to='/personal'>Home</Link></li>
+                            <li><Link to='/personal/home'>Home</Link></li>
                             <li><Link to='/personal'>Personal</Link></li>
                             <li><Link to='/group'>Group</Link></li>
                             <li><Link to='/personal/contact'>Contact</Link></li>
