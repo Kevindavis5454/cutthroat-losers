@@ -10,6 +10,7 @@ import BingoGame from "../Bingo/BingoGame";
 import GroupSabotages from "../GroupSabotages/GroupSabotages";
 import GroupPoints from "../GroupPoints/GroupPoints";
 import Memberlist from '../MemberList/Memberlist'
+import GroupGraph from '../GroupGraph/GroupGraph'
 
 class GroupPage extends React.Component {
 
@@ -23,7 +24,15 @@ class GroupPage extends React.Component {
                     <Memberlist/>
                 </div>
                 <hr></hr>
+                
+                <div className="groupgraph">
+                <div>
+                    <GroupGraph/>
+                </div>
+                </div>
                 <div className='personal-content'>
+                 
+                
                     <Route exact path='/group' component={GroupPageHome} />
                     <Route path='/group/weighttracker' component={GroupWeightTracking} />
                     <Route path='/group/workouttracker' component={GroupWorkoutTracking} />
@@ -32,6 +41,7 @@ class GroupPage extends React.Component {
                     <Route path='/group/bingo' component={BingoGame} />
                     <Route path='/group/chat' component={Chat} />
                 </div>
+                
             </>
         )
     }
