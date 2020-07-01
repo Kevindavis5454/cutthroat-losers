@@ -9,6 +9,7 @@ import Chat from "../Chat/Chat";
 import BingoGame from "../Bingo/BingoGame";
 import GroupSabotages from "../GroupSabotages/GroupSabotages";
 import GroupPoints from "../GroupPoints/GroupPoints";
+import Memberlist from '../MemberList/Memberlist'
 
 class GroupPage extends React.Component {
 
@@ -19,10 +20,7 @@ class GroupPage extends React.Component {
                     <div className='circular--portrait'>
                         <img src={require("../Header/LogoMakr_37X4P2.png")} alt='Logo' className='profile-pic'></img>
                     </div>
-                    <h3>Group Name</h3>
-                    <h4>Members Playing:</h4>
-                    <h3>Kevin Davis</h3>
-                    <h3>Catherine Davis</h3>
+                    <Memberlist/>
                 </div>
                 <hr></hr>
                 <div className='personal-content'>
