@@ -9,7 +9,7 @@ class WeightTracking extends React.Component {
         return (
             <div className='weight-tracker-box'>
                 <h3>Starting Weight: 200</h3>
-                <Link to='/personal/weighttracker'>
+
 <VictoryChart viewBox="0, 0, width, height"
         containerComponent={<VictoryVoronoiContainer/>}
       >
@@ -53,7 +53,7 @@ class WeightTracking extends React.Component {
             />
           </VictoryGroup>
        </VictoryChart>
-                </Link>
+
                 <h3>Current Weight: 184</h3>
                 </div>
     );

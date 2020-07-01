@@ -14,10 +14,10 @@ class HeaderLogin extends React.Component {
                     <input type="checkbox" id="button"></input>
                     <label htmlFor="button" onClick className='nav-button-label'></label>
                     <ul>
-                        <li><Link to='/'>Home</Link></li>
-                        <li><Link to='/about'>About</Link></li>
-                        <li><Link to='/howtouse'>How To Use</Link></li>
-                        <li><Link to='/rules'>Rules</Link></li>
+                        <li><Link to='/'><div>Home</div></Link></li>
+                        <li><Link to='/about'><div>About</div></Link></li>
+                        <li><Link to='/howtouse'><div>How To Use</div></Link></li>
+                        <li><Link to='/rules'><div>Rules</div></Link></li>
                     </ul>
                 </nav>
             </>

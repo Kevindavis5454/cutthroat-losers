@@ -6,11 +6,10 @@ class PersonalSabotages extends React.Component {
 
     render () {
         return (
-            <Link to='/personal/sabotages'>
-            <div>
-                <h1>Current Sabotages:</h1>
+            <div className='current-sabo-box'>
+                <h1>Current Sabotages</h1>
+                <p>You have these sabotages currently applied to you:</p>
             </div>
-            </Link>
         )
     }
 }

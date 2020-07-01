@@ -1,13 +1,13 @@
 import React from "react";
 import "./groupworkouttracking.css"
 import { VictoryChart, VictoryGroup, VictoryVoronoiContainer, VictoryTooltip, VictoryLine, VictoryScatter, VictoryBar } from 'victory'
-import {Link} from "react-router-dom";
 
 class GroupWorkoutTracking extends React.Component {
 
     render () {
         return (
-            <>
+            <div className='groupWorkout-box-div'>
+                <h3>Group Workout Progress</h3>
                 <div className="flex-container">
                     <div className='flex-cell'>
                         <div className='flex-item'>
@@ -86,7 +86,7 @@ class GroupWorkoutTracking extends React.Component {
                         </div>
                     </div>
                 </div>
-            </>
+            </div>
         )
     }
 }

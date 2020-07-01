@@ -7,12 +7,10 @@ class Points extends React.Component {
     render () {
 
         return (
-            <Link to='/personal/points'>
-            <div>
-                <h1>Current Points: 31</h1>
+            <div className="points-box-div">
+                <h1>Current Points</h1>
+                <p>Your remaining point balance is: 31</p>
             </div>
-            </Link>
-
         )
     }
 }

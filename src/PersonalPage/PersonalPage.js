@@ -22,9 +22,9 @@ class PersonalPage extends React.Component {
                     <div className='circular--portrait'>
                         <img src={require('./KevinProfile.JPG')} alt='Profile Picture' className='profile-pic'></img>
                     </div>
-                    <h3>Kevin Davis</h3>
-                    <h4>Current Weight: 246lbs</h4>
-                    <h4>Goal Weight: 190lbs</h4>
+                    <div className='infograph-div'>
+                    <Infograph />
+                    </div>
                 </div>
                 <hr className='personal-divide'></hr>
                 <div className='personal-content'>

@@ -19,34 +19,47 @@ class PersonalPageHome extends React.Component {
             <>
                 <div className="flex-container">
                     <div className="flex-cell">
-                        <div className="flex-item">
+                        <Link className="flex-item" to='/personal/weighttracker'>
+                            <div>
                                 <Route path='/personal' component={WeightTracking} />
-                        </div>
+                            </div>
+                        </Link>
                     </div>
                     <div className="flex-cell">
-                        <div className="flex-item">
-                            <Route path='/personal' component={WorkoutTracking} />
-                        </div>
+                        <Link className="flex-item" to='/personal/workouttracker'>
+                            <div>
+                                <Route path='/personal' component={WorkoutTracking} />
+                            </div>
+                        </Link>
+
                     </div>
                     <div className="flex-cell">
-                        <div className="flex-item">
-                            <Route path='/personal' component={PersonalSabotages} />
-                        </div>
+                        <Link className="flex-item" to='/personal/sabotages'>
+                            <div>
+                                <Route path='/personal' component={PersonalSabotages} />
+                            </div>
+                        </Link>
                     </div>
                     <div className="flex-cell">
-                        <div className="flex-item">
-                            <Route path='/personal' component={Points} />
-                        </div>
+                        <Link className="flex-item" to='/personal/points'>
+                            <div>
+                                <Route path='/personal' component={Points} />
+                            </div>
+                        </Link>
                     </div>
                     <div className="flex-cell">
-                        <div className="flex-item">
-                            <Route path='/personal' component={BingoGame} />
-                        </div>
+                        <Link className="flex-item" to='/personal/bingo'>
+                            <div>
+                                <Route path='/personal' component={BingoGame} />
+                            </div>
+                        </Link>
                     </div>
                     <div className="flex-cell">
-                        <div className="flex-item">
-                            <Route path='/personal' component={Chat} />
-                        </div>
+                        <Link className="flex-item" to='/personal/chat'>
+                            <div>
+                                <Route path='/personal' component={Chat} />
+                            </div>
+                        </Link>
                     </div>
                 </div>
             </>

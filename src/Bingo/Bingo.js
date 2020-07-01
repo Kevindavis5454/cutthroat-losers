@@ -1,6 +1,5 @@
 import React from "react";
 import "./bingo.css"
-import { Link } from "react-router-dom";
 
 class Bingo extends React.Component {
 
