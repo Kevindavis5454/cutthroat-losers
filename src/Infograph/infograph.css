@@ -1,4 +1,4 @@
-
+/*
   .infoDiv {
 	--i: var(--wide, 1);
 	--j: calc(1 - var(--i));
@@ -18,7 +18,7 @@
 	--s: calc(1 - 2*var(--p));
 	box-sizing: border-box;
 	display: flex;
-	flex-direction: var(--narr, column);
+	flex-direction: column;
 	align-items: center;
 	justify-content: space-around;
 	position: relative;
@@ -26,8 +26,8 @@
 	border: solid 0 transparent;
 	border-width: 0 calc(var(--q)*5vmin) 0 calc(var(--p)*5vmin);
 	padding: 0.5em calc((var(--j) + var(--i)*var(--q))*0.5em) 0.5em calc((var(--j) + var(--i)*var(--p))*0.5em);
-	/*max-width: 27em;
-	min-height: 7.5em;*/
+	max-width: 27em;
+	min-height: 7.5em;
 	background: linear-gradient(#fcfcfc, gainsboro) padding-box, linear-gradient(calc(var(--s)*90deg), var(--c0), var(--c1)) calc(var(--q)*100%)/ 5vmin 100%;
 	color: var(--c1);
 	font: 900 calc((1.25 - .375*var(--k))*1em)/1.5 trebuchet ms, verdana, sans-serif;
@@ -73,7 +73,7 @@
 		  --wide: 0 ;
 	  }
   }
-  /*@media (min-width: 400px) {
+  @media (min-width: 400px) {
 	  body {
 		  --narr: 0 ;
 	  }

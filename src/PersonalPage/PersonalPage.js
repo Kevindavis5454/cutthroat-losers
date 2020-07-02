@@ -24,7 +24,8 @@ class PersonalPage extends React.Component {
                         <img src={require('./KevinProfile.JPG')} alt='Profile Picture' className='profile-pic'></img>
                     </div>
                     <div className='infograph-div'>
-                    <Infograph />
+                        <p>Current Weight:</p>
+                        <p>Goal Weight:</p>
                     </div>
                 </div>
                 <hr className='personal-divide'></hr>
