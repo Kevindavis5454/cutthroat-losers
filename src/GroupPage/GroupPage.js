@@ -26,9 +26,9 @@ class GroupPage extends React.Component {
                     </div>
                 </div>
                 <div className='personal-content'>
-                    <div className="groupgraph">
+                    {/* <div className="groupgraph">
                         <GroupGraph/>
-                    </div>
+                    </div> */}
                     <div className='group-content-boxes'>
                         <Route exact path='/group' component={GroupPageHome} />
                         <Route path='/group/weighttracker' component={GroupWeightTracking} />

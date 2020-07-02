@@ -1,0 +1,4 @@
+.home-charts {
+    display: flex;
+    flex-direction: row;
+}

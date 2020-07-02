@@ -33,7 +33,7 @@ class WeightTracking extends React.Component {
               size={({ active }) => active ? 8 : 3}
             />
           </VictoryGroup>
-          <VictoryGroup
+          {/* <VictoryGroup
             labels={({ datum }) => `y: ${datum.y}`}
             labelComponent={
               <VictoryTooltip
@@ -51,7 +51,7 @@ class WeightTracking extends React.Component {
             <VictoryScatter
               size={({ active }) => active ? 8 : 3}
             />
-          </VictoryGroup>
+          </VictoryGroup> */}
        </VictoryChart>
 
                 <h3>Current Weight: 184</h3>
