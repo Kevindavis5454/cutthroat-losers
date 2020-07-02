@@ -6,19 +6,19 @@ class ProgressChart extends React.Component {
     constructor() {
         super();
         this.state = {
-          percent: 25, data: this.getData(0)
+          percent: 55, data: this.getData(0)
         };
       }
     
       componentDidMount() {
         let percent = 25;
         this.setStateInterval = window.setInterval(() => {
-          percent += (Math.random() * 25);
+          percent = this.state.percent;
           percent = (percent > 100) ? 0 : percent;
           this.setState({
             percent, data: this.getData(percent)
           });
-        }, 2000);
+        }, 1000);
       }
     
       componentWillUnmount() {
@@ -43,7 +43,7 @@ class ProgressChart extends React.Component {
                 labels={() => null}
                 style={{
                   data: { fill: ({ datum }) => {
-                    const color = datum.y > 30 ? "green" : "red";
+                    const color = datum.y > 50 ? "green" : "red";
                     return datum.x === 1 ? color : "transparent";
                   }
                   }

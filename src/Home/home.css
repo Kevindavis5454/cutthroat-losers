@@ -1,4 +1,16 @@
 .home-charts {
     display: flex;
     flex-direction: row;
+    padding: 25px;
+}
+.home-title {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+}
+.rules-section {
+    display:flex;
+    flex-direction: column;
+    padding: 25px;
 }

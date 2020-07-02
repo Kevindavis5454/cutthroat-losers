@@ -8,6 +8,10 @@ class Home extends React.Component {
     render () {
         return (
             <div>
+                <div className='home-title'>
+                    <h1>Kevin's Contest Progress</h1>
+                </div>
+                <hr></hr>
                 <div className='home-charts'>
                     <ProgressChart/>
                     <WeightTracking/>
