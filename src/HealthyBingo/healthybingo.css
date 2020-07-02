@@ -1,0 +1,48 @@
+.bingo {
+    font-family: sans-serif;
+    text-align: center;
+  }
+  
+  .wrapper {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(5, minmax(200px, 1fr));
+    padding: 30px;
+    margin: 30px;
+    flex: 1 1 200px;
+  }
+  
+  .tile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    padding: 10px;
+    font-weight: bold;
+    font-size: auto;
+    
+    
+  
+    border: 4px black solid;
+    border-radius: 10px;
+  
+    cursor: pointer;
+  }
+   
+  .tile--set {
+    background: blanchedalmond;
+  }
+
+  /* These are a css trick to make the grid show perfect squares -- its only kinda working*/
+  .wrapper > div {
+      padding: 1rem;
+  }
+  .wrapper > div::before {
+      content: "";
+      padding-bottom: 100%;
+      display:block;
+  }
+
+ 
+
+  

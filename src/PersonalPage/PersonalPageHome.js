@@ -9,6 +9,7 @@ import Points from "../Points/Points";
 import Bingo from "../Bingo/Bingo";
 import Chat from "../Chat/Chat";
 import BingoGame from "../Bingo/BingoGame";
+import HealthyBingo from "../HealthyBingo/HealthyBingo";
 
 
 class PersonalPageHome extends React.Component {

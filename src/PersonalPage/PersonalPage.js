@@ -13,6 +13,7 @@ import BingoGame from "../Bingo/BingoGame";
 import Contact from "../ContactPage/Contact";
 import Infograph from '../Infograph/infograph'
 import Home from "../Home/Home";
+import HealthyBingo from "../HealthyBingo/HealthyBingo";
 
 class PersonalPage extends React.Component {
 
@@ -34,7 +35,7 @@ class PersonalPage extends React.Component {
                 <Route path='/personal/workouttracker' component={WorkoutTracking} />
                 <Route path='/personal/sabotages' component={PersonalSabotages} />
                 <Route path='/personal/points' component={Points} />
-                <Route path='/personal/bingo' component={BingoGame} />
+                <Route path='/personal/bingo' component={HealthyBingo} />
                 <Route path='/personal/chat' component={Chat} />
                 <Route path='/personal/contact' component={Contact} />
                 <Route path='/personal/home' component={Home} />

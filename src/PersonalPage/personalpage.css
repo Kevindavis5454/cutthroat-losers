@@ -57,6 +57,9 @@
     /*justify-content: center;*/
     align-items: center;
 
+    max-width: 50vh;
+    flex: 1 1 70%;
+
 }
 
 .content-div {
