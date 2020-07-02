@@ -7,6 +7,7 @@ import GroupWorkoutTracking from "../GroupWorkoutTracking/GroupWorkoutTracking";
 import BingoGame from "../Bingo/BingoGame";
 import GroupSabotages from "../GroupSabotages/GroupSabotages";
 import GroupPoints from "../GroupPoints/GroupPoints";
+import GroupGraph from "../GroupGraph/GroupGraph";
 
 class GroupPageHome extends React.Component {
 

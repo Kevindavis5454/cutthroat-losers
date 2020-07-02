@@ -21,25 +21,23 @@ class GroupPage extends React.Component {
                     <div className='circular--portrait'>
                         <img src={require("../Header/LogoMakr_37X4P2.png")} alt='Logo' className='profile-pic'></img>
                     </div>
+                    <div className='memberlist-div'>
                     <Memberlist/>
-                </div>
-                <hr></hr>
-                
-                <div className="groupgraph">
-                <div>
-                    <GroupGraph/>
-                </div>
+                    </div>
                 </div>
                 <div className='personal-content'>
-                 
-                
-                    <Route exact path='/group' component={GroupPageHome} />
-                    <Route path='/group/weighttracker' component={GroupWeightTracking} />
-                    <Route path='/group/workouttracker' component={GroupWorkoutTracking} />
-                    <Route path='/group/sabotages' component={GroupSabotages} />
-                    <Route path='/group/points' component={GroupPoints}/>
-                    <Route path='/group/bingo' component={BingoGame} />
-                    <Route path='/group/chat' component={Chat} />
+                    <div className="groupgraph">
+                        <GroupGraph/>
+                    </div>
+                    <div className='group-content-boxes'>
+                        <Route exact path='/group' component={GroupPageHome} />
+                        <Route path='/group/weighttracker' component={GroupWeightTracking} />
+                        <Route path='/group/workouttracker' component={GroupWorkoutTracking} />
+                        <Route path='/group/sabotages' component={GroupSabotages} />
+                        <Route path='/group/points' component={GroupPoints}/>
+                        <Route path='/group/bingo' component={BingoGame} />
+                        <Route path='/group/chat' component={Chat} />
+                    </div>
                 </div>
                 
             </>

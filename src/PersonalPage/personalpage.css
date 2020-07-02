@@ -1,12 +1,15 @@
 .personal-menu {
     width: 25%;
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
 }
 
 .personal-content {
     width: 75%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 
 }
 
@@ -61,18 +64,42 @@
     align-items: center;
 }
 
+
 .infograph-div {
-    padding: 1.5em;
+    width: 10vw;
+    height: 10vw;
 }
+
+/*.infoDiv {
+    width: 10vw;
+    height: 10vw;
+}*/
 
 @media screen and (min-width: 45em) {
 
     .flex-cell {
-        flex: 0 0 33%;
+        flex: 0 0 50%;
     }
 
     .content-div {
         flex-direction: row;
         align-items: flex-start;
     }
+
+    .personal-menu {
+        display: flex;
+    }
+
+}
+
+@media screen and (min-width: 80em) {
+
+    .flex-cell {
+        flex: 0 0 33%;
+    }
+
+    /*.personal-menu {
+        flex-direction: column;
+        align-items: center;
+    }*/
 }
