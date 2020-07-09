@@ -1,4 +1,5 @@
-    .large-screen-nav {
+
+    .small-screen-nav {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -6,14 +7,14 @@
         padding-bottom: 2em;
     }
 
-    .large-screen-nav ul {
+    .small-screen-nav ul {
         margin: 0;
         padding: 0;
         list-style: none;
 
     }
 
-    .nav a {
+    .footer-nav a {
         display: block;
         background: #111;
         color: #fff;
@@ -23,63 +24,64 @@
         font-size: 50%;
         letter-spacing: 2px;
         /*text-shadow: 0 -1px 0 #000;*/
+        width: 10vw;
         position: relative;
     }
 
-    .nav {
+    .footer-nav {
         vertical-align: top;
         display: inline-block;
         box-shadow: 1px -1px -1px 1px #000, -1px 1px -1px 1px #fff, 0 0 6px 3px #fff;
         border-radius: 6px;
     }
 
-    .nav li {
+    .footer-nav li {
         position: relative;
     }
 
-    .nav > li {
+    .footer-nav > li {
         float: left;
         border-bottom: 4px #aaa solid;
         margin-right: 1px;
         margin-bottom: 1px;
     }
 
-    .nav > li > a {
+    .footer-nav > li > a {
         margin-bottom: 1px;
         box-shadow: inset 0 2em .33em -.5em #555;
     }
 
-    .nav > li:hover, .nav > li:hover > a {
+    .footer-nav > li:hover, .footer-nav > li:hover > a {
         border-bottom-color: #bc4123;
     }
 
-    .nav li:hover > a {
+    .footer-nav li:hover > a {
         color: #bc4123;
     }
 
-    .nav > li:first-child {
+    .footer-nav > li:first-child {
         border-radius: 4px 0 0 4px;
     }
 
-    .nav > li:first-child > a {
+    .footer-nav > li:first-child > a {
         border-radius: 4px 0 0 0;
     }
 
-    .nav > li:last-child {
+    .footer-nav > li:last-child {
         border-radius: 0 0 4px 0;
         margin-right: 0;
     }
 
-    .nav > li:last-child > a {
+    .footer-nav > li:last-child > a {
         border-radius: 0 4px 0 0;
     }
 
-    .nav li li a {
+    .footer-nav li li a {
         margin-top: 0px
     }
 
 
-    .nav li a:first-child:nth-last-child(2):before {
+    .footer-nav li a:first-child:nth-last-child(2):before {
         content: "";
         position: absolute;
         height: 0;
@@ -91,7 +93,7 @@
 
 
     /* submenu positioning*/
-    .nav ul {
+    .footer-nav ul {
         position: absolute;
         white-space: nowrap;
         border-bottom: 5px solid #bc4123;
@@ -99,57 +101,44 @@
         left: -99999em;
     }
 
-    .nav > li:hover > ul {
+    .footer-nav > li:hover > ul {
         left: auto;
         padding-top: 4px;
         min-width: 100%;
     }
 
-    .nav > li li ul {
+    .footer-nav > li li ul {
         border-left: 1px solid #fff;
     }
 
 
-    .nav > li li:hover > ul {
+    .footer-nav > li li:hover > ul {
         /* margin-left: 1px */
         left: 100%;
         top: -1px;
     }
 
     /* arrow hover styling */
-    .nav > li > a:first-child:nth-last-child(2):before {
+    .footer-nav > li > a:first-child:nth-last-child(2):before {
         border-top-color: #aaa;
     }
 
-    .nav > li:hover > a:first-child:nth-last-child(2):before {
+    .footer-nav > li:hover > a:first-child:nth-last-child(2):before {
         border: 5px solid transparent;
         border-bottom-color: #bc4123;
         margin-top: -5px
     }
 
-    .nav li li > a:first-child:nth-last-child(2):before {
+    .footer-nav li li > a:first-child:nth-last-child(2):before {
         border-left-color: #aaa;
         margin-top: -5px
     }
 
-    .nav li li:hover > a:first-child:nth-last-child(2):before {
+    .footer-nav li li:hover > a:first-child:nth-last-child(2):before {
         border: 5px solid transparent;
         border-right-color: #bc4123;
         right: 10px;
     }
 
-    .header-title {
-        padding: 1em;
-    }
 
-    .nav {
-        padding: 1em 0em 2em 0em;
-    }
-
-    @media screen and (min-width: 44em) {
-        .nav a {
-            font-size: 80%;
-            width: 10vw;
-        }
-    }
 

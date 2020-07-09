@@ -7,8 +7,14 @@ class PersonalSabotages extends React.Component {
     render () {
         return (
             <div className='current-sabo-box'>
-                <h1>Current Sabotages</h1>
-                <p>You have these sabotages currently applied to you:</p>
+                <h3 className='player1'>Kevin's Sabotages</h3>
+                <div className="flex-container-workout">
+                    <div className='flex-cell-workout personal-sabotages'>
+                        <div className='flex-item-workout'>
+                            <span className='sabotages'>Must eat chinese food once a day for a week</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         )
     }

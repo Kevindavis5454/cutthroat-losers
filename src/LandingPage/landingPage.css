@@ -1,74 +1,8 @@
-/*LANDING PAGE */
-
-.landing-section {
-    text-align: center;
-    margin: 20px auto;
-}
-
-ol.how-ordered {
-    list-style: inside;
-}
-
-ul.rules {
-    list-style: inside;
-}
-
-.login-register {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-/*.login-left {
-    width: 50%;
-    height: 700px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.login-right {
-    width: 50%;
-    height: 700px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}*/
-
 .landing-div {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    width: 85%;
-    text-align: center;
-    margin: 0em 6em 0em 6em;
+    align-items: center;
 }
 
-@media screen and (min-width: 45em) {
 
-    .landing-div {
-        width: 100%
-    }
-
-    .login-register {
-        flex-direction: row;
-        align-items: flex-start;
-    }
-
-    .login-left {
-        width: 50%;
-        height: 700px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .login-right {
-        width: 50%;
-        height: 700px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-}
 

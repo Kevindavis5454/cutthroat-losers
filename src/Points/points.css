@@ -1,5 +1,13 @@
-.points-box-div {
+.personal-points-div {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.points-gained {
+    color: #bc4123;
+}
+
+.points-spent {
+    color: #ffce54;
 }

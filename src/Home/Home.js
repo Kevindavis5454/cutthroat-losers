@@ -1,76 +1,59 @@
 import React from "react";
 import './home.css'
-import WeightTracking from "../WeightTracking/WeightTracking"
 import ProgressChart from '../ProgressChart/ProgressChart'
+import GroupGraph from "../GroupGraph/GroupGraph";
 
 class Home extends React.Component {
 
     render () {
         return (
-            <div>
-                <div className='home-title'>
-                    <h1>Kevin's Contest Progress</h1>
-                </div>
-                <hr></hr>
-                <div className='home-charts'>
-                    <ProgressChart/>
-                    <WeightTracking/>
-                </div>
-                <hr></hr>
-                <div>
-                    <section className='rules-section'>
-                        <h1>Rules</h1>
-                            <p>Weigh-in day is Friday before Noon.
-                                You can get points from: Weight loss, Stomach inches loss, Workouts, and Bingo.
-                            </p>
-                        <h3>Weight</h3>
-                            <ul className='rules'>
-                                <li>1st Place points for the week - 7 points</li>
-                                <li>2nd Place points for the week- 5 points</li>
-                                <li>3rd Place points for the week- 3 points</li>
-                                <li>4th Place points for the week - 1 point</li>
-                            </ul>
-                            <p>In case of ties, add both place's points, then split evenly.
-                                If there is gain, get 0 points in that section
-                            </p>
-                        <h3>Stomach</h3>
-                            <ul className='rules'>
-                                <li>1st Place points for the week - 7 points</li>
-                                <li>2nd Place points for the week- 5 points</li>
-                                <li>3rd Place points for the week- 3 points</li>
-                                <li>4th Place points for the week - 1 point</li>
-                            </ul>
-                            <p>In case of ties, add both place's points, then split evenly.
-                                If there is gain, get 0 points in that section
-                            </p>
-                        <h3>Workouts</h3>
-                            <ul className='rules'>
-                                <li>If you meet or surpass goal- 1 point per workout</li>
-                                <li>If you do not meet goal- 0 points</li>
-                            </ul>
-                        <h3>Bingo</h3>
-                            <ul className='rules'>
-                                <li>Introduce at the start of Week 2</li>
-                                <li>You may fill up to 4 slots per day</li>
-                                <li>There are only 3 open slots for each Bingo space</li>
-                                <li>5 in a row- Vertical, Horizontal, or Diagonal Bingos</li>
-                            </ul>
-                            <ul className='rules'>
-                                <li>First person to complete a Bingo- 7 points</li>
-                                <li>Second person to complete a Bingo- 5 Points</li>
-                                <li>Third person to complete a Bingo-5 points</li>
-                                <li>Fourth person to complete a Bingo-3 points</li>
-                                <li>Fifth person to complete a Bingo-3 points</li>
-                                <li>Blackout the board- 15 points</li>
-                            </ul>
-                        <h3>Sabotages</h3>
-                            <ul className='rules'>
-                                <li>Can be assigned at anytime</li>
-                                <li>"1 week" counts as Friday-Thursday</li>
-                                <li>You can spend the same amount of points someone else spent to block a sabotage</li>
-                                <li>If a sabotage is thought to be unfair, a majority vote will overrule it</li>
-                            </ul>
-                    </section>
+            <div className="home-container">
+                <div className="flex-container">
+                    <div className="flex-cell">
+                        <div className="flex-item">
+                            <div className="flex-container-workout">
+                                <div className='flex-cell-workout admin-cell'>
+                                    <div className='flex-item-workout'>
+                                        <div className="home-progress-div">
+                                            <ProgressChart/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="flex-cell">
+                        <div className="flex-item">
+                            <div className="flex-container-workout">
+                                <div className='flex-cell-workout admin-cell'>
+                                    <div className='flex-item-workout'>
+                                        <div className="home-graph-div">
+                                            <GroupGraph />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='player-labels'>
+                                <h3>Group Points Acquired</h3>
+                                <ul>
+                                    <span className='player1'><li>Kevin</li></span>
+                                    <span className='player2'><li>Bork Bork</li></span>
+                                    <span className='player3'><li>Woof Woof</li></span>
+                                    <span className='player4'><li>Moon Moon</li></span>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="flex-cell">
+                        <div className="flex-item">
+                            <h3>More stuff</h3>
+                        </div>
+                    </div>
+                    <div className="flex-cell">
+                        <div className="flex-item">
+                            <h3>More More Stuff</h3>
+                        </div>
+                    </div>
                 </div>
             </div>
         )

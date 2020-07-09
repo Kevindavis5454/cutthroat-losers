@@ -1,10 +1,12 @@
 import React from 'react'
-import { VictoryChart, VictoryTheme, VictoryGroup, VictoryArea, VictoryPolarAxis, VictoryLabel } from 'victory'
+import { VictoryChart, VictoryTheme, VictoryGroup, VictoryArea, VictoryPolarAxis, VictoryLabel, VictoryTooltip, VictoryVoronoiContainer } from 'victory'
 
 const characterData = [
     { Weight: 7, Bingo: 15, Measurements: 1, Workouts: 3, Spent: 15 },
     { Weight: 5, Bingo: 7, Measurements: 3, Workouts: 10, Spent: 5 },
-    { Weight: 3, Bingo: 10, Measurements: 7, Workouts:7, Spent: 10 }
+    { Weight: 3, Bingo: 10, Measurements: 7, Workouts:7, Spent: 10 },
+    { Weight: 8, Bingo: 22, Measurements: 4, Workouts:2, Spent: 16 }
+
   ];
   
   class GroupGraph extends React.Component {
@@ -43,11 +45,12 @@ const characterData = [
           theme={VictoryTheme.material}
           domain={{ y: [ 0, 1 ] }}
         >
-          <VictoryGroup colorScale={["gold", "orange", "tomato"]}
-            style={{ data: { fillOpacity: 0.2, strokeWidth: 2 } }}
+          <VictoryGroup colorScale={["#34bf49", "#da4453", "#ffce54", "#48cfad"]}
+            style={{ data: { fillOpacity: 0.2, strokeWidth: 2 }}}
           >
             {this.state.data.map((data, i) => {
-              return <VictoryArea key={i} data={data}/>;
+              return <VictoryArea key={i} data={data}
+              />;
             })}
           </VictoryGroup>
         {
@@ -55,14 +58,16 @@ const characterData = [
             return (
               <VictoryPolarAxis key={i} dependentAxis
                 style={{
-                  axisLabel: { padding: 10 },
+                  axisLabel: { fill: "white", padding: 10},
                   axis: { stroke: "none" },
-                  grid: { stroke: "grey", strokeWidth: 0.25, opacity: 0.5 }
+                  grid: { stroke: "white", strokeWidth: 0.25, opacity: 0.5 },
+                  tickLabels: { fontSize: 15, padding: 5, fill: "white" }
                 }}
                 tickLabelComponent={
                   <VictoryLabel labelPlacement="vertical"/>
                 }
                 labelPlacement="perpendicular"
+
                 axisValue={i + 1} label={key}
                 tickFormat={(t) => Math.ceil(t * this.state.maxima[key])}
                 tickValues={[0.25, 0.5, 0.75]}
@@ -75,7 +80,7 @@ const characterData = [
             tickFormat={() => ""}
             style={{
               axis: { stroke: "none" },
-              grid: { stroke: "grey", opacity: 0.5 }
+              grid: { stroke: "white", opacity: 0.5 }
             }}
           />
   

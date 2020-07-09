@@ -31,7 +31,10 @@ class ProgressChart extends React.Component {
     
       render() {
         return (
-          <div>
+          <div className='progress-contest-div'>
+              <h3>Contest Completion</h3>
+              <span>Contest Start Date:</span>
+              <span>Contest Completion Date:</span>
             <svg viewBox="0 0 400 400" width="100%" height="100%">
               <VictoryPie
                 standalone={false}

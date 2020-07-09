@@ -6,7 +6,6 @@ class Rules extends React.Component {
     render () {
         return (
             <div className='landing-div'>
-            <section className='rules-section'>
                 <h1>Rules</h1>
                 <p>Weigh-in day is Friday before Noon.
                     You can get points from: Weight loss, Stomach inches loss, Workouts, and Bingo.
@@ -58,7 +57,6 @@ class Rules extends React.Component {
                     <li>You can spend the same amount of points someone else spent to block a sabotage</li>
                     <li>If a sabotage is thought to be unfair, a majority vote will overrule it</li>
                 </ul>
-            </section>
             </div>
         )
     }

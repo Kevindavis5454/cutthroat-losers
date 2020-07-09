@@ -1,5 +1,10 @@
-.groupPoints-box-div {
+.group-points-div {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.points-current {
+    font-size: 7vw;
+    margin-top: 2vw;
 }

@@ -1,13 +1,9 @@
 import React from "react";
-import "./grouppage.css";
 import {Link, Route} from "react-router-dom";
-import Chat from "../Chat/Chat";
 import GroupWeightTracking from "../GroupWeightTracking/GroupWeightTracking";
 import GroupWorkoutTracking from "../GroupWorkoutTracking/GroupWorkoutTracking";
-import BingoGame from "../Bingo/BingoGame";
 import GroupSabotages from "../GroupSabotages/GroupSabotages";
 import GroupPoints from "../GroupPoints/GroupPoints";
-import GroupGraph from "../GroupGraph/GroupGraph";
 
 class GroupPageHome extends React.Component {
 
@@ -41,20 +37,6 @@ class GroupPageHome extends React.Component {
                         <Link className="flex-item" to='/group/points'>
                             <div>
                                 <Route path='/group' component={GroupPoints} />
-                            </div>
-                        </Link>
-                    </div>
-                    <div className="flex-cell">
-                        <Link className="flex-item" to='/group/bingo'>
-                            <div>
-                                <Route path='/group' component={BingoGame} />
-                            </div>
-                        </Link>
-                    </div>
-                    <div className="flex-cell">
-                        <Link className="flex-item" to='/group/chat'>
-                            <div>
-                                <Route path='/group' component={Chat}/>
                             </div>
                         </Link>
                     </div>

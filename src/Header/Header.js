@@ -4,9 +4,6 @@ import './header.css'
 
 class Header extends React.Component {
 
-    handleBack = () => {
-        this.props.history.goBack();
-    }
 
     render() {
         return (
@@ -14,16 +11,30 @@ class Header extends React.Component {
                 <div className="header-title">
                     <Link to='/'><img src={require("./LogoMakr_37X4P2.png")} alt='Logo' className='header-img'></img></Link>
                 </div>
-                <nav role="custom-dropdown">
-                    <input type="checkbox" id="button"></input>
-                        <label htmlFor="button" onClick className='nav-button-label'></label>
-
+                <nav className='large-screen-nav'>
+                    <ul className='nav'>
+                        <li><Link to='/personal/home'>Home</Link></li>
+                        <li><Link to='/personal'>Personal</Link>
                         <ul>
-                            <li><Link to='/personal/home'><div>Home</div></Link></li>
-                            <li><Link to='/personal'><div>Personal</div></Link></li>
-                            <li><Link to='/group'><div>Group</div></Link></li>
-                            <li><Link to='/personal/contact'><div>Contact</div></Link></li>
+                            <li><Link to='/personal/weighttracker'>Weight Tracker</Link></li>
+                            <li><Link to='/personal/workouttracker'>Workout Tracker</Link></li>
+                            <li><Link to='/personal/sabotages'>Sabotages</Link></li>
+                            <li><Link to='/personal/points'>Points</Link></li>
+                            <li><Link to='/personal/rules'>Rules</Link></li>
                         </ul>
+                        </li>
+                        <li><Link to='/group'>Contest</Link>
+                        <ul>
+                            <li><Link to='/group/weighttracker'>Weight Tracking</Link></li>
+                            <li><Link to='/group/workouttracker'>Workout Tracking</Link></li>
+                            <li><Link to='/group/sabotages'>Sabotages</Link></li>
+                            <li><Link to='/group/points'>Points</Link></li>
+                        </ul>
+                        </li>
+                        <li><Link to='/bingo'>Bingo</Link></li>
+                        <li><Link to='/admin'>Admin</Link></li>
+                        <li><Link to='/personal/contact'>Contact</Link></li>
+                    </ul>
                 </nav>
             </>
         )

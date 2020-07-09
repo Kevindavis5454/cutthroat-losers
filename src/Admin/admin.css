@@ -1,0 +1,11 @@
+.admin-main-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.calculate {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

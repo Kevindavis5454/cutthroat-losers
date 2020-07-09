@@ -3,3 +3,19 @@
     flex-direction: column;
     align-items: center;
 }
+
+.player1 {
+    color: #34bf49;
+}
+
+.player2 {
+    color: #da4453;
+}
+
+.player3 {
+    color: #ffce54;
+}
+
+.player4 {
+    color: #48cfad;
+}
