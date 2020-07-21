@@ -1,5 +1,5 @@
 import React from 'react'
-import { VictoryChart, VictoryTheme, VictoryGroup, VictoryArea, VictoryPolarAxis, VictoryLabel, VictoryTooltip, VictoryVoronoiContainer } from 'victory'
+import { VictoryChart, VictoryTheme, VictoryGroup, VictoryArea, VictoryPolarAxis, VictoryLabel} from 'victory'
 
 const characterData = [
     { Weight: 7, Bingo: 15, Measurements: 1, Workouts: 3, Spent: 15 },

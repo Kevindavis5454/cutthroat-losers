@@ -3,8 +3,15 @@ import "./sidebar.css"
 import {Link} from "react-router-dom";
 import './login.css'
 import config from "../config";
+const ws = require('../windowscroll')
 
 class SidebarHome extends React.Component {
+
+    static defaultProps = {
+        history: {
+            push: () => { }
+        },
+    }
 
     handleSignup = e => {
         e.preventDefault()
@@ -24,17 +31,15 @@ class SidebarHome extends React.Component {
             .then(res => {
                 if (!res.ok)
                     return res.json().then(e => Promise.reject(e))
-                return res.json()
-                alert('New User Created!')
+                ws.scrollTopAnimated(300);
+                alert(`${newUser.display_name} has been added as a user!`)
             })
-            .then(data => {
-                signup_name.value = ""
-                signup_email.value = ""
-                signup_password.value = ""
-            })
+
             .catch(error => {
                 console.error({error})
             })
+        const frm = document.getElementById('sign_up_form');
+        frm.reset();
     }
 
     render () {
@@ -74,14 +79,14 @@ class SidebarHome extends React.Component {
                             <div className="login-block">
                                 <h3>New here?</h3>
                                 <span>Sign up and join the game!</span>
-                                <form onSubmit={this.handleSignup} target="_blank" id='sign-up-form'>
+                                <form onSubmit={this.handleSignup} target="_blank" id='sign_up_form'>
                                     <p><label htmlFor="signup_name">Name</label>
                                         <input type="text"
                                                name="signup_name"
                                                id="signup_name"/>
                                     </p>
-                                    <p><label htmlFor="signup_email">User Name</label>
-                                        <input type="email"
+                                    <p><label htmlFor="signup_email">Email</label>
+                                        <input type="text"
                                                name="signup_email"
                                                id="signup_email"/>
                                     </p>

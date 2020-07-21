@@ -1,6 +1,6 @@
 import React from "react";
 import "./groupworkouttracking.css"
-import { VictoryChart, VictoryGroup, VictoryVoronoiContainer, VictoryTooltip, VictoryLine, VictoryScatter, VictoryBar } from 'victory'
+import { VictoryChart, VictoryBar } from 'victory'
 
 class GroupWorkoutTracking extends React.Component {
 

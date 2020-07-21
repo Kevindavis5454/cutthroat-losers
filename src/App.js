@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link, Route} from "react-router-dom";
+import { Route} from "react-router-dom";
 import Error from "./Error"
 import Header from "./Header/Header";
 import PersonalPage from "./PersonalPage/PersonalPage";
@@ -10,7 +10,6 @@ import BingoGame from "./Bingo/BingoGame";
 import Footer from "./Footer/Footer";
 import LandingPage from "./LandingPage/LandingPage";
 import Admin from "./Admin/Admin";
-import config from "./config";
 import ApiContext from "./ApiContext";
 
 class App extends React.Component {

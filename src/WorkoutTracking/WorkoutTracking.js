@@ -1,7 +1,6 @@
 import React from "react";
 import "./workouttracking.css"
-import { Link } from "react-router-dom";
-import { VictoryChart, VictoryGroup, VictoryVoronoiContainer, VictoryTooltip, VictoryLine, VictoryScatter, VictoryBar } from 'victory'
+import { VictoryChart, VictoryBar } from 'victory'
 
 class WorkoutTracking extends React.Component {
 
