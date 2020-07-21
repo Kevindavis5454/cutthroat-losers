@@ -10,14 +10,39 @@ import BingoGame from "./Bingo/BingoGame";
 import Footer from "./Footer/Footer";
 import LandingPage from "./LandingPage/LandingPage";
 import Admin from "./Admin/Admin";
+import config from "./config";
+import ApiContext from "./ApiContext";
 
 class App extends React.Component {
 
-    state = {};
+    state = {
+        weights: [],
+        workouts: [],
+        sabotages: [],
+        points: [],
+        measurements: [],
+
+    };
 
     render() {
 
+        const {
+            weights,
+            workouts,
+            sabotages,
+            points,
+            measurements,} = this.state;
+
+        const value = {
+            weights: this.state.weights,
+            workouts: this.state.workouts,
+            sabotages: this.state.sabotages,
+            points: this.state.points,
+            measurements: this.state.measurements,
+        };
+
         return (
+            <ApiContext.Provider value={value}>
             <div className='main-div'>
                 <div className='header-div'>
                     <Route exact path='/' component={HeaderLogin} />
@@ -28,19 +53,60 @@ class App extends React.Component {
                     <Route path='/admin' component={Header} />
                 </div>
                 <div className='content-div'>
-                    <Route exact path='/' component={LandingPage} />
-                    <Route path='/landing' component={LandingPage} />
-                    <Route path='/personal' component={PersonalPage} />
-                    <Route path='/group' component={GroupPage} />
-                    <Route path='/bingo' component={BingoGame} />
-                    <Route path='/admin' component={Admin} />
-
-
+                    <Route exact path='/'
+                           render={routeProps => (
+                               <LandingPage
+                                   {...this.props}
+                                   {...routeProps}
+                                   />
+                           )}
+                    />
+                    <Route path='/landing'
+                           render={routeProps => (
+                               <LandingPage
+                                   {...this.props}
+                                   {...routeProps}
+                               />
+                           )}
+                    />
+                    <Route path='/personal'
+                           render={routeProps => (
+                               <PersonalPage
+                                   {...this.props}
+                                   {...routeProps}
+                               />
+                           )}
+                    />
+                    <Route path='/group'
+                           render={routeProps => (
+                               <GroupPage
+                                   {...this.props}
+                                   {...routeProps}
+                               />
+                           )}
+                    />
+                    <Route path='/bingo'
+                           render={routeProps => (
+                               <BingoGame
+                                   {...this.props}
+                                   {...routeProps}
+                               />
+                           )}
+                    />
+                    <Route path='/admin'
+                           render={routeProps => (
+                               <Admin
+                                   {...this.props}
+                                   {...routeProps}
+                               />
+                           )}
+                    />
                 </div>
                 <div className='footer-div'>
                     <Route path='/' component={Footer} />
                 </div>
             </div>
+            </ApiContext.Provider>
         );
     }
 }

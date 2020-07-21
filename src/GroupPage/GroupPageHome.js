@@ -15,28 +15,28 @@ class GroupPageHome extends React.Component {
                     <div className="flex-cell">
                         <Link className="flex-item" to='/group/weighttracker'>
                             <div>
-                                <Route path='/group' component={GroupWeightTracking} />
+                                <GroupWeightTracking />
                             </div>
                         </Link>
                     </div>
                     <div className="flex-cell">
                         <Link className="flex-item" to='/group/workouttracker'>
                             <div>
-                                <Route path='/group' component={GroupWorkoutTracking} />
+                                <GroupWorkoutTracking />
                             </div>
                         </Link>
                     </div>
                     <div className="flex-cell">
                         <Link className="flex-item" to='/group/sabotages'>
                             <div>
-                                <Route path='/group' component={GroupSabotages} />
+                                <GroupSabotages />
                             </div>
                         </Link>
                     </div>
                     <div className="flex-cell">
                         <Link className="flex-item" to='/group/points'>
                             <div>
-                                <Route path='/group' component={GroupPoints} />
+                                <GroupPoints />
                             </div>
                         </Link>
                     </div>

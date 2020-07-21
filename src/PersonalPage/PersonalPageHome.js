@@ -17,14 +17,14 @@ class PersonalPageHome extends React.Component {
                     <div className="flex-cell">
                         <Link className="flex-item" to='/personal/weighttracker'>
                             <div>
-                                <Route path='/personal' component={WeightTracking} />
+                                <WeightTracking />
                             </div>
                         </Link>
                     </div>
                     <div className="flex-cell">
                         <Link className="flex-item" to='/personal/workouttracker'>
                             <div>
-                                <Route path='/personal' component={WorkoutTracking} />
+                                <WorkoutTracking />
                             </div>
                         </Link>
 
@@ -32,14 +32,14 @@ class PersonalPageHome extends React.Component {
                     <div className="flex-cell">
                         <Link className="flex-item" to='/personal/sabotages'>
                             <div>
-                                <Route path='/personal' component={PersonalSabotages} />
+                                <PersonalSabotages />
                             </div>
                         </Link>
                     </div>
                     <div className="flex-cell">
                         <Link className="flex-item" to='/personal/points'>
                             <div>
-                                <Route path='/personal' component={Points} />
+                                <Points />
                             </div>
                         </Link>
                     </div>

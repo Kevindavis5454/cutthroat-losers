@@ -16,16 +16,65 @@ class PersonalPage extends React.Component {
         return (
             <>
                 <div className='personal-sidebar'>
-                <Route path='/personal' component={Sidebar} />
+                <Route path='/personal'
+                       render={routeProps => (
+                           <Sidebar
+                               {...this.props}
+                               {...routeProps}
+                           />
+                       )}
+                />
                 </div>
                 <div className='personal-content'>
-                <Route exact path='/personal' component={PersonalPageHome} />
-                <Route path='/personal/weighttracker' component={WeightTracking} />
-                <Route path='/personal/workouttracker' component={WorkoutTracking} />
-                <Route path='/personal/sabotages' component={PersonalSabotages} />
-                <Route path='/personal/points' component={Points} />
+                <Route exact path='/personal'
+                       render={routeProps => (
+                           <PersonalPageHome
+                               {...this.props}
+                               {...routeProps}
+                           />
+                       )}
+                />
+                <Route path='/personal/weighttracker'
+                       render={routeProps => (
+                           <WeightTracking
+                               {...this.props}
+                               {...routeProps}
+                           />
+                       )}
+                />
+                <Route path='/personal/workouttracker'
+                       render={routeProps => (
+                           <WorkoutTracking
+                               {...this.props}
+                               {...routeProps}
+                           />
+                       )}
+                />
+                <Route path='/personal/sabotages'
+                       render={routeProps => (
+                           <PersonalSabotages
+                               {...this.props}
+                               {...routeProps}
+                           />
+                       )}
+                />
+                <Route path='/personal/points'
+                       render={routeProps => (
+                           <Points
+                               {...this.props}
+                               {...routeProps}
+                           />
+                       )}
+                />
                 <Route path='/personal/contact' component={Contact} />
-                <Route path='/personal/home' component={Home} />
+                <Route path='/personal/home'
+                       render={routeProps => (
+                           <Home
+                               {...this.props}
+                               {...routeProps}
+                           />
+                       )}
+                />
                 <Route path='/personal/rules' component={Rules} />
                 </div>
             </>

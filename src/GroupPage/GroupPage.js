@@ -13,14 +13,56 @@ class GroupPage extends React.Component {
         return (
             <>
                 <div className='personal-sidebar'>
-                    <Route path='/group' component={Sidebar} />
+                    <Route path='/group'
+                           render={routeProps => (
+                               <Sidebar
+                                   {...this.props}
+                                   {...routeProps}
+                               />
+                           )}
+                    />
                 </div>
                 <div className='personal-content'>
-                        <Route exact path='/group' component={GroupPageHome} />
-                        <Route path='/group/weighttracker' component={GroupWeightTracking} />
-                        <Route path='/group/workouttracker' component={GroupWorkoutTracking} />
-                        <Route path='/group/sabotages' component={GroupSabotages} />
-                        <Route path='/group/points' component={GroupPoints}/>
+                        <Route exact path='/group'
+                               render={routeProps => (
+                                   <GroupPageHome
+                                       {...this.props}
+                                       {...routeProps}
+                                   />
+                               )}
+                        />
+                        <Route path='/group/weighttracker'
+                               render={routeProps => (
+                                   <GroupWeightTracking
+                                       {...this.props}
+                                       {...routeProps}
+                                   />
+                               )}
+                        />
+                        <Route path='/group/workouttracker'
+                               render={routeProps => (
+                                   <GroupWorkoutTracking
+                                       {...this.props}
+                                       {...routeProps}
+                                   />
+                               )}
+                        />
+                        <Route path='/group/sabotages'
+                               render={routeProps => (
+                                   <GroupSabotages
+                                       {...this.props}
+                                       {...routeProps}
+                                   />
+                               )}
+                        />
+                        <Route path='/group/points'
+                               render={routeProps => (
+                                   <GroupPoints
+                                       {...this.props}
+                                       {...routeProps}
+                                   />
+                               )}
+                        />
                 </div>
                 
             </>

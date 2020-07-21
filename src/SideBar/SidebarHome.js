@@ -2,8 +2,40 @@ import React from "react";
 import "./sidebar.css"
 import {Link} from "react-router-dom";
 import './login.css'
+import config from "../config";
 
 class SidebarHome extends React.Component {
+
+    handleSignup = e => {
+        e.preventDefault()
+        const { signup_name, signup_email, signup_password } = e.target
+        const newUser = {
+            display_name: signup_name.value,
+            email: signup_email.value,
+            password: signup_password.value
+        }
+        fetch(`${config.API_ENDPOINT}/users`,{
+            method: 'POST',
+            headers: {
+                'content-type' : 'application/json'
+            },
+            body: JSON.stringify(newUser),
+        })
+            .then(res => {
+                if (!res.ok)
+                    return res.json().then(e => Promise.reject(e))
+                return res.json()
+                alert('New User Created!')
+            })
+            .then(data => {
+                signup_name.value = ""
+                signup_email.value = ""
+                signup_password.value = ""
+            })
+            .catch(error => {
+                console.error({error})
+            })
+    }
 
     render () {
         return (
@@ -42,25 +74,25 @@ class SidebarHome extends React.Component {
                             <div className="login-block">
                                 <h3>New here?</h3>
                                 <span>Sign up and join the game!</span>
-                                <form action="#" method="post" target="_blank">
-                                    <p><label htmlFor="sharepoint-company-name">Name</label>
+                                <form onSubmit={this.handleSignup} target="_blank" id='sign-up-form'>
+                                    <p><label htmlFor="signup_name">Name</label>
                                         <input type="text"
-                                               name="sharepoint-company-name"
-                                               id="sharepoint-company-name"/>
+                                               name="signup_name"
+                                               id="signup_name"/>
                                     </p>
-                                    <p><label htmlFor="sharepoint-user-name">User Name</label>
-                                        <input type="text"
-                                               name="sharepoint-user-name"
-                                               id="sharepoint-user-name"/>
+                                    <p><label htmlFor="signup_email">User Name</label>
+                                        <input type="email"
+                                               name="signup_email"
+                                               id="signup_email"/>
                                     </p>
-                                    <p><label htmlFor="sharepoint-password">Password</label>
+                                    <p><label htmlFor="signup_password">Password</label>
                                         <input type="password"
-                                               name="sharepoint-password"
-                                               id="sharepoint-password"/>
+                                               name="signup_password"
+                                               id="signup_password"/>
                                     </p>
                                     <p className="submit-wrap">
                                         <input type="submit"
-                                               id="sharepoint-submit"
+                                               id="signup-submit"
                                                className="button"
                                                value="Sign Up"/>
                                     </p>
