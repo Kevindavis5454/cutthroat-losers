@@ -46,7 +46,8 @@ class SidebarHome extends React.Component {
         fetch(`${config.API_ENDPOINT}/api/login`, {
             method: 'POST',
             headers: {
-                'content-type' : 'application/json'
+                'content-type' : 'application/json',
+                'Access-Control-Allow-Origin': 'Accept'
             },
             body: JSON.stringify(userLogin)
         })
