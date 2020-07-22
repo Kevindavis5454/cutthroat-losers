@@ -47,6 +47,7 @@ class SidebarHome extends React.Component {
             method: 'POST',
             headers: {
                 'content-type' : 'application/json',
+                'Access-Control-Allow-Origin': '*'
             },
             body: JSON.stringify(userLogin)
         })
