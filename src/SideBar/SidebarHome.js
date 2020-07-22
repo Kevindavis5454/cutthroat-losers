@@ -45,11 +45,7 @@ class SidebarHome extends React.Component {
         }
         fetch(`${config.API_ENDPOINT}/api/login`, {
             method: 'POST',
-            headers: {
-                'content-type' : 'application/json',
-                'Access-Control-Allow-Origin': '*'
-            },
-            body: JSON.stringify(userLogin)
+            body: new URLSearchParams(userLogin)
         })
             .then(res => {
                 if (!res.ok)
