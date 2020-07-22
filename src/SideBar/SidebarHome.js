@@ -7,12 +7,6 @@ const ws = require('../windowscroll')
 
 class SidebarHome extends React.Component {
 
-    static defaultProps = {
-        history: {
-            push: () => { }
-        },
-    }
-
     handleSignup = e => {
         e.preventDefault()
         const { signup_name, signup_email, signup_password } = e.target
@@ -21,7 +15,7 @@ class SidebarHome extends React.Component {
             email: signup_email.value,
             password: signup_password.value
         }
-        fetch(`${config.API_ENDPOINT}/users`,{
+        fetch(`${config.API_ENDPOINT}/api/users`,{
             method: 'POST',
             headers: {
                 'content-type' : 'application/json'
@@ -42,6 +36,29 @@ class SidebarHome extends React.Component {
         frm.reset();
     }
 
+    handleLogin = e => {
+        e.preventDefault()
+        const { login_email, login_password } = e.target
+        const userLogin = {
+            email: login_email.value,
+            password: login_password.value,
+        }
+        fetch(`${config.API_ENDPOINT}/api/login`, {
+            method: 'POST',
+            headers: {
+                'content-type' : 'application/json'
+            },
+            body: JSON.stringify(userLogin)
+        })
+            .then(res => {
+                if (!res.ok)
+                    return res.json().then(e => Promise.reject(e))
+            })
+            .catch(error => {
+                console.error({error})
+            })
+    }
+
     render () {
         return (
             <>
@@ -52,22 +69,22 @@ class SidebarHome extends React.Component {
                             <div className="login-block">
                                 <h3>One of us?</h3>
                                 <span>If you already have an account, just sign in!</span>
-                                <form action="#" method="post" target="_blank">
-                                    <p><label htmlFor="secret-user-name">User Name</label>
+                                <form onSubmit={this.handleLogin} target="_blank" id='login_form'>
+                                    <p><label htmlFor="login_email">Email</label>
                                         <input type="text"
-                                               name="secret-user-name"
-                                               id="secret-user-name"/>
+                                               name="login_email"
+                                               id="login_email"/>
                                     </p>
-                                    <p><label htmlFor="secret-password">Password</label>
+                                    <p><label htmlFor="login_password">Password</label>
                                         <input type="password"
-                                               name="secret-password"
-                                               id="secret-password"/>
+                                               name="login_password"
+                                               id="login_password"/>
                                     </p>
                                     <p className="submit-wrap">
-                                        <Link to='/personal/home'><input type="submit"
-                                                                         id="ftp-submit"
-                                                                         className="button"
-                                                                         value="Login"/></Link>
+                                        <input type="submit"
+                                               id="ftp-submit"
+                                               className="button"
+                                               value="Login"/>
                                     </p>
                                     <h4>This is a test page, click the Login button to proceed</h4>
                                 </form>
