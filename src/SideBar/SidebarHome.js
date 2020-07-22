@@ -12,7 +12,7 @@ class SidebarHome extends React.Component {
         const { signup_name, signup_email, signup_password } = e.target
         const newUser = {
             display_name: signup_name.value,
-            email: signup_email.value,
+            username: signup_email.value,
             password: signup_password.value
         }
         fetch(`${config.API_ENDPOINT}/api/users`,{
@@ -40,12 +40,11 @@ class SidebarHome extends React.Component {
         e.preventDefault()
         const { login_email, login_password } = e.target
         const userLogin = {
-            email: login_email.value,
+            username: login_email.value,
             password: login_password.value,
         }
         fetch(`${config.API_ENDPOINT}/api/login`, {
             method: 'POST',
-            mode: 'no-cors',
             headers: {
                 'content-type' : 'application/json',
             },
