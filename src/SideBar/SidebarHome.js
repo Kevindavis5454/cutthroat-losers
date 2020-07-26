@@ -15,11 +15,10 @@ class SidebarHome extends React.Component {
             username: signup_email.value,
             password: signup_password.value
         }
-        fetch(`${config.API_ENDPOINT}/auth/signup`,{
+        fetch(`${config.API_ENDPOINT}/api/users`,{
             method: 'POST',
             headers: {
-                'content-type' : 'application/json',
-                'Access-Control-Allow-Origin': "https://cutthroat-losers.vercel.app"
+                'content-type' : 'application/json'
             },
             body: JSON.stringify(newUser),
         })
@@ -48,7 +47,6 @@ class SidebarHome extends React.Component {
             method: 'POST',
             headers: {
                 'content-type' : 'application/json',
-                'Access-Control-Allow-Origin': "https://cutthroat-losers.vercel.app"
             },
             body: JSON.stringify(userLogin),
         })
