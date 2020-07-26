@@ -19,7 +19,7 @@ class SidebarHome extends React.Component {
             method: 'POST',
             headers: {
                 'content-type' : 'application/json',
-                'Access-Control-Allow-Origin': "*"
+                'Access-Control-Allow-Origin': "https://cutthroat-losers.vercel.app"
             },
             body: JSON.stringify(newUser),
         })
@@ -48,7 +48,7 @@ class SidebarHome extends React.Component {
             method: 'POST',
             headers: {
                 'content-type' : 'application/json',
-                'Access-Control-Allow-Origin': "*"
+                'Access-Control-Allow-Origin': "https://cutthroat-losers.vercel.app"
             },
             body: JSON.stringify(userLogin),
         })
