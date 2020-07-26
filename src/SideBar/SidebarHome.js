@@ -15,7 +15,7 @@ class SidebarHome extends React.Component {
             username: signup_email.value,
             password: signup_password.value
         }
-        fetch(`${config.API_ENDPOINT}/auth/users`,{
+        fetch(`${config.API_ENDPOINT}/auth/signup`,{
             method: 'POST',
             headers: {
                 'content-type' : 'application/json',
