@@ -17,6 +17,7 @@ class SidebarHome extends React.Component {
         }
         fetch(`${config.API_ENDPOINT}/api/users`,{
             method: 'POST',
+            credentials: 'include',
             headers: {
                 'content-type' : 'application/json'
             },
@@ -45,6 +46,7 @@ class SidebarHome extends React.Component {
         }
         fetch(`${config.API_ENDPOINT}/auth/login`, {
             method: 'POST',
+            credentials: 'include',
             headers: {
                 'content-type' : 'application/json',
             },
