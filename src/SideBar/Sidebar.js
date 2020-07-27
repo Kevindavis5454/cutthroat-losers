@@ -16,7 +16,7 @@ class Sidebar extends React.Component {
                     <Link className="flex-item-sidebar first-player" to='/personal/home'>
                         <h3>Kevin</h3>
                         <div className='circular--portrait'>
-                            <img src={require('./KevinProfilePic.jpg')} alt='Profile Picture' className='profile-pic'></img>
+                            <img src={require('./KevinProfilePic.JPG')} alt='Profile Picture' className='profile-pic'></img>
                         </div>
                         <span>Current Weight:</span>
                         <span>Goal Weight:</span>

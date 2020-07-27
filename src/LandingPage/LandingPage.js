@@ -4,6 +4,7 @@ import About from "./About";
 import HowToUse from "./HowToUse";
 import Rules from "./Rules";
 import SidebarHome from "../SideBar/SidebarHome";
+import ContestSelectModal from "../Modal/Modal"
 
 class LandingPage extends React.Component {
 
@@ -29,6 +30,7 @@ class LandingPage extends React.Component {
                            )}
                     />
                 </div>
+                <div><ContestSelectModal /></div>
                 <div className='personal-content'>
                     <Route exact path='/'
                            render={routeProps => (
