@@ -2,8 +2,14 @@ import React from "react";
 import './landingPage.css'
 import './home.css'
 import {Link} from "react-router-dom";
+import ContestSelectModal from '../Modal/Modal'
 
 class Home extends React.Component {
+
+    handleModalPopup = () => {
+            document.getElementById('overlay').classList.add('is-visible');
+            document.getElementById('modal').classList.add('is-visible');
+    }
 
     render () {
         return (
@@ -28,7 +34,8 @@ class Home extends React.Component {
                                 <Link to='/personal'><input type="submit"
                                        id="ftp-submit"
                                        className="button"
-                                       value="Login"/></Link>
+                                       value="Login"
+                                       onClick={this.handleModalPopup}/></Link>
                             </p>
                             <h4>This is a test page, click the Login button to proceed</h4>
                         </form>
@@ -61,6 +68,7 @@ class Home extends React.Component {
                                            value="Sign Up"/>
                                 </p>
                             </form>
+                            <ContestSelectModal />
                         </div>
                     </div>
                 </div>
