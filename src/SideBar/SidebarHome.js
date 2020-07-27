@@ -7,6 +7,12 @@ const ws = require('../windowscroll')
 
 class SidebarHome extends React.Component {
 
+    handleRedirect = (response) => {
+        if (response.status === 200) {
+            window.location.href = 'https://cutthroat-losers.vercel.app/personal/home';
+        }
+    }
+
     handleSignup = e => {
         e.preventDefault()
         const { signup_name, signup_email, signup_password } = e.target
@@ -56,6 +62,7 @@ class SidebarHome extends React.Component {
                 if (!res.ok)
                     return res.json().then(e => Promise.reject(e))
             })
+            .then (this.handleRedirect)
             .catch(error => {
                 console.error({error})
             })
