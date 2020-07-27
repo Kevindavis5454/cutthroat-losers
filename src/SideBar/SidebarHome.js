@@ -57,8 +57,7 @@ class SidebarHome extends React.Component {
                 if (!res.ok) {
                     return res.json().then(e => Promise.reject(e))
                 }else {
-                    console.log(res)
-                    /*window.location.href = 'https://cutthroat-losers.vercel.app/personal/home';*/
+                    window.location.href = 'https://cutthroat-losers.vercel.app/personal/home';
                 }
             })
             .catch(error => {
