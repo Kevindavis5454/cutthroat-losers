@@ -15,7 +15,7 @@ class SidebarHome extends React.Component {
             username: signup_email.value,
             password: signup_password.value
         }
-        fetch(`${config.API_ENDPOINT}/api/users`,{
+        fetch(`${config.API_ENDPOINT}/api/signup`,{
             method: 'POST',
             credentials: 'include',
             headers: {
@@ -44,7 +44,7 @@ class SidebarHome extends React.Component {
             username: login_email.value,
             password: login_password.value,
         }
-        fetch(`${config.API_ENDPOINT}/auth/login`, {
+        fetch(`${config.API_ENDPOINT}/api/login`, {
             method: 'POST',
             credentials: 'include',
             headers: {
