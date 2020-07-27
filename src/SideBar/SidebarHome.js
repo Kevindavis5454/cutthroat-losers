@@ -54,16 +54,12 @@ class SidebarHome extends React.Component {
             body: JSON.stringify(userLogin),
         })
             .then(res => {
-                if (!res.ok)
+                if (!res.ok) {
                     return res.json().then(e => Promise.reject(e))
-            })
-            .then ( res => {
-                if (res.status === 200) {
+                }else {
                     window.location.href = 'https://cutthroat-losers.vercel.app/personal/home';
                 }
-
-                }
-            )
+            })
             .catch(error => {
                 console.error({error})
             })
