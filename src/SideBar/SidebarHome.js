@@ -7,8 +7,8 @@ const ws = require('../windowscroll')
 
 class SidebarHome extends React.Component {
 
-    handleRedirect = (response) => {
-        if (response.status === 200) {
+    handleRedirect = (res) => {
+        if (res.status === 200) {
             window.location.href = 'https://cutthroat-losers.vercel.app/personal/home';
         }
     }
