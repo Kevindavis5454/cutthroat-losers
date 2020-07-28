@@ -3,17 +3,11 @@ import "./modal.css"
 import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css";
 import config from "../config";
+import ApiContext from "../ApiContext"
 
 class ContestSelectModal extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            startDate: new Date(),
-            endDate: new Date(),
-            userContests: ["New Year New You", "Family Losers"],
-            userName: "Kevin Davis"
-        };
-    }
+
+    static contextType = ApiContext;
 
     handleNewContest = e => {
         e.preventDefault()
@@ -50,18 +44,9 @@ class ContestSelectModal extends React.Component {
         document.getElementById('overlay').classList.remove('is-visible');
         document.getElementById('modal').classList.remove('is-visible');
     }
-    setStartDate = (date) => {
-        this.setState({
-            startDate: date
-        })
-    }
-    setEndDate = (date) => {
-        this.setState({
-            endDate: date
-        })
-    }
+    
     renderUserContests = () => {
-        let contests = this.state.userContests.map(contest => {
+        let contests = this.context.userContests.map(contest => {
             return(
                 <option value={contest}>{contest}</option>
             )
@@ -77,7 +62,7 @@ class ContestSelectModal extends React.Component {
                     <button className="modal-close-btn" id="modal-close-btn" onClick={this.handleCloseBtn}>X</button>
                     <div className="modal-content">
                         <div className="modal-item">
-                            <h2>Hello {this.state.userName}!</h2>
+                            <h2>Hello {this.context.userName}!</h2>
                             Which Contest would you like to go to?<br/>
                             <select id="userContests" name="userContests">
                                 {this.renderUserContests()}
@@ -91,9 +76,9 @@ class ContestSelectModal extends React.Component {
                                 <label htmlFor="contest_name">Contest Name: </label>
                                 <input type="text" id="contest_name" name="contest_name" /><br/>
                                 <label htmlFor="contest_start_date">Start Date: </label>
-                                <DatePicker id="contest_start_date" selected={this.state.startDate} onChange={date => this.setStartDate(date)} /><br/>
+                                <DatePicker id="contest_start_date" selected={this.context.newContestStartDate} onChange={date => this.context.handleSetNewContestStartDate(date)} /><br/>
                                 <label htmlFor="contest_end_date">End Date: </label>
-                                <DatePicker id="contest_end_date" selected={this.state.endDate} onChange={date => this.setEndDate(date)} /><br />
+                                <DatePicker id="contest_end_date" selected={this.context.newContestEndDate} onChange={date => this.context.handleSetNewContestEndDate(date)} /><br />
                                 <label htmlFor="weighin_day">Weigh-in Day:</label>
                                 <select id="weighin_day" name="weighin_day">
                                     <option value="monday">Monday</option>

@@ -57,16 +57,16 @@ class SidebarHome extends React.Component {
                 if (!res.ok)
                     return res.json().then(e => Promise.reject(e))
                 
-                /*}else {
-                    window.location.href = 'https://cutthroat-losers.vercel.app/personal/home';
-                }*/
+                else {
+                    document.getElementById('overlay').classList.add('is-visible');
+                    document.getElementById('modal').classList.add('is-visible');;
+                }
             })
             .catch(error => {
                 console.error({error})
             })
 
-            document.getElementById('overlay').classList.add('is-visible');
-            document.getElementById('modal').classList.add('is-visible');
+            
         
     }
 

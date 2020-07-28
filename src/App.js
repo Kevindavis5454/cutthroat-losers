@@ -15,29 +15,35 @@ import ApiContext from "./ApiContext";
 class App extends React.Component {
 
     state = {
-        weights: [],
-        workouts: [],
-        sabotages: [],
-        points: [],
-        measurements: [],
+        newContestStartDate: new Date(),
+        newContestEndDate: new Date(),
+        userContests: ["New Year New You", "Family Losers"],
+        userName: "Kevin Davis"
 
     };
 
+    setNewContestStartDate = (date) => {
+        this.setState({
+            newContestStartDate: date
+        })
+    }
+    setNewContestEndDate = (date) => {
+        this.setState({
+            newContestEndDate: date
+        })
+    }
+
     render() {
 
-        const {
-            weights,
-            workouts,
-            sabotages,
-            points,
-            measurements,} = this.state;
-
         const value = {
-            weights: this.state.weights,
-            workouts: this.state.workouts,
-            sabotages: this.state.sabotages,
-            points: this.state.points,
-            measurements: this.state.measurements,
+            newContestStartDate: this.state.newContestStartDate,
+            newContestEndDate: this.state.newContestEndDate,
+            userContests: this.state.userContests,
+            userName: this.state.userName,
+            handleSetNewContestStartDate: this.setNewContestStartDate,
+            handleSetNewContestEndDate: this.setNewContestEndDate
+
+
         };
 
         return (
