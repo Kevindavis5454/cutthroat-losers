@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import "./modal.css"
 import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css";
+import config from "../config";
 
 class ContestSelectModal extends React.Component {
     constructor(props) {
@@ -12,6 +13,37 @@ class ContestSelectModal extends React.Component {
             userContests: ["New Year New You", "Family Losers"],
             userName: "Kevin Davis"
         };
+    }
+
+    handleNewContest = e => {
+        e.preventDefault()
+        const { contest_name, contest_start_date, contest_end_date, weighin_day } = e.target
+        const newContest = {
+            date_start: contest_start_date.value,
+            date_end: contest_end_date.value,
+            contest_name: contest_name.value,
+            weighin_day: weighin_day.value,
+            date_created: new Date(),
+        }
+        fetch(`${config.API_ENDPOINT}/api/contests`,{
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+                'content-type' : 'application/json'
+            },
+            body: JSON.stringify(newContest),
+        })
+            .then(res => {
+                if (!res.ok)
+                    return res.json().then(e => Promise.reject(e));
+                alert(`${newContest.contest_name} has been added as a contest!`)
+            })
+
+            .catch(error => {
+                console.error({error})
+            })
+        const frm = document.getElementById('contest-form');
+        frm.reset();
     }
 
     handleCloseBtn = () => {
@@ -55,15 +87,15 @@ class ContestSelectModal extends React.Component {
                         <div className="modal-item">
                             <h2>Or...</h2>
                             Create new contest:
-                            <form className="contest-form">
-                                <label htmlFor="contest-name">Contest Name: </label>
-                                <input type="text" id="contest-name" name="contest-name" /><br/>
-                                <label htmlFor="contest-start-date">Start Date: </label>
-                                <DatePicker id="contest-start-date" selected={this.state.startDate} onChange={date => this.setStartDate(date)} /><br/>
-                                <label htmlFor="contest-end-date">End Date: </label>
-                                <DatePicker id="contest-end-date" selected={this.state.endDate} onChange={date => this.setEndDate(date)} /><br />
-                                <label htmlFor="weighin-day">Weigh-in Day:</label>
-                                <select id="weighin-day" name="weighin-day">
+                            <form className="contest-form" id="contest-form" onSubmit={this.handleNewContest}>
+                                <label htmlFor="contest_name">Contest Name: </label>
+                                <input type="text" id="contest_name" name="contest_name" /><br/>
+                                <label htmlFor="contest_start_date">Start Date: </label>
+                                <DatePicker id="contest_start_date" selected={this.state.startDate} onChange={date => this.setStartDate(date)} /><br/>
+                                <label htmlFor="contest_end_date">End Date: </label>
+                                <DatePicker id="contest_end_date" selected={this.state.endDate} onChange={date => this.setEndDate(date)} /><br />
+                                <label htmlFor="weighin_day">Weigh-in Day:</label>
+                                <select id="weighin_day" name="weighin_day">
                                     <option value="monday">Monday</option>
                                     <option value="tuesday">Tuesday</option>
                                     <option value="wednesday">Wednesday</option>
