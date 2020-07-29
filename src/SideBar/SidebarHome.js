@@ -50,7 +50,7 @@ class SidebarHome extends React.Component {
         }
         fetch(`${config.API_ENDPOINT}/api/login`, {
             method: 'POST',
-            credentials: 'same-origin',
+            credentials: 'include',
             headers: {
                 'content-type' : 'application/json',
             },
