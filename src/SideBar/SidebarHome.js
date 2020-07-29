@@ -3,10 +3,13 @@ import "./sidebar.css"
 import {Link} from "react-router-dom";
 import './login.css'
 import config from "../config";
+import ApiContext from "../ApiContext"
 const ws = require('../windowscroll')
+
 
 class SidebarHome extends React.Component {
 
+    static contextType = ApiContext;
 
     handleSignup = e => {
         e.preventDefault()
@@ -58,8 +61,32 @@ class SidebarHome extends React.Component {
                     return res.json().then(e => Promise.reject(e))
 
                 else {
-                    fetch(`${config.API_ENDPOINT}/api/users/${userLogin.username}`)
-                        .then(res => console.log(res))
+                    fetch(`${config.API_ENDPOINT}/api/users`)
+                        .then(res => res.json())
+                        .then(json => {
+                            const currentUser = json.filter(user => user.username === userLogin.username);
+                            const contestArray = ["choose a contest"];
+                            this.context.handleSetUser(currentUser[0].display_name, currentUser[0].user_id)
+                            fetch(`${config.API_ENDPOINT}/api/contest_to_user/${currentUser[0].user_id}`)
+                                .then(res => res.json())
+                                .then(json => {
+                                    json.forEach(contest => {
+                                        return(
+                                        fetch(`${config.API_ENDPOINT}/api/contests/${contest.contest_id}`)
+                                            .then(res => res.json())
+                                            .then(json => {
+                                                console.log(json[0].contest_name)
+                                                contestArray.push(json[0].contest_name)
+                                            })
+                                    )})
+                                    
+                                })
+                                .then(json => {
+                                    console.log(contestArray)
+                                    this.context.handleSetContests(contestArray)
+                                })
+                        })
+
                         .then(
                             document.getElementById('overlay').classList.add('is-visible'),
                             document.getElementById('modal').classList.add('is-visible')

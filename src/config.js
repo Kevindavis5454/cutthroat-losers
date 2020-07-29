@@ -1,4 +1,6 @@
 export default {
-    API_ENDPOINT: 'api.cutthroatlosers.com'
+    API_ENDPOINT: 'https://cutthroat-losers.herokuapp.com'
+
+    // 'api.cutthroatlosers.com'
 
 }
