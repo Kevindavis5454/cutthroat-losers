@@ -59,8 +59,7 @@ class SidebarHome extends React.Component {
 
                 else {
                     fetch(`${config.API_ENDPOINT}/api/users/${userLogin.username}`)
-                        .then(res => res.json())
-                        .then(json => console.log(json))
+                        .then(res => console.log(res))
                         .then(
                             document.getElementById('overlay').classList.add('is-visible'),
                             document.getElementById('modal').classList.add('is-visible')
