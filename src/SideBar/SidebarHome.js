@@ -58,8 +58,14 @@ class SidebarHome extends React.Component {
                     return res.json().then(e => Promise.reject(e))
                 
                 else {
-                    document.getElementById('overlay').classList.add('is-visible');
-                    document.getElementById('modal').classList.add('is-visible');;
+                    fetch(`${config.API_ENDPOINT}/api/users/${userLogin.username}`)
+                        .then(res => res.json())
+                        .then(json => console.log(json))
+                        .then(
+                            document.getElementById('overlay').classList.add('is-visible'),
+                            document.getElementById('modal').classList.add('is-visible')
+                        )
+                    
                 }
             })
             .catch(error => {
