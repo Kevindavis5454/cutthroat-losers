@@ -88,7 +88,7 @@ class ContestSelectModal extends React.Component {
                         if (!res.ok)
                             return res.json().then(e => Promise.reject(e))
                         else {
-                            console.log(res.json())
+                            this.props.history.push('/personal/home')
                         }
                     })
             })
@@ -111,7 +111,7 @@ class ContestSelectModal extends React.Component {
                             <select id="userContests" name="userContests">
                                 {this.renderUserContests()}
                             </select>
-                            <Link to='/personal/home'><button onClick={this.handleContestSelect}>GO</button></Link>
+                           <button onClick={this.handleContestSelect}>GO</button>
                         </div>
                         <div className="modal-item">
                             <h2>Or...</h2>
