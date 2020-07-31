@@ -54,6 +54,39 @@ class ContestSelectModal extends React.Component {
         return contests
     }
 
+    handleContestSelect = e => {
+        e.preventDefault()
+        let selected = document.getElementById('userContests')
+        let selectedContest = selected.options[selected.selectedIndex].text;
+        fetch(`${config.API_ENDPOINT}/api/contests/${selectedContest}`)
+            .then(res => res.json())
+            .then(json => {
+            this.context.setContestId(json[0].contest_id)
+                const contestInfo = {
+                    contest_id: json[0].contest_id,
+                }
+                fetch(`${config.API_ENDPOINT}/api/contests/contestInfo`,{
+                    method: 'POST',
+                    credentials: 'include',
+                    headers: {
+                        'content-type' : 'application/json',
+                    },
+                    body: JSON.stringify(contestInfo),
+                })
+                    .then(res => {
+                        if (!res.ok)
+                            return res.json().then(e => Promise.reject(e))
+                        else {
+                            console.log(res.json())
+                        }
+                    })
+            })
+
+
+
+
+    }
+
     render() {
         return(
             <div>
@@ -67,7 +100,7 @@ class ContestSelectModal extends React.Component {
                             <select id="userContests" name="userContests">
                                 {this.renderUserContests()}
                             </select>
-                            <button>GO</button>
+                            <button onClick={this.handleContestSelect}>GO</button>
                         </div>
                         <div className="modal-item">
                             <h2>Or...</h2>
