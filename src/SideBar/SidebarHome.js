@@ -112,12 +112,16 @@ class SidebarHome extends React.Component {
                                     <p><label htmlFor="login_email">Email</label>
                                         <input type="text"
                                                name="login_email"
-                                               id="login_email"/>
+                                               id="login_email"
+                                               required
+                                        />
                                     </p>
                                     <p><label htmlFor="login_password">Password</label>
                                         <input type="password"
                                                name="login_password"
-                                               id="login_password"/>
+                                               id="login_password"
+                                               required
+                                        />
                                     </p>
                                     <p className="submit-wrap">
                                         <input type="submit"
@@ -138,17 +142,23 @@ class SidebarHome extends React.Component {
                                     <p><label htmlFor="signup_name">Name</label>
                                         <input type="text"
                                                name="signup_name"
-                                               id="signup_name"/>
+                                               id="signup_name"
+                                               required
+                                        />
                                     </p>
                                     <p><label htmlFor="signup_email">Email</label>
                                         <input type="text"
                                                name="signup_email"
-                                               id="signup_email"/>
+                                               id="signup_email"
+                                               required
+                                        />
                                     </p>
                                     <p><label htmlFor="signup_password">Password</label>
                                         <input type="password"
                                                name="signup_password"
-                                               id="signup_password"/>
+                                               id="signup_password"
+                                               required
+                                        />
                                     </p>
                                     <p className="submit-wrap">
                                         <input type="submit"

@@ -29,13 +29,8 @@ class PersonalPage extends React.Component {
             },
             body: JSON.stringify(contestInfo),
         })
-            .then(res => {
-                if (!res.ok)
-                    return res.json().then(e => Promise.reject(e))
-                else {
-                    console.log('Yay, we have data!')
-                }
-            })
+            .then(res => res.json())
+
     }
 
     render() {
