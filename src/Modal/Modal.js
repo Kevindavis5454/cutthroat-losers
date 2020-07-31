@@ -74,6 +74,7 @@ class ContestSelectModal extends React.Component {
             .then(json => {
             this.context.setContestId(json[0].contest_id)
                 console.log(this.context.contest_id)
+                this.props.history.push('/personal/home')
                 /*const contestInfo = {
                     contest_id: json[0].contest_id,
                 }*/

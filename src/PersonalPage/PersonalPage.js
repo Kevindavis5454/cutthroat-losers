@@ -9,8 +9,34 @@ import Contact from "../ContactPage/Contact";
 import Home from "../Home/Home";
 import Sidebar from "../SideBar/Sidebar";
 import Rules from "../LandingPage/Rules";
+import config from "../config";
+import ApiContext from "../ApiContext";
 
 class PersonalPage extends React.Component {
+
+    static contextType = ApiContext;
+
+    componentDidMount() {
+        const contestInfo = {
+            contest_id: this.context.contest_id,
+        }
+
+        fetch(`${config.API_ENDPOINT}/api/contests/contestInfo`,{
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+                'content-type' : 'application/json',
+            },
+            body: JSON.stringify(contestInfo),
+        })
+            .then(res => {
+                if (!res.ok)
+                    return res.json().then(e => Promise.reject(e))
+                else {
+                    console.log('Yay, we have data!')
+                }
+            })
+    }
 
     render() {
         return (
