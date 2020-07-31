@@ -59,15 +59,6 @@ class ContestSelectModal extends React.Component {
         return contests
     }
 
-<<<<<<< HEAD
-    directUserToHome = () => {
-        const contest_name = document.getElementById("userContests").value
-        fetch(`${config.API_ENDPOINT}/api/contests`)
-            .then(res => res.json())
-            .then(json => {
-                const contest = json.filter(contest => contest.contest_name === contest_name)
-                fetch(`${config.API_ENDPOINT}/api/contests/auth`, {
-=======
     handleContestSelect = e => {
         e.preventDefault()
         let selected = document.getElementById('userContests')
@@ -92,7 +83,6 @@ class ContestSelectModal extends React.Component {
                     contest_id: json[0].contest_id,
                 }*/
                 /*fetch(`${config.API_ENDPOINT}/api/contests/contestInfo`,{
->>>>>>> c66c01906a74128275e354c2ce56eec10bbc7253
                     method: 'POST',
                     credentials: 'include',
                     headers: {
