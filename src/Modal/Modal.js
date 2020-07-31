@@ -4,6 +4,7 @@ import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css";
 import config from "../config";
 import ApiContext from "../ApiContext"
+import { Link } from "react-router-dom"
 
 class ContestSelectModal extends React.Component {
 
@@ -46,12 +47,38 @@ class ContestSelectModal extends React.Component {
     }
     
     renderUserContests = () => {
-        let contests = this.context.userContests.map(contest => {
+        let contests = this.context.userContests.map(function(contest, index) {
             return(
-                <option value={contest}>{contest}</option>
+                <option value={contest} key={index}>{contest}</option>
             )
         })
         return contests
+    }
+
+    directUserToHome = () => {
+        const contest_name = document.getElementById("userContests").value
+        fetch(`${config.API_ENDPOINT}/api/contests`)
+            .then(res => res.json())
+            .then(json => {
+                const contest = json.filter(contest => contest.contest_name === contest_name)
+                fetch(`${config.API_ENDPOINT}/api/contests/auth`, {
+                    method: 'POST',
+                    credentials: 'include',
+                    headers: {
+                        'content-type' : 'application/json',
+                    },
+                    body: JSON.stringify(contest.id),
+                })
+                    .then(res => {
+                        if(!res.ok)
+                            return res.json().then(e => Promise.reject(e))
+                        else {
+                            console.log(res)
+                            
+                        }
+                    })
+            })
+        
     }
 
     render() {
@@ -67,7 +94,7 @@ class ContestSelectModal extends React.Component {
                             <select id="userContests" name="userContests">
                                 {this.renderUserContests()}
                             </select>
-                            <button>GO</button>
+                            <Link to="/personal/home"><button onClick={this.directUserToHome}>GO</button></Link>
                         </div>
                         <div className="modal-item">
                             <h2>Or...</h2>

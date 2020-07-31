@@ -17,9 +17,9 @@ class App extends React.Component {
     state = {
         newContestStartDate: new Date(),
         newContestEndDate: new Date(),
-        userContests: ["New Year New You", "Family Losers"],
-        userName: "Kevin Davis",
-        user_id: ""
+        userContests: [],
+        userName: "",
+        user_id: "",
 
     };
 

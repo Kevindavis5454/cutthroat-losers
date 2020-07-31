@@ -125,7 +125,6 @@ class SidebarHome extends React.Component {
                                                className="button"
                                                value="Login"/>
                                     </p>
-                                    <h4>This is a test page, click the Login button to proceed</h4>
                                 </form>
                             </div>
                         </div>
