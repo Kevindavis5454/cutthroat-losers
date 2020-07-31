@@ -4,7 +4,6 @@ import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css";
 import config from "../config";
 import ApiContext from "../ApiContext"
-import { Link } from "react-router-dom"
 import { withRouter } from "react-router";
 
 class ContestSelectModal extends React.Component {
@@ -108,7 +107,9 @@ class ContestSelectModal extends React.Component {
                     })*/
             })
 
-
+            .catch(error => {
+                console.error({error})
+            })
 
 
     }
@@ -126,7 +127,6 @@ class ContestSelectModal extends React.Component {
                             <select id="userContests" name="userContests">
                                 {this.renderUserContests()}
                             </select>
-                            <Link to="/personal/home"><button onClick={this.directUserToHome}>GO</button></Link>
                            <button onClick={this.handleContestSelect}>GO</button>
                         </div>
                         <div className="modal-item">
