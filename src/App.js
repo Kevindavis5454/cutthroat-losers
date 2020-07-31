@@ -20,7 +20,13 @@ class App extends React.Component {
         userContests: ["New Year New You", "Family Losers"],
         userName: "Kevin Davis",
         contest_id: "",
-        user_id: ""
+        user_id: "",
+        measurements: [],
+        weights: [],
+        points: [],
+        workouts: [],
+        sabotages: [],
+        contestants: [],
 
     };
 

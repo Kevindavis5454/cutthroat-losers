@@ -73,10 +73,11 @@ class ContestSelectModal extends React.Component {
             .then(res => res.json())
             .then(json => {
             this.context.setContestId(json[0].contest_id)
-                const contestInfo = {
+                console.log(this.context.contest_id)
+                /*const contestInfo = {
                     contest_id: json[0].contest_id,
-                }
-                fetch(`${config.API_ENDPOINT}/api/contests/contestInfo`,{
+                }*/
+                /*fetch(`${config.API_ENDPOINT}/api/contests/contestInfo`,{
                     method: 'POST',
                     credentials: 'include',
                     headers: {
@@ -90,7 +91,7 @@ class ContestSelectModal extends React.Component {
                         else {
                             this.props.history.push('/personal/home')
                         }
-                    })
+                    })*/
             })
 
 
