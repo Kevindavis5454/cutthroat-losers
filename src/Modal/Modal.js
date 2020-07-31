@@ -58,7 +58,17 @@ class ContestSelectModal extends React.Component {
         e.preventDefault()
         let selected = document.getElementById('userContests')
         let selectedContest = selected.options[selected.selectedIndex].text;
-        fetch(`${config.API_ENDPOINT}/api/contests/${selectedContest}`)
+        const contestName = {
+            contest_name: selectedContest,
+        }
+        fetch(`${config.API_ENDPOINT}/api/contests/getContestId`, {
+            method: 'POST',
+                credentials: 'include',
+                headers: {
+                'content-type' : 'application/json',
+            },
+            body: JSON.stringify(contestName),
+        })
             .then(res => res.json())
             .then(json => {
             this.context.setContestId(json[0].contest_id)
