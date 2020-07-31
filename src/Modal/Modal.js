@@ -4,10 +4,7 @@ import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css";
 import config from "../config";
 import ApiContext from "../ApiContext"
-<<<<<<< HEAD
-=======
 import { Link } from "react-router-dom"
->>>>>>> 4ca78ccf6c6a3752de061d27f421d2bc33e8ee7f
 import { withRouter } from "react-router";
 
 class ContestSelectModal extends React.Component {
@@ -88,8 +85,6 @@ class ContestSelectModal extends React.Component {
                     headers: {
                         'content-type' : 'application/json',
                     },
-<<<<<<< HEAD
-=======
                     body: JSON.stringify(contest.id),
                 })
                     .then(res => {
@@ -102,7 +97,6 @@ class ContestSelectModal extends React.Component {
                     })
             })
 
->>>>>>> 4ca78ccf6c6a3752de061d27f421d2bc33e8ee7f
                     body: JSON.stringify(contestInfo),
                 })
                     .then(res => {
@@ -132,10 +126,7 @@ class ContestSelectModal extends React.Component {
                             <select id="userContests" name="userContests">
                                 {this.renderUserContests()}
                             </select>
-<<<<<<< HEAD
-=======
                             <Link to="/personal/home"><button onClick={this.directUserToHome}>GO</button></Link>
->>>>>>> 4ca78ccf6c6a3752de061d27f421d2bc33e8ee7f
                            <button onClick={this.handleContestSelect}>GO</button>
                         </div>
                         <div className="modal-item">
