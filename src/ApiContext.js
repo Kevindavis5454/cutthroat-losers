@@ -6,8 +6,10 @@ export default React.createContext({
     userContests: [],
     userName: [],
     user_id: [],
+    contest_id: [],
     handleSetNewContestStartDate: [],
     handleSetNewContestEndDate: [],
     handleSetUser: [],
     handleSetContests: [],
+    setContestId: [],
 })

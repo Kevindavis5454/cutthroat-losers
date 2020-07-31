@@ -4,7 +4,11 @@ import DatePicker from "react-datepicker"
 import "react-datepicker/dist/react-datepicker.css";
 import config from "../config";
 import ApiContext from "../ApiContext"
+<<<<<<< HEAD
 import { Link } from "react-router-dom"
+=======
+import { withRouter } from "react-router";
+>>>>>>> c66c01906a74128275e354c2ce56eec10bbc7253
 
 class ContestSelectModal extends React.Component {
 
@@ -55,6 +59,7 @@ class ContestSelectModal extends React.Component {
         return contests
     }
 
+<<<<<<< HEAD
     directUserToHome = () => {
         const contest_name = document.getElementById("userContests").value
         fetch(`${config.API_ENDPOINT}/api/contests`)
@@ -62,11 +67,38 @@ class ContestSelectModal extends React.Component {
             .then(json => {
                 const contest = json.filter(contest => contest.contest_name === contest_name)
                 fetch(`${config.API_ENDPOINT}/api/contests/auth`, {
+=======
+    handleContestSelect = e => {
+        e.preventDefault()
+        let selected = document.getElementById('userContests')
+        let selectedContest = selected.options[selected.selectedIndex].text;
+        const contestName = {
+            contest_name: selectedContest,
+        }
+        fetch(`${config.API_ENDPOINT}/api/contests/getContestId`, {
+            method: 'POST',
+                credentials: 'include',
+                headers: {
+                'content-type' : 'application/json',
+            },
+            body: JSON.stringify(contestName),
+        })
+            .then(res => res.json())
+            .then(json => {
+            this.context.setContestId(json[0].contest_id)
+                console.log(this.context.contest_id)
+                this.props.history.push('/personal/home')
+                /*const contestInfo = {
+                    contest_id: json[0].contest_id,
+                }*/
+                /*fetch(`${config.API_ENDPOINT}/api/contests/contestInfo`,{
+>>>>>>> c66c01906a74128275e354c2ce56eec10bbc7253
                     method: 'POST',
                     credentials: 'include',
                     headers: {
                         'content-type' : 'application/json',
                     },
+<<<<<<< HEAD
                     body: JSON.stringify(contest.id),
                 })
                     .then(res => {
@@ -79,6 +111,22 @@ class ContestSelectModal extends React.Component {
                     })
             })
         
+=======
+                    body: JSON.stringify(contestInfo),
+                })
+                    .then(res => {
+                        if (!res.ok)
+                            return res.json().then(e => Promise.reject(e))
+                        else {
+                            this.props.history.push('/personal/home')
+                        }
+                    })*/
+            })
+
+
+
+
+>>>>>>> c66c01906a74128275e354c2ce56eec10bbc7253
     }
 
     render() {
@@ -94,7 +142,11 @@ class ContestSelectModal extends React.Component {
                             <select id="userContests" name="userContests">
                                 {this.renderUserContests()}
                             </select>
+<<<<<<< HEAD
                             <Link to="/personal/home"><button onClick={this.directUserToHome}>GO</button></Link>
+=======
+                           <button onClick={this.handleContestSelect}>GO</button>
+>>>>>>> c66c01906a74128275e354c2ce56eec10bbc7253
                         </div>
                         <div className="modal-item">
                             <h2>Or...</h2>
@@ -126,4 +178,4 @@ class ContestSelectModal extends React.Component {
     }
 }
 
-export default ContestSelectModal
+export default withRouter(ContestSelectModal)

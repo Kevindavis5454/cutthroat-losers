@@ -19,7 +19,14 @@ class App extends React.Component {
         newContestEndDate: new Date(),
         userContests: [],
         userName: "",
+        contest_id: "",
         user_id: "",
+        measurements: [],
+        weights: [],
+        points: [],
+        workouts: [],
+        sabotages: [],
+        contestants: [],
 
     };
 
@@ -44,6 +51,11 @@ class App extends React.Component {
             userContests: contests
         })
     }
+    setContestId = (contest_id) => {
+        this.setState({
+            contest_id: contest_id
+        })
+    }
 
     render() {
 
@@ -53,10 +65,12 @@ class App extends React.Component {
             userContests: this.state.userContests,
             userName: this.state.userName,
             user_id: this.state.user_id,
+            contest_id: this.state.contest_id,
             handleSetNewContestStartDate: this.setNewContestStartDate,
             handleSetNewContestEndDate: this.setNewContestEndDate,
             handleSetUser: this.setUser,
-            handleSetContests: this.setContests
+            handleSetContests: this.setContests,
+            setContestId: this.setContestId,
 
 
         };

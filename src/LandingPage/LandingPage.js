@@ -8,6 +8,7 @@ import ContestSelectModal from "../Modal/Modal"
 
 class LandingPage extends React.Component {
 
+
     render () {
 
         return (
