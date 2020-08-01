@@ -12,7 +12,7 @@ class Contestant extends React.Component {
             <>
                     <div className="flex-cell-sidebar ">
                         <Link className="flex-item-sidebar first-player" to='/personal/home'>
-                            <h3>Kevin</h3>
+                            <h3>{this.props.name}</h3>
                             <div className='circular--portrait'>
                                 <img src={require('./KevinProfilePic.JPG')} alt='Profile Picture' className='profile-pic'></img>
                             </div>

@@ -27,7 +27,14 @@ class Sidebar extends React.Component {
             })
             .then((contestants) => {
                 this.context.contestants = contestants
-                const contestUserInfo = contestants.map(user => fetch(`${config.API_ENDPOINT}/api/contestInfo/contestUsersInfo?user_id=${user.user_id}`))
+                const contestUserInfo = contestants.map(user =>
+                    fetch(`${config.API_ENDPOINT}/api/contestInfo/contestUsersInfo?user_id=${user.user_id}`)
+                        .then((userRes) => {
+                            if (!userRes.ok)
+                                return userRes.json().then(e => Promise.reject(e))
+                            return userRes.json()
+                        })
+                )
                 this.context.contestantInfo = contestUserInfo
                 console.log(this.context.contestantInfo)
             })
