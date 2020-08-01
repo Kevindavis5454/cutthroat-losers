@@ -27,7 +27,7 @@ class App extends React.Component {
         workouts: [],
         sabotages: [],
         contestants: [],
-        contestantInfo: [],
+        contestantUserInfo: [],
 
     };
 
@@ -57,6 +57,11 @@ class App extends React.Component {
             contest_id: contest_id
         })
     }
+    setContestantInfo = (contestantInfo) => {
+        this.setState({
+            contestantUserInfo: contestantInfo
+        })
+    }
 
     render() {
 
@@ -72,12 +77,13 @@ class App extends React.Component {
             handleSetUser: this.setUser,
             handleSetContests: this.setContests,
             setContestId: this.setContestId,
+            handleSetContestantInfo: this.setContestantInfo,
             measurements: this.state.measurements,
             weights: this.state.weights,
             points: this.state.points,
             sabotages: this.state.sabotages,
             contestants: this.state.contestants,
-            contestantInfo: this.state.contestantInfo,
+            contestantUserInfo: this.state.contestantUserInfo,
 
 
 

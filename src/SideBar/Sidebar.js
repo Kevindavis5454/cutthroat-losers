@@ -27,16 +27,22 @@ class Sidebar extends React.Component {
             })
             .then((contestants) => {
                 this.context.contestants = contestants
+                console.log(contestants)
+                const contestantArray = []
                 contestants.map(user =>
                     fetch(`${config.API_ENDPOINT}/api/contestInfo/contestUsersInfo?user_id=${user.user_id}`)
                         .then((userRes) => {
                             if (!userRes.ok)
                                 return userRes.json().then(e => Promise.reject(e))
-                            this.context.contestantInfo.push(userRes.json())
+                            return userRes.json()
                         })
-
+                        .then((userContestant) => {
+                            contestantArray.push(userContestant)
+                        })
+                        .then((json)=> {
+                            this.context.handleSetContestantInfo(contestantArray)
+                        })
                 )
-                console.log(this.context.contestantInfo)
             })
             .catch(error => {
                 console.error({ error })
@@ -46,7 +52,9 @@ class Sidebar extends React.Component {
     }
 
     render () {
-        const contestUser = this.context.contestantInfo.map(user => <Contestant key={user.id}  name={user.display_name} />)
+        console.log(this.context.contestantUserInfo)
+        const contestUser = this.context.contestantUserInfo.map(function (user, index) { return <Contestant key={index} name={user[0].display_name} /> })
+        console.log(contestUser)
         return (
             <>
 

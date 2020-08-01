@@ -12,10 +12,11 @@ export default React.createContext({
     handleSetUser: [],
     handleSetContests: [],
     setContestId: [],
+    handleSetContestantInfo: [],
     measurements: [],
     weights: [],
     points: [],
     sabotages: [],
     contestants: [],
-    contestantInfo: [],
+    contestantUserInfo: [],
 })
