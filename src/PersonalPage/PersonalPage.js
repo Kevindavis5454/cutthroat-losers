@@ -47,7 +47,10 @@ class PersonalPage extends React.Component {
                 ])
             })
             .then(([measurements, weighins, points, sabotages]) => {
-                this.context({ measurements, weighins, points, sabotages })
+                this.context.measurements = measurements
+                this.context.weights = weighins
+                this.context.points = points
+                this.context.sabotages = sabotages
                 console.log(this.context)
             })
             .catch(error => {

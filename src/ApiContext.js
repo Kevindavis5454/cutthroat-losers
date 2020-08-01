@@ -12,4 +12,8 @@ export default React.createContext({
     handleSetUser: [],
     handleSetContests: [],
     setContestId: [],
+    measurements: [],
+    weights: [],
+    points: [],
+    sabotages: [],
 })

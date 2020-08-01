@@ -71,6 +71,11 @@ class App extends React.Component {
             handleSetUser: this.setUser,
             handleSetContests: this.setContests,
             setContestId: this.setContestId,
+            measurements: this.state.measurements,
+            weights: this.state.weights,
+            points: this.state.points,
+            sabotages: this.state.sabotages,
+
 
 
         };
