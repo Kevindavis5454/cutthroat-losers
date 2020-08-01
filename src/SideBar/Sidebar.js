@@ -34,8 +34,12 @@ class Sidebar extends React.Component {
                                 return userRes.json().then(e => Promise.reject(e))
                             return userRes.json()
                         })
+                        .then((contestant) => {
+                            this.context.contestantInfo.push(contestant)
+                        })
+
                 )
-                this.context.contestantInfo = contestUserInfo
+                return contestUserInfo
                 console.log(this.context.contestantInfo)
             })
             .catch(error => {
