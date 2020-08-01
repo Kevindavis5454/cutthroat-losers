@@ -17,20 +17,42 @@ class PersonalPage extends React.Component {
     static contextType = ApiContext;
 
     componentDidMount() {
+
+
         const contestInfo = {
             contest_id: this.context.contest_id,
         }
 
-        fetch(`${config.API_ENDPOINT}/api/contests/contestInfo`,{
-            method: 'POST',
-            credentials: 'include',
-            headers: {
-                'content-type' : 'application/json',
-            },
-            body: JSON.stringify(contestInfo),
-        })
-            .then(res => res.json())
+        Promise.all([
+            fetch(`${config.API_ENDPOINT}/api/contestInfo/measurements?contest_id=${contestInfo.contest_id}`),
+            fetch(`${config.API_ENDPOINT}/api/contestInfo/weighins?contest_id=${contestInfo.contest_id}`),
+            fetch(`${config.API_ENDPOINT}/api/contestInfo/points?contest_id=${contestInfo.contest_id}`),
+            fetch(`${config.API_ENDPOINT}/api/contestInfo/sabotages?contest_id=${contestInfo.contest_id}`)
+        ])
+            .then(([measurementsRes, weighinsRes, pointsRes, sabotagesRes]) => {
+                if (!measurementsRes.ok)
+                    return measurementsRes.json().then(e => Promise.reject(e))
+                if (!weighinsRes.ok)
+                    return weighinsRes.json().then(e => Promise.reject(e))
+                if (!pointsRes.ok)
+                    return pointsRes.json().then(e => Promise.reject(e))
+                if (!sabotagesRes.ok)
+                    return sabotagesRes.json().then(e => Promise.reject(e))
 
+                return Promise.all([
+                    measurementsRes.json(),
+                    weighinsRes.json(),
+                    pointsRes.json(),
+                    sabotagesRes.json(),
+                ])
+            })
+            .then(([measurements, weighins, points, sabotages]) => {
+                this.context({ measurements, weighins, points, sabotages })
+                console.log(this.context)
+            })
+            .catch(error => {
+                console.error({ error })
+            })
     }
 
     render() {
