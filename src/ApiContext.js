@@ -16,4 +16,6 @@ export default React.createContext({
     weights: [],
     points: [],
     sabotages: [],
+    contestants: [],
+    contestantInfo: [],
 })

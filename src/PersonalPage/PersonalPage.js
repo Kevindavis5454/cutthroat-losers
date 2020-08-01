@@ -51,7 +51,6 @@ class PersonalPage extends React.Component {
                 this.context.weights = weighins
                 this.context.points = points
                 this.context.sabotages = sabotages
-                console.log(this.context)
             })
             .catch(error => {
                 console.error({ error })

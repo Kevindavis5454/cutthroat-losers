@@ -27,6 +27,7 @@ class App extends React.Component {
         workouts: [],
         sabotages: [],
         contestants: [],
+        contestantInfo: [],
 
     };
 
@@ -75,6 +76,8 @@ class App extends React.Component {
             weights: this.state.weights,
             points: this.state.points,
             sabotages: this.state.sabotages,
+            contestants: this.state.contestants,
+            contestantInfo: this.state.contestantInfo,
 
 
 
