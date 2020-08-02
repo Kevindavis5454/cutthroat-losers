@@ -91,7 +91,7 @@ class App extends React.Component {
             sabotages: this.state.sabotages,
             contestants: this.state.contestants,
             contestantUserInfo: this.state.contestantUserInfo,
-            contestantCurrentWeight: this.state.contestantCurrentWeight,
+            contestantCurrentWeights: this.state.contestantCurrentWeights,
 
 
 

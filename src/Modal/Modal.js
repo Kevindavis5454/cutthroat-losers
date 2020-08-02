@@ -97,6 +97,15 @@ class ContestSelectModal extends React.Component {
             return Promise.all([getContestant(user_id)])
         }
 
+        const getCurrentWeights = (user_id) => {
+            return fetch(`${config.API_ENDPOINT}/api/contestInfo/contestUserCurrentWeight?user_id=${user_id}&contest_id=${this.context.contest_id}`)
+                .then(res => res.json())
+        }
+
+        function getContestantCurrentWeight(user_id) {
+            return Promise.all([getCurrentWeights(user_id)])
+        }
+
 
 
         getContestInfo()
@@ -110,7 +119,7 @@ class ContestSelectModal extends React.Component {
                             contestantIDs.push(contestant.user_id)
                         })
                         this.context.contestantIds = contestantIDs
-                        console.log(this.context.contestantIds)
+                        console.log(this.context.contestantIds, 'context contestant ids')
                         const currentContestantsInfo = []
                         contestantIDs.forEach(user_id => {
                             getContestantInfo(user_id)
@@ -118,7 +127,18 @@ class ContestSelectModal extends React.Component {
                                     currentContestantsInfo.push(res[0][0]['display_name'])})
                         })
                         this.context.contestantUserNames = currentContestantsInfo
-                        console.log(this.context.contestantUserNames)
+                        console.log(this.context.contestantUserNames, 'context contestant user names')
+                        const currentContestantWeightsArray= []
+                           contestantIDs.forEach(user_id => {
+                               getContestantCurrentWeight(user_id)
+                                   .then(res => {
+                                       currentContestantWeightsArray.push(res[0][0]['weight'])})
+
+                           })
+
+                        this.context.contestantCurrentWeights = currentContestantWeightsArray
+                        console.log(this.context.contestantCurrentWeights, 'context current weights')
+
                     })
             })
         
