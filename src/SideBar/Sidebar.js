@@ -29,6 +29,7 @@ class Sidebar extends React.Component {
                 this.context.contestants = contestants
                 console.log(contestants)
                 const contestantArray = []
+                const currentWeightArray = []
                 contestants.map(user =>
                     fetch(`${config.API_ENDPOINT}/api/contestInfo/contestUsersInfo?user_id=${user.user_id}`)
                         .then((userRes) => {
@@ -38,23 +39,49 @@ class Sidebar extends React.Component {
                         })
                         .then((userContestant) => {
                             contestantArray.push(userContestant)
+                            console.log(userContestant, 'userContestant')
                         })
                         .then((json)=> {
                             this.context.handleSetContestantInfo(contestantArray)
                         })
                 )
+                contestants.map(weight =>
+                    fetch(`${config.API_ENDPOINT}/api/contestInfo/contestUserCurrentWeight?user_id=${weight.user_id}&contest_id=${contestInfo.contest_id}`)
+                        .then((weightRes) => {
+                            if (!weightRes.ok)
+                                return weightRes.json().then(e => Promise.reject(e))
+                            return weightRes.json()
+                        })
+                        .then((currentWeight) => {
+                            currentWeightArray.push(currentWeight)
+                            /*console.log(currentWeight, "currentWeight")*/
+                        })
+                        .then((json) => {
+                            this.context.handleSetContestantCurrentWeight(currentWeightArray)
+                        })
+                )
+
             })
+
             .catch(error => {
                 console.error({ error })
             })
 
 
+
     }
 
     render () {
-        console.log(this.context.contestantUserInfo)
+
         const contestUser = this.context.contestantUserInfo.map(function (user, index) { return <Contestant key={index} name={user[0].display_name} /> })
-        console.log(contestUser)
+        console.log(this.context.contestantUserInfo, 'contestantUserInfo')
+        /*console.log(this.context.contestantCurrentWeight, 'contestantCurrentWeight')*/
+        const userInfoWithWeight = this.context.contestantUserInfo.map((contestant)=> {
+            const haveEqualId = (user) => user.user_id === contestant.user_id
+            const userWithEqualId = this.context.contestantCurrentWeight.find(haveEqualId)
+            return Object.assign({}, contestant, userWithEqualId)
+        })
+        console.log(userInfoWithWeight, 'userInfoWithWeight')
         return (
             <>
 

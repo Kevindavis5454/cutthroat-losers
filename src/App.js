@@ -28,6 +28,7 @@ class App extends React.Component {
         sabotages: [],
         contestants: [],
         contestantUserInfo: [],
+        contestantCurrentWeight: [],
 
     };
 
@@ -62,6 +63,11 @@ class App extends React.Component {
             contestantUserInfo: contestantInfo
         })
     }
+    setContestantCurrentWeight = (currentWeight) => {
+        this.setState({
+            contestantCurrentWeight: currentWeight
+        })
+    }
 
     render() {
 
@@ -78,12 +84,16 @@ class App extends React.Component {
             handleSetContests: this.setContests,
             setContestId: this.setContestId,
             handleSetContestantInfo: this.setContestantInfo,
+            handleSetContestantCurrentWeight: this.setContestantCurrentWeight,
             measurements: this.state.measurements,
             weights: this.state.weights,
             points: this.state.points,
             sabotages: this.state.sabotages,
             contestants: this.state.contestants,
             contestantUserInfo: this.state.contestantUserInfo,
+            contestantCurrentWeight: this.state.contestantCurrentWeight,
+
+
 
 
 

@@ -13,10 +13,12 @@ export default React.createContext({
     handleSetContests: [],
     setContestId: [],
     handleSetContestantInfo: [],
+    handleSetContestantCurrentWeight: [],
     measurements: [],
     weights: [],
     points: [],
     sabotages: [],
     contestants: [],
     contestantUserInfo: [],
+    contestantCurrentWeight: [],
 })
