@@ -26,9 +26,9 @@ class App extends React.Component {
         points: [],
         workouts: [],
         sabotages: [],
-        contestants: [],
-        contestantUserInfo: [],
-        contestantCurrentWeight: [],
+        contestantIds: [],
+        contestantUserNames: [],
+        contestantCurrentWeights: [],
 
     };
 

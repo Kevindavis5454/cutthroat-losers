@@ -88,19 +88,41 @@ class ContestSelectModal extends React.Component {
             return Promise.all([getContestants()])
         }
 
+        const getContestant = (user_id) => {
+            return fetch(`${config.API_ENDPOINT}/api/users/${user_id}`)
+                .then(res => res.json())
+        }
+
+        function getContestantInfo (user_id) {
+            return Promise.all([getContestant(user_id)])
+        }
+
 
 
         getContestInfo()
             .then(([contest_id]) => {
                 // both have loaded!
-                console.log(contest_id, 'contest id')
                 this.context.setContestId(contest_id[0].contest_id)
                 getContestantList()
                     .then(([contestants]) => {
-                        this.context.contestants = contestants
-                        console.log(contestants, 'contestant list')
+                        const contestantIDs = []
+                        contestants.forEach(contestant => {
+                            contestantIDs.push(contestant.user_id)
+                        })
+                        this.context.contestantIds = contestantIDs
+                        console.log(this.context.contestantIds)
+                        const currentContestantsInfo = []
+                        contestantIDs.forEach(user_id => {
+                            getContestantInfo(user_id)
+                                .then(res => {
+                                    currentContestantsInfo.push(res[0][0]['display_name'])})
+                        })
+                        this.context.contestantUserNames = currentContestantsInfo
+                        console.log(this.context.contestantUserNames)
                     })
             })
+        
+        
         /*this.props.history.push('/personal/home')*/
 
     }
