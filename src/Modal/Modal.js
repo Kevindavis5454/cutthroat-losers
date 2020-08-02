@@ -62,55 +62,46 @@ class ContestSelectModal extends React.Component {
         const contestName = {
             contest_name: selectedContest,
         }
-        fetch(`${config.API_ENDPOINT}/api/contests/getContestId`, {
-            method: 'POST',
-                credentials: 'include',
-                headers: {
-                'content-type' : 'application/json',
-            },
-            body: JSON.stringify(contestName),
-        })
-            .then(res => res.json())
-            .then(json => {
-            this.context.setContestId(json[0].contest_id)
-                console.log(this.context.contest_id)
-                this.props.history.push('/personal/home')
-                /*const contestInfo = {
-                    contest_id: json[0].contest_id,
-                }*/
-                /*fetch(`${config.API_ENDPOINT}/api/contests/contestInfo`,{
-                    method: 'POST',
-                    credentials: 'include',
-                    headers: {
-                        'content-type' : 'application/json',
-                    },
-                    body: JSON.stringify(contest.id),
-                })
-                    .then(res => {
-                        if(!res.ok)
-                            return res.json().then(e => Promise.reject(e))
-                        else {
-                            console.log(res)
-                            
-                        }
+       function getContestId() {
+           return fetch(`${config.API_ENDPOINT}/api/contests/getContestId`, {
+               method: 'POST',
+               credentials: 'include',
+               headers: {
+                   'content-type': 'application/json',
+               },
+               body: JSON.stringify(contestName),
+           })
+               .then(res => res.json())
+       }
+
+
+        function getContestInfo(){
+            return Promise.all([getContestId()])
+        }
+
+        const getContestants = () => {
+            return fetch(`${config.API_ENDPOINT}/api/contestInfo/contestUsers?contest_id=${this.context.contest_id}`)
+                .then(res => res.json())
+        }
+
+        function getContestantList () {
+            return Promise.all([getContestants()])
+        }
+
+
+
+        getContestInfo()
+            .then(([contest_id]) => {
+                // both have loaded!
+                console.log(contest_id, 'contest id')
+                this.context.setContestId(contest_id[0].contest_id)
+                getContestantList()
+                    .then(([contestants]) => {
+                        this.context.contestants = contestants
+                        console.log(contestants, 'contestant list')
                     })
             })
-
-                    body: JSON.stringify(contestInfo),
-                })
-                    .then(res => {
-                        if (!res.ok)
-                            return res.json().then(e => Promise.reject(e))
-                        else {
-                            this.props.history.push('/personal/home')
-                        }
-                    })*/
-            })
-
-            .catch(error => {
-                console.error({error})
-            })
-
+        /*this.props.history.push('/personal/home')*/
 
     }
 

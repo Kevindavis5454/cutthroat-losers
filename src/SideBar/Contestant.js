@@ -7,7 +7,6 @@ class Contestant extends React.Component {
     static contextType = ApiContext;
 
     render() {
-
         return(
             <>
                     <div className="flex-cell-sidebar ">
@@ -16,7 +15,7 @@ class Contestant extends React.Component {
                             <div className='circular--portrait'>
                                 <img src='' alt='Profile Picture' className='profile-pic'></img>
                             </div>
-                            <span>Current Weight:</span>
+                            <span>Current Weight: {this.props.weight}</span>
                             <span>Goal Weight:</span>
                             <span>Current Points:</span>
                         </Link>
