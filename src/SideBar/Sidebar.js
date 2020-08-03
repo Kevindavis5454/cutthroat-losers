@@ -14,61 +14,47 @@ class Sidebar extends React.Component {
     componentDidMount() {
 
 
-        // const contestInfo = {
-        //     contest_id: this.context.contest_id,
-        // }
 
-        //   fetch(`${config.API_ENDPOINT}/api/contestInfo/contestUsers?contest_id=${contestInfo.contest_id}`)
-        //       .then((usersRes) => {
-        //           if (!usersRes.ok)
-        //               return usersRes.json().then(e => Promise.reject(e))
+        function getContestantList () {
+            return Promise.all([getContestants()])
+        }
 
-        //           return usersRes.json()
-        //       })
-        //       .then((contestants) => {
-        //           this.context.contestants = contestants
-        //           console.log(contestants)
-        //           const contestantArray = []
-        //           const currentWeightArray = []
-        //           contestants.map(user =>
-        //               fetch(`${config.API_ENDPOINT}/api/contestInfo/contestUsersInfo?user_id=${user.user_id}`)
-        //                   .then((userRes) => {
-        //                       if (!userRes.ok)
-        //                           return userRes.json().then(e => Promise.reject(e))
-        //                       return userRes.json()
-        //                   })
-        //                   .then((userContestant) => {
-        //                       contestantArray.push(userContestant)
-        //                       /*console.log(userContestant, 'userContestant')*/
-        //                   })
-        //                   .then((json) => {
-        //                       this.context.handleSetContestantInfo(contestantArray)
-        //                   })
-        //           )
-        //           contestants.map(weight =>
-        //               fetch(`${config.API_ENDPOINT}/api/contestInfo/contestUserCurrentWeight?user_id=${weight.user_id}&contest_id=${contestInfo.contest_id}`)
-        //                   .then((weightRes) => {
-        //                       if (!weightRes.ok)
-        //                           return weightRes.json().then(e => Promise.reject(e))
-        //                       return weightRes.json()
-        //                   })
-        //                   .then((currentWeight) => {
-        //                       currentWeightArray.push(currentWeight)
-        //                       /*console.log(currentWeight, "currentWeight")*/
-        //                   })
-        //                   .then((json) => {
-        //                       this.context.handleSetContestantCurrentWeight(currentWeightArray)
-        //                   })
-        //           )
+        const getContestants = () => {
+            return fetch(`${config.API_ENDPOINT}/api/contestInfo/contestUsers?contest_id=${localStorage.getItem("contest Id")}`)
+                .then(res => res.json())
+        }
 
-        //       })
+        function getContestantInfo (user_id) {
+            return Promise.all([getContestantStats(user_id)])
+        }
+        const getContestantStats = (user_id) => {
+            return fetch(`${config.API_ENDPOINT}/api/contestInfo/currentStats/?user_id=${user_id}`)
+                .then(res => res.json())
+        }
 
-        //       .catch(error => {
-        //           console.error({error})
-        //       })
+        getContestantList()
+                    .then(([contestants]) => {
+                        const contestantIDs = []
+                        contestants.forEach(contestant => {
+                            contestantIDs.push(contestant.user_id)
+                        })
+                        this.context.contestantIds = contestantIDs
+                        console.log(this.context.contestantIds, 'context contestant ids')
+                        const currentContestantsInfo = []
+                        contestantIDs.forEach(user_id => {
+                            getContestantInfo(user_id)
+                                .then(res => {
+                                    currentContestantsInfo.push(res)})
+                        })
+                        this.context.contestantUserInfo = currentContestantsInfo
+                        console.log(this.context.contestantUserInfo, 'context contestants')
+                        
+
+                    })
 
         console.log("sidebar mounted")
-        console.log(localStorage.getItem("user Id"))
+        console.log(localStorage.getItem("user Id"), "user id")
+        console.log(localStorage.getItem("contest Id"), "contest id")
 
     }
 

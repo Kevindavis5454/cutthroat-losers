@@ -43,6 +43,7 @@ class App extends React.Component {
         })
     }
     setUser = (userName, user_id) => {
+        localStorage.setItem("user Id", `${user_id}` )
         this.setState({
             userName: userName,
             user_id: user_id

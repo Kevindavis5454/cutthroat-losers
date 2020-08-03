@@ -5,9 +5,9 @@ import "react-datepicker/dist/react-datepicker.css";
 import config from "../config";
 import ApiContext from "../ApiContext"
 import { withRouter } from "react-router";
-import { createBrowserHistory } from "history"
-
+import { createBrowserHistory } from 'history' 
 let history = createBrowserHistory()
+
 class ContestSelectModal extends React.Component {
 
     static contextType = ApiContext;
@@ -81,54 +81,15 @@ class ContestSelectModal extends React.Component {
             return Promise.all([getContestId()])
         }
 
-        const getContestants = () => {
-            return fetch(`${config.API_ENDPOINT}/api/contestInfo/contestUsers?contest_id=${this.context.contest_id}`)
-                .then(res => res.json())
-        }
-
-        function getContestantList () {
-            return Promise.all([getContestants()])
-        }
-
-        const getContestantStats = (user_id) => {
-            return fetch(`${config.API_ENDPOINT}/api/contestInfo/currentStats/?user_id=${user_id}`)
-                .then(res => res.json())
-        }
-
-        function getContestantInfo (user_id) {
-            return Promise.all([getContestantStats(user_id)])
-        }
-
-
-
-
         getContestInfo()
             .then(([contest_id]) => {
                 // both have loaded!
                 this.context.setContestId(contest_id[0].contest_id)
-                getContestantList()
-                    .then(([contestants]) => {
-                        const contestantIDs = []
-                        contestants.forEach(contestant => {
-                            contestantIDs.push(contestant.user_id)
-                        })
-                        this.context.contestantIds = contestantIDs
-                        console.log(this.context.contestantIds, 'context contestant ids')
-                        const currentContestantsInfo = []
-                        contestantIDs.forEach(user_id => {
-                            getContestantInfo(user_id)
-                                .then(res => {
-                                    currentContestantsInfo.push(res)})
-                        })
-                        this.context.contestantUserInfo = currentContestantsInfo
-                        console.log(this.context.contestantUserInfo, 'context contestants')
-                        
-
-                    })
+                localStorage.setItem("contest Id", `${this.context.contest_id}`)
+                this.props.history.push('/personal/home')
             })
         
-        
-        this.props.history.push('/personal/home')
+         
         
 
     }
