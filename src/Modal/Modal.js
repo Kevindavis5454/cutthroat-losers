@@ -88,23 +88,15 @@ class ContestSelectModal extends React.Component {
             return Promise.all([getContestants()])
         }
 
-        const getContestant = (user_id) => {
-            return fetch(`${config.API_ENDPOINT}/api/users/${user_id}`)
+        const getContestantStats = (user_id) => {
+            return fetch(`${config.API_ENDPOINT}/api/contestInfo/currentStats/?user_id=${user_id}`)
                 .then(res => res.json())
         }
 
         function getContestantInfo (user_id) {
-            return Promise.all([getContestant(user_id)])
+            return Promise.all([getContestantStats(user_id)])
         }
 
-        const getCurrentWeights = (user_id) => {
-            return fetch(`${config.API_ENDPOINT}/api/contestInfo/contestUserCurrentWeight?user_id=${user_id}&contest_id=${this.context.contest_id}`)
-                .then(res => res.json())
-        }
-
-        function getContestantCurrentWeight(user_id) {
-            return Promise.all([getCurrentWeights(user_id)])
-        }
 
 
 
@@ -124,20 +116,11 @@ class ContestSelectModal extends React.Component {
                         contestantIDs.forEach(user_id => {
                             getContestantInfo(user_id)
                                 .then(res => {
-                                    currentContestantsInfo.push(res[0][0]['display_name'])})
+                                    currentContestantsInfo.push(res)})
                         })
-                        this.context.contestantUserNames = currentContestantsInfo
-                        console.log(this.context.contestantUserNames, 'context contestant user names')
-                        const currentContestantWeightsArray= []
-                           contestantIDs.forEach(user_id => {
-                               getContestantCurrentWeight(user_id)
-                                   .then(res => {
-                                       currentContestantWeightsArray.push(res[0][0]['weight'])})
-
-                           })
-
-                        this.context.contestantCurrentWeights = currentContestantWeightsArray
-                        console.log(this.context.contestantCurrentWeights, 'context current weights')
+                        this.context.contestantUserInfo = currentContestantsInfo
+                        console.log(this.context.contestantUserInfo, 'context contestants')
+                        
 
                     })
             })
