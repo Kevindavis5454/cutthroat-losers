@@ -5,7 +5,9 @@ import "react-datepicker/dist/react-datepicker.css";
 import config from "../config";
 import ApiContext from "../ApiContext"
 import { withRouter } from "react-router";
+import { createBrowserHistory } from "history"
 
+let history = createBrowserHistory()
 class ContestSelectModal extends React.Component {
 
     static contextType = ApiContext;
@@ -126,7 +128,8 @@ class ContestSelectModal extends React.Component {
             })
         
         
-        /*this.props.history.push('/personal/home')*/
+        this.props.history.push('/personal/home')
+        
 
     }
 
