@@ -11,12 +11,19 @@ class Sidebar extends React.Component {
 
     static contextType = ApiContext;
 
+    constructor(props){
+        super(props);
+        this.state = {
+            contestUsers: []
+        }
+    }
+
     componentDidMount() {
 
 
 
-        function getContestantList () {
-            return Promise.all([getContestants()])
+        async function getContestantList () {
+            return await Promise.all([getContestants()])
         }
 
         const getContestants = () => {
@@ -24,13 +31,14 @@ class Sidebar extends React.Component {
                 .then(res => res.json())
         }
 
-        function getContestantInfo (user_id) {
-            return Promise.all([getContestantStats(user_id)])
+        async function getContestantInfo (user_id) {
+            return await Promise.all([getContestantStats(user_id)])
         }
         const getContestantStats = (user_id) => {
             return fetch(`${config.API_ENDPOINT}/api/contestInfo/currentStats/?user_id=${user_id}`)
                 .then(res => res.json())
         }
+        
 
         getContestantList()
                     .then(([contestants]) => {
@@ -39,7 +47,7 @@ class Sidebar extends React.Component {
                             contestantIDs.push(contestant.user_id)
                         })
                         this.context.contestantIds = contestantIDs
-                        console.log(this.context.contestantIds, 'context contestant ids')
+                        // console.log(this.context.contestantIds, 'context contestant ids')
                         const currentContestantsInfo = []
                         contestantIDs.forEach(user_id => {
                             getContestantInfo(user_id)
@@ -47,25 +55,42 @@ class Sidebar extends React.Component {
                                     currentContestantsInfo.push(res)})
                         })
                         this.context.contestantUserInfo = currentContestantsInfo
-                        console.log(this.context.contestantUserInfo, 'context contestants')
+                        // console.log(this.context.contestantUserInfo, 'context contestants')
                         
 
                     })
+                    .then(results => {
+                        this.setState({contestUsers: this.context.contestantUserInfo})
+                    })
 
-        console.log("sidebar mounted")
-        console.log(localStorage.getItem("user Id"), "user id")
-        console.log(localStorage.getItem("contest Id"), "contest id")
-
+        // console.log("sidebar mounted")
+        // console.log(localStorage.getItem("user Id"), "user id")
+        // console.log(localStorage.getItem("contest Id"), "contest id")
     }
+    
 
     render () {
 
-        const contestUser = this.context.contestantUserInfo.map(function (user, index) { return <Contestant key={index} name={user.display_name} weight={user.current_weight} /> })
+        // const userInfo = this.state.contestUsers
+
+        // const renderContestUsers = userInfo.map(user => {return <Contestant />})
+        const users = this.state.contestUsers
+
+        function renderContestUsers () {
+            console.log(users, "users")
+            return <Contestant />
+            // return users.forEach(user => {
+            //     return <Contestant />
+            // })
+            
+           
+    }
+        
         return (
             <>
 
             <div className="flex-container-sidebar">
-                {contestUser}
+                {renderContestUsers()}
             </div>
                 </>
 

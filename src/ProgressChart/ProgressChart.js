@@ -1,16 +1,54 @@
 import React from 'react'
 import './progresschart.css'
 import {VictoryPie, VictoryAnimation, VictoryLabel} from 'victory'
+import config from "../config";
+import moment from "moment"
 
 class ProgressChart extends React.Component {
     constructor() {
         super();
         this.state = {
-          percent: 55, data: this.getData(0)
+          percent: 55, 
+          data: this.getData(0),
+          startDate: '',
+          endDate: '',
         };
       }
     
       componentDidMount() {
+
+      function getContestDates () {
+          return Promise.all([getContest()])
+      }
+
+      const getContest = () => {
+          return fetch(`${config.API_ENDPOINT}/api/contests/${localStorage.getItem("contest Id")}`)
+              .then(res => res.json())
+      }
+
+      getContestDates()
+        .then(results => {
+          console.log(results)
+          let startDate = moment(results[0][0].date_start)
+          this.setState({
+            startDate: startDate.format("MMM Do YYYY")
+          })
+          console.log(this.state.startDate, "start Date")
+          let endDate = moment(results[0][0].date_end)
+          this.setState({
+            endDate: endDate.format("MMM Do YYYY")
+          })
+          let todaysDate = moment()
+
+          let totalTime = endDate.diff(startDate, 'days')
+          let currentTime = todaysDate.diff(startDate, 'days')
+          
+          this.setState({
+            percent: ((currentTime/totalTime)*100)
+          })
+        })
+
+
         let percent = 25;
         this.setStateInterval = window.setInterval(() => {
           percent = this.state.percent;
@@ -33,8 +71,8 @@ class ProgressChart extends React.Component {
         return (
           <div className='progress-contest-div'>
               <h3>Contest Completion</h3>
-              <span>Contest Start Date:</span>
-              <span>Contest Completion Date:</span>
+        <span>Contest Start Date: {this.state.startDate}</span>
+        <span>Contest Completion Date: {this.state.endDate}</span>
             <svg viewBox="0 0 400 400" width="100%" height="100%">
               <VictoryPie
                 standalone={false}
