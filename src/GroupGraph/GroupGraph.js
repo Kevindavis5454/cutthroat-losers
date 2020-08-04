@@ -1,4 +1,5 @@
 import React from 'react'
+import config from "../config";
 import { VictoryChart, VictoryTheme, VictoryGroup, VictoryArea, VictoryPolarAxis, VictoryLabel} from 'victory'
 
 const characterData = [
@@ -14,9 +15,56 @@ const characterData = [
       super(props);
       this.state = {
         data: this.processData(characterData),
-        maxima: this.getMaxima(characterData)
+        maxima: this.getMaxima(characterData),
+        pointsData: [],
       };
     }
+
+    componentDidMount() {
+
+      const getContestants = () => {
+        return fetch(`${config.API_ENDPOINT}/api/contest_to_user?contest_id=${localStorage.getItem("contest Id")}`)
+            .then(res => res.json())
+    }
+
+    async function getContestantIds() {
+      return await Promise.all([getContestants()])
+  }
+
+      const getPointsInfo = (user_id) => {
+        return fetch(`${config.API_ENDPOINT}/api/points?user_id=${user_id}`)
+            .then(res => res.json())
+    }
+
+    async function getPointStats(user_id) {
+        return await Promise.all([getPointsInfo(user_id)])
+    }
+
+    getContestantIds()
+      .then(([results]) => {
+        const pointsData = []
+        results.forEach(user => {
+          getPointStats(user.user_id)
+            .then(([results]) => {
+              pointsData.push(results)
+            })
+            })
+        this.setState({
+          pointsData: pointsData
+        })
+        console.log(this.state.pointsData)
+        })
+      }
+    
+
+    // getPointStats()
+    //     .then(([results]) => {
+    //         this.setState({
+    //             pointsData: results
+    //         })
+    //         console.log(this.state.pointsData, "points data in state")
+    //     })
+
   
     getMaxima(data) {
       const groupedData = Object.keys(data[0]).reduce((memo, key) => {
