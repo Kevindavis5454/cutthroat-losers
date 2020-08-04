@@ -11,6 +11,8 @@ class Sidebar extends React.Component {
 
     static contextType = ApiContext;
 
+
+
     constructor(props){
         super(props);
         this.state = {
@@ -20,9 +22,7 @@ class Sidebar extends React.Component {
 
     componentDidMount() {
 
-
-
-        async function getContestantList () {
+       /* async function getContestantList () {
             return await Promise.all([getContestants()])
         }
 
@@ -37,10 +37,28 @@ class Sidebar extends React.Component {
         const getContestantStats = (user_id) => {
             return fetch(`${config.API_ENDPOINT}/api/contestInfo/currentStats/?user_id=${user_id}`)
                 .then(res => res.json())
-        }
-        
+        }*/
 
-        getContestantList()
+//---------------------
+        const getSideBarInfo = () => {
+            return fetch(`${config.API_ENDPOINT}/api/contestInfo/sidebarStats?contest_id=${localStorage.getItem("contest Id")}`)
+                .then(res => res.json())
+        }
+
+        async function getSideBarStats() {
+            return await Promise.all([getSideBarInfo()])
+        }
+
+        getSideBarStats()
+            .then(([results]) => {
+                console.log(results, 'From Fetch request  Sidebar Did Mount')
+                this.setState({
+                    contestUsers: results
+                })
+                console.log(this.context.contestantUserInfo, 'Context Push Sidebar Did Mount')
+            })
+//--------------
+       /* getContestantList()
                     .then(([contestants]) => {
                         const contestantIDs = []
                         contestants.forEach(contestant => {
@@ -61,7 +79,7 @@ class Sidebar extends React.Component {
                     })
                     .then(results => {
                         this.setState({contestUsers: this.context.contestantUserInfo})
-                    })
+                    })*/
 
         // console.log("sidebar mounted")
         // console.log(localStorage.getItem("user Id"), "user id")
@@ -71,26 +89,31 @@ class Sidebar extends React.Component {
 
     render () {
 
+        console.log(this.state.contestUsers, 'Context.contestantUserInfo Sidebar render ')
+        const sideBarRender = this.state.contestUsers.map(user => {
+            return ( <Contestant name={user.display_name}/> )
+        })
+
         // const userInfo = this.state.contestUsers
 
         // const renderContestUsers = userInfo.map(user => {return <Contestant />})
-        const users = this.state.contestUsers
+        /*const users = this.state.contestUsers*/
 
-        function renderContestUsers () {
+        /*function renderContestUsers () {
             console.log(users, "users")
-            return <Contestant />
+            return <Contestant />*/
             // return users.forEach(user => {
             //     return <Contestant />
             // })
             
            
-    }
+   /* }*/
         
         return (
             <>
 
             <div className="flex-container-sidebar">
-                {renderContestUsers()}
+                {sideBarRender}
             </div>
                 </>
 

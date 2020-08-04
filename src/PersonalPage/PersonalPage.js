@@ -18,7 +18,8 @@ class PersonalPage extends React.Component {
 
     componentDidMount() {
 
-        console.log("personal page mounted")
+        console.log("personal page mounted -- did mount")
+
     //     const contestInfo = {
     //         contest_id: this.context.contest_id,
     //     }
@@ -58,6 +59,8 @@ class PersonalPage extends React.Component {
      }
 
     render() {
+        console.log("personal page mounted -- in render")
+
         return (
             <>
                 <div className='personal-sidebar'>
