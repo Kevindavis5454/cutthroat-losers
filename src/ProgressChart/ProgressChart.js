@@ -28,12 +28,10 @@ class ProgressChart extends React.Component {
 
       getContestDates()
         .then(results => {
-          console.log(results)
           let startDate = moment(results[0][0].date_start)
           this.setState({
             startDate: startDate.format("MMM Do YYYY")
           })
-          console.log(this.state.startDate, "start Date")
           let endDate = moment(results[0][0].date_end)
           this.setState({
             endDate: endDate.format("MMM Do YYYY")

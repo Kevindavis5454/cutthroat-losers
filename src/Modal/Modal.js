@@ -5,8 +5,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import config from "../config";
 import ApiContext from "../ApiContext"
 import { withRouter } from "react-router";
-import { createBrowserHistory } from 'history' 
-let history = createBrowserHistory()
+
 
 class ContestSelectModal extends React.Component {
 
@@ -83,7 +82,6 @@ class ContestSelectModal extends React.Component {
 
         getContestInfo()
             .then(([contest_id]) => {
-                // both have loaded!
                 this.context.setContestId(contest_id[0].contest_id)
                 localStorage.setItem("contest Id", `${this.context.contest_id}`)
                 this.props.history.push('/personal/home')

@@ -1,10 +1,8 @@
 import React from "react";
-import ApiContext from "../ApiContext";
 import {Link} from "react-router-dom";
 
 class Contestant extends React.Component {
 
-    static contextType = ApiContext;
 
     render() {
         return(
@@ -15,8 +13,8 @@ class Contestant extends React.Component {
                             <div className='circular--portrait'>
                                 <img src='' alt='Profile Picture' className='profile-pic'></img>
                             </div>
-                            <span>Current Weight: </span>
-                            <span>Goal Weight:</span>
+        <span>Current Weight: {this.props.weight}</span>
+        <span>Goal Weight: {this.props.goal}</span>
                             <span>Current Points:</span>
                         </Link>
                     </div>
