@@ -38,8 +38,6 @@ class WeightTracking extends React.Component {
                 const formattedDates = results.map(date => {
                     let dateMoment = moment(date.date_created)
                    return {x: `${dateMoment.format('YYYY/MM/DD')}`, y: date.weight}
-
-
                 })
                 console.log(formattedDates)
                 this.setState({
@@ -80,7 +78,7 @@ class WeightTracking extends React.Component {
                                 <VictoryLabel text={this.state.name} x={225} y={30} textAnchor="middle"/>
                                 <VictoryGroup
                                     color="#bc4123"
-                                    labels={({ datum }) => `Weight: ${datum.y} Date:${datum.x}`}
+                                    labels={({ datum }) => `Weight: ${datum.y} Date: ${datum.x}`}
                                     labelComponent={
                                         <VictoryTooltip
                                             style={{ fontSize: 10 }}

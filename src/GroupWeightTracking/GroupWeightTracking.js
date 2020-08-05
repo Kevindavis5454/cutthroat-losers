@@ -1,22 +1,241 @@
 import React from "react";
 import "./groupweighttracking.css"
-import { VictoryChart, VictoryGroup, VictoryVoronoiContainer, VictoryTooltip, VictoryLine, VictoryScatter } from 'victory'
+import { VictoryChart, VictoryGroup, VictoryVoronoiContainer, VictoryTooltip, VictoryLine, VictoryScatter, VictoryAxis } from 'victory'
+import config from "../config";
+import moment from "moment";
 
 class GroupWeightTracking extends React.Component {
 
     state = {
+        contestants: [],
         user1Weights: [],
+        user1Info: [],
         user2Weights: [],
+        user2Info: [],
         user3Weights: [],
+        user3Info: [],
         user4Weights: [],
+        user4Info: [],
         user5Weights: [],
-        user6Weights: []
+        user5Info: [],
+        user6Weights: [],
+        user6Info: [],
 
     }
 
     componentDidMount() {
 
+        const getContestants = () => {
+            return fetch(`${config.API_ENDPOINT}/api/contestInfo/contestUserIds?contest_id=${localStorage.getItem("contest Id")}`)
+                .then(res => res.json())
+        }
+
+        getContestants()
+            .then((contestants) => {
+                console.log(contestants, 'contestants')
+                let contestantIds = contestants.map(user => {
+                    return user.user_id
+                })
+                this.setState({
+                    contestants: contestantIds
+                })
+                console.log(this.state.contestants, 'state contestants')
+                if (this.state.contestants[0] !== undefined) {
+                    const getWeightInfo = () => {
+                        return fetch(`${config.API_ENDPOINT}/api/contestInfo/userWeights?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[0]}`)
+                            .then(res => res.json())
+                    }
+
+                    const getContestantInfo = () => {
+                        return fetch(`${config.API_ENDPOINT}/api/contestInfo/groupWeightPageStats?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[0]}`)
+                            .then(res => res.json())
+                    }
+                    getWeightInfo()
+                        .then((userWeight)=> {
+                            console.log(userWeight, 'User #1 Weights')
+                            const formattedDates = userWeight.map(date => {
+                                let dateMoment = moment(date.date_created)
+                                return {x: `${dateMoment.format('YYYY/MM/DD')}`, y: date.weight}
+                            })
+                            console.log(formattedDates)
+                            this.setState({
+                                user1Weights: formattedDates
+                            })
+                            getContestantInfo()
+                                .then((contestantInfo)=> {
+                                    let contestantName = contestantInfo.map(name => {
+                                        return name.display_name
+                                    })
+                                    this.setState({
+                                        user1Info: contestantName
+                                    })
+                                    console.log(this.state.user1Info, 'User 1 Info')
+                                })
+                        })
+                }
+                if (this.state.contestants[1] !== undefined) {
+                    const getWeightInfo = () => {
+                        return fetch(`${config.API_ENDPOINT}/api/contestInfo/userWeights?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[1]}`)
+                            .then(res => res.json())
+                    }
+                    const getContestantInfo = () => {
+                        return fetch(`${config.API_ENDPOINT}/api/contestInfo/groupWeightPageStats?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[1]}`)
+                            .then(res => res.json())
+                    }
+                    getWeightInfo()
+                        .then((userWeight)=> {
+                            console.log(userWeight, 'User #2 Weights')
+                            const formattedDates = userWeight.map(date => {
+                                let dateMoment = moment(date.date_created)
+                                return {x: `${dateMoment.format('YYYY/MM/DD')}`, y: date.weight}
+                            })
+                            console.log(formattedDates)
+                            this.setState({
+                                user2Weights: formattedDates
+                            })
+                            getContestantInfo()
+                                .then((contestantInfo)=> {
+                                    let contestantName = contestantInfo.map(name => {
+                                        return name.display_name
+                                    })
+                                    this.setState({
+                                        user2Info: contestantName
+                                    })
+                                    console.log(this.state.user2Info, 'User 2 Info')
+                                })
+                        })
+                }
+                if (this.state.contestants[2] !== undefined) {
+                    const getWeightInfo = () => {
+                        return fetch(`${config.API_ENDPOINT}/api/contestInfo/userWeights?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[2]}`)
+                            .then(res => res.json())
+                    }
+                    const getContestantInfo = () => {
+                        return fetch(`${config.API_ENDPOINT}/api/contestInfo/groupWeightPageStats?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[2]}`)
+                            .then(res => res.json())
+                    }
+                    getWeightInfo()
+                        .then((userWeight)=> {
+                            console.log(userWeight, 'User #3 Weights')
+                            const formattedDates = userWeight.map(date => {
+                                let dateMoment = moment(date.date_created)
+                                return {x: `${dateMoment.format('YYYY/MM/DD')}`, y: date.weight}
+                            })
+                            console.log(formattedDates)
+                            this.setState({
+                                user3Weights: formattedDates
+                            })
+                            getContestantInfo()
+                                .then((contestantInfo)=> {
+                                    let contestantName = contestantInfo.map(name => {
+                                        return name.display_name
+                                    })
+                                    this.setState({
+                                        user3Info: contestantName
+                                    })
+                                    console.log(this.state.user3Info, 'User 3 Info')
+                                })
+                        })
+                }
+                if (this.state.contestants[3] !== undefined) {
+                    const getWeightInfo = () => {
+                        return fetch(`${config.API_ENDPOINT}/api/contestInfo/userWeights?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[3]}`)
+                            .then(res => res.json())
+                    }
+                    const getContestantInfo = () => {
+                        return fetch(`${config.API_ENDPOINT}/api/contestInfo/groupWeightPageStats?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[3]}`)
+                            .then(res => res.json())
+                    }
+                    getWeightInfo()
+                        .then((userWeight)=> {
+                            console.log(userWeight, 'User #4 Weights')
+                            const formattedDates = userWeight.map(date => {
+                                let dateMoment = moment(date.date_created)
+                                return {x: `${dateMoment.format('YYYY/MM/DD')}`, y: date.weight}
+                            })
+                            console.log(formattedDates)
+                            this.setState({
+                                user4Weights: formattedDates
+                            })
+                            getContestantInfo()
+                                .then((contestantInfo)=> {
+                                    let contestantName = contestantInfo.map(name => {
+                                        return name.display_name
+                                    })
+                                    this.setState({
+                                        user4Info: contestantName
+                                    })
+                                    console.log(this.state.user4Info, 'User 4 Info')
+                                })
+                        })
+                }
+                if (this.state.contestants[4] !== undefined) {
+                    const getWeightInfo = () => {
+                        return fetch(`${config.API_ENDPOINT}/api/contestInfo/userWeights?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[4]}`)
+                            .then(res => res.json())
+                    }
+                    const getContestantInfo = () => {
+                        return fetch(`${config.API_ENDPOINT}/api/contestInfo/groupWeightPageStats?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[4]}`)
+                            .then(res => res.json())
+                    }
+                    getWeightInfo()
+                        .then((userWeight)=> {
+                            console.log(userWeight, 'User #5 Weights')
+                            const formattedDates = userWeight.map(date => {
+                                let dateMoment = moment(date.date_created)
+                                return {x: `${dateMoment.format('YYYY/MM/DD')}`, y: date.weight}
+                            })
+                            console.log(formattedDates)
+                            this.setState({
+                                user5Weights: formattedDates
+                            })
+                            getContestantInfo()
+                                .then((contestantInfo)=> {
+                                    let contestantName = contestantInfo.map(name => {
+                                        return name.display_name
+                                    })
+                                    this.setState({
+                                        user5Info: contestantName
+                                    })
+                                })
+                        })
+                }
+                if (this.state.contestants[5] !== undefined) {
+                    const getWeightInfo = () => {
+                        return fetch(`${config.API_ENDPOINT}/api/contestInfo/userWeights?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[5]}`)
+                            .then(res => res.json())
+                    }
+                    const getContestantInfo = () => {
+                        return fetch(`${config.API_ENDPOINT}/api/contestInfo/groupWeightPageStats?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[5]}`)
+                            .then(res => res.json())
+                    }
+                    getWeightInfo()
+                        .then((userWeight)=> {
+                            console.log(userWeight, 'User #6 Weights')
+                            const formattedDates = userWeight.map(date => {
+                                let dateMoment = moment(date.date_created)
+                                return {x: `${dateMoment.format('YYYY/MM/DD')}`, y: date.weight}
+                            })
+                            console.log(formattedDates)
+                            this.setState({
+                                user6Weights: formattedDates
+                            })
+                            getContestantInfo()
+                                .then((contestantInfo)=> {
+                                    let contestantName = contestantInfo.map(name => {
+                                        return name.display_name
+                                    })
+                                    this.setState({
+                                        user6Info: contestantName
+                                    })
+                                })
+                        })
+                }
+
+            })
+
     }
+
 
     render () {
         return (
@@ -31,18 +250,13 @@ class GroupWeightTracking extends React.Component {
                             >
                                 <VictoryGroup
                                     color="#34bf49"
-                                    labels={({ datum }) => `y: ${datum.y}`}
+                                    labels={({ datum }) => `Weight: ${datum.y} Date: ${datum.x}`}
                                     labelComponent={
                                         <VictoryTooltip
                                             style={{ fontSize: 10 }}
                                         />
                                     }
-                                    data={[
-                                        { x: "Week 1", y: 200 },
-                                        { x: "Week 2", y: 198 },
-                                        { x: "Week 3", y: 195 },
-                                        { x: "Week 4", y: 192 }
-                                    ]}
+                                    data={this.state.user1Weights}
                                 >
                                     <VictoryLine/>
                                     <VictoryScatter
@@ -51,18 +265,13 @@ class GroupWeightTracking extends React.Component {
                                 </VictoryGroup>
                                 <VictoryGroup
                                     color="#da4453"
-                                    labels={({ datum }) => `y: ${datum.y}`}
+                                    labels={({ datum }) => `Weight: ${datum.y} Date: ${datum.x}`}
                                     labelComponent={
                                         <VictoryTooltip
                                             style={{ fontSize: 10 }}
                                         />
                                     }
-                                    data={[
-                                        { x: "Week 1", y: 189 },
-                                        { x: "Week 2", y: 188 },
-                                        { x: "Week 3", y: 186 },
-                                        { x: "Week 4", y: 184 }
-                                    ]}
+                                    data={this.state.user2Weights}
                                 >
                                     <VictoryLine/>
                                     <VictoryScatter
@@ -71,18 +280,13 @@ class GroupWeightTracking extends React.Component {
                                 </VictoryGroup>
                                 <VictoryGroup
                                     color="#ffce54"
-                                    labels={({ datum }) => `y: ${datum.y}`}
+                                    labels={({ datum }) => `Weight: ${datum.y} Date: ${datum.x}`}
                                     labelComponent={
                                         <VictoryTooltip
                                             style={{ fontSize: 10 }}
                                         />
                                     }
-                                    data={[
-                                        { x: "Week 1", y: 175 },
-                                        { x: "Week 2", y: 172 },
-                                        { x: "Week 3", y: 168 },
-                                        { x: "Week 4", y: 171}
-                                    ]}
+                                    data={this.state.user3Weights}
                                 >
                                     <VictoryLine/>
                                     <VictoryScatter
@@ -91,30 +295,71 @@ class GroupWeightTracking extends React.Component {
                                 </VictoryGroup>
                                 <VictoryGroup
                                     color="#48cfad"
-                                    labels={({ datum }) => `y: ${datum.y}`}
+                                    labels={({ datum }) => `Weight: ${datum.y} Date: ${datum.x}`}
                                     labelComponent={
                                         <VictoryTooltip
                                             style={{ fontSize: 10 }}
                                         />
                                     }
-                                    data={[
-                                        { x: "Week 1", y: 255 },
-                                        { x: "Week 2", y: 250 },
-                                        { x: "Week 3", y: 252 },
-                                        { x: "Week 4", y: 245 }
-                                    ]}
+                                    data={this.state.user4Weights}
                                 >
                                     <VictoryLine/>
                                     <VictoryScatter
                                         size={({ active }) => active ? 8 : 3}
                                     />
                                 </VictoryGroup>
+                                <VictoryGroup
+                                    color="#ffce54"
+                                    labels={({ datum }) => `Weight: ${datum.y} Date: ${datum.x}`}
+                                    labelComponent={
+                                        <VictoryTooltip
+                                            style={{ fontSize: 10 }}
+                                        />
+                                    }
+                                    data={this.state.user5Weights}
+                                >
+                                    <VictoryLine/>
+                                    <VictoryScatter
+                                        size={({ active }) => active ? 8 : 3}
+                                    />
+                                </VictoryGroup>
+                                <VictoryGroup
+                                    color="#ffce54"
+                                    labels={({ datum }) => `Weight: ${datum.y} Date: ${datum.x}`}
+                                    labelComponent={
+                                        <VictoryTooltip
+                                            style={{ fontSize: 10 }}
+                                        />
+                                    }
+                                    data={this.state.user6Weights}
+                                >
+                                    <VictoryLine/>
+                                    <VictoryScatter
+                                        size={({ active }) => active ? 8 : 3}
+                                    />
+                                </VictoryGroup>
+                                <VictoryAxis
+                                    dependentAxis
+                                    label="Weight"
+                                    style={{
+                                        axisLabel: { fontSize: 16, padding: 32},
+                                    }}
+                                />
+                                <VictoryAxis
+                                    label='Date'
+                                    style={{ axis: { stroke: '#000' },
+                                        axisLabel: { fontSize: 16, padding: 30},
+                                        ticks: { stroke: '#000' },
+                                        tickLabels: { fontSize: 8, padding: 2, angle:45, verticalAnchor: 'middle', textAnchor:'start' }
+                                    }}
+
+                                />
                             </VictoryChart>
                             <ul>
-                                <span className='player1'><li>Kevin</li></span>
-                                <span className='player2'><li>Bork Bork</li></span>
-                                <span className='player3'><li>Woof Woof</li></span>
-                                <span className='player4'><li>Moon Moon</li></span>
+                                <span className='player1'><li>{this.state.user1Info}</li></span>
+                                <span className='player2'><li>{this.state.user2Info}</li></span>
+                                <span className='player3'><li>{this.state.user3Info}</li></span>
+                                <span className='player4'><li>{this.state.user4Info}</li></span>
                             </ul>
                         </div>
                     </div>

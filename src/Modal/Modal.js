@@ -80,19 +80,11 @@ class ContestSelectModal extends React.Component {
             return Promise.all([getContestId()])
         }
 
-        const getContestUserIds = () => {
-            return fetch(`${config.API_ENDPOINT}/api/contestInfo/contestUserIds?contest_id=${localStorage.getItem("contest Id")}`)
-                .then(res => res.json())
-        }
 
         getContestInfo()
             .then(([contest_id]) => {
                 this.context.setContestId(contest_id[0].contest_id)
                 localStorage.setItem("contest Id", `${this.context.contest_id}`)
-                getContestUserIds()
-                    .then(([contestUserIds]) => {
-                        console.log(contestUserIds, 'contestUserIds')
-                    })
                 this.props.history.push('/personal/home')
             })
         
