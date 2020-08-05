@@ -1,11 +1,42 @@
 import React from 'react'
-import { VictoryChart, VictoryGroup, VictoryVoronoiContainer, VictoryTooltip, VictoryLine, VictoryScatter } from 'victory'
+import { VictoryChart, VictoryGroup, VictoryVoronoiContainer, VictoryTooltip, VictoryLine, VictoryScatter, VictoryAxis } from 'victory'
 import {Link} from "react-router-dom";
 import "./WeightTracking.css"
+import config from "../config";
+import moment from 'moment'
 
 
 class WeightTracking extends React.Component {
+
+    state = {
+        weights: []
+    }
+
+    componentDidMount() {
+
+        const getWeightInfo = () => {
+            return fetch(`${config.API_ENDPOINT}/api/contestInfo/userWeights?contest_id=${localStorage.getItem("contest Id")}&user_id=${localStorage.getItem("user Id")}`)
+                .then(res => res.json())
+        }
+
+        async function getUserWeights() {
+            return await Promise.all([getWeightInfo()])
+        }
+
+        getUserWeights()
+            .then(([results]) => {
+                console.log(results)
+                this.setState({
+                    weights: results
+                })
+            })
+    }
+
     render() {
+
+        const date = moment()
+
+        const weightData = this.state.weights
         return (
             <div className='weight-tracker-box'>
                 <h3 className='player1'>Kevin's Weight Tracking</h3>
@@ -16,7 +47,9 @@ class WeightTracking extends React.Component {
                         <div className='flex-item-workout'>
                             <VictoryChart viewBox="0, 0, width, height"
                                           containerComponent={<VictoryVoronoiContainer/>}
-                                          minDomain={{ y: 170 }} maxDomain={{ y: 220}}
+                                          minDomain={{ y: 140 }} maxDomain={{ y: 260}}
+                                          scale={{ x: 'time'}}
+
                             >
                                 <VictoryGroup
                                     color="#bc4123"
@@ -26,12 +59,14 @@ class WeightTracking extends React.Component {
                                             style={{ fontSize: 10 }}
                                         />
                                     }
-                                    data={[
-                                        { x: "Week 1", y: 200 },
-                                        { x: "Week 2", y: 198 },
-                                        { x: "Week 3", y: 195 },
-                                        { x: "Week 4", y: 192 }
-                                    ]}
+                                /*[
+                                { x: "Week 1", y: 200 },
+                                { x: "Week 2", y: 198 },
+                                { x: "Week 3", y: 195 },
+                                { x: "Week 4", y: 192 }
+                                ]*/
+                                    data={this.state.weights}
+                                    y='weight'
                                 >
                                     <VictoryLine/>
                                     <VictoryScatter

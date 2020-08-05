@@ -16,11 +16,6 @@ class PersonalPage extends React.Component {
 
     static contextType = ApiContext;
 
-    componentDidMount() {
-
-        console.log("personal page mounted -- did mount")
-    }
-
     render() {
 
         return (
