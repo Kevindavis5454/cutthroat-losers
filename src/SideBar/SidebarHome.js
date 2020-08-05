@@ -65,7 +65,8 @@ class SidebarHome extends React.Component {
                         .then(res => res.json())
                         .then(json => {
                             const currentUser = json.filter(user => user.username.toLowerCase() === userLogin.username.toLowerCase());
-                            this.context.handleSetUser(currentUser[0].display_name, currentUser[0].user_id)
+                            localStorage.setItem("user Id", `${currentUser[0].user_id}`)
+                            localStorage.setItem("display Name", `${currentUser[0].display_name}`)
                             fetch(`${config.API_ENDPOINT}/api/contest_to_user/${currentUser[0].user_id}`)
                                 .then(res => res.json())
                                 .then(json => {

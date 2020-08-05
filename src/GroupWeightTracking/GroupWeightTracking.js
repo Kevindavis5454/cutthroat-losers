@@ -4,6 +4,20 @@ import { VictoryChart, VictoryGroup, VictoryVoronoiContainer, VictoryTooltip, Vi
 
 class GroupWeightTracking extends React.Component {
 
+    state = {
+        user1Weights: [],
+        user2Weights: [],
+        user3Weights: [],
+        user4Weights: [],
+        user5Weights: [],
+        user6Weights: []
+
+    }
+
+    componentDidMount() {
+
+    }
+
     render () {
         return (
             <div className='weight-tracker-box'>
@@ -13,7 +27,7 @@ class GroupWeightTracking extends React.Component {
                         <div className='flex-item-workout'>
                             <VictoryChart viewBox="0, 0, width, height"
                                           containerComponent={<VictoryVoronoiContainer/>}
-                                          minDomain={{ y: 140 }} maxDomain={{ y: 300}}
+                                          minDomain={{ y: 140 }} maxDomain={{ y: 260}}
                             >
                                 <VictoryGroup
                                     color="#34bf49"

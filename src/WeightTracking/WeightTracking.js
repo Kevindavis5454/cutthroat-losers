@@ -9,7 +9,9 @@ class WeightTracking extends React.Component {
 
     state = {
         weights: [],
-        weightPageStats: []
+        name: [],
+        currentWeight: [],
+        goalWeight: []
     }
 
     componentDidMount() {
@@ -30,9 +32,6 @@ class WeightTracking extends React.Component {
                 .then(res => res.json())
         }
 
-        function getUserStats() {
-            return Promise.all([getUserInfo()])
-        }
 
         getUserWeights()
             .then(([results]) => {
@@ -46,23 +45,28 @@ class WeightTracking extends React.Component {
                 this.setState({
                     weights: formattedDates
                 })
+                getUserInfo()
+                    .then(([weightStats]) => {
+                        this.setState({
+                            name: weightStats.display_name,
+                            currentWeight: weightStats.current_weight,
+                            goalWeight: weightStats.goal_weight
+
+                        })
 
             })
-        getUserStats()
-            .then(([weightStats]) => {
-                this.setState({
-                    weightPageStats: weightStats
-                })
-                console.log(this.state.weightPageStats, 'state weightPageStats')
+
+
             })
     }
 
     render() {
+
         return (
             <div className='weight-tracker-box'>
-                <h3 className='player1'>Kevin's Weight Tracking</h3>
-                <span>Goal Weight: {this.state.weightPageStats.goal_weight}</span>
-                <span>Current Weight: {this.state.weightPageStats.current_weight}</span>
+                <h3 className='player1'>{this.state.name}'s Weight Tracking</h3>
+                <span>Goal Weight: {this.state.goalWeight}</span>
+                <span>Current Weight: {this.state.currentWeight}</span>
                 <div className="flex-container-workout">
                     <div className='flex-cell-workout weight-tracker-single'>
                         <div className='flex-item-workout'>
@@ -73,7 +77,7 @@ class WeightTracking extends React.Component {
 
 
                             >
-                                <VictoryLabel text={this.state.weightPageStats.display_name} x={225} y={30} textAnchor="middle"/>
+                                <VictoryLabel text={this.state.name} x={225} y={30} textAnchor="middle"/>
                                 <VictoryGroup
                                     color="#bc4123"
                                     labels={({ datum }) => `Weight: ${datum.y} Date:${datum.x}`}

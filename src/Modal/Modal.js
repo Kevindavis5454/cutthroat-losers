@@ -80,10 +80,19 @@ class ContestSelectModal extends React.Component {
             return Promise.all([getContestId()])
         }
 
+        const getContestUserIds = () => {
+            return fetch(`${config.API_ENDPOINT}/api/contestInfo/contestUserIds?contest_id=${localStorage.getItem("contest Id")}`)
+                .then(res => res.json())
+        }
+
         getContestInfo()
             .then(([contest_id]) => {
                 this.context.setContestId(contest_id[0].contest_id)
                 localStorage.setItem("contest Id", `${this.context.contest_id}`)
+                getContestUserIds()
+                    .then(([contestUserIds]) => {
+                        console.log(contestUserIds, 'contestUserIds')
+                    })
                 this.props.history.push('/personal/home')
             })
         
@@ -100,7 +109,7 @@ class ContestSelectModal extends React.Component {
                     <button className="modal-close-btn" id="modal-close-btn" onClick={this.handleCloseBtn}>X</button>
                     <div className="modal-content">
                         <div className="modal-item">
-                            <h2>Hello {this.context.userName}!</h2>
+                            <h2>Hello {localStorage.getItem("display Name")}!</h2>
                             Which Contest would you like to go to?<br/>
                             <select id="userContests" name="userContests">
                                 {this.renderUserContests()}
