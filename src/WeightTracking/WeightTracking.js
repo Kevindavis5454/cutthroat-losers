@@ -42,7 +42,6 @@ class WeightTracking extends React.Component {
                 this.setState({
                     weights: formattedDates
                 })
-                console.log(this.state.weights, 'State Formatted Weights')
                 getUserInfo()
                     .then(([weightStats]) => {
                         this.setState({
@@ -95,15 +94,16 @@ class WeightTracking extends React.Component {
                                     dependentAxis
                                     label="Weight"
                                     style={{
-                                        axisLabel: { fontSize: 16, padding: 32},
+                                        axisLabel: { fontSize: 16, padding: 35},
+                                        tickLabels: { fill: '#FFFFFF'}
                                     }}
                                 />
                                 <VictoryAxis
                                     label='Date'
                                     style={{ axis: { stroke: '#000' },
-                                        axisLabel: { fontSize: 16, padding: 30},
+                                        axisLabel: { fontSize: 16, padding: 36},
                                         ticks: { stroke: '#000' },
-                                        tickLabels: { fontSize: 8, padding: 2, angle:45, verticalAnchor: 'middle', textAnchor:'start' }
+                                        tickLabels: { fill: '#FFFFFF', fontSize: 8, padding: 2, angle:45, verticalAnchor: 'middle', textAnchor:'start' }
                                     }}
 
                                 />
