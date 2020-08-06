@@ -16,7 +16,7 @@ const characterData = [
       this.state = {
         data: this.processData(characterData),
         maxima: this.getMaxima(characterData),
-        pointsData: [],
+        bingoPointsData: [],
       };
     }
 
@@ -31,40 +31,36 @@ const characterData = [
       return await Promise.all([getContestants()])
   }
 
-      const getPointsInfo = (user_id) => {
-        return fetch(`${config.API_ENDPOINT}/api/points?user_id=${user_id}`)
+      const getBingoPointsInfo = (user_id) => {
+        return fetch(`${config.API_ENDPOINT}/api/points/bingo?user_id=${user_id}`)
             .then(res => res.json())
     }
 
-    async function getPointStats(user_id) {
-        return await Promise.all([getPointsInfo(user_id)])
+    async function getBingoPointStats(user_id) {
+        return await Promise.all([getBingoPointsInfo(user_id)])
     }
+
 
     getContestantIds()
       .then(([results]) => {
-        const pointsData = []
+        const bingoPointsData = []
         results.forEach(user => {
-          getPointStats(user.user_id)
+          getBingoPointStats(user.user_id)
             .then(([results]) => {
-              pointsData.push(results)
+              bingoPointsData.push(results)
             })
             })
         this.setState({
-          pointsData: pointsData
+          bingoPointsData: bingoPointsData
         })
-        console.log(this.state.pointsData)
+        console.log(this.state.bingoPointsData)
         })
+
+     
+
       }
+
     
-
-    // getPointStats()
-    //     .then(([results]) => {
-    //         this.setState({
-    //             pointsData: results
-    //         })
-    //         console.log(this.state.pointsData, "points data in state")
-    //     })
-
   
     getMaxima(data) {
       const groupedData = Object.keys(data[0]).reduce((memo, key) => {

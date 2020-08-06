@@ -2,10 +2,51 @@ import React from "react";
 import './home.css'
 import ProgressChart from '../ProgressChart/ProgressChart'
 import GroupGraph from "../GroupGraph/GroupGraph";
+import config from "../config";
 
 class Home extends React.Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            contestants: [],
+        }
+        this.renderContestants = this.renderContestants.bind(this)
+    }
+
+    componentDidMount() {
+        const getContestantInfo = () => {
+            return fetch(`${config.API_ENDPOINT}/api/contestInfo/sidebarStats?contest_id=${localStorage.getItem("contest Id")}`)
+                .then(res => res.json())
+        }
+      
+        async function getContestantStats() {
+            return await Promise.all([getContestantInfo()])
+        }
+
+        getContestantStats()
+            .then(([results]) => {
+                const contestants = []
+                results.map(user => {
+                    return contestants.push(user.display_name)
+                })
+                this.setState({
+                    contestants: contestants
+                })
+            })
+    }
+
+    renderContestants = () => {
+        const contestants =  this.state.contestants.map(function(contestant, index) {
+             return (
+             <span key={index} className={"player" + (index + 1)}><li>{contestant}</li></span>
+        )})
+        return contestants
+    }
+
     render () {
+
+
         return (
             <div className="home-container">
                 <div className="flex-container">
@@ -36,10 +77,7 @@ class Home extends React.Component {
                             <div className='player-labels'>
                                 <h3>Group Points Acquired</h3>
                                 <ul>
-                                    <span className='player1'><li>Kevin</li></span>
-                                    <span className='player2'><li>Bork Bork</li></span>
-                                    <span className='player3'><li>Woof Woof</li></span>
-                                    <span className='player4'><li>Moon Moon</li></span>
+                                    {this.renderContestants()}
                                 </ul>
                             </div>
                         </div>
