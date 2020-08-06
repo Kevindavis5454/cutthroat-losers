@@ -84,7 +84,10 @@ class ContestSelectModal extends React.Component {
         getContestInfo()
             .then(([contest_id]) => {
                 this.context.setContestId(contest_id[0].contest_id)
-                localStorage.setItem("contest Id", `${this.context.contest_id}`)
+                localStorage.setItem("contest Id", `${contest_id[0].contest_id}`)
+                localStorage.setItem('contest StartDate', `${contest_id[0].date_start}`)
+                localStorage.setItem('contest EndDate', `${contest_id[0].date_end}`)
+                localStorage.setItem('contest Name', `${contest_id[0].contest_name}`)
                 this.props.history.push('/personal/home')
             })
         

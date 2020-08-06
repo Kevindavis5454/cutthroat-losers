@@ -39,10 +39,10 @@ class WeightTracking extends React.Component {
                     let dateMoment = moment(date.date_created)
                    return {x: `${dateMoment.format('YYYY/MM/DD')}`, y: date.weight}
                 })
-                console.log(formattedDates)
                 this.setState({
                     weights: formattedDates
                 })
+                console.log(this.state.weights, 'State Formatted Weights')
                 getUserInfo()
                     .then(([weightStats]) => {
                         this.setState({
