@@ -1,21 +1,46 @@
 import React from 'react'
 import config from "../config";
-import { VictoryChart, VictoryTheme, VictoryGroup, VictoryArea, VictoryPolarAxis, VictoryLabel} from 'victory'
+import { VictoryChart, VictoryStack, VictoryBar, VictoryAxis} from 'victory'
 
-const characterData = [
-    { Weight: 7, Bingo: 15, Measurements: 1, Workouts: 3, Spent: 15 },
-    { Weight: 5, Bingo: 7, Measurements: 3, Workouts: 10, Spent: 5 },
-    { Weight: 3, Bingo: 10, Measurements: 7, Workouts:7, Spent: 10 },
-    { Weight: 8, Bingo: 22, Measurements: 4, Workouts:2, Spent: 16 }
 
-  ];
-  
   class GroupGraph extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-        data: this.processData(characterData),
-        maxima: this.getMaxima(characterData),
+        dataSet : [
+          [
+            // contestant 1
+              { x: "Weight", y: 1 },
+              { x: "Bingo", y: 2 },
+              { x: "Stomach", y: 3 },
+              { x: "Workout", y: 2 },
+              { x: "Admin", y: 2 }
+          ],
+          [
+            // contestant 2
+              { x: "Weight", y: 1 },
+              { x: "Bingo", y: 2 },
+              { x: "Stomach", y: 3 },
+              { x: "Workout", y: 2 },
+              { x: "Admin", y: 2 }
+          ],
+          [
+            // contestant 3
+              { x: "Weight", y: 1 },
+              { x: "Bingo", y: 2 },
+              { x: "Stomach", y: 3 },
+              { x: "Workout", y: 2 },
+              { x: "Admin", y: 2 }
+          ],
+          [
+            // contestant 4
+              { x: "Weight", y: 2 },
+              { x: "Bingo", y: 3 },
+              { x: "Stomach", y: 4 },
+              { x: "Workout", y: 5 },
+              { x: "Admin", y: 2 }
+          ]
+        ],
         bingoPointsData: [],
       };
     }
@@ -56,79 +81,33 @@ const characterData = [
         console.log(this.state.bingoPointsData)
         })
 
-     
 
       }
-
     
-  
-    getMaxima(data) {
-      const groupedData = Object.keys(data[0]).reduce((memo, key) => {
-        memo[key] = data.map((d) => d[key]);
-        return memo;
-      }, {});
-      return Object.keys(groupedData).reduce((memo, key) => {
-        memo[key] = Math.max(...groupedData[key]);
-        return memo;
-      }, {});
-    }
-  
-    processData(data) {
-      const maxByGroup = this.getMaxima(data);
-      const makeDataArray = (d) => {
-        return Object.keys(d).map((key) => {
-          return { x: key, y: d[key] / maxByGroup[key] };
-        });
-      };
-      return data.map((datum) => makeDataArray(datum));
-    }
-  
-    render() {
-      return (
-        <VictoryChart polar
-          theme={VictoryTheme.material}
-          domain={{ y: [ 0, 1 ] }}
-        >
-          <VictoryGroup colorScale={["#34bf49", "#da4453", "#ffce54", "#48cfad"]}
-            style={{ data: { fillOpacity: 0.2, strokeWidth: 2 }}}
-          >
-            {this.state.data.map((data, i) => {
-              return <VictoryArea key={i} data={data}
-              />;
-            })}
-          </VictoryGroup>
-        {
-          Object.keys(this.state.maxima).map((key, i) => {
-            return (
-              <VictoryPolarAxis key={i} dependentAxis
-                style={{
-                  axisLabel: { fill: "white", padding: 10},
-                  axis: { stroke: "none" },
-                  grid: { stroke: "white", strokeWidth: 0.25, opacity: 0.5 },
-                  tickLabels: { fontSize: 15, padding: 5, fill: "white" }
-                }}
-                tickLabelComponent={
-                  <VictoryLabel labelPlacement="vertical"/>
-                }
-                labelPlacement="perpendicular"
 
-                axisValue={i + 1} label={key}
-                tickFormat={(t) => Math.ceil(t * this.state.maxima[key])}
-                tickValues={[0.25, 0.5, 0.75]}
-              />
-            );
-          })
-        }
-          <VictoryPolarAxis
-            labelPlacement="parallel"
-            tickFormat={() => ""}
-            style={{
-              axis: { stroke: "none" },
-              grid: { stroke: "white", opacity: 0.5 }
-            }}
-          />
-  
+    render() {
+      const dataset = this.state.dataSet;
+      console.log(dataset, "dataset")
+      return (
+        <div>
+        <VictoryChart height={400} width={400}
+          domainPadding={{ x: 30, y: 20 }}
+        >
+            <VictoryStack
+              colorScale={["black", "blue", "tomato"]}
+            >
+              {dataset.map((data, i) => {
+                return <VictoryBar data={data} key={i}/>;
+              })}
+            </VictoryStack>
+            <VictoryAxis dependentAxis
+              tickFormat={(tick) => `${tick}`}
+            />
+            <VictoryAxis
+              tickFormat={["Weight", "Bingo", "Stomach", "Workout", "Admin"]}
+            />
         </VictoryChart>
+      </div>
       );
     }
   }
