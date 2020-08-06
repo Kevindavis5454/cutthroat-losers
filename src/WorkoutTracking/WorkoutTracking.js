@@ -8,10 +8,49 @@ class WorkoutTracking extends React.Component {
 
     state = {
         strengthWorkouts: [],
-        cardioWorkouts: {}
+        cardioWorkouts: [],
+        week1Strength: [],
+        week2Strength: [],
+        week3Strength: [],
+        week4Strength: [],
+        week5Strength: [],
+        week6Strength: [],
+        week7Strength: [],
+        week8Strength: [],
+        week9Strength: [],
+        week10Strength: [],
+        week11Strength: [],
+        week12Strength: [],
+        week1Cardio: [],
+        week2Cardio: [],
+        week3Cardio: [],
+        week4Cardio: [],
+        week5Cardio: [],
+        week6Cardio: [],
+        week7Cardio: [],
+        week8Cardio: [],
+        week9Cardio: [],
+        week10Cardio: [],
+        week11Cardio: [],
+        week12Cardio: [],
+
     }
 
     componentDidMount() {
+
+        Date.prototype.addDays = function(days) {
+            let date = new Date(this.valueOf());
+            date.setDate(date.getDate() + days);
+            return date;
+        }
+
+        let date = new Date(localStorage.getItem("contest StartDate"));
+
+
+
+        const startDate = new Date(localStorage.getItem("contest StartDate"))
+        console.log(localStorage.getItem("contest StartDate"))
+        console.log(startDate)
 
         const getUserStrengthWorkouts = () => {
             return fetch(`${config.API_ENDPOINT}/api/contestInfo/contestUserWorkouts?contest_id=${localStorage.getItem("contest Id")}&user_id=${localStorage.getItem("user Id")}&category=strength`)
@@ -20,19 +59,26 @@ class WorkoutTracking extends React.Component {
 
         getUserStrengthWorkouts()
             .then((workoutData) => {
-                const formattedDates = workoutData.map(date => {
-                    let dateMoment = moment(date.date_created)
-                    return {x: `${dateMoment.format('YYYY/MM/DD')}`, y: date.category}
-                })
-                this.setState({
-                    strengthWorkouts: formattedDates
-                })
-                console.log(this.state.strengthWorkouts, 'State Strength formatted Workouts')
                 const javascriptFormattedDates = workoutData.map(dateCompare => {
-                    let dateFormat = new Date(dateCompare.date_created)
-                    return {x: {dateFormat}, y: dateCompare.category}
+                    return new Date(dateCompare.date_created)
                 })
                 console.log(javascriptFormattedDates, 'JS dates')
+
+                const jsDateSort = () => {
+                    javascriptFormattedDates.map(date => {
+                        if (date < date.addDays(7)) {
+                            return this.state.week1Strength.push(date)
+                        }
+                        if (date >= date.addDays(7) && date < date.addDays(14)) {
+                            return this.state.week2Strength.push(date)
+                        }
+                    })
+                }
+
+                // currentDate.setDate(currentDate.getDate() +parseInt(2))
+                jsDateSort()
+                console.log(this.state.week1Strength, 'Week 1 Strength')
+                console.log(this.state.week2Strength, 'Week 2 Strength')
             })
 
         const getUserCardioWorkouts = () => {
@@ -55,7 +101,14 @@ class WorkoutTracking extends React.Component {
 
     }
 
+
+
+
+
     render () {
+
+
+
         return (
             <>
                 <div className="workout-box-div">
