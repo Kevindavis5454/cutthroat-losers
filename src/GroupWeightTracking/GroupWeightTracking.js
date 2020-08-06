@@ -32,14 +32,12 @@ class GroupWeightTracking extends React.Component {
 
         getContestants()
             .then((contestants) => {
-                console.log(contestants, 'contestants')
                 let contestantIds = contestants.map(user => {
                     return user.user_id
                 })
                 this.setState({
                     contestants: contestantIds
                 })
-                console.log(this.state.contestants, 'state contestants')
                 if (this.state.contestants[0] !== undefined) {
                     const getWeightInfo = () => {
                         return fetch(`${config.API_ENDPOINT}/api/contestInfo/userWeights?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[0]}`)
@@ -52,12 +50,10 @@ class GroupWeightTracking extends React.Component {
                     }
                     getWeightInfo()
                         .then((userWeight)=> {
-                            console.log(userWeight, 'User #1 Weights')
                             const formattedDates = userWeight.map(date => {
                                 let dateMoment = moment(date.date_created)
                                 return {x: `${dateMoment.format('YYYY/MM/DD')}`, y: date.weight}
                             })
-                            console.log(formattedDates)
                             this.setState({
                                 user1Weights: formattedDates
                             })
@@ -69,7 +65,6 @@ class GroupWeightTracking extends React.Component {
                                     this.setState({
                                         user1Info: contestantName
                                     })
-                                    console.log(this.state.user1Info, 'User 1 Info')
                                 })
                         })
                 }
@@ -84,12 +79,10 @@ class GroupWeightTracking extends React.Component {
                     }
                     getWeightInfo()
                         .then((userWeight)=> {
-                            console.log(userWeight, 'User #2 Weights')
                             const formattedDates = userWeight.map(date => {
                                 let dateMoment = moment(date.date_created)
                                 return {x: `${dateMoment.format('YYYY/MM/DD')}`, y: date.weight}
                             })
-                            console.log(formattedDates)
                             this.setState({
                                 user2Weights: formattedDates
                             })
@@ -101,7 +94,6 @@ class GroupWeightTracking extends React.Component {
                                     this.setState({
                                         user2Info: contestantName
                                     })
-                                    console.log(this.state.user2Info, 'User 2 Info')
                                 })
                         })
                 }
@@ -116,12 +108,10 @@ class GroupWeightTracking extends React.Component {
                     }
                     getWeightInfo()
                         .then((userWeight)=> {
-                            console.log(userWeight, 'User #3 Weights')
                             const formattedDates = userWeight.map(date => {
                                 let dateMoment = moment(date.date_created)
                                 return {x: `${dateMoment.format('YYYY/MM/DD')}`, y: date.weight}
                             })
-                            console.log(formattedDates)
                             this.setState({
                                 user3Weights: formattedDates
                             })
@@ -133,7 +123,6 @@ class GroupWeightTracking extends React.Component {
                                     this.setState({
                                         user3Info: contestantName
                                     })
-                                    console.log(this.state.user3Info, 'User 3 Info')
                                 })
                         })
                 }
@@ -148,12 +137,10 @@ class GroupWeightTracking extends React.Component {
                     }
                     getWeightInfo()
                         .then((userWeight)=> {
-                            console.log(userWeight, 'User #4 Weights')
                             const formattedDates = userWeight.map(date => {
                                 let dateMoment = moment(date.date_created)
                                 return {x: `${dateMoment.format('YYYY/MM/DD')}`, y: date.weight}
                             })
-                            console.log(formattedDates)
                             this.setState({
                                 user4Weights: formattedDates
                             })
@@ -165,7 +152,6 @@ class GroupWeightTracking extends React.Component {
                                     this.setState({
                                         user4Info: contestantName
                                     })
-                                    console.log(this.state.user4Info, 'User 4 Info')
                                 })
                         })
                 }
@@ -180,12 +166,10 @@ class GroupWeightTracking extends React.Component {
                     }
                     getWeightInfo()
                         .then((userWeight)=> {
-                            console.log(userWeight, 'User #5 Weights')
                             const formattedDates = userWeight.map(date => {
                                 let dateMoment = moment(date.date_created)
                                 return {x: `${dateMoment.format('YYYY/MM/DD')}`, y: date.weight}
                             })
-                            console.log(formattedDates)
                             this.setState({
                                 user5Weights: formattedDates
                             })
@@ -211,12 +195,10 @@ class GroupWeightTracking extends React.Component {
                     }
                     getWeightInfo()
                         .then((userWeight)=> {
-                            console.log(userWeight, 'User #6 Weights')
                             const formattedDates = userWeight.map(date => {
                                 let dateMoment = moment(date.date_created)
                                 return {x: `${dateMoment.format('YYYY/MM/DD')}`, y: date.weight}
                             })
-                            console.log(formattedDates)
                             this.setState({
                                 user6Weights: formattedDates
                             })
@@ -342,15 +324,16 @@ class GroupWeightTracking extends React.Component {
                                     dependentAxis
                                     label="Weight"
                                     style={{
-                                        axisLabel: { fontSize: 16, padding: 32},
+                                        axisLabel: { fontSize: 16, padding: 35},
+                                        tickLabels: { fill: '#FFFFFF'}
                                     }}
                                 />
                                 <VictoryAxis
                                     label='Date'
                                     style={{ axis: { stroke: '#000' },
-                                        axisLabel: { fontSize: 16, padding: 30},
+                                        axisLabel: { fontSize: 16, padding: 36},
                                         ticks: { stroke: '#000' },
-                                        tickLabels: { fontSize: 8, padding: 2, angle:45, verticalAnchor: 'middle', textAnchor:'start' }
+                                        tickLabels: { fill: '#FFFFFF', fontSize: 10, padding: 2, angle:45, verticalAnchor: 'middle', textAnchor:'start' }
                                     }}
 
                                 />

@@ -1,12 +1,12 @@
 import React from "react";
 import "./workouttracking.css"
-import { VictoryChart, VictoryBar } from 'victory'
+import { VictoryChart, VictoryBar, VictoryAxis } from 'victory'
 import config from "../config";
-import moment from "moment";
 
 class WorkoutTracking extends React.Component {
 
     state = {
+        name: [],
         strengthWorkouts: [],
         cardioWorkouts: [],
         week1Strength: [],
@@ -43,14 +43,7 @@ class WorkoutTracking extends React.Component {
             date.setDate(date.getDate() + days);
             return date;
         }
-
-        let date = new Date(localStorage.getItem("contest StartDate"));
-
-
-
-        const startDate = new Date(localStorage.getItem("contest StartDate"))
-        console.log(localStorage.getItem("contest StartDate"))
-        console.log(startDate)
+        let newDate = new Date(localStorage.getItem("contest StartDate"));
 
         const getUserStrengthWorkouts = () => {
             return fetch(`${config.API_ENDPOINT}/api/contestInfo/contestUserWorkouts?contest_id=${localStorage.getItem("contest Id")}&user_id=${localStorage.getItem("user Id")}&category=strength`)
@@ -62,23 +55,48 @@ class WorkoutTracking extends React.Component {
                 const javascriptFormattedDates = workoutData.map(dateCompare => {
                     return new Date(dateCompare.date_created)
                 })
-                console.log(javascriptFormattedDates, 'JS dates')
 
                 const jsDateSort = () => {
                     javascriptFormattedDates.map(date => {
-                        if (date < date.addDays(7)) {
+                        if (date < newDate.addDays(7)) {
                             return this.state.week1Strength.push(date)
                         }
-                        if (date >= date.addDays(7) && date < date.addDays(14)) {
+                        if (date >= newDate.addDays(7) && date < newDate.addDays(14)) {
                             return this.state.week2Strength.push(date)
+                        }
+                        if (date >= newDate.addDays(14) && date < newDate.addDays(21)) {
+                            return this.state.week3Strength.push(date)
+                        }
+                        if (date >= newDate.addDays(21) && date < newDate.addDays(28)) {
+                            return this.state.week4Strength.push(date)
+                        }
+                        if (date >= newDate.addDays(28) && date < newDate.addDays(35)) {
+                            return this.state.week5Strength.push(date)
+                        }
+                        if (date >= newDate.addDays(35) && date < newDate.addDays(42)) {
+                            return this.state.week6Strength.push(date)
+                        }
+                        if (date >= newDate.addDays(42) && date < newDate.addDays(49)) {
+                            return this.state.week7Strength.push(date)
+                        }
+                        if (date >= newDate.addDays(49) && date < newDate.addDays(56)) {
+                            return this.state.week8Strength.push(date)
+                        }
+                        if (date >= newDate.addDays(56) && date < newDate.addDays(63)) {
+                            return this.state.week9Strength.push(date)
+                        }
+                        if (date >= newDate.addDays(63) && date < newDate.addDays(70)) {
+                            return this.state.week10Strength.push(date)
+                        }
+                        if (date >= newDate.addDays(70) && date < newDate.addDays(77)) {
+                            return this.state.week11Strength.push(date)
+                        }
+                        if (date >= newDate.addDays(77) && date < newDate.addDays(84)) {
+                            return this.state.week12Strength.push(date)
                         }
                     })
                 }
-
-                // currentDate.setDate(currentDate.getDate() +parseInt(2))
                 jsDateSort()
-                console.log(this.state.week1Strength, 'Week 1 Strength')
-                console.log(this.state.week2Strength, 'Week 2 Strength')
             })
 
         const getUserCardioWorkouts = () => {
@@ -88,31 +106,73 @@ class WorkoutTracking extends React.Component {
 
         getUserCardioWorkouts()
             .then((workoutData) => {
-                const formattedDates = workoutData.map(date => {
-                    let dateMoment = moment(date.date_created)
-                    return {x: `${dateMoment.format('YYYY/MM/DD')}`, y: date.category}
+                const javascriptFormattedDates = workoutData.map(dateCompare => {
+                    return new Date(dateCompare.date_created)
                 })
-                this.setState({
-                    cardioWorkouts: formattedDates
-                })
-                console.log(this.state.cardioWorkouts, 'State Cardio formatted Workouts')
+
+                const jsDateSort = () => {
+                    javascriptFormattedDates.map(date => {
+                        if (date < newDate.addDays(7)) {
+                            return this.state.week1Cardio.push(date)
+                        }
+                        if (date >= newDate.addDays(7) && date < newDate.addDays(14)) {
+                            return this.state.week2Cardio.push(date)
+                        }
+                        if (date >= newDate.addDays(14) && date < newDate.addDays(21)) {
+                            return this.state.week3Cardio.push(date)
+                        }
+                        if (date >= newDate.addDays(21) && date < newDate.addDays(28)) {
+                            return this.state.week4Cardio.push(date)
+                        }
+                        if (date >= newDate.addDays(28) && date < newDate.addDays(35)) {
+                            return this.state.week5Cardio.push(date)
+                        }
+                        if (date >= newDate.addDays(35) && date < newDate.addDays(42)) {
+                            return this.state.week6Cardio.push(date)
+                        }
+                        if (date >= newDate.addDays(42) && date < newDate.addDays(49)) {
+                            return this.state.week7Cardio.push(date)
+                        }
+                        if (date >= newDate.addDays(49) && date < newDate.addDays(56)) {
+                            return this.state.week8Cardio.push(date)
+                        }
+                        if (date >= newDate.addDays(56) && date < newDate.addDays(63)) {
+                            return this.state.week9Cardio.push(date)
+                        }
+                        if (date >= newDate.addDays(63) && date < newDate.addDays(70)) {
+                            return this.state.week10Cardio.push(date)
+                        }
+                        if (date >= newDate.addDays(70) && date < newDate.addDays(77)) {
+                            return this.state.week11Cardio.push(date)
+                        }
+                        if (date >= newDate.addDays(77) && date < newDate.addDays(84)) {
+                            return this.state.week12Cardio.push(date)
+                        }
+                    })
+                }
+                jsDateSort()
             })
+        const getUserInfo = () => {
+            return fetch(`${config.API_ENDPOINT}/api/contestInfo/weightPageStats?contest_id=${localStorage.getItem("contest Id")}&user_id=${localStorage.getItem("user Id")}`)
+                .then(res => res.json())
+        }
 
+        getUserInfo()
+            .then(([weightStats]) => {
+                this.setState({
+                    name: weightStats.display_name
+                })
 
+            })
     }
-
-
-
 
 
     render () {
 
-
-
         return (
             <>
                 <div className="workout-box-div">
-                    <h3 className='player1'>Kevin's Workout Tracking</h3>
+                    <h3 className='player1'>{this.state.name}'s Workout Tracking</h3>
                 </div>
                 <div className='workout-buttons'>
                     <button className='glow-on-hover button-left'>Strength Workout</button>
@@ -127,13 +187,35 @@ class WorkoutTracking extends React.Component {
                                     labels={({ datum }) => datum.y }
                                     style={{
                                         data: { fill: "#bc4123" },
+                                        labels: {fill: '#FFFFFF'}
                                     }}
                                     data = {[
-                                        {x: "Week 1", y: 14},
-                                        {x: "Week 2", y: 10},
-                                        {x: "Week 3", y: 3},
-                                        {x: "Week 4", y: 12}
+                                        {x: "Week 1", y: this.state.week1Strength.length},
+                                        {x: "Week 2", y: this.state.week2Strength.length},
+                                        {x: "Week 3", y: this.state.week3Strength.length},
+                                        {x: "Week 4", y: this.state.week4Strength.length},
+                                        {x: "Week 5", y: this.state.week5Strength.length},
+                                        {x: "Week 6", y: this.state.week6Strength.length},
+                                        {x: "Week 7", y: this.state.week7Strength.length},
+                                        {x: "Week 8", y: this.state.week8Strength.length},
                                     ]}
+
+                                />
+                                <VictoryAxis
+                                    dependentAxis
+                                    label="Weight"
+                                    style={{
+                                        axisLabel: { fontSize: 16, padding: 32},
+                                        tickLabels: {fill: '#FFFFFF'}
+                                    }}
+                                />
+                                <VictoryAxis
+                                    label='Date'
+                                    style={{ axis: { stroke: '#000' },
+                                        axisLabel: { fontSize: 16, padding: 36},
+                                        ticks: { stroke: '#000' },
+                                        tickLabels: { fill: '#FFFFFF', fontSize: 14, padding: 2, angle:45, verticalAnchor: 'middle', textAnchor:'start' }
+                                    }}
 
                                 />
                             </VictoryChart>
@@ -147,13 +229,35 @@ class WorkoutTracking extends React.Component {
                                         labels={({ datum }) => datum.y }
                                         style={{
                                             data: {fill: "#ffce54"},
+                                            labels: {fill: '#FFFFFF'}
                                         }}
                                         data = {[
-                                            {x: "Week 1", y: 4},
-                                            {x: "Week 2", y: 3},
-                                            {x: "Week 3", y: 5},
-                                            {x: "Week 4", y: 6}
+                                            {x: "Week 1", y: this.state.week1Cardio.length},
+                                            {x: "Week 2", y: this.state.week2Cardio.length},
+                                            {x: "Week 3", y: this.state.week3Cardio.length},
+                                            {x: "Week 4", y: this.state.week4Cardio.length},
+                                            {x: "Week 5", y: this.state.week5Cardio.length},
+                                            {x: "Week 6", y: this.state.week6Cardio.length},
+                                            {x: "Week 7", y: this.state.week7Cardio.length},
+                                            {x: "Week 8", y: this.state.week8Cardio.length},
                                         ]}
+
+                                    />
+                                    <VictoryAxis
+                                        dependentAxis
+                                        label="Weight"
+                                        style={{
+                                            axisLabel: { fontSize: 16, padding: 32},
+                                            tickLabels: {fill: '#FFFFFF'}
+                                        }}
+                                    />
+                                    <VictoryAxis
+                                        label='Date'
+                                        style={{ axis: { stroke: '#000' },
+                                            axisLabel: { fontSize: 16, padding: 36},
+                                            ticks: { stroke: '#000' },
+                                            tickLabels: { fill: '#FFFFFF', fontSize: 14, padding: 2, angle:45, verticalAnchor: 'middle', textAnchor:'start' }
+                                        }}
 
                                     />
                                 </VictoryChart>
