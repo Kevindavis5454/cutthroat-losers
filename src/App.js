@@ -6,7 +6,6 @@ import PersonalPage from "./PersonalPage/PersonalPage";
 import "./main.css"
 import HeaderLogin from "./Header/HeaderLogin";
 import GroupPage from "./GroupPage/GroupPage";
-import BingoGame from "./Bingo/BingoGame";
 import Footer from "./Footer/Footer";
 import LandingPage from "./LandingPage/LandingPage";
 import Admin from "./Admin/Admin";
@@ -139,14 +138,6 @@ class App extends React.Component {
                     <Route path='/group'
                            render={routeProps => (
                                <GroupPage
-                                   {...this.props}
-                                   {...routeProps}
-                               />
-                           )}
-                    />
-                    <Route path='/bingo'
-                           render={routeProps => (
-                               <BingoGame
                                    {...this.props}
                                    {...routeProps}
                                />

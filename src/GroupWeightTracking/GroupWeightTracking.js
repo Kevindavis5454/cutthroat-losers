@@ -325,7 +325,6 @@ class GroupWeightTracking extends React.Component {
                                     label="Weight"
                                     style={{
                                         axisLabel: { fontSize: 16, padding: 35},
-                                        tickLabels: { fill: '#FFFFFF'}
                                     }}
                                 />
                                 <VictoryAxis
@@ -333,7 +332,7 @@ class GroupWeightTracking extends React.Component {
                                     style={{ axis: { stroke: '#000' },
                                         axisLabel: { fontSize: 16, padding: 36},
                                         ticks: { stroke: '#000' },
-                                        tickLabels: { fill: '#FFFFFF', fontSize: 10, padding: 2, angle:45, verticalAnchor: 'middle', textAnchor:'start' }
+                                        tickLabels: { fontSize: 10, padding: 2, angle:45, verticalAnchor: 'middle', textAnchor:'start' }
                                     }}
 
                                 />

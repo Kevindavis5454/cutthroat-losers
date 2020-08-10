@@ -1,7 +1,5 @@
 import React from "react";
 import "./points.css"
-import { Link } from "react-router-dom";
-import WeightTracking from "../WeightTracking/WeightTracking";
 import { VictoryChart, VictoryGroup, VictoryVoronoiContainer, VictoryTooltip, VictoryLine, VictoryScatter } from 'victory'
 
 class Points extends React.Component {

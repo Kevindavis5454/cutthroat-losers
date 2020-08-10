@@ -31,7 +31,6 @@ class Header extends React.Component {
                             <li><Link to='/group/points'>Points</Link></li>
                         </ul>
                         </li>
-                        <li><Link to='/bingo'>Bingo</Link></li>
                         <li><Link to='/admin'>Admin</Link></li>
                         <li><Link to='/personal/contact'>Contact</Link></li>
                     </ul>

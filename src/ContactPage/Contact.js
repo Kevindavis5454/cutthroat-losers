@@ -1,7 +1,6 @@
 import React from 'react'
 import './contact.css'
 import {Link} from "react-router-dom"
-import GroupWeightTracking from "../GroupWeightTracking/GroupWeightTracking";
 
 class Contact extends React.Component {
     render() {

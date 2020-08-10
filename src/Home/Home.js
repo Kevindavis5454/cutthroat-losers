@@ -84,12 +84,12 @@ class Home extends React.Component {
                     </div>
                     <div className="flex-cell">
                         <div className="flex-item">
-                            <h3>More stuff</h3>
+                            <h3>Future Feature</h3>
                         </div>
                     </div>
                     <div className="flex-cell">
                         <div className="flex-item">
-                            <h3>More More Stuff</h3>
+                            <h3>Future Feature</h3>
                         </div>
                     </div>
                 </div>

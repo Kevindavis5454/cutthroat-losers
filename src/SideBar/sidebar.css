@@ -62,4 +62,8 @@
         flex: 1 1 auto;
     }
 
+    .flex-cell.contestant-completion {
+        flex: 0 0 100%;
+    }
+
 }

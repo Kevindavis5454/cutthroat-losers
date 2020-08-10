@@ -48,7 +48,7 @@ class ProgressChart extends React.Component {
 
 
         let percent = 25;
-        this.setStateInterval = window.setInterval(() => {
+        this.setStateInterval = window.setTimeout(() => {
           percent = this.state.percent;
           percent = (percent > 100) ? 0 : percent;
           this.setState({
@@ -66,6 +66,7 @@ class ProgressChart extends React.Component {
       }
     
       render() {
+
         return (
           <div className='progress-contest-div'>
               <h3>Contest Completion</h3>

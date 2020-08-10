@@ -1,6 +1,5 @@
 import React from "react";
 import './sidebar.css'
-import {Link} from "react-router-dom";
 import ApiContext from "../ApiContext";
 import config from "../config";
 import Contestant from "./Contestant";

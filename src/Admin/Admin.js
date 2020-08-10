@@ -2,7 +2,6 @@ import React from "react";
 import "./admin.css"
 import Sidebar from "../SideBar/Sidebar";
 import { Route } from 'react-router-dom'
-import BingoGame from "../Bingo/BingoGame";
 import GroupWorkoutTracking from "../GroupWorkoutTracking/GroupWorkoutTracking";
 import GroupWeightTracking from "../GroupWeightTracking/GroupWeightTracking";
 
@@ -48,7 +47,7 @@ class Admin extends React.Component {
                     <div className="flex-cell">
                         <div className="flex-item">
                             <div className='calculate'>
-                                <h3>Calculate Bingo Points</h3>
+                                <h3>Future Feature</h3>
                                 <button className='glow-on-hover'>Calculate</button>
                             </div>
                         </div>

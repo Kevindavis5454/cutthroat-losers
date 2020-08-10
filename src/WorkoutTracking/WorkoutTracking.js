@@ -206,7 +206,6 @@ class WorkoutTracking extends React.Component {
                                     label="Weight"
                                     style={{
                                         axisLabel: { fontSize: 16, padding: 32},
-                                        tickLabels: {fill: '#FFFFFF'}
                                     }}
                                 />
                                 <VictoryAxis
@@ -214,7 +213,7 @@ class WorkoutTracking extends React.Component {
                                     style={{ axis: { stroke: '#000' },
                                         axisLabel: { fontSize: 16, padding: 36},
                                         ticks: { stroke: '#000' },
-                                        tickLabels: { fill: '#FFFFFF', fontSize: 14, padding: 2, angle:45, verticalAnchor: 'middle', textAnchor:'start' }
+                                        tickLabels: { fontSize: 14, padding: 2, angle:45, verticalAnchor: 'middle', textAnchor:'start' }
                                     }}
 
                                 />
@@ -248,7 +247,6 @@ class WorkoutTracking extends React.Component {
                                         label="Weight"
                                         style={{
                                             axisLabel: { fontSize: 16, padding: 32},
-                                            tickLabels: {fill: '#FFFFFF'}
                                         }}
                                     />
                                     <VictoryAxis
@@ -256,7 +254,7 @@ class WorkoutTracking extends React.Component {
                                         style={{ axis: { stroke: '#000' },
                                             axisLabel: { fontSize: 16, padding: 36},
                                             ticks: { stroke: '#000' },
-                                            tickLabels: { fill: '#FFFFFF', fontSize: 14, padding: 2, angle:45, verticalAnchor: 'middle', textAnchor:'start' }
+                                            tickLabels: { fontSize: 14, padding: 2, angle:45, verticalAnchor: 'middle', textAnchor:'start' }
                                         }}
 
                                     />

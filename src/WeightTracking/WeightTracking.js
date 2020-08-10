@@ -16,8 +16,6 @@ class WeightTracking extends React.Component {
 
     componentDidMount() {
 
-        let m = moment();
-
         const getWeightInfo = () => {
             return fetch(`${config.API_ENDPOINT}/api/contestInfo/userWeights?contest_id=${localStorage.getItem("contest Id")}&user_id=${localStorage.getItem("user Id")}`)
                 .then(res => res.json())
@@ -95,7 +93,6 @@ class WeightTracking extends React.Component {
                                     label="Weight"
                                     style={{
                                         axisLabel: { fontSize: 16, padding: 35},
-                                        tickLabels: { fill: '#FFFFFF'}
                                     }}
                                 />
                                 <VictoryAxis
@@ -103,7 +100,7 @@ class WeightTracking extends React.Component {
                                     style={{ axis: { stroke: '#000' },
                                         axisLabel: { fontSize: 16, padding: 36},
                                         ticks: { stroke: '#000' },
-                                        tickLabels: { fill: '#FFFFFF', fontSize: 8, padding: 2, angle:45, verticalAnchor: 'middle', textAnchor:'start' }
+                                        tickLabels: { fontSize: 8, padding: 2, angle:45, verticalAnchor: 'middle', textAnchor:'start' }
                                     }}
 
                                 />

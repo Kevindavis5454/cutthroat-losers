@@ -1,7 +1,6 @@
 import React from "react";
 import {Link} from "react-router-dom";
 import WeightTracking from "../WeightTracking/WeightTracking";
-import { Route } from "react-router-dom";
 import WorkoutTracking from "../WorkoutTracking/WorkoutTracking";
 import PersonalSabotages from "../PersonalSabotages/PersonalSabotages";
 import Points from "../Points/Points";
