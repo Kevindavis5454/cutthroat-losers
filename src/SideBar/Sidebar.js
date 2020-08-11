@@ -41,7 +41,6 @@ class Sidebar extends React.Component {
     
 
     render () {
-
         const sideBarRender = this.state.contestUsers.map(function (user, index){
             return ( <Contestant key={index} name={user.display_name} weight={user.current_weight} goal={user.goal_weight} user_id={user.user_id}/> )
         })

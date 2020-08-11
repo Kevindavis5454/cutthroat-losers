@@ -7,8 +7,6 @@ class WorkoutTracking extends React.Component {
 
     state = {
         name: [],
-        strengthWorkouts: [],
-        cardioWorkouts: [],
         week1Strength: [],
         week2Strength: [],
         week3Strength: [],
@@ -56,47 +54,74 @@ class WorkoutTracking extends React.Component {
                     return new Date(dateCompare.date_created)
                 })
 
-                const jsDateSort = () => {
+                const week1Data = []
+                const week2Data = []
+                const week3Data = []
+                const week4Data = []
+                const week5Data = []
+                const week6Data = []
+                const week7Data = []
+                const week8Data = []
+                const week9Data = []
+                const week10Data = []
+                const week11Data = []
+                const week12Data = []
+
+                const strengthDateSort = () => {
                     javascriptFormattedDates.map(date => {
                         if (date < newDate.addDays(7)) {
-                            return this.state.week1Strength.push(date)
+                            return week1Data.push(date)
                         }
                         if (date >= newDate.addDays(7) && date < newDate.addDays(14)) {
-                            return this.state.week2Strength.push(date)
+                            return week2Data.push(date)
                         }
                         if (date >= newDate.addDays(14) && date < newDate.addDays(21)) {
-                            return this.state.week3Strength.push(date)
+                            return week3Data.push(date)
                         }
                         if (date >= newDate.addDays(21) && date < newDate.addDays(28)) {
-                            return this.state.week4Strength.push(date)
+                            return week4Data.push(date)
                         }
                         if (date >= newDate.addDays(28) && date < newDate.addDays(35)) {
-                            return this.state.week5Strength.push(date)
+                            return week5Data.push(date)
                         }
                         if (date >= newDate.addDays(35) && date < newDate.addDays(42)) {
-                            return this.state.week6Strength.push(date)
+                            return week6Data.push(date)
                         }
                         if (date >= newDate.addDays(42) && date < newDate.addDays(49)) {
-                            return this.state.week7Strength.push(date)
+                            return week7Data.push(date)
                         }
                         if (date >= newDate.addDays(49) && date < newDate.addDays(56)) {
-                            return this.state.week8Strength.push(date)
+                            return week8Data.push(date)
                         }
                         if (date >= newDate.addDays(56) && date < newDate.addDays(63)) {
-                            return this.state.week9Strength.push(date)
+                            return week9Data.push(date)
                         }
                         if (date >= newDate.addDays(63) && date < newDate.addDays(70)) {
-                            return this.state.week10Strength.push(date)
+                            return week10Data.push(date)
                         }
                         if (date >= newDate.addDays(70) && date < newDate.addDays(77)) {
-                            return this.state.week11Strength.push(date)
+                            return week11Data.push(date)
                         }
                         if (date >= newDate.addDays(77) && date < newDate.addDays(84)) {
-                            return this.state.week12Strength.push(date)
+                            return week12Data.push(date)
                         }
                     })
                 }
-                jsDateSort()
+                strengthDateSort()
+                this.setState({
+                    week1Strength: week1Data,
+                    week2Strength: week2Data,
+                    week3Strength: week3Data,
+                    week4Strength: week4Data,
+                    week5Strength: week5Data,
+                    week6Strength: week6Data,
+                    week7Strength: week7Data,
+                    week8Strength: week8Data,
+                    week9Strength: week9Data,
+                    week10Strength: week10Data,
+                    week11Strength: week11Data,
+                    week12Strength: week12Data
+                })
             })
 
         const getUserCardioWorkouts = () => {
@@ -110,47 +135,75 @@ class WorkoutTracking extends React.Component {
                     return new Date(dateCompare.date_created)
                 })
 
-                const jsDateSort = () => {
+                const week1Data = []
+                const week2Data = []
+                const week3Data = []
+                const week4Data = []
+                const week5Data = []
+                const week6Data = []
+                const week7Data = []
+                const week8Data = []
+                const week9Data = []
+                const week10Data = []
+                const week11Data = []
+                const week12Data = []
+
+                const cardioDateSort = () => {
                     javascriptFormattedDates.map(date => {
                         if (date < newDate.addDays(7)) {
-                            return this.state.week1Cardio.push(date)
+                            return week1Data.push(date)
                         }
                         if (date >= newDate.addDays(7) && date < newDate.addDays(14)) {
-                            return this.state.week2Cardio.push(date)
+                            return week2Data.push(date)
                         }
                         if (date >= newDate.addDays(14) && date < newDate.addDays(21)) {
-                            return this.state.week3Cardio.push(date)
+                            return week3Data.push(date)
                         }
                         if (date >= newDate.addDays(21) && date < newDate.addDays(28)) {
-                            return this.state.week4Cardio.push(date)
+                            return week4Data.push(date)
                         }
                         if (date >= newDate.addDays(28) && date < newDate.addDays(35)) {
-                            return this.state.week5Cardio.push(date)
+                            return week5Data.push(date)
                         }
                         if (date >= newDate.addDays(35) && date < newDate.addDays(42)) {
-                            return this.state.week6Cardio.push(date)
+                            return week6Data.push(date)
                         }
                         if (date >= newDate.addDays(42) && date < newDate.addDays(49)) {
-                            return this.state.week7Cardio.push(date)
+                            return week7Data.push(date)
                         }
                         if (date >= newDate.addDays(49) && date < newDate.addDays(56)) {
-                            return this.state.week8Cardio.push(date)
+                            return week8Data.push(date)
                         }
                         if (date >= newDate.addDays(56) && date < newDate.addDays(63)) {
-                            return this.state.week9Cardio.push(date)
+                            return week9Data.push(date)
                         }
                         if (date >= newDate.addDays(63) && date < newDate.addDays(70)) {
-                            return this.state.week10Cardio.push(date)
+                            return week10Data.push(date)
                         }
                         if (date >= newDate.addDays(70) && date < newDate.addDays(77)) {
-                            return this.state.week11Cardio.push(date)
+                            return week11Data.push(date)
                         }
                         if (date >= newDate.addDays(77) && date < newDate.addDays(84)) {
-                            return this.state.week12Cardio.push(date)
+                            return week12Data.push(date)
                         }
                     })
                 }
-                jsDateSort()
+                cardioDateSort()
+
+                this.setState({
+                    week1Cardio: week1Data,
+                    week2Cardio: week2Data,
+                    week3Cardio: week3Data,
+                    week4Cardio: week4Data,
+                    week5Cardio: week5Data,
+                    week6Cardio: week6Data,
+                    week7Cardio: week7Data,
+                    week8Cardio: week8Data,
+                    week9Cardio: week9Data,
+                    week10Cardio: week10Data,
+                    week11Cardio: week11Data,
+                    week12Cardio: week12Data
+                })
             })
         const getUserInfo = () => {
             return fetch(`${config.API_ENDPOINT}/api/contestInfo/weightPageStats?contest_id=${localStorage.getItem("contest Id")}&user_id=${localStorage.getItem("user Id")}`)
