@@ -2,8 +2,8 @@ import React from "react";
 import {Link} from "react-router-dom";
 import GroupWeightTracking from "../GroupWeightTracking/GroupWeightTracking";
 import GroupWorkoutTracking from "../GroupWorkoutTracking/GroupWorkoutTracking";
-import GroupSabotages from "../GroupSabotages/GroupSabotages";
 import GroupPoints from "../GroupPoints/GroupPoints";
+import GroupMeasurements from "../GroupMeasurements/GroupMeasurements";
 
 class GroupPageHome extends React.Component {
 
@@ -29,7 +29,7 @@ class GroupPageHome extends React.Component {
                     <div className="flex-cell">
                         <Link className="flex-item" to='/group/sabotages'>
                             <div>
-                                <GroupSabotages />
+                                <GroupMeasurements />
                             </div>
                         </Link>
                     </div>

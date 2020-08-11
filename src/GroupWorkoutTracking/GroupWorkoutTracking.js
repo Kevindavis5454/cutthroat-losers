@@ -2,7 +2,6 @@ import React from "react";
 import "./groupworkouttracking.css"
 import { VictoryChart, VictoryBar } from 'victory'
 import config from "../config";
-import moment from "moment";
 
 class GroupWorkoutTracking extends React.Component {
 

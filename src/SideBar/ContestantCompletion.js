@@ -27,8 +27,8 @@ class ContestantCompletion extends React.Component {
                     const startWeight = weightResults.map(weight => {
                         return parseInt(weight.weight)
                     })
-                    totalWeightToLose.push(this.props.goal - startWeight)
-                    totalWeightLost.push(this.props.goal - this.props.weight)
+                    totalWeightToLose.push(startWeight - this.props.goal)
+                    totalWeightLost.push(startWeight - this.props.weight)
 
                     this.setState({
                         percent: ((totalWeightLost/totalWeightToLose)*100),

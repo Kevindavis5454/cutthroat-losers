@@ -2,8 +2,8 @@ import React from "react";
 import {Link} from "react-router-dom";
 import WeightTracking from "../WeightTracking/WeightTracking";
 import WorkoutTracking from "../WorkoutTracking/WorkoutTracking";
-import PersonalSabotages from "../PersonalSabotages/PersonalSabotages";
 import Points from "../Points/Points";
+import Measurements from "../Measurements/Measurements";
 
 
 class PersonalPageHome extends React.Component {
@@ -31,7 +31,7 @@ class PersonalPageHome extends React.Component {
                     <div className="flex-cell">
                         <Link className="flex-item" to='/personal/sabotages'>
                             <div>
-                                <PersonalSabotages />
+                                <Measurements />
                             </div>
                         </Link>
                     </div>
