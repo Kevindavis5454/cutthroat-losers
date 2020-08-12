@@ -86,13 +86,6 @@ import { VictoryChart, VictoryStack, VictoryBar, VictoryAxis} from 'victory'
           getWeightPointStats(user.user_id)
             .then(([results]) => {
               weightPointsData.push({ x: 'Weight', y: results[0].sum})
-                weightPointsData.forEach(function(data, index) {
-                    if (index === 0) {
-
-                    }
-
-                })
-                console.log(contestantData0, "contestant data 0")
             })
             })
         results.forEach(user => {
@@ -106,7 +99,29 @@ import { VictoryChart, VictoryStack, VictoryBar, VictoryAxis} from 'victory'
             .then(([results]) => {
               workoutPointsData.push({ x: 'Workout', y: results[0].sum })
             })
+            workoutPointsData.forEach(function(data, index) {
+          if (index === 0){
+            return(
+              contestantData0.push(data))
+            
+          }
+          if (index === 1){
+            contestantData1.push(data)
+          }
+          if (index === 2){
+            contestantData2.push(data)
+          }
+          if (index === 3){
+            contestantData3.push(data)
+          }
+          console.log(contestantData0, "contestant 0")
         })
+        })
+        console.log(workoutPointsData, "workoutdata")
+        
+        
+        
+        console.log(contestantData1, "contestant 1")
         })
             
       }
