@@ -80,19 +80,19 @@ a {
     padding: 0.5rem;
     box-sizing: border-box;
 }
-.first-player:hover {
+.contestant1:hover {
     box-shadow: 0 0 5px 2px rgba(52,191,73, 10);
 }
 
-.second-player:hover {
+.contestant2:hover {
     box-shadow: 0 0 5px 2px rgba(218,68,83, 10);
 }
 
-.third-player:hover {
+.contestant3:hover {
     box-shadow: 0 0 5px 2px rgba(255,206,84, 10);
 }
 
-.fourth-player:hover {
+.contestant4:hover {
     box-shadow: 0 0 5px 2px rgba(72,207,173, 10);
 }
 

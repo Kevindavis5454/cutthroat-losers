@@ -86,6 +86,13 @@ import { VictoryChart, VictoryStack, VictoryBar, VictoryAxis} from 'victory'
           getWeightPointStats(user.user_id)
             .then(([results]) => {
               weightPointsData.push({ x: 'Weight', y: results[0].sum})
+                weightPointsData.forEach(function(data, index) {
+                    if (index === 0) {
+
+                    }
+
+                })
+                console.log(contestantData0, "contestant data 0")
             })
             })
         results.forEach(user => {

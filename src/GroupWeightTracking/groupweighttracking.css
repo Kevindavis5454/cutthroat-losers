@@ -3,6 +3,11 @@
     flex-direction: column;
     align-items: center;
 }
+.boldSpan {
+    font-weight: bold;
+    -webkit-text-stroke-width: .1px;
+    -webkit-text-stroke-color: grey;
+}
 
 .player1 {
     color: #34bf49;

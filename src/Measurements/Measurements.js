@@ -50,7 +50,6 @@ class Measurements extends React.Component {
 
     render () {
 
-        console.log(this.state.measurements, 'Formatted dates')
         return (
             <div className='weight-tracker-box'>
                 <h3 className='player1'>{this.state.name}'s Measurement Tracking</h3>
