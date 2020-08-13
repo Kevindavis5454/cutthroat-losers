@@ -324,6 +324,7 @@ class GroupMeasurements extends React.Component {
                                     label="Measurement"
                                     style={{
                                         axisLabel: { fontSize: 16, padding: 35},
+                                        tickLabels: {fill: "#5eacee",}
                                     }}
                                 />
                                 <VictoryAxis
@@ -331,7 +332,7 @@ class GroupMeasurements extends React.Component {
                                     style={{ axis: { stroke: '#000' },
                                         axisLabel: { fontSize: 16, padding: 36},
                                         ticks: { stroke: '#000' },
-                                        tickLabels: { fontSize: 10, padding: 2, angle:45, verticalAnchor: 'middle', textAnchor:'start' }
+                                        tickLabels: {fill: "#5eacee", fontSize: 10, padding: 2, angle:45, verticalAnchor: 'middle', textAnchor:'start' }
                                     }}
 
                                 />

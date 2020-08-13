@@ -1,31 +1,22 @@
 import React from 'react'
 import config from "../config";
-import { VictoryChart, VictoryStack, VictoryBar, VictoryAxis} from 'victory'
+import { VictoryChart, VictoryBar, VictoryAxis} from 'victory'
+import './groupgraph.css'
 
 
   class GroupGraph extends React.Component {
 
         state = {
           contestants: [],
-            stomach: [],
-            weight: [],
-            workout: [],
-            bingo: [],
+            data: [],
             user1Name: [],
             user2Name: [],
             user3Name: [],
             user4Name: [],
-          dataSet : [],
       }
 
 
     componentDidMount() {
-
-        const dataSetArray = []
-        const stomachArray = []
-        const weightArray = []
-        const workoutArray = []
-        const bingoArray = []
 
         const getContestants = () => {
             return fetch(`${config.API_ENDPOINT}/api/contestInfo/contestUserIds?contest_id=${localStorage.getItem("contest Id")}`)
@@ -34,6 +25,7 @@ import { VictoryChart, VictoryStack, VictoryBar, VictoryAxis} from 'victory'
 
         getContestants()
             .then((contestants) => {
+                const chartData =  []
                 let contestantIds = contestants.map(user => {
                     return user.user_id
                 })
@@ -41,23 +33,8 @@ import { VictoryChart, VictoryStack, VictoryBar, VictoryAxis} from 'victory'
                     contestants: contestantIds
                 })
                 if (this.state.contestants[0] !== undefined) {
-                    const getPointsGainedStomach = () => {
-                        return fetch(`${config.API_ENDPOINT}/api/contestInfo/getPointsGainedStomach?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[0]}`)
-                            .then(res => res.json())
-                    }
-
-                    const getPointsGainedWeight = () => {
-                        return fetch(`${config.API_ENDPOINT}/api/contestInfo/getPointsGainedWeight?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[0]}`)
-                            .then(res => res.json())
-                    }
-
-                    const getPointsGainedWorkout = () => {
-                        return fetch(`${config.API_ENDPOINT}/api/contestInfo/getPointsGainedWorkout?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[0]}`)
-                            .then(res => res.json())
-                    }
-
-                    const getPointsGainedBingo = () => {
-                        return fetch(`${config.API_ENDPOINT}/api/contestInfo/getPointsGainedBingo?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[0]}`)
+                    const getUserPoints = () => {
+                        return fetch(`${config.API_ENDPOINT}/api/contestInfo/getUserPoints?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[0]}`)
                             .then(res => res.json())
                     }
 
@@ -66,68 +43,27 @@ import { VictoryChart, VictoryStack, VictoryBar, VictoryAxis} from 'victory'
                             .then(res => res.json())
                     }
 
-                    getContestantInfo()
-                        .then((contestantInfo)=> {
-                            let contestantName = contestantInfo.map(name => {
-                                return name.display_name
-                            })
-                            this.setState({
-                                user1Name: contestantName.toString()
-                            })
-                            getPointsGainedStomach()
-                                .then((pointsGainedStomach) => {
-                                    const formattedPointsStomach = pointsGainedStomach.map(point => {
+                    getUserPoints()
+                                .then((userPoints) => {
+                                    const formattedPointsStomach = userPoints.map(point => {
                                         return parseInt(point.sum)
                                     })
-                                    //1 integer value STOMACH
-                                    stomachArray.push({x: contestantName.toString(), y: parseInt(formattedPointsStomach)})
-                                    getPointsGainedWeight()
-                                        .then((pointsGainedWeight) => {
-                                            const formattedPointsWeight = pointsGainedWeight.map(point => {
-                                                return parseInt(point.sum)
+                                    chartData.push({x: "Contestant 1", y: parseInt(formattedPointsStomach), fill: "#34bf49"})
+                                    getContestantInfo()
+                                        .then((contestantInfo)=> {
+                                            let contestantName = contestantInfo.map(name => {
+                                                return name.display_name
                                             })
-                                            //1 integer value WEIGHT
-                                            weightArray.push({x: contestantName.toString(), y: parseInt(formattedPointsWeight)})
-                                            getPointsGainedWorkout()
-                                                .then((pointsGainedWorkout) => {
-                                                    const formattedPointsWorkout = pointsGainedWorkout.map(point => {
-                                                        return parseInt(point.sum)
-                                                    })
-                                                    //1 integer value WORKOUT
-                                                    workoutArray.push({x: contestantName.toString(), y: parseInt(formattedPointsWorkout)})
-                                                    getPointsGainedBingo()
-                                                        .then((pointsGainedBingo) => {
-                                                            const formattedPointsBingo = pointsGainedBingo.map(point => {
-                                                                return parseInt(point.sum)
-                                                            })
-                                                            //1 integer value BINGO
-                                                            bingoArray.push({x: contestantName.toString(), y: parseInt(formattedPointsBingo)})
-                                                        })
-                                                })
-                                        })
-
+                                            this.setState({
+                                                user1Name: contestantName
+                                            })
                                 })
                         })
 
                 }
                 if (this.state.contestants[1] !== undefined) {
-                    const getPointsGainedStomach = () => {
-                        return fetch(`${config.API_ENDPOINT}/api/contestInfo/getPointsGainedStomach?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[1]}`)
-                            .then(res => res.json())
-                    }
-
-                    const getPointsGainedWeight = () => {
-                        return fetch(`${config.API_ENDPOINT}/api/contestInfo/getPointsGainedWeight?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[1]}`)
-                            .then(res => res.json())
-                    }
-
-                    const getPointsGainedWorkout = () => {
-                        return fetch(`${config.API_ENDPOINT}/api/contestInfo/getPointsGainedWorkout?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[1]}`)
-                            .then(res => res.json())
-                    }
-
-                    const getPointsGainedBingo = () => {
-                        return fetch(`${config.API_ENDPOINT}/api/contestInfo/getPointsGainedBingo?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[1]}`)
+                    const getUserPoints = () => {
+                        return fetch(`${config.API_ENDPOINT}/api/contestInfo/getUserPoints?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[1]}`)
                             .then(res => res.json())
                     }
 
@@ -135,69 +71,27 @@ import { VictoryChart, VictoryStack, VictoryBar, VictoryAxis} from 'victory'
                         return fetch(`${config.API_ENDPOINT}/api/contestInfo/groupWeightPageStats?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[1]}`)
                             .then(res => res.json())
                     }
-
-                    getContestantInfo()
-                        .then((contestantInfo)=> {
-                            let contestantName = contestantInfo.map(name => {
-                                return name.display_name
-                            })
-                            this.setState({
-                                user2Name: contestantName.toString()
-                            })
-                            getPointsGainedStomach()
-                                .then((pointsGainedStomach) => {
-                                    const formattedPointsStomach = pointsGainedStomach.map(point => {
+                    getUserPoints()
+                                .then((userPoints) => {
+                                    const formattedPointsStomach = userPoints.map(point => {
                                         return parseInt(point.sum)
                                     })
-                                    //1 integer value STOMACH
-                                    stomachArray.push({x: contestantName.toString(), y: parseInt(formattedPointsStomach)})
-                                    getPointsGainedWeight()
-                                        .then((pointsGainedWeight) => {
-                                            const formattedPointsWeight = pointsGainedWeight.map(point => {
-                                                return parseInt(point.sum)
+                                    chartData.push({x: "Contestant 2", y: parseInt(formattedPointsStomach), fill: "#da4453"})
+                                    getContestantInfo()
+                                        .then((contestantInfo)=> {
+                                            let contestantName = contestantInfo.map(name => {
+                                                return name.display_name
                                             })
-                                            //1 integer value WEIGHT
-                                            weightArray.push({x: contestantName.toString(), y: parseInt(formattedPointsWeight)})
-                                            getPointsGainedWorkout()
-                                                .then((pointsGainedWorkout) => {
-                                                    const formattedPointsWorkout = pointsGainedWorkout.map(point => {
-                                                        return parseInt(point.sum)
-                                                    })
-                                                    //1 integer value WORKOUT
-                                                    workoutArray.push({x: contestantName.toString(), y: parseInt(formattedPointsWorkout)})
-                                                    getPointsGainedBingo()
-                                                        .then((pointsGainedBingo) => {
-                                                            const formattedPointsBingo = pointsGainedBingo.map(point => {
-                                                                return parseInt(point.sum)
-                                                            })
-                                                            //1 integer value BINGO
-                                                            bingoArray.push({x: contestantName.toString(), y: parseInt(formattedPointsBingo)})
-                                                        })
-                                                })
-                                        })
-
+                                            this.setState({
+                                                user2Name: contestantName
+                                            })
                                 })
                         })
 
                 }
                 if (this.state.contestants[2] !== undefined) {
-                    const getPointsGainedStomach = () => {
-                        return fetch(`${config.API_ENDPOINT}/api/contestInfo/getPointsGainedStomach?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[2]}`)
-                            .then(res => res.json())
-                    }
-
-                    const getPointsGainedWeight = () => {
-                        return fetch(`${config.API_ENDPOINT}/api/contestInfo/getPointsGainedWeight?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[2]}`)
-                            .then(res => res.json())
-                    }
-
-                    const getPointsGainedWorkout = () => {
-                        return fetch(`${config.API_ENDPOINT}/api/contestInfo/getPointsGainedWorkout?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[2]}`)
-                            .then(res => res.json())
-                    }
-
-                    const getPointsGainedBingo = () => {
-                        return fetch(`${config.API_ENDPOINT}/api/contestInfo/getPointsGainedBingo?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[2]}`)
+                    const getUserPoints = () => {
+                        return fetch(`${config.API_ENDPOINT}/api/contestInfo/getUserPoints?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[2]}`)
                             .then(res => res.json())
                     }
 
@@ -206,68 +100,29 @@ import { VictoryChart, VictoryStack, VictoryBar, VictoryAxis} from 'victory'
                             .then(res => res.json())
                     }
 
-                    getContestantInfo()
-                        .then((contestantInfo)=> {
-                            let contestantName = contestantInfo.map(name => {
-                                return name.display_name
-                            })
-                            this.setState({
-                                user3Name: contestantName.toString()
-                            })
-                            getPointsGainedStomach()
-                                .then((pointsGainedStomach) => {
-                                    const formattedPointsStomach = pointsGainedStomach.map(point => {
+
+                            getUserPoints()
+                                .then((userPoints) => {
+                                    const formattedPointsStomach = userPoints.map(point => {
                                         return parseInt(point.sum)
                                     })
-                                    //1 integer value STOMACH
-                                    stomachArray.push({x: contestantName.toString(), y: parseInt(formattedPointsStomach)})
-                                    getPointsGainedWeight()
-                                        .then((pointsGainedWeight) => {
-                                            const formattedPointsWeight = pointsGainedWeight.map(point => {
-                                                return parseInt(point.sum)
-                                            })
-                                            //1 integer value WEIGHT
-                                            weightArray.push({x: contestantName.toString(), y: parseInt(formattedPointsWeight)})
-                                            getPointsGainedWorkout()
-                                                .then((pointsGainedWorkout) => {
-                                                    const formattedPointsWorkout = pointsGainedWorkout.map(point => {
-                                                        return parseInt(point.sum)
-                                                    })
-                                                    //1 integer value WORKOUT
-                                                    workoutArray.push({x: contestantName.toString(), y: parseInt(formattedPointsWorkout)})
-                                                    getPointsGainedBingo()
-                                                        .then((pointsGainedBingo) => {
-                                                            const formattedPointsBingo = pointsGainedBingo.map(point => {
-                                                                return parseInt(point.sum)
-                                                            })
-                                                            //1 integer value BINGO
-                                                            bingoArray.push({x: contestantName.toString(), y: parseInt(formattedPointsBingo)})
-                                                        })
-                                                })
-                                        })
+                                    chartData.push({x: "Contestant 3", y: parseInt(formattedPointsStomach), fill: "#ffce54"})
 
+                                    getContestantInfo()
+                                        .then((contestantInfo)=> {
+                                            let contestantName = contestantInfo.map(name => {
+                                                return name.display_name
+                                            })
+                                            this.setState({
+                                                user3Name: contestantName
+                                            })
                                 })
                         })
 
                 }
                 if (this.state.contestants[3] !== undefined) {
-                    const getPointsGainedStomach = () => {
-                        return fetch(`${config.API_ENDPOINT}/api/contestInfo/getPointsGainedStomach?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[3]}`)
-                            .then(res => res.json())
-                    }
-
-                    const getPointsGainedWeight = () => {
-                        return fetch(`${config.API_ENDPOINT}/api/contestInfo/getPointsGainedWeight?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[3]}`)
-                            .then(res => res.json())
-                    }
-
-                    const getPointsGainedWorkout = () => {
-                        return fetch(`${config.API_ENDPOINT}/api/contestInfo/getPointsGainedWorkout?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[3]}`)
-                            .then(res => res.json())
-                    }
-
-                    const getPointsGainedBingo = () => {
-                        return fetch(`${config.API_ENDPOINT}/api/contestInfo/getPointsGainedBingo?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[3]}`)
+                    const getUserPoints = () => {
+                        return fetch(`${config.API_ENDPOINT}/api/contestInfo/getUserPoints?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[3]}`)
                             .then(res => res.json())
                     }
 
@@ -275,95 +130,76 @@ import { VictoryChart, VictoryStack, VictoryBar, VictoryAxis} from 'victory'
                         return fetch(`${config.API_ENDPOINT}/api/contestInfo/groupWeightPageStats?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[3]}`)
                             .then(res => res.json())
                     }
-
-                    getContestantInfo()
-                        .then((contestantInfo)=> {
-                            let contestantName = contestantInfo.map(name => {
-                                return name.display_name
+                    getUserPoints()
+                        .then((userPoints) => {
+                            const formattedPointsStomach = userPoints.map(point => {
+                                return parseInt(point.sum)
                             })
-                            this.setState({
-                                user4Name: contestantName.toString()
-                            })
-                            getPointsGainedStomach()
-                                .then((pointsGainedStomach) => {
-                                    const formattedPointsStomach = pointsGainedStomach.map(point => {
-                                        return parseInt(point.sum)
+                            chartData.push({x: "Contestant 4", y: parseInt(formattedPointsStomach), fill: "#48cfad"})
+                            getContestantInfo()
+                                .then((contestantInfo)=> {
+                                    let contestantName = contestantInfo.map(name => {
+                                        return name.display_name
                                     })
-                                    //1 integer value STOMACH
-                                    stomachArray.push({x: contestantName.toString(), y: parseInt(formattedPointsStomach)})
-                                    getPointsGainedWeight()
-                                        .then((pointsGainedWeight) => {
-                                            const formattedPointsWeight = pointsGainedWeight.map(point => {
-                                                return parseInt(point.sum)
-                                            })
-                                            //1 integer value WEIGHT
-                                            weightArray.push({x: contestantName.toString(), y: parseInt(formattedPointsWeight)})
-                                            getPointsGainedWorkout()
-                                                .then((pointsGainedWorkout) => {
-                                                    const formattedPointsWorkout = pointsGainedWorkout.map(point => {
-                                                        return parseInt(point.sum)
-                                                    })
-                                                    //1 integer value WORKOUT
-                                                    workoutArray.push({x: contestantName.toString(), y: parseInt(formattedPointsWorkout)})
-                                                    getPointsGainedBingo()
-                                                        .then((pointsGainedBingo) => {
-                                                            const formattedPointsBingo = pointsGainedBingo.map(point => {
-                                                                return parseInt(point.sum)
-                                                            })
-                                                            //1 integer value BINGO
-                                                            bingoArray.push({x: contestantName.toString(), y: parseInt(formattedPointsBingo)})
-                                                        })
-                                                })
-                                        })
-
+                                    this.setState({
+                                        user4Name: contestantName
+                                    })
                                 })
                         })
-
                 }
-
-                dataSetArray.push(stomachArray)
-                dataSetArray.push(weightArray)
-                dataSetArray.push(workoutArray)
-                dataSetArray.push(bingoArray)
                 this.setState({
-                    dataSet: dataSetArray
+                    data: chartData
                 })
+
             })
 
     }
 
     render() {
-            console.log(this.state.dataSet, 'data set state')
-        const dataSetVar = this.state.dataSet
-
       return (
+          <div className='group-points-tracking-div'>
+              <h3>Total Points Acquired</h3>
+          <div className="flex-container-workout">
+              <div className='flex-cell-workout weight-tracker-single'>
+                  <div className='flex-item-workout'>
+            <VictoryChart domainPadding={{ x:20 }} minDomain={{ y: 0 }} maxDomain={{ y: 250}} viewBox="0, 0, width, height" >
+                <VictoryBar
+                    labels={({ datum }) => datum.y }
+                    style={{
+                        data: { fill: ({ datum }) => datum.fill },
+                        labels: {fill: '#FFFFFF'}
+                    }}
+                    data = {this.state.data}
 
-        <div>
-        <VictoryChart height={400} width={400}
-                      domainPadding={{ x: 30, y: 20 }}
+                />
+                <VictoryAxis
+                    dependentAxis
+                    label="Points"
+                    style={{
+                        axisLabel: { fontSize: 16, padding: 32},
+                    }}
+                />
+                <VictoryAxis
+                    tickFormat={() => ''}
+                    label="Contestants"
+                    style={{ axis: { stroke: '#000' },
+                        axisLabel: { fontSize: 16, padding: 36},
+                        ticks: { stroke: '#000' },
+                        tickLabels: { fontSize: 14, padding: 2, angle:45, verticalAnchor: 'middle', textAnchor:'start' }
+                    }}
 
-                      viewBox="0, 0, width, height"
-        >
-            <VictoryStack
-              colorScale={["black", "blue", "red", "yellow"]}
-            >
-                {dataSetVar.map((data, index) => {
-                    return <VictoryBar data={data} key={index}/>;
-                })}
-
-            </VictoryStack>
-            {/*<VictoryAxis
-                dependentAxis
-                label="Points"
-            />
-            <VictoryAxis
-                label='Contestant'
-                tickValues={[this.state.user1Name.toString(), this.state.user2Name.toString(), this.state.user3Name.toString(), this.state.user4Name.toString()]}
-                tickFormat={[this.state.user1Name.toString(), this.state.user2Name.toString(), this.state.user3Name.toString(), this.state.user4Name.toString()]}
-
-            />*/}
-        </VictoryChart>
-      </div>
+                />
+            </VictoryChart>
+            <ul>
+                <span className='player1'><li>{this.state.user1Name}</li></span>
+                <span className='player2'><li>{this.state.user2Name}</li></span>
+                <span className='player3'><li>{this.state.user3Name}</li></span>
+                <span className='player4'><li>{this.state.user4Name}</li></span>
+            </ul>
+                  </div>
+              </div>
+          </div>
+          </div>
       );
     }
   }

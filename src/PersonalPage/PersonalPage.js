@@ -9,11 +9,9 @@ import Contact from "../ContactPage/Contact";
 import Home from "../Home/Home";
 import Sidebar from "../SideBar/Sidebar";
 import Rules from "../LandingPage/Rules";
-import ApiContext from "../ApiContext";
 
 class PersonalPage extends React.Component {
 
-    static contextType = ApiContext;
 
     render() {
 

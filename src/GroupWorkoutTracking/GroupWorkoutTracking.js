@@ -1,6 +1,6 @@
 import React from "react";
 import "./groupworkouttracking.css"
-import { VictoryChart, VictoryBar } from 'victory'
+import { VictoryChart, VictoryBar, VictoryAxis } from 'victory'
 import config from "../config";
 
 class GroupWorkoutTracking extends React.Component {
@@ -655,6 +655,23 @@ class GroupWorkoutTracking extends React.Component {
                                     }}
                                     data = {this.state.week1Data}
                                 />
+                                <VictoryAxis
+                                    dependentAxis
+                                    label="Workout"
+                                    style={{
+                                        axisLabel: { fontSize: 16, padding: 35},
+                                        tickLabels: {fill: "#5eacee",}
+                                    }}
+                                />
+                                <VictoryAxis
+                                    label='Number of Workouts'
+                                    style={{ axis: { stroke: '#000' },
+                                        axisLabel: { fontSize: 16, padding: 36},
+                                        ticks: { stroke: '#000' },
+                                        tickLabels: {fill: "#5eacee"}
+                                    }}
+
+                                />
                             </VictoryChart>
                         </div>
                     </div>
@@ -670,6 +687,23 @@ class GroupWorkoutTracking extends React.Component {
                                         }
                                     }}
                                     data = {this.state.week2Data}
+                                />
+                                <VictoryAxis
+                                    dependentAxis
+                                    label="Workout"
+                                    style={{
+                                        axisLabel: { fontSize: 16, padding: 35},
+                                        tickLabels: {fill: "#5eacee",}
+                                    }}
+                                />
+                                <VictoryAxis
+                                    label='Number of Workouts'
+                                    style={{ axis: { stroke: '#000' },
+                                        axisLabel: { fontSize: 16, padding: 36},
+                                        ticks: { stroke: '#000' },
+                                        tickLabels: {fill: "#5eacee"}
+                                    }}
+
                                 />
                             </VictoryChart>
                         </div>
@@ -687,6 +721,23 @@ class GroupWorkoutTracking extends React.Component {
                                     }}
                                     data = {this.state.week3Data}
                                 />
+                                <VictoryAxis
+                                    dependentAxis
+                                    label="Workout"
+                                    style={{
+                                        axisLabel: { fontSize: 16, padding: 35},
+                                        tickLabels: {fill: "#5eacee",}
+                                    }}
+                                />
+                                <VictoryAxis
+                                    label='Number of Workouts'
+                                    style={{ axis: { stroke: '#000' },
+                                        axisLabel: { fontSize: 16, padding: 36},
+                                        ticks: { stroke: '#000' },
+                                        tickLabels: {fill: "#5eacee"}
+                                    }}
+
+                                />
                             </VictoryChart>
                     </div>
                 </div>
@@ -702,6 +753,23 @@ class GroupWorkoutTracking extends React.Component {
                                         }
                                     }}
                                     data = {this.state.week4Data}
+                                />
+                                <VictoryAxis
+                                    dependentAxis
+                                    label="Workout"
+                                    style={{
+                                        axisLabel: { fontSize: 16, padding: 35},
+                                        tickLabels: {fill: "#5eacee",}
+                                    }}
+                                />
+                                <VictoryAxis
+                                    label='Number of Workouts'
+                                    style={{ axis: { stroke: '#000' },
+                                        axisLabel: { fontSize: 16, padding: 36},
+                                        ticks: { stroke: '#000' },
+                                        tickLabels: {fill: "#5eacee"}
+                                    }}
+
                                 />
                             </VictoryChart>
                         </div>

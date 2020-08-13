@@ -20,11 +20,6 @@ class App extends React.Component {
         userName: "",
         contest_id: "",
         user_id: "",
-        measurements: [],
-        weights: [],
-        points: [],
-        workouts: [],
-        sabotages: [],
         contestantIds: [],
         contestantUserInfo: [],
         contestantCurrentWeights: [],
@@ -85,22 +80,14 @@ class App extends React.Component {
             setContestId: this.setContestId,
             handleSetContestantInfo: this.setContestantInfo,
             handleSetContestantCurrentWeight: this.setContestantCurrentWeight,
-            measurements: this.state.measurements,
-            weights: this.state.weights,
-            points: this.state.points,
-            sabotages: this.state.sabotages,
             contestants: this.state.contestants,
             contestantUserInfo: this.state.contestantUserInfo,
             contestantCurrentWeights: this.state.contestantCurrentWeights,
-
-
-
-
-
         };
 
         return (
             <ApiContext.Provider value={value}>
+                <Error>
             <div className='main-div'>
                 <div className='header-div'>
                     <Route exact path='/' component={HeaderLogin} />
@@ -156,6 +143,7 @@ class App extends React.Component {
                     <Route path='/' component={Footer} />
                 </div>
             </div>
+                </Error>
             </ApiContext.Provider>
         );
     }

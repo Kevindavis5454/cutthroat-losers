@@ -70,8 +70,14 @@ class ProgressChart extends React.Component {
         return (
           <div className='progress-contest-div'>
               <h3>Contest Completion</h3>
-        <span>Contest Start Date: {this.state.startDate}</span>
-        <span>Contest Completion Date: {this.state.endDate}</span>
+
+              <div className="flex-container-workout">
+                  <div className='flex-cell-workout weight-tracker-single'>
+                      <div className='flex-item-workout'>
+                          <h3>Contest Start Date:</h3>
+                          <span>{this.state.startDate}</span>
+                          <h3>Contest Completion Date: </h3>
+                          <span>{this.state.endDate}</span>
             <svg viewBox="0 0 400 400" width="100%" height="100%">
               <VictoryPie
                 standalone={false}
@@ -102,6 +108,9 @@ class ProgressChart extends React.Component {
                 }}
               </VictoryAnimation>
             </svg>
+                      </div>
+                  </div>
+              </div>
           </div>
         );
       }

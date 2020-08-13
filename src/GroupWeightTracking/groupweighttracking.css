@@ -9,18 +9,22 @@
     -webkit-text-stroke-color: grey;
 }
 
+/*GREEN */
 .player1 {
     color: #34bf49;
 }
 
+/*RED*/
 .player2 {
     color: #da4453;
 }
 
+/*YELLOW*/
 .player3 {
     color: #ffce54;
 }
 
+/*TEAL*/
 .player4 {
     color: #48cfad;
 }

@@ -2,8 +2,11 @@ import React from "react";
 import "./workouttracking.css"
 import { VictoryChart, VictoryBar, VictoryAxis } from 'victory'
 import config from "../config";
+import ApiContext from "../ApiContext";
 
 class WorkoutTracking extends React.Component {
+
+    static contextType = ApiContext;
 
     state = {
         name: [],
@@ -219,13 +222,42 @@ class WorkoutTracking extends React.Component {
             })
     }
 
+    renderPlayername = () => {
+        if (this.state.name == localStorage.getItem("player1")) {
+            return "player1"
+        }
+        if (this.state.name == localStorage.getItem("player2")) {
+            return "player2"
+        }
+        if (this.state.name == localStorage.getItem("player3")) {
+            return "player3"
+        }
+        if (this.state.name == localStorage.getItem("player4")) {
+            return "player4"
+        }
+    }
+
+    renderPlayerColor = () => {
+        if (this.state.name == localStorage.getItem("player1")) {
+            return "#34bf49"
+        }
+        if (this.state.name == localStorage.getItem("player2")) {
+            return "#da4453"
+        }
+        if (this.state.name == localStorage.getItem("player3")) {
+            return "#ffce54"
+        }
+        if (this.state.name == localStorage.getItem("player4")) {
+            return "#48cfad"
+        }
+    }
 
     render () {
 
         return (
             <>
                 <div className="workout-box-div">
-                    <h3 className='player1'>{this.state.name}'s Workout Tracking</h3>
+                    <h3 className={this.renderPlayername()}>{this.state.name}'s Workout Tracking</h3>
                 </div>
                 <div className='workout-buttons'>
                     <button className='glow-on-hover button-left'>Strength Workout</button>
@@ -239,7 +271,7 @@ class WorkoutTracking extends React.Component {
                                 <VictoryBar
                                     labels={({ datum }) => datum.y }
                                     style={{
-                                        data: { fill: "#bc4123" },
+                                        data: { fill: this.renderPlayerColor() },
                                         labels: {fill: '#FFFFFF'}
                                     }}
                                     data = {[
@@ -259,6 +291,7 @@ class WorkoutTracking extends React.Component {
                                     label="Weight"
                                     style={{
                                         axisLabel: { fontSize: 16, padding: 32},
+                                        tickLabels: {fill: "#5eacee",}
                                     }}
                                 />
                                 <VictoryAxis
@@ -266,7 +299,7 @@ class WorkoutTracking extends React.Component {
                                     style={{ axis: { stroke: '#000' },
                                         axisLabel: { fontSize: 16, padding: 36},
                                         ticks: { stroke: '#000' },
-                                        tickLabels: { fontSize: 14, padding: 2, angle:45, verticalAnchor: 'middle', textAnchor:'start' }
+                                        tickLabels: {fill: "#5eacee", fontSize: 14, padding: 2, angle:45, verticalAnchor: 'middle', textAnchor:'start' }
                                     }}
 
                                 />
@@ -280,7 +313,7 @@ class WorkoutTracking extends React.Component {
                                     <VictoryBar
                                         labels={({ datum }) => datum.y }
                                         style={{
-                                            data: {fill: "#ffce54"},
+                                            data: {fill: this.renderPlayerColor()},
                                             labels: {fill: '#FFFFFF'}
                                         }}
                                         data = {[
@@ -300,6 +333,7 @@ class WorkoutTracking extends React.Component {
                                         label="Weight"
                                         style={{
                                             axisLabel: { fontSize: 16, padding: 32},
+                                            tickLabels: {fill: "#5eacee",}
                                         }}
                                     />
                                     <VictoryAxis
@@ -307,7 +341,7 @@ class WorkoutTracking extends React.Component {
                                         style={{ axis: { stroke: '#000' },
                                             axisLabel: { fontSize: 16, padding: 36},
                                             ticks: { stroke: '#000' },
-                                            tickLabels: { fontSize: 14, padding: 2, angle:45, verticalAnchor: 'middle', textAnchor:'start' }
+                                            tickLabels: {fill: "#5eacee", fontSize: 14, padding: 2, angle:45, verticalAnchor: 'middle', textAnchor:'start' }
                                         }}
 
                                     />
