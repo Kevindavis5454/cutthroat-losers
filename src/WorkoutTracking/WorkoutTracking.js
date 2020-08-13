@@ -252,17 +252,73 @@ class WorkoutTracking extends React.Component {
         }
     }
 
+    handleStrengthSubmit = e => {
+        e.preventDefault()
+        const strengthWorkout = {
+            contest_id: parseInt(localStorage.getItem("contest Id")),
+            user_id: parseInt(localStorage.getItem("user Id")),
+            category: document.getElementById("strength").name
+        }
+        fetch(`${config.API_ENDPOINT}/api/contestInfo/logWorkout`, {
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+                'content-type' : 'application/json',
+            },
+            body: JSON.stringify(strengthWorkout),
+        })
+            .then(res => {
+                if (!res.ok)
+                    return res.json().then(e => Promise.reject(e))
+                else {
+                    alert("Your Strength Workout has been recorded. Great Job!")
+                }
+            })
+            .catch(error => {
+                console.error({error})
+            })
+    }
+    handleCardioSubmit = e => {
+        e.preventDefault()
+        const cardioWorkout = {
+            contest_id: parseInt(localStorage.getItem("contest Id")),
+            user_id: parseInt(localStorage.getItem("user Id")),
+            category: document.getElementById("cardio").name
+        }
+        fetch(`${config.API_ENDPOINT}/api/contestInfo/logWorkout`, {
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+                'content-type' : 'application/json',
+            },
+            body: JSON.stringify(cardioWorkout),
+        })
+            .then(res => {
+                if (!res.ok)
+                    return res.json().then(e => Promise.reject(e))
+                else {
+                    alert("Your Cardio Workout has been recorded. Great Job!")
+                }
+            })
+            .catch(error => {
+                console.error({error})
+            })
+    }
+
     render () {
 
         return (
             <>
                 <div className="workout-box-div">
                     <h3 className={this.renderPlayername()}>{this.state.name}'s Workout Tracking</h3>
+                    <span>Click to log your type of workout completed!</span>
+                    <br></br>
                 </div>
                 <div className='workout-buttons'>
-                    <button className='glow-on-hover button-left'>Strength Workout</button>
-                    <button className='glow-on-hover button-right'>Cardio Workout</button>
+                    <button onClick={this.handleStrengthSubmit} className='glow-on-hover button-left' name='strength' id='strength'>Strength</button>
+                    <button onClick={this.handleCardioSubmit} className='glow-on-hover button-right' name='cardio' id='cardio'>Cardio</button>
                 </div>
+                <br></br>
                 <div className="flex-container-workout">
                     <div className='flex-cell-workout'>
                         <div className='flex-item-workout'>

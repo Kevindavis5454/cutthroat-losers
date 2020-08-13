@@ -85,16 +85,48 @@ class WeightTracking extends React.Component {
         }
     }
 
+    handleWeightSubmit = e => {
+        e.preventDefault()
+        const { weight_submit } = e.target
+        const weighin = {
+            contest_id: parseInt(localStorage.getItem("contest Id")),
+            user_id: parseInt(localStorage.getItem("user Id")),
+            weight: weight_submit.value,
+        }
+        fetch(`${config.API_ENDPOINT}/api/contestInfo/logWeight`, {
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+                'content-type' : 'application/json',
+            },
+            body: JSON.stringify(weighin),
+        })
+            .then(res => {
+                if (!res.ok)
+                    return res.json().then(e => Promise.reject(e))
+                else {
+                    alert("Your Weigh-in has been recorded. Great Job!")
+                }
+            })
+            .catch(error => {
+                console.error({error})
+            })
+    }
+
     render() {
 
         return (
             <div className='weight-tracker-box'>
                 <h3 className={this.renderPlayername()}>{this.state.name}'s Weight Tracking</h3>
-                <span>Goal Weight: {this.state.goalWeight}</span>
-                <span>Current Weight: {this.state.currentWeight}</span>
+                <form onSubmit={this.handleWeightSubmit} className='workout-buttons'>
+                    <button type='submit' className='glow-on-hover button-left' name='weight' id='weight'>Weight</button>
+                    <input required type='text' onkeypress="return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))" placeholder='185.9' name='weight_submit' id='weight_submit'></input>
+                </form>
                 <div className="flex-container-workout">
                     <div className='flex-cell-workout weight-tracker-single'>
                         <div className='flex-item-workout'>
+                            <h3>Goal Weight: {this.state.goalWeight}</h3>
+                            <h3>Current Weight: {this.state.currentWeight}</h3>
                             <VictoryChart viewBox="0, 0, width, height"
                                           containerComponent={<VictoryVoronoiContainer/>}
                                           minDomain={{ y: 140 }} maxDomain={{ y: 260}}
