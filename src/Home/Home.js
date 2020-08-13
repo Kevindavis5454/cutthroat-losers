@@ -6,25 +6,25 @@ import config from "../config";
 
 class Home extends React.Component {
 
-    constructor(props) {
+    /*constructor(props) {
         super(props);
         this.state = {
             contestants: [],
         }
         this.renderContestants = this.renderContestants.bind(this)
-    }
+    }*/
 
-    componentDidMount() {
-        const getContestantInfo = () => {
+    /*componentDidMount() {*/
+        /*const getContestantInfo = () => {
             return fetch(`${config.API_ENDPOINT}/api/contestInfo/sidebarStats?contest_id=${localStorage.getItem("contest Id")}`)
                 .then(res => res.json())
-        }
+        }*/
       
-        async function getContestantStats() {
+        /*async function getContestantStats() {
             return await Promise.all([getContestantInfo()])
-        }
+        }*/
 
-        getContestantStats()
+        /*getContestantStats()
             .then(([results]) => {
                 const contestants = []
                 results.map(user => {
@@ -33,16 +33,16 @@ class Home extends React.Component {
                 this.setState({
                     contestants: contestants
                 })
-            })
-    }
+            })*/
+   /* }*/
 
-    renderContestants = () => {
+    /*renderContestants = () => {
         const contestants =  this.state.contestants.map(function(contestant, index) {
              return (
              <span key={index} className={"player" + (index + 1)}><li>{contestant}</li></span>
         )})
         return contestants
-    }
+    }*/
 
     render () {
 

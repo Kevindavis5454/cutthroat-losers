@@ -7,14 +7,14 @@ import { VictoryChart, VictoryStack, VictoryBar, VictoryAxis} from 'victory'
 
         state = {
           contestants: [],
-            stomachArray: [],
-            weightArray: [],
-            workoutArray: [],
-            bingoArray: [],
-          user1Name: [],
-          user2Name: [],
-          user3Name: [],
-          user4Name: [],
+            stomach: [],
+            weight: [],
+            workout: [],
+            bingo: [],
+            user1Name: [],
+            user2Name: [],
+            user3Name: [],
+            user4Name: [],
           dataSet : [],
       }
 
@@ -320,51 +320,48 @@ import { VictoryChart, VictoryStack, VictoryBar, VictoryAxis} from 'victory'
                         })
 
                 }
-                /*dataSetArray.push(stomachArray)
+
+                dataSetArray.push(stomachArray)
                 dataSetArray.push(weightArray)
                 dataSetArray.push(workoutArray)
                 dataSetArray.push(bingoArray)
                 this.setState({
                     dataSet: dataSetArray
-                })*/
-                this.setState({
-                    stomachArray: stomachArray,
-                    weightArray: weightArray,
-                    workoutArray: workoutArray,
-                    bingoArray: bingoArray,
                 })
             })
+
     }
-  /*{this.state.dataSet.map((data, i) => {
-      return <VictoryBar data={data} key={i}/>;
-  })}*/
+
     render() {
+            console.log(this.state.dataSet, 'data set state')
+        const dataSetVar = this.state.dataSet
 
       return (
+
         <div>
         <VictoryChart height={400} width={400}
                       domainPadding={{ x: 30, y: 20 }}
-                      minDomain={{ y: 0 }}
-                      maxDomain={{ y: 300}}
+
                       viewBox="0, 0, width, height"
         >
             <VictoryStack
               colorScale={["black", "blue", "red", "yellow"]}
             >
-                <VictoryBar
-                    data={this.state.stomachArray}
-                />
-                <VictoryBar
-                    data={this.state.weightArray}
-                />
-                <VictoryBar
-                    data={this.state.workoutArray}
-                />
-                <VictoryBar
-                    data={this.state.bingoArray}
-                />
+                {dataSetVar.map((data, index) => {
+                    return <VictoryBar data={data} key={index}/>;
+                })}
 
             </VictoryStack>
+            {/*<VictoryAxis
+                dependentAxis
+                label="Points"
+            />
+            <VictoryAxis
+                label='Contestant'
+                tickValues={[this.state.user1Name.toString(), this.state.user2Name.toString(), this.state.user3Name.toString(), this.state.user4Name.toString()]}
+                tickFormat={[this.state.user1Name.toString(), this.state.user2Name.toString(), this.state.user3Name.toString(), this.state.user4Name.toString()]}
+
+            />*/}
         </VictoryChart>
       </div>
       );
