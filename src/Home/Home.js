@@ -68,6 +68,7 @@ class Home extends React.Component {
                             <div className="flex-container-workout">
                                 <div className='flex-cell-workout admin-cell'>
                                     <div className='flex-item-workout'>
+                                        <h3>Group Points Acquired</h3>
                                         <div className="home-graph-div">
                                             <GroupGraph />
                                         </div>
@@ -75,10 +76,7 @@ class Home extends React.Component {
                                 </div>
                             </div>
                             <div className='player-labels'>
-                                <h3>Group Points Acquired</h3>
-                                <ul>
-                                    {this.renderContestants()}
-                                </ul>
+
                             </div>
                         </div>
                     </div>

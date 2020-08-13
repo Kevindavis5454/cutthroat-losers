@@ -25,18 +25,18 @@ class GroupPoints extends React.Component {
     componentDidMount() {
 
         const getContestants = () => {
-            return fetch(`${config.API_ENDPOINT}/api/contestInfo/contestUserIds?contest_id=${localStorage.getItem("contest Id")}`)
-                .then(res => res.json())
-        }
+                    return fetch(`${config.API_ENDPOINT}/api/contestInfo/contestUserIds?contest_id=${localStorage.getItem("contest Id")}`)
+                        .then(res => res.json())
+                }
 
-        getContestants()
-            .then((contestants) => {
-                let contestantIds = contestants.map(user => {
-                    return user.user_id
-                })
-                this.setState({
-                    contestants: contestantIds
-                })
+                getContestants()
+                    .then((contestants) => {
+                        let contestantIds = contestants.map(user => {
+                            return user.user_id
+                        })
+                        this.setState({
+                            contestants: contestantIds
+                        })
                 if (this.state.contestants[0] !== undefined) {
                     const getPoints = () => {
                         return fetch(`${config.API_ENDPOINT}/api/contestInfo/getUserPoints?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[0]}`)
