@@ -40,8 +40,8 @@
     padding: .3em;
     display: flex;
     flex-direction: row;
-    width: 80vh;
-    height: 15vh;
+    width: 50vh;
+    height: 10vh;
     border: 1px solid black;
     margin: .5em;
 }
@@ -49,8 +49,8 @@
     padding: .3em;
     display: flex;
     flex-direction: row;
-    width: 80vh;
-    height: 15vh;
+    width: 50vh;
+    height: 10vh;
     border: 1px solid black;
     margin: .5em;
 }
@@ -58,8 +58,8 @@
     padding: .3em;
     display: flex;
     flex-direction: row;
-    width: 80vh;
-    height: 15vh;
+    width: 50vh;
+    height: 10vh;
     border: 1px solid black;
     margin: .5em;
 }
@@ -67,8 +67,8 @@
     padding: .3em;
     display: flex;
     flex-direction: row;
-    width: 80vh;
-    height: 15vh;
+    width: 50vh;
+    height: 10vh;
     border: 1px solid black;
     margin: .5em;
 }

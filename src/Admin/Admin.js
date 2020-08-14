@@ -307,87 +307,86 @@ class Admin extends React.Component {
                     <Route path='/admin' component={Sidebar} />
                 </div>
                 <div className='personal-content'>
-            <div className='admin-main-div'>
-                <h3>Admin</h3>
-                <div className="flex-container">
-                    <div className="flex-cell">
-                        <div className="flex-item">
-                            <h3>Coming Soon....</h3>
-                        </div>
-                    </div>
-                    <div className="flex-cell">
-                        <div className="flex-item">
-                            <h3>Coming Very Soon....</h3>
-                        </div>
-                    </div>
-                    <div className="flex-cell">
-                        <div className="flex-item">
-                            <div className='calculate'>
-                                <AdminPointAssignMeasurement
-                                    user1Name={this.state.user1Info}
-                                    user2Name={this.state.user2Info}
-                                    user3Name={this.state.user3Info}
-                                    user4Name={this.state.user4Info}
+                        <div className="flex-container">
+                            <div className="flex-cell">
+                                <div className="flex-item">
+                                    <div>
+                                        <GroupWeightTracking/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="flex-cell">
+                                <div className="flex-item">
+                                    <div>
+                                        <GroupWorkoutTracking />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="flex-cell">
+                                <div className="flex-item">
+                                    <div>
+                                        <AdminPointAssignMeasurement
+                                            user1Name={this.state.user1Info}
+                                            user2Name={this.state.user2Info}
+                                            user3Name={this.state.user3Info}
+                                            user4Name={this.state.user4Info}
 
-                                    user1CurrentMeasurement={this.state.user1MeasurementCurrent.measurement}
-                                    user1CurrentMeasurementDate={this.state.user1MeasurementCurrent.date}
-                                    user1PrevMeasurement={this.state.user1MeasurementPrev.measurement}
-                                    user1PrevMeasurementDate={this.state.user1MeasurementPrev.date}
+                                            user1CurrentMeasurement={this.state.user1MeasurementCurrent.measurement}
+                                            user1CurrentMeasurementDate={this.state.user1MeasurementCurrent.date}
+                                            user1PrevMeasurement={this.state.user1MeasurementPrev.measurement}
+                                            user1PrevMeasurementDate={this.state.user1MeasurementPrev.date}
 
-                                    user2CurrentMeasurement={this.state.user2MeasurementCurrent.measurement}
-                                    user2CurrentMeasurementDate={this.state.user2MeasurementCurrent.date}
-                                    user2PrevMeasurement={this.state.user2MeasurementPrev.measurement}
-                                    user2PrevMeasurementDate={this.state.user2MeasurementPrev.date}
+                                            user2CurrentMeasurement={this.state.user2MeasurementCurrent.measurement}
+                                            user2CurrentMeasurementDate={this.state.user2MeasurementCurrent.date}
+                                            user2PrevMeasurement={this.state.user2MeasurementPrev.measurement}
+                                            user2PrevMeasurementDate={this.state.user2MeasurementPrev.date}
 
-                                    user3CurrentMeasurement={this.state.user3MeasurementCurrent.measurement}
-                                    user3CurrentMeasurementDate={this.state.user3MeasurementCurrent.date}
-                                    user3PrevMeasurement={this.state.user3MeasurementPrev.measurement}
-                                    user3PrevMeasurementDate={this.state.user3MeasurementPrev.date}
+                                            user3CurrentMeasurement={this.state.user3MeasurementCurrent.measurement}
+                                            user3CurrentMeasurementDate={this.state.user3MeasurementCurrent.date}
+                                            user3PrevMeasurement={this.state.user3MeasurementPrev.measurement}
+                                            user3PrevMeasurementDate={this.state.user3MeasurementPrev.date}
 
-                                    user4CurrentMeasurement={this.state.user4MeasurementCurrent.measurement}
-                                    user4CurrentMeasurementDate={this.state.user4MeasurementCurrent.date}
-                                    user4PrevMeasurement={this.state.user4MeasurementPrev.measurement}
-                                    user4PrevMeasurementDate={this.state.user4MeasurementPrev.date}
-                                />
+                                            user4CurrentMeasurement={this.state.user4MeasurementCurrent.measurement}
+                                            user4CurrentMeasurementDate={this.state.user4MeasurementCurrent.date}
+                                            user4PrevMeasurement={this.state.user4MeasurementPrev.measurement}
+                                            user4PrevMeasurementDate={this.state.user4MeasurementPrev.date}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="flex-cell">
+                                <div className="flex-item">
+                                        <AdminPointAssignWeight
+                                            user1Name={this.state.user1Info}
+                                            user2Name={this.state.user2Info}
+                                            user3Name={this.state.user3Info}
+                                            user4Name={this.state.user4Info}
+
+                                            user1CurrentWeight={this.state.user1WeightCurrent.weight}
+                                            user1CurrentWeightDate={this.state.user1WeightCurrent.date}
+                                            user1PrevWeight={this.state.user1WeightPrev.weight}
+                                            user1PrevWeightDate={this.state.user1WeightPrev.date}
+
+                                            user2CurrentWeight={this.state.user2WeightCurrent.weight}
+                                            user2CurrentWeightDate={this.state.user2WeightCurrent.date}
+                                            user2PrevWeight={this.state.user2WeightPrev.weight}
+                                            user2PrevWeightDate={this.state.user2WeightPrev.date}
+
+                                            user3CurrentWeight={this.state.user3WeightCurrent.weight}
+                                            user3CurrentWeightDate={this.state.user3WeightCurrent.date}
+                                            user3PrevWeight={this.state.user3WeightPrev.weight}
+                                            user3PrevWeightDate={this.state.user3WeightPrev.date}
+
+                                            user4CurrentWeight={this.state.user4WeightCurrent.weight}
+                                            user4CurrentWeightDate={this.state.user4WeightCurrent.date}
+                                            user4PrevWeight={this.state.user4WeightPrev.weight}
+                                            user4PrevWeightDate={this.state.user4WeightPrev.date}
+                                        />
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="flex-cell">
-                        <div className="flex-item">
-                            <div className='calculate'>
-                                <AdminPointAssignWeight
-                                user1Name={this.state.user1Info}
-                                user2Name={this.state.user2Info}
-                                user3Name={this.state.user3Info}
-                                user4Name={this.state.user4Info}
-
-                                user1CurrentWeight={this.state.user1WeightCurrent.weight}
-                                user1CurrentWeightDate={this.state.user1WeightCurrent.date}
-                                user1PrevWeight={this.state.user1WeightPrev.weight}
-                                user1PrevWeightDate={this.state.user1WeightPrev.date}
-
-                                user2CurrentWeight={this.state.user2WeightCurrent.weight}
-                                user2CurrentWeightDate={this.state.user2WeightCurrent.date}
-                                user2PrevWeight={this.state.user2WeightPrev.weight}
-                                user2PrevWeightDate={this.state.user2WeightPrev.date}
-
-                                user3CurrentWeight={this.state.user3WeightCurrent.weight}
-                                user3CurrentWeightDate={this.state.user3WeightCurrent.date}
-                                user3PrevWeight={this.state.user3WeightPrev.weight}
-                                user3PrevWeightDate={this.state.user3WeightPrev.date}
-
-                                user4CurrentWeight={this.state.user4WeightCurrent.weight}
-                                user4CurrentWeightDate={this.state.user4WeightCurrent.date}
-                                user4PrevWeight={this.state.user4WeightPrev.weight}
-                                user4PrevWeightDate={this.state.user4WeightPrev.date}
-                                />
-                            </div>
-                        </div>
-                    </div>
                 </div>
-            </div>
-                </div>
-                </>
+            </>
         )
     }
 }

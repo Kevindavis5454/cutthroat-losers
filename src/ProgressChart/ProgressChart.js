@@ -78,7 +78,7 @@ class ProgressChart extends React.Component {
                           <span>{this.state.startDate}</span>
                           <h3>Contest Completion Date: </h3>
                           <span>{this.state.endDate}</span>
-            <svg viewBox="0 0 400 400" width="100%" height="100%">
+            <svg viewBox="0 0 400 400" width="60%" height="60%">
               <VictoryPie
                 standalone={false}
                 animate={{ duration: 1000 }}

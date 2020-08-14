@@ -162,7 +162,7 @@ import './groupgraph.css'
           <div className="flex-container-workout">
               <div className='flex-cell-workout weight-tracker-single'>
                   <div className='flex-item-workout'>
-            <VictoryChart domainPadding={{ x:20 }} minDomain={{ y: 0 }} maxDomain={{ y: 250}} viewBox="0, 0, width, height" >
+            <VictoryChart domainPadding={{ x:20 }} minDomain={{ y: 0 }} maxDomain={{ y: 250}} viewBox="0, 0,  width height" >
                 <VictoryBar
                     labels={({ datum }) => datum.y }
                     style={{

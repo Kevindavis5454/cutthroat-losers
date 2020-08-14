@@ -119,7 +119,7 @@ a {
 
 /*#206a7a*/
 
-@media screen and (min-width: 44em) {
+@media screen and (min-width: 78em) {
 
     .flex-cell {
         flex: 0 0 50%;

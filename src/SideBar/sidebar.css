@@ -44,7 +44,7 @@
 
 }
 
-@media screen and (min-width: 44em) {
+@media screen and (min-width: 78em) {
 
     .flex-container-sidebar {
         display: flex;
