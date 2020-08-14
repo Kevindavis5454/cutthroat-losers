@@ -9,6 +9,7 @@ import Contact from "../ContactPage/Contact";
 import Home from "../Home/Home";
 import Sidebar from "../SideBar/Sidebar";
 import Rules from "../LandingPage/Rules";
+import Measurements from "../Measurements/Measurements";
 
 class PersonalPage extends React.Component {
 
@@ -52,9 +53,9 @@ class PersonalPage extends React.Component {
                            />
                        )}
                 />
-                <Route path='/personal/sabotages'
+                <Route path='/personal/measurements'
                        render={routeProps => (
-                           <PersonalSabotages
+                           <Measurements
                                {...this.props}
                                {...routeProps}
                            />

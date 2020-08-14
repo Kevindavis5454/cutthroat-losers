@@ -75,6 +75,9 @@
     .point-tracker-full {
         flex: 0 0 100%;
     }
+    .weight-point-calc {
+        flex: 0 0 100%;
+    }
 
 
 }
@@ -111,6 +114,10 @@
         flex: 1 1 auto;
     }
     .point-tracker-full {
+        flex: 0 0 100%;
+    }
+
+    .weight-point-calc {
         flex: 0 0 100%;
     }
 

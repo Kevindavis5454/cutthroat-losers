@@ -78,11 +78,45 @@ class Measurements extends React.Component {
         }
     }
 
+    handleMeasurementSubmit = e => {
+        e.preventDefault()
+        const { measurement_submit } = e.target
+        const measurement = {
+            contest_id: parseInt(localStorage.getItem("contest Id")),
+            user_id: parseInt(localStorage.getItem("user Id")),
+            measurement: measurement_submit.value,
+        }
+        fetch(`${config.API_ENDPOINT}/api/contestInfo/logMeasurement`, {
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+                'content-type' : 'application/json',
+            },
+            body: JSON.stringify(measurement),
+        })
+            .then(res => {
+                if (!res.ok)
+                    return res.json().then(e => Promise.reject(e))
+                else {
+                    alert("Your Measurement has been recorded. Great Job!")
+                }
+            })
+            .catch(error => {
+                console.error({error})
+            })
+    }
+
     render () {
 
         return (
             <div className='weight-tracker-box'>
                 <h3 className={this.renderPlayername()}>{this.state.name}'s Measurement Tracking</h3>
+                <form onSubmit={this.handleMeasurementSubmit} className='workout-buttons'>
+                    <button type='submit' className='glow-on-hover button-left' name='measurement' id='measurement'>Measurement</button>
+                    <input required type='text'
+                           onKeyPress="return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))"
+                           placeholder='38.2' name='measurement_submit' id='measurement_submit'></input>
+                </form>
                 <div className="flex-container-workout">
                     <div className='flex-cell-workout weight-tracker-single'>
                         <div className='flex-item-workout'>

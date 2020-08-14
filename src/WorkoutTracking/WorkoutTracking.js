@@ -259,6 +259,13 @@ class WorkoutTracking extends React.Component {
             user_id: parseInt(localStorage.getItem("user Id")),
             category: document.getElementById("strength").name
         }
+        const pointAddWorkoutStrength = {
+            contest_id: parseInt(localStorage.getItem("contest Id")),
+            user_id: parseInt(localStorage.getItem("user Id")),
+            category: document.getElementById("strength").name,
+            points: 1,
+            win_id: 3,
+        }
         fetch(`${config.API_ENDPOINT}/api/contestInfo/logWorkout`, {
             method: 'POST',
             credentials: 'include',
@@ -277,13 +284,39 @@ class WorkoutTracking extends React.Component {
             .catch(error => {
                 console.error({error})
             })
+        fetch(`${config.API_ENDPOINT}/api/contestInfo/logPointsWorkout`, {
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+                'content-type' : 'application/json',
+            },
+            body: JSON.stringify(pointAddWorkoutStrength),
+        })
+            .then(res => {
+                if (!res.ok)
+                    return res.json().then(e => Promise.reject(e))
+                else {
+                    alert("Your 1 point has been added for your workout, Great Job!")
+                }
+            })
+            .catch(error => {
+                console.error({error})
+            })
     }
+
     handleCardioSubmit = e => {
         e.preventDefault()
         const cardioWorkout = {
             contest_id: parseInt(localStorage.getItem("contest Id")),
             user_id: parseInt(localStorage.getItem("user Id")),
             category: document.getElementById("cardio").name
+        }
+        const pointAddWorkoutCardio = {
+            contest_id: parseInt(localStorage.getItem("contest Id")),
+            user_id: parseInt(localStorage.getItem("user Id")),
+            category: document.getElementById("cardio").name,
+            points: 1,
+            win_id: 3,
         }
         fetch(`${config.API_ENDPOINT}/api/contestInfo/logWorkout`, {
             method: 'POST',
@@ -303,6 +336,25 @@ class WorkoutTracking extends React.Component {
             .catch(error => {
                 console.error({error})
             })
+        fetch(`${config.API_ENDPOINT}/api/contestInfo/logPointsWorkout`, {
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+                'content-type' : 'application/json',
+            },
+            body: JSON.stringify(pointAddWorkoutCardio),
+        })
+            .then(res => {
+                if (!res.ok)
+                    return res.json().then(e => Promise.reject(e))
+                else {
+                    alert("Your 1 point has been added for your workout, Great Job!")
+                }
+            })
+            .catch(error => {
+                console.error({error})
+            })
+
     }
 
     render () {

@@ -6,6 +6,7 @@ import GroupWorkoutTracking from "../GroupWorkoutTracking/GroupWorkoutTracking";
 import GroupSabotages from "../GroupSabotages/GroupSabotages";
 import GroupPoints from "../GroupPoints/GroupPoints";
 import Sidebar from "../SideBar/Sidebar";
+import GroupMeasurements from "../GroupMeasurements/GroupMeasurements";
 
 class GroupPage extends React.Component {
 
@@ -47,9 +48,9 @@ class GroupPage extends React.Component {
                                    />
                                )}
                         />
-                        <Route path='/group/sabotages'
+                        <Route path='/group/measurements'
                                render={routeProps => (
-                                   <GroupSabotages
+                                   <GroupMeasurements
                                        {...this.props}
                                        {...routeProps}
                                    />

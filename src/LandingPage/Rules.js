@@ -32,8 +32,9 @@ class Rules extends React.Component {
                 </p>
                 <h3>Workouts</h3>
                 <ul className='rules'>
-                    <li>If you meet or surpass goal- 1 point per workout</li>
-                    <li>If you do not meet goal- 0 points</li>
+                    <li>1 point per each Strength Workout</li>
+                    <li>1 point per each Cardio Workout</li>
+                    <li>Only 1 Strenght and 1 Cardio Workout eligible for points per day</li>
                 </ul>
             </div>
         )

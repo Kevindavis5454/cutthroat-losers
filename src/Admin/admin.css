@@ -9,3 +9,82 @@
     flex-direction: column;
     align-items: center;
 }
+
+.weight-calc-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.groupWeightPointsBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.divideDiv1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%
+}
+
+.divideDiv2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+}
+
+.user1Div {
+    padding: .3em;
+    display: flex;
+    flex-direction: row;
+    width: 80vh;
+    height: 15vh;
+    border: 1px solid black;
+    margin: .5em;
+}
+.user2Div {
+    padding: .3em;
+    display: flex;
+    flex-direction: row;
+    width: 80vh;
+    height: 15vh;
+    border: 1px solid black;
+    margin: .5em;
+}
+.user3Div {
+    padding: .3em;
+    display: flex;
+    flex-direction: row;
+    width: 80vh;
+    height: 15vh;
+    border: 1px solid black;
+    margin: .5em;
+}
+.user4Div {
+    padding: .3em;
+    display: flex;
+    flex-direction: row;
+    width: 80vh;
+    height: 15vh;
+    border: 1px solid black;
+    margin: .5em;
+}
+
+.cont1 {
+    box-shadow: 0 0 5px 2px rgba(52,191,73, 10);
+}
+
+.cont2 {
+    box-shadow: 0 0 5px 2px rgba(218,68,83, 10);
+}
+
+.cont3 {
+    box-shadow: 0 0 5px 2px rgba(255,206,84, 10);
+}
+
+.cont4 {
+    box-shadow: 0 0 5px 2px rgba(72,207,173, 10);
+}

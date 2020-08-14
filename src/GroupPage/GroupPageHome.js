@@ -27,7 +27,7 @@ class GroupPageHome extends React.Component {
                         </Link>
                     </div>
                     <div className="flex-cell">
-                        <Link className="flex-item" to='/group/sabotages'>
+                        <Link className="flex-item" to='/group/measurements'>
                             <div>
                                 <GroupMeasurements />
                             </div>

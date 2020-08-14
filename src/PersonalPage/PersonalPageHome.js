@@ -29,7 +29,7 @@ class PersonalPageHome extends React.Component {
 
                     </div>
                     <div className="flex-cell">
-                        <Link className="flex-item" to='/personal/sabotages'>
+                        <Link className="flex-item" to='/personal/measurements'>
                             <div>
                                 <Measurements />
                             </div>
