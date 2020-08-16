@@ -32,7 +32,36 @@ class ContestSelectModal extends React.Component {
             .then(res => {
                 if (!res.ok)
                     return res.json().then(e => Promise.reject(e));
+                const getContestId = () => {
+                    return fetch(`${config.API_ENDPOINT}/api/getNewContest?contest_name=${newContest.contest_name}`)
+                        .then(res => res.json())
+                }
                 alert(`${newContest.contest_name} has been added as a contest!`)
+                getContestId()
+                    .then((contestId) => {
+                        const userContestData = {
+                            user_id : parseInt(localStorage.getItem("user Id")),
+                            contest_id: parseInt(contestId[0].contest_id)
+                        }
+                        fetch(`${config.API_ENDPOINT}/api/admin/addUserToContest`, {
+                            method: 'POST',
+                            credentials: 'include',
+                            headers: {
+                                'content-type' : 'application/json',
+                            },
+                            body: JSON.stringify(userContestData),
+                        })
+                            .then(res => {
+                                if (!res.ok)
+                                    return res.json().then(e => Promise.reject(e))
+                                else {
+                                    alert(`User with User Id: ${userContestData.user_id} has been added to your contest`)
+                                    document.getElementById('overlay').classList.remove('is-visible');
+                                    document.getElementById('modal').classList.remove('is-visible');
+                                }
+                            })
+                    })
+
             })
 
             .catch(error => {

@@ -1,6 +1,98 @@
 import React from "react";
+import config from "../config";
 
 class AdminPointAssignMeasurement extends React.Component {
+
+    handleFetchPostPoints = (postBody, placement) => {
+        fetch(`${config.API_ENDPOINT}/api/contestInfo/logPoints`, {
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+                'content-type' : 'application/json',
+            },
+            body: JSON.stringify(postBody),
+        })
+            .then(res => {
+                if (!res.ok)
+                    return res.json().then(e => Promise.reject(e))
+                else {
+                    alert(`Your ${placement} Points have been recorded.`)
+                }
+            })
+            .catch(error => {
+                console.error({error})
+            })
+    }
+
+    handlePointAssignment = (placement, user_id, contest_id, category) => {
+        if ( placement == '1st Place') {
+            const postBody = {
+                contest_id: contest_id,
+                user_id: user_id,
+                category: category,
+                points: 7,
+                win_id: 2,
+            }
+            this.handleFetchPostPoints(postBody, placement)
+        }
+        if ( placement == '2nd Place') {
+            const postBody = {
+                contest_id: contest_id,
+                user_id: user_id,
+                category: category,
+                points: 5,
+                win_id: 2,
+            }
+            this.handleFetchPostPoints(postBody, placement)
+        }
+        if ( placement == '3rd Place') {
+            const postBody = {
+                contest_id: contest_id,
+                user_id: user_id,
+                category: category,
+                points: 3,
+                win_id: 2,
+            }
+            this.handleFetchPostPoints(postBody, placement)
+        }
+        if ( placement == '4th Place') {
+            const postBody = {
+                contest_id: contest_id,
+                user_id: user_id,
+                category: category,
+                points: 1,
+                win_id: 2,
+            }
+            this.handleFetchPostPoints(postBody, placement)
+        }
+
+    }
+
+    handleMeasurementsPointsSubmit = e => {
+        e.preventDefault()
+        const getContestId = parseInt(localStorage.getItem("contest Id"))
+        const getCategory = "stomach"
+       const user1 = () => {
+          let selectedElement = document.getElementById('user1SelectMeasurement').value
+           return this.handlePointAssignment(selectedElement, this.props.user1Id, getContestId, getCategory)
+        }
+        const user2 = () => {
+            let selectedElement = document.getElementById('user2SelectMeasurement').value
+            return this.handlePointAssignment(selectedElement, this.props.user2Id, getContestId, getCategory)
+        }
+        const user3 = () => {
+            let selectedElement = document.getElementById('user3SelectMeasurement').value
+            return this.handlePointAssignment(selectedElement, this.props.user3Id, getContestId, getCategory)
+        }
+        const user4 = () => {
+            let selectedElement = document.getElementById('user4SelectMeasurement').value
+            return this.handlePointAssignment(selectedElement, this.props.user4Id, getContestId, getCategory)
+        }
+        user1()
+        user2()
+        user3()
+        user4()
+    }
 
     handlePercentCalc = (current, prev) => {
         let weight = prev - current
@@ -14,7 +106,7 @@ class AdminPointAssignMeasurement extends React.Component {
                 <h3>Calculate Weekly Measurement Points</h3>
                 <div className='weight-calc-button'>
                     <p>Assign rankings and press button to assign Points</p>
-                    <button className='glow-on-hover' name='' id=''>Calculate Points</button>
+                    <button onClick={this.handleMeasurementsPointsSubmit} className='glow-on-hover' name='' id=''>Calculate Points</button>
                 </div>
                 <div className="flex-container-workout">
                     <div className='flex-cell-workout weight-point-calc'>
@@ -28,12 +120,12 @@ class AdminPointAssignMeasurement extends React.Component {
                                 <div className='divideDiv2'>
                                 <span>Percent Lost: <span className='player1'>{this.handlePercentCalc(this.props.user1CurrentMeasurement, this.props.user1PrevMeasurement)}%</span></span>
                                     <br></br>
-                                    <select>
-                                        <option selected></option>
-                                        <option>1st Place</option>
-                                        <option>2nd Place</option>
-                                        <option>3rd Place</option>
-                                        <option>4th Place</option>
+                                    <select id='user1SelectMeasurement' defaultValue='Not Selected'>
+                                        <option value='Not Selected'></option>
+                                        <option value='1st Place'>1st Place</option>
+                                        <option value='2nd Place'>2nd Place</option>
+                                        <option value='3rd Place'>3rd Place</option>
+                                        <option value='4th Place'>4th Place</option>
                                     </select>
                                 </div>
                             </form>
@@ -46,12 +138,12 @@ class AdminPointAssignMeasurement extends React.Component {
                                 <div className='divideDiv2'>
                                 <span>Percent Lost: <span className='player2'>{this.handlePercentCalc(this.props.user2CurrentMeasurement, this.props.user2PrevMeasurement)}%</span></span>
                                     <br></br>
-                                    <select>
-                                        <option selected></option>
-                                        <option>1st Place</option>
-                                        <option>2nd Place</option>
-                                        <option>3rd Place</option>
-                                        <option>4th Place</option>
+                                    <select id='user2SelectMeasurement' defaultValue='Not Selected'>
+                                        <option value='Not Selected'></option>
+                                        <option value='1st Place'>1st Place</option>
+                                        <option value='2nd Place'>2nd Place</option>
+                                        <option value='3rd Place'>3rd Place</option>
+                                        <option value='4th Place'>4th Place</option>
                                     </select>
                                 </div>
                             </form>
@@ -64,12 +156,12 @@ class AdminPointAssignMeasurement extends React.Component {
                                 <div className='divideDiv2'>
                                     <span>Percent Lost: <span className='player3'>{this.handlePercentCalc(this.props.user3CurrentMeasurement, this.props.user3PrevMeasurement)}%</span></span>
                                     <br></br>
-                                    <select>
-                                        <option selected></option>
-                                        <option>1st Place</option>
-                                        <option>2nd Place</option>
-                                        <option>3rd Place</option>
-                                        <option>4th Place</option>
+                                    <select id='user3SelectMeasurement' defaultValue='Not Selected'>
+                                        <option value='Not Selected'></option>
+                                        <option value='1st Place'>1st Place</option>
+                                        <option value='2nd Place'>2nd Place</option>
+                                        <option value='3rd Place'>3rd Place</option>
+                                        <option value='4th Place'>4th Place</option>
                                     </select>
                                 </div>
                             </form>
@@ -82,12 +174,12 @@ class AdminPointAssignMeasurement extends React.Component {
                                 <div className='divideDiv2'>
                                 <span>Percent Lost: <span className='player4'>{this.handlePercentCalc(this.props.user4CurrentMeasurement, this.props.user4PrevMeasurement)}%</span></span>
                                     <br></br>
-                                    <select>
-                                        <option selected></option>
-                                        <option>1st Place</option>
-                                        <option>2nd Place</option>
-                                        <option>3rd Place</option>
-                                        <option>4th Place</option>
+                                    <select id='user4SelectMeasurement' defaultValue='Not Selected'>
+                                        <option value='Not Selected'></option>
+                                        <option value='1st Place'>1st Place</option>
+                                        <option value='2nd Place'>2nd Place</option>
+                                        <option value='3rd Place'>3rd Place</option>
+                                        <option value='4th Place'>4th Place</option>
                                     </select>
                                 </div>
                             </form>

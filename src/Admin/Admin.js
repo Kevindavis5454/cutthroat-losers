@@ -8,6 +8,7 @@ import AdminPointAssignWeight from "./AdminPointAssignWeight";
 import config from "../config";
 import moment from "moment";
 import AdminPointAssignMeasurement from "./AdminPointAssignMeasurement";
+import AdminContestToUser from "./AdminContestToUser";
 
 class Admin extends React.Component {
 
@@ -17,6 +18,10 @@ class Admin extends React.Component {
         user2Info: [],
         user3Info: [],
         user4Info: [],
+        user1Id: [],
+        user2Id: [],
+        user3Id: [],
+        user4Id: [],
         user1WeightCurrent: [],
         user1WeightPrev: [],
         user2WeightCurrent: [],
@@ -49,6 +54,32 @@ class Admin extends React.Component {
                 this.setState({
                     contestants: contestantIds
                 })
+                let userIdSort  = () =>
+                {
+                    this.state.contestants.map((id, index) => {
+                        if (index === 0) {
+                            return this.setState({
+                                user1Id: id
+                            })
+                        }
+                        if (index === 1) {
+                            return this.setState({
+                                user2Id: id
+                            })
+                        }
+                        if (index === 2) {
+                            return this.setState({
+                                user3Id: id
+                            })
+                        }
+                        if (index === 3) {
+                            return this.setState({
+                                user4Id: id
+                            })
+                        }
+                    })
+                }
+                userIdSort()
                 if (this.state.contestants[0] !== undefined) {
 
                     const getAdminMeasurement = () => {
@@ -311,7 +342,7 @@ class Admin extends React.Component {
                             <div className="flex-cell">
                                 <div className="flex-item">
                                     <div>
-                                        <GroupWeightTracking/>
+                                        <AdminContestToUser />
                                     </div>
                                 </div>
                             </div>
@@ -330,6 +361,11 @@ class Admin extends React.Component {
                                             user2Name={this.state.user2Info}
                                             user3Name={this.state.user3Info}
                                             user4Name={this.state.user4Info}
+
+                                            user1Id={this.state.user1Id}
+                                            user2Id={this.state.user2Id}
+                                            user3Id={this.state.user3Id}
+                                            user4Id={this.state.user4Id}
 
                                             user1CurrentMeasurement={this.state.user1MeasurementCurrent.measurement}
                                             user1CurrentMeasurementDate={this.state.user1MeasurementCurrent.date}
@@ -361,6 +397,11 @@ class Admin extends React.Component {
                                             user2Name={this.state.user2Info}
                                             user3Name={this.state.user3Info}
                                             user4Name={this.state.user4Info}
+
+                                            user1Id={this.state.user1Id}
+                                            user2Id={this.state.user2Id}
+                                            user3Id={this.state.user3Id}
+                                            user4Id={this.state.user4Id}
 
                                             user1CurrentWeight={this.state.user1WeightCurrent.weight}
                                             user1CurrentWeightDate={this.state.user1WeightCurrent.date}

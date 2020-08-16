@@ -12,7 +12,7 @@ class SidebarHome extends React.Component {
 
     handleSignup = e => {
         e.preventDefault()
-        const { signup_name, signup_email, signup_password } = e.target
+        const { signup_name, signup_email, signup_password, current_weight, goal_weight } = e.target
         const newUser = {
             display_name: signup_name.value,
             username: signup_email.value,
@@ -31,13 +31,38 @@ class SidebarHome extends React.Component {
                     return res.json().then(e => Promise.reject(e))
                 ws.scrollTopAnimated(300);
                 alert(`${newUser.display_name} has been added as a user!`)
-            })
+                const getUserId = () => {
+                    fetch(`${config.API_ENDPOINT}/api/userIdByUsername?username=${newUser.username}`)
+                        .then(res => res.json())
+                }
+                getUserId()
+                    .then((userId) => {
+                        const userStats = {
+                            user_id: userId[0].user_id,
+                            current_weight: current_weight.value,
+                            goal_weight: goal_weight.value,
+                            display_name: signup_name.value
+                        }
+                        fetch(`${config.API_ENDPOINT}/api/addToCurrentStats`,{
+                            method: 'POST',
+                            credentials: 'include',
+                            headers: {
+                                'content-type' : 'application/json'
+                            },
+                            body: JSON.stringify(userStats),
+                        })
+                            .then(res => {
+                                if (!res.ok)
+                                    return res.json().then(e => Promise.reject(e))
+                                const frm = document.getElementById('sign_up_form');
+                                frm.reset();
+                            })
+                    })
 
+            })
             .catch(error => {
                 console.error({error})
             })
-        const frm = document.getElementById('sign_up_form');
-        frm.reset();
     }
 
     handleLogin = e => {
@@ -163,6 +188,20 @@ class SidebarHome extends React.Component {
                                         <input type="password"
                                                name="signup_password"
                                                id="signup_password"
+                                               required
+                                        />
+                                    </p>
+                                    <p><label htmlFor="current_weight">Current Weight</label>
+                                        <input type="text"
+                                               name="current_weight"
+                                               id="current_weight"
+                                               required
+                                        />
+                                    </p>
+                                    <p><label htmlFor="goal_weight">Goal Weight</label>
+                                        <input type="text"
+                                               name="goal_weight"
+                                               id="goal_weight"
                                                required
                                         />
                                     </p>
