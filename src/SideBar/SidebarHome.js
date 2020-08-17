@@ -15,7 +15,7 @@ class SidebarHome extends React.Component {
         const { signup_name, signup_email, signup_password, current_weight, goal_weight } = e.target
         const newUser = {
             display_name: signup_name.value,
-            username: signup_email.value,
+            username: signup_email.value.toLowerCase(),
             password: signup_password.value
         }
         fetch(`${config.API_ENDPOINT}/api/signup`,{
@@ -34,11 +34,10 @@ class SidebarHome extends React.Component {
                 const getUserId = () => {
                     fetch(`${config.API_ENDPOINT}/api/userIdByUsername?username=${newUser.username}`)
                         .then(res => res.json())
-                }
-                getUserId()
-                    .then((userId) => {
+                        .then(json => {
+                        
                         const userStats = {
-                            user_id: userId[0].user_id,
+                            user_id: json[0].user_id,
                             current_weight: current_weight.value,
                             goal_weight: goal_weight.value,
                             display_name: signup_name.value
@@ -58,6 +57,10 @@ class SidebarHome extends React.Component {
                                 frm.reset();
                             })
                     })
+
+                }
+                getUserId()
+                
 
             })
             .catch(error => {

@@ -85,13 +85,25 @@ class ContestSelectModal extends React.Component {
         return contests
     }
 
-    handleContestSelect = e => {
+    validateContest = e => {
         e.preventDefault()
         let selected = document.getElementById('userContests')
+        try {
         let selectedContest = selected.options[selected.selectedIndex].text;
         const contestName = {
             contest_name: selectedContest,
         }
+        if (selectedContest === "choose a contest") {
+            alert("You must choose or create a contest")
+        } else {
+           this.handleContestSelect(contestName)
+        }  
+        }
+        catch {
+            alert("You don't have any contests! Create one or contact the admin of an existing one to be added")
+        }
+    }
+    handleContestSelect = contestName => {
        function getContestId() {
            return fetch(`${config.API_ENDPOINT}/api/contests/getContestId`, {
                method: 'POST',
@@ -121,9 +133,7 @@ class ContestSelectModal extends React.Component {
                 localStorage.setItem('contest Name', `${contest_id[0].contest_name}`)
                 this.props.history.push('/personal/home')
             })
-        
          
-        
 
     }
 
@@ -140,7 +150,7 @@ class ContestSelectModal extends React.Component {
                             <select id="userContests" name="userContests">
                                 {this.renderUserContests()}
                             </select>
-                           <button onClick={this.handleContestSelect}>GO</button>
+                           <button onClick={this.validateContest}>GO</button>
                         </div>
                         <div className="modal-item">
                             <h2>Or...</h2>

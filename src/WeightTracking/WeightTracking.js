@@ -114,6 +114,7 @@ class WeightTracking extends React.Component {
                     return res.json().then(e => Promise.reject(e))
                 else {
                     alert("Your Weigh-in has been recorded. Great Job!")
+                    window.location.reload(false)
                 }
             })
             .catch(error => {
