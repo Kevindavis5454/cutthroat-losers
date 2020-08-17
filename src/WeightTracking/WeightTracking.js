@@ -101,6 +101,14 @@ class WeightTracking extends React.Component {
             },
             body: JSON.stringify(weighin),
         })
+        fetch(`${config.API_ENDPOINT}/api/currentStats/weight`, {
+            method: 'PUT',
+            credentials: 'include',
+            headers: {
+                'content-type' : 'application/json',
+            },
+            body: JSON.stringify(weighin),
+        })
             .then(res => {
                 if (!res.ok)
                     return res.json().then(e => Promise.reject(e))
@@ -115,12 +123,16 @@ class WeightTracking extends React.Component {
 
     render() {
 
+        function keyPress (event)  {
+            return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))
+        }
+
         return (
             <div className='weight-tracker-box'>
                 <h3 className={this.renderPlayername()}>{this.state.name}'s Weight Tracking</h3>
                 <form onSubmit={this.handleWeightSubmit} className='workout-buttons'>
                     <button type='submit' className='glow-on-hover button-left' name='weight' id='weight'>Weight</button>
-                    <input required type='text' onkeypress="return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))" placeholder='185.9' name='weight_submit' id='weight_submit'></input>
+                    <input required type='text' onKeyPress={() => this.keyPress} placeholder='185.9' name='weight_submit' id='weight_submit'></input>
                 </form>
                 <div className="flex-container-workout">
                     <div className='flex-cell-workout weight-tracker-single'>
