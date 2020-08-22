@@ -39,51 +39,55 @@ class SidebarHome extends React.Component {
             username: signup_email.value.toLowerCase(),
             password: signup_password.value
         }
-        fetch(`${config.API_ENDPOINT}/api/signup`,{
-            method: 'POST',
-            credentials: 'include',
-            headers: {
-                'content-type' : 'application/json'
-            },
-            body: JSON.stringify(newUser),
-        })
-            .then(res => {
-                if (!res.ok) {
-                    return alert("Email already in use")
-                }
-                ws.scrollTopAnimated(300);
-                alert(`${newUser.display_name} has been added as a user!`)
-                const getUserId = () => {
-                    fetch(`${config.API_ENDPOINT}/api/userIdByUsername?username=${newUser.username}`)
-                        .then(res => res.json())
-                        .then(json => {
-                        
-                        const userStats = {
-                            user_id: json[0].user_id,
-                            current_weight: current_weight.value,
-                            goal_weight: goal_weight.value,
-                            display_name: signup_name.value
-                        }
-                        fetch(`${config.API_ENDPOINT}/api/addToCurrentStats`,{
-                            method: 'POST',
-                            credentials: 'include',
-                            headers: {
-                                'content-type' : 'application/json'
-                            },
-                            body: JSON.stringify(userStats),
-                        })
-                            .then(res => {
-                                if (!res.ok)
-                                    return res.json().then(e => Promise.reject(e))
-                                const frm = document.getElementById('sign_up_form');
-                                frm.reset();
-                            })
+            fetch(`${config.API_ENDPOINT}/api/checkUserByUsername?username=${newUser.username}`)
+                .then(res => {
+                if(res.status != 200) {
+                    return alert('That Email is already in use')
+                }else {
+                    fetch(`${config.API_ENDPOINT}/api/signup`,{
+                        method: 'POST',
+                        credentials: 'include',
+                        headers: {
+                            'content-type' : 'application/json'
+                        },
+                        body: JSON.stringify(newUser),
                     })
+                        .then(res => {
+                            if (!res.ok)
+                                return res.json().then(e => Promise.reject(e))
+                            ws.scrollTopAnimated(300);
+                            alert(`${newUser.display_name} has been added as a user!`)
+                            const getUserId = () => {
+                                fetch(`${config.API_ENDPOINT}/api/userIdByUsername?username=${newUser.username}`)
+                                    .then(res => res.json())
+                                    .then(json => {
 
+                                        const userStats = {
+                                            user_id: json[0].user_id,
+                                            current_weight: current_weight.value,
+                                            goal_weight: goal_weight.value,
+                                            display_name: signup_name.value
+                                        }
+                                        fetch(`${config.API_ENDPOINT}/api/addToCurrentStats`,{
+                                            method: 'POST',
+                                            credentials: 'include',
+                                            headers: {
+                                                'content-type' : 'application/json'
+                                            },
+                                            body: JSON.stringify(userStats),
+                                        })
+                                            .then(res => {
+                                                if (!res.ok)
+                                                    return res.json().then(e => Promise.reject(e))
+                                                const frm = document.getElementById('sign_up_form');
+                                                frm.reset();
+                                            })
+                                    })
+
+                            }
+                            getUserId()
+                        })
                 }
-                getUserId()
-                
-
             })
             .catch(error => {
                 console.error({error})
