@@ -13,11 +13,9 @@ class Footer extends React.Component {
         return (
             <>
                 <nav className='large-screen-nav'>
-                    <BrowserRouter>
                     <ul className='nav'>
                         <li><Link onClick={this.handleBack} to='#'>Last Page</Link></li>
                     </ul>
-                    </BrowserRouter>
                 </nav>
             </>
         )

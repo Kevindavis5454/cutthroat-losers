@@ -13,7 +13,6 @@ class LandingPage extends React.Component {
 
         return (
             <>
-            <BrowserRouter>
                 <div className='personal-sidebar'>
                     <Route exact path='/'
                            render={routeProps => (
@@ -59,7 +58,6 @@ class LandingPage extends React.Component {
                            )}
                     />
                 </div>
-                </BrowserRouter>
             </>
         )
     }

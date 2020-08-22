@@ -18,7 +18,6 @@ class PersonalPage extends React.Component {
 
         return (
             <>
-            <BrowserRouter>
                 <div className='personal-sidebar'>
                 <Route path='/personal'
                        render={routeProps => (
@@ -81,7 +80,6 @@ class PersonalPage extends React.Component {
                 />
                 <Route path='/personal/rules' component={Rules} />
                 </div>
-                </BrowserRouter>
             </>
         )
 

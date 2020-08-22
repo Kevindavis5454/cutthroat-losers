@@ -54,11 +54,28 @@ class ContestSelectModal extends React.Component {
                             .then(res => {
                                 if (!res.ok)
                                     return res.json().then(e => Promise.reject(e))
-                                else {
-                                    alert(`User with User Id: ${userContestData.user_id} has been added to your contest`)
-                                    document.getElementById('overlay').classList.remove('is-visible');
-                                    document.getElementById('modal').classList.remove('is-visible');
+                                const contestIdData = {
+                                    user_id : userContestData.user_id,
+                                    contest_id : userContestData.contest_id
                                 }
+                                alert(`User with User Id: ${userContestData.user_id} has been added to your contest`)
+                                fetch(`${config.API_ENDPOINT}/api/contestInfo/addContestId`, {
+                                    method: 'PUT',
+                                    credentials: 'include',
+                                    headers: {
+                                        'content-type' : 'application/json',
+                                    },
+                                    body: JSON.stringify(contestIdData),
+                                })
+                                    .then(res => {
+                                        if (!res.ok)
+                                            return res.json().then(e => Promise.reject(e))
+                                        else {
+                                            alert(`Contest with Contest ID ${contestIdData.contest_id} has been added to the current stats table!`)
+                                        }
+                                    })
+
+
                             })
                     })
 
@@ -69,6 +86,8 @@ class ContestSelectModal extends React.Component {
             })
         const frm = document.getElementById('contest-form');
         frm.reset();
+        document.getElementById('overlay').classList.remove('is-visible');
+        document.getElementById('modal').classList.remove('is-visible');
     }
 
     handleCloseBtn = () => {
@@ -157,7 +176,7 @@ class ContestSelectModal extends React.Component {
                             Create new contest:
                             <form className="contest-form" id="contest-form" onSubmit={this.handleNewContest}>
                                 <label htmlFor="contest_name">Contest Name: </label>
-                                <input type="text" id="contest_name" name="contest_name" /><br/>
+                                <input required type="text" id="contest_name" name="contest_name" /><br/>
                                 <label htmlFor="contest_start_date">Start Date: </label>
                                 <DatePicker id="contest_start_date" selected={Date.parse(this.context.newContestStartDate)} onChange={date => this.context.handleSetNewContestStartDate(date)} /><br/>
                                 <label htmlFor="contest_end_date">End Date: </label>
@@ -182,4 +201,4 @@ class ContestSelectModal extends React.Component {
     }
 }
 
-export default ContestSelectModal
+export default withRouter(ContestSelectModal)

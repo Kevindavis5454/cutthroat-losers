@@ -13,7 +13,6 @@ class GroupPage extends React.Component {
     render () {
         return (
             <>
-                <BrowserRouter>
                 <div className='personal-sidebar'>
                     <Route path='/group'
                            render={routeProps => (
@@ -66,7 +65,6 @@ class GroupPage extends React.Component {
                                )}
                         />
                 </div>
-                </BrowserRouter>
             </>
         )
     }

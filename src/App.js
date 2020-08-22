@@ -88,8 +88,6 @@ class App extends React.Component {
         return (
             <ApiContext.Provider value={value}>
             <div className='main-div'>
-                <ErrorPage>
-                <BrowserRouter>
                 <div className='header-div'>
                     <Route exact path='/' component={HeaderLogin} />
                     <Route path='/landing' component={HeaderLogin} />
@@ -143,8 +141,6 @@ class App extends React.Component {
                 <div className='footer-div'>
                     <Route path='/' component={Footer} />
                 </div>
-                </BrowserRouter>
-                </ErrorPage>
             </div>
             </ApiContext.Provider>
         );

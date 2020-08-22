@@ -28,14 +28,12 @@ class Contact extends React.Component {
                                 <p><label htmlFor="message">Message:</label>
                                     <textarea name="message"></textarea>
                                 </p>
-                                <BrowserRouter>
                                 <p className="submit-wrap">
                                     <Link to='/personal/contact'><input type="submit"
                                                                         id="ftp-submit"
                                                                         className="button"
                                                                         value="Submit"/></Link>
                                 </p>
-                                </BrowserRouter>
                             </form>
                             </div>
                         </div>

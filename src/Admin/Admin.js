@@ -334,11 +334,9 @@ class Admin extends React.Component {
     render () {
         return (
             <>
-                <BrowserRouter>
                 <div className='personal-sidebar'>
                     <Route path='/admin' component={Sidebar} />
                 </div>
-                </BrowserRouter>
                 <div className='personal-content'>
                         <div className="flex-container">
                             <div className="flex-cell">

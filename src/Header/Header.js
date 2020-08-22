@@ -4,11 +4,16 @@ import './header.css'
 
 class Header extends React.Component {
 
+    handleLogOut = e => {
+        e.preventDefault()
+        localStorage.clear()
+        this.props.history.push('/')
+    }
+
 
     render() {
         return (
             <>
-            <BrowserRouter>
                 <div className="header-title">
                     <Link to='/'><img src={require("./LogoMakr_37X4P2.png")} alt='Logo' className='header-img'></img></Link>
                 </div>
@@ -34,9 +39,9 @@ class Header extends React.Component {
                         </li>
                         <li><Link to='/admin'>Admin</Link></li>
                         <li><Link to='/personal/contact'>Contact</Link></li>
+                        <li><Link onClick={this.handleLogOut}>Log Out</Link></li>
                     </ul>
                 </nav>
-                </BrowserRouter>
             </>
         )
     }

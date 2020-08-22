@@ -12,7 +12,6 @@ class PersonalPageHome extends React.Component {
 
         return (
             <>
-            <BrowserRouter>
                 <div className="flex-container">
                     <div className="flex-cell">
                         <Link className="flex-item" to='/personal/weighttracker'>
@@ -44,7 +43,6 @@ class PersonalPageHome extends React.Component {
                         </Link>
                     </div>
                 </div>
-                </BrowserRouter>
             </>
         )
     }
