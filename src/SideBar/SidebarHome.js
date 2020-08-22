@@ -5,8 +5,29 @@ import config from "../config";
 import ApiContext from "../ApiContext"
 const ws = require('../windowscroll')
 
+const validEmailRegex = 
+  RegExp(/^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i);
+
+  const validateForm = (errors) => {
+    let valid = true;
+    Object.values(errors).forEach(
+      // if we have an error string set valid to false
+      (val) => val.length > 0 && (valid = false)
+    );
+    return valid;
+  }
 
 class SidebarHome extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            errors: {
+                login_email: '',
+                login_password: '',
+            }
+        }
+    }
 
     static contextType = ApiContext;
 
@@ -71,6 +92,14 @@ class SidebarHome extends React.Component {
 
     handleLogin = e => {
         e.preventDefault()
+        if(validateForm(this.state.errors)) {
+            console.info('Valid Form')
+        } else {
+            return(
+                alert("Invalid Login:" + this.state.errors.login_email + ' ' + this.state.errors.login_password)
+            )
+            
+        }
         const { login_email, login_password } = e.target
         const userLogin = {
             username: login_email.value,
@@ -127,6 +156,29 @@ class SidebarHome extends React.Component {
         
     }
 
+    handleChange = (event) => {
+        event.preventDefault();
+        const { name, value } = event.target;
+        let errors = this.state.errors;
+
+        switch (name) {
+            case 'login_email':
+                errors.login_email = 
+                    validEmailRegex.test(value)
+                    ? ''
+                    : 'Email is not valid';
+            break;
+            case 'login_password':
+                errors.login_password = 
+                    value.length < 6
+                    ? 'Password must be 6 characters long'
+                    : '';
+                break;
+        }
+
+        this.setState({errors, [name]: value})
+    }
+
     render () {
         return (
             <>
@@ -142,6 +194,7 @@ class SidebarHome extends React.Component {
                                         <input type="text"
                                                name="login_email"
                                                id="login_email"
+                                               onChange={this.handleChange}
                                                required
                                         />
                                     </p>
@@ -149,6 +202,7 @@ class SidebarHome extends React.Component {
                                         <input type="password"
                                                name="login_password"
                                                id="login_password"
+                                               onChange={this.handleChange}
                                                required
                                         />
                                     </p>
