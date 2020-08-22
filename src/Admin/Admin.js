@@ -1,7 +1,7 @@
 import React from "react";
 import "./admin.css"
 import Sidebar from "../SideBar/Sidebar";
-import { Route, BrowserRouter } from 'react-router-dom'
+import { Route, BrowserRouter, Router } from 'react-router-dom'
 import GroupWorkoutTracking from "../GroupWorkoutTracking/GroupWorkoutTracking";
 import GroupWeightTracking from "../GroupWeightTracking/GroupWeightTracking";
 import AdminPointAssignWeight from "./AdminPointAssignWeight";

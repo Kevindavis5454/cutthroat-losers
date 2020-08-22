@@ -4,6 +4,7 @@ import About from "./About"
 import HowToUse from "./HowToUse"
 import LandingPage from "./LandingPage"
 import Rules from "./Rules"
+import {BrowserRouter} from "react-router-dom"
 
 
 test('renders without crashing', () => {
@@ -20,7 +21,7 @@ test('renders without crashing', () => {
 
   test('renders without crashing', () => {
     const div = document.createElement('div');
-    ReactDOM.render(<LandingPage />, div);
+    ReactDOM.render(<BrowserRouter><LandingPage /></BrowserRouter>, div);
     ReactDOM.unmountComponentAtNode(div);
   });
 

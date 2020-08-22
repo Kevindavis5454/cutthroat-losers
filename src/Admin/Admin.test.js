@@ -4,10 +4,11 @@ import Admin from "./Admin"
 import AdminContestToUser from "./AdminContestToUser"
 import AdminPointAssignMeasurement from "./AdminPointAssignMeasurement"
 import AdminPointAssignWeight from "./AdminPointAssignWeight"
+import {BrowserRouter} from "react-router-dom"
 
 test('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<Admin />, div);
+  ReactDOM.render(<BrowserRouter><Admin /></BrowserRouter>, div);
   ReactDOM.unmountComponentAtNode(div);
 });
 

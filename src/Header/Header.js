@@ -39,7 +39,7 @@ class Header extends React.Component {
                         </li>
                         <li><Link to='/admin'>Admin</Link></li>
                         <li><Link to='/personal/contact'>Contact</Link></li>
-                        <li><Link onClick={this.handleLogOut}>Log Out</Link></li>
+                        <li><Link to="" onClick={this.handleLogOut}>Log Out</Link></li>
                     </ul>
                 </nav>
             </>
