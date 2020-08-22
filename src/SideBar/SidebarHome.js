@@ -27,8 +27,9 @@ class SidebarHome extends React.Component {
             body: JSON.stringify(newUser),
         })
             .then(res => {
-                if (!res.ok)
-                    return res.json().then(e => Promise.reject(e))
+                if (!res.ok) {
+                    return alert("Email already in use")
+                }
                 ws.scrollTopAnimated(300);
                 alert(`${newUser.display_name} has been added as a user!`)
                 const getUserId = () => {

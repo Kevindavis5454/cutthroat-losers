@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from "react-router-dom";
+import {Link, BrowserRouter} from "react-router-dom";
 import './header.css'
 
 class Header extends React.Component {
@@ -8,6 +8,7 @@ class Header extends React.Component {
     render() {
         return (
             <>
+            <BrowserRouter>
                 <div className="header-title">
                     <Link to='/'><img src={require("./LogoMakr_37X4P2.png")} alt='Logo' className='header-img'></img></Link>
                 </div>
@@ -35,6 +36,7 @@ class Header extends React.Component {
                         <li><Link to='/personal/contact'>Contact</Link></li>
                     </ul>
                 </nav>
+                </BrowserRouter>
             </>
         )
     }

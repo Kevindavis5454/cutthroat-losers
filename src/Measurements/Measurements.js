@@ -113,8 +113,8 @@ class Measurements extends React.Component {
                 <h3 className={this.renderPlayername()}>{this.state.name}'s Measurement Tracking</h3>
                 <form onSubmit={this.handleMeasurementSubmit} className='workout-buttons'>
                     <button type='submit' className='glow-on-hover button-left' name='measurement' id='measurement'>Measurement</button>
-                    <input required type='text'
-                           onKeyPress="return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))"
+                     <input required type='text'
+                           /*onKeyPress="return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))" }*/
                            placeholder='38.2' name='measurement_submit' id='measurement_submit'></input>
                 </form>
                 <div className="flex-container-workout">

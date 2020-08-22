@@ -1,7 +1,7 @@
 import React from "react";
 import "./admin.css"
 import Sidebar from "../SideBar/Sidebar";
-import { Route } from 'react-router-dom'
+import { Route, BrowserRouter } from 'react-router-dom'
 import GroupWorkoutTracking from "../GroupWorkoutTracking/GroupWorkoutTracking";
 import GroupWeightTracking from "../GroupWeightTracking/GroupWeightTracking";
 import AdminPointAssignWeight from "./AdminPointAssignWeight";
@@ -334,9 +334,11 @@ class Admin extends React.Component {
     render () {
         return (
             <>
+                <BrowserRouter>
                 <div className='personal-sidebar'>
                     <Route path='/admin' component={Sidebar} />
                 </div>
+                </BrowserRouter>
                 <div className='personal-content'>
                         <div className="flex-container">
                             <div className="flex-cell">

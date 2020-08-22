@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import {Link, BrowserRouter} from "react-router-dom";
 
 
 class Footer extends React.Component {
@@ -13,9 +13,11 @@ class Footer extends React.Component {
         return (
             <>
                 <nav className='large-screen-nav'>
+                    <BrowserRouter>
                     <ul className='nav'>
                         <li><Link onClick={this.handleBack} to='#'>Last Page</Link></li>
                     </ul>
+                    </BrowserRouter>
                 </nav>
             </>
         )

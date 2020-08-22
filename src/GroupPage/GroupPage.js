@@ -1,5 +1,5 @@
 import React from "react";
-import { Route } from "react-router-dom"
+import { Route, BrowserRouter } from "react-router-dom"
 import GroupPageHome from "./GroupPageHome";
 import GroupWeightTracking from "../GroupWeightTracking/GroupWeightTracking";
 import GroupWorkoutTracking from "../GroupWorkoutTracking/GroupWorkoutTracking";
@@ -13,6 +13,7 @@ class GroupPage extends React.Component {
     render () {
         return (
             <>
+                <BrowserRouter>
                 <div className='personal-sidebar'>
                     <Route path='/group'
                            render={routeProps => (
@@ -65,7 +66,7 @@ class GroupPage extends React.Component {
                                )}
                         />
                 </div>
-                
+                </BrowserRouter>
             </>
         )
     }

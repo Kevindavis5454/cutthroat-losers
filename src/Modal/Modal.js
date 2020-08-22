@@ -159,9 +159,9 @@ class ContestSelectModal extends React.Component {
                                 <label htmlFor="contest_name">Contest Name: </label>
                                 <input type="text" id="contest_name" name="contest_name" /><br/>
                                 <label htmlFor="contest_start_date">Start Date: </label>
-                                <DatePicker id="contest_start_date" selected={this.context.newContestStartDate} onChange={date => this.context.handleSetNewContestStartDate(date)} /><br/>
+                                <DatePicker id="contest_start_date" selected={Date.parse(this.context.newContestStartDate)} onChange={date => this.context.handleSetNewContestStartDate(date)} /><br/>
                                 <label htmlFor="contest_end_date">End Date: </label>
-                                <DatePicker id="contest_end_date" selected={this.context.newContestEndDate} onChange={date => this.context.handleSetNewContestEndDate(date)} /><br />
+                                <DatePicker id="contest_end_date" selected={Date.parse(this.context.newContestEndDate)} onChange={date => this.context.handleSetNewContestEndDate(date)} /><br />
                                 <label htmlFor="weighin_day">Weigh-in Day:</label>
                                 <select id="weighin_day" name="weighin_day">
                                     <option value="monday">Monday</option>
@@ -182,4 +182,4 @@ class ContestSelectModal extends React.Component {
     }
 }
 
-export default withRouter(ContestSelectModal)
+export default ContestSelectModal

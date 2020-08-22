@@ -1,5 +1,5 @@
 import React from "react";
-import { Route } from 'react-router-dom'
+import { Route, BrowserRouter } from 'react-router-dom'
 import About from "./About";
 import HowToUse from "./HowToUse";
 import Rules from "./Rules";
@@ -13,6 +13,7 @@ class LandingPage extends React.Component {
 
         return (
             <>
+            <BrowserRouter>
                 <div className='personal-sidebar'>
                     <Route exact path='/'
                            render={routeProps => (
@@ -58,6 +59,7 @@ class LandingPage extends React.Component {
                            )}
                     />
                 </div>
+                </BrowserRouter>
             </>
         )
     }

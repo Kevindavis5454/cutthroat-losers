@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from "react-router-dom";
+import {Link, BrowserRouter} from "react-router-dom";
 import GroupWeightTracking from "../GroupWeightTracking/GroupWeightTracking";
 import GroupWorkoutTracking from "../GroupWorkoutTracking/GroupWorkoutTracking";
 import GroupPoints from "../GroupPoints/GroupPoints";
@@ -11,6 +11,7 @@ class GroupPageHome extends React.Component {
 
         return (
             <>
+            <BrowserRouter>
                 <div className="flex-container">
                     <div className="flex-cell">
                         <Link className="flex-item" to='/group/weighttracker'>
@@ -41,6 +42,7 @@ class GroupPageHome extends React.Component {
                         </Link>
                     </div>
                 </div>
+            </BrowserRouter>
             </>
         )
     }
