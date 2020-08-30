@@ -59,14 +59,17 @@ class ContestSelectModal extends React.Component {
                                     user_id : userContestData.user_id,
                                     contest_id : userContestData.contest_id
                                 }
+                                const contestIdPatch = {
+                                    contest_id : userContestData.contest_id
+                                }
                                 alert(`User with User Id: ${userContestData.user_id} has been added to your contest`)
-                                fetch(`${config.API_ENDPOINT}/api/contestInfo/addContestId`, {
-                                    method: 'PUT',
+                                fetch(`${config.API_ENDPOINT}api/currentstats/userId/${contestIdData.user_id}`, {
+                                    method: 'PATCH',
                                     credentials: 'include',
                                     headers: {
                                         'content-type' : 'application/json',
                                     },
-                                    body: JSON.stringify(contestIdData),
+                                    body: JSON.stringify(contestIdPatch),
                                 })
                                     .then(res => {
                                         if (!res.ok)

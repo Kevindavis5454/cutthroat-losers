@@ -10,7 +10,7 @@ class AdminContestToUser extends React.Component {
 
     componentDidMount() {
         const getUsers = () => {
-            return fetch(`${config.API_ENDPOINT}/api/admin/getAllUsers`)
+            return fetch(`${config.API_ENDPOINT}/api/users/adminPage/all`)
                 .then(res => res.json())
         }
 

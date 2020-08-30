@@ -13,7 +13,7 @@ class Measurements extends React.Component {
     componentDidMount() {
 
         const getMeasurementInfo = () => {
-            return fetch(`${config.API_ENDPOINT}/api/contestInfo/measurementInfo?contest_id=${localStorage.getItem("contest Id")}&user_id=${localStorage.getItem("user Id")}`)
+            return fetch(`${config.API_ENDPOINT}/api/measurements/getMeasurementInfo?contest_id=${localStorage.getItem("contest Id")}&user_id=${localStorage.getItem("user Id")}`)
                 .then(res => res.json())
         }
 
@@ -86,7 +86,7 @@ class Measurements extends React.Component {
             user_id: parseInt(localStorage.getItem("user Id")),
             measurement: measurement_submit.value,
         }
-        fetch(`${config.API_ENDPOINT}/api/contestInfo/logMeasurement`, {
+        fetch(`${config.API_ENDPOINT}/api/measurements`, {
             method: 'POST',
             credentials: 'include',
             headers: {

@@ -94,7 +94,7 @@ class WeightTracking extends React.Component {
             weight: weight_submit.value,
         }
         const weightUpdate = {
-            weight: weight_submit.value,
+            current_weight: weight_submit.value,
         }
         fetch(`${config.API_ENDPOINT}/api/contestInfo/logWeight`, {
             method: 'POST',
@@ -110,7 +110,7 @@ class WeightTracking extends React.Component {
             headers: {
                 'content-type' : 'application/json',
             },
-            body: JSON.stringify(weighin),
+            body: JSON.stringify(weightUpdate),
         })
             .then(res => {
                 if (!res.ok)

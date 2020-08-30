@@ -39,12 +39,12 @@ class SidebarHome extends React.Component {
             username: signup_email.value.toLowerCase(),
             password: signup_password.value
         }
-            fetch(`${config.API_ENDPOINT}/api/checkUserByUsername?username=${newUser.username}`)
+            fetch(`${config.API_ENDPOINT}/api/users/searchByUsername/${newUser.username}`)
                 .then(res => {
                 if(res.status != 200) {
                     return alert('That Email is already in use')
                 }else {
-                    fetch(`${config.API_ENDPOINT}/api/signup`,{
+                    fetch(`${config.API_ENDPOINT}/api/users`,{
                         method: 'POST',
                         credentials: 'include',
                         headers: {
@@ -58,7 +58,7 @@ class SidebarHome extends React.Component {
                             ws.scrollTopAnimated(300);
                             alert(`${newUser.display_name} has been added as a user!`)
                             const getUserId = () => {
-                                fetch(`${config.API_ENDPOINT}/api/userIdByUsername?username=${newUser.username}`)
+                                fetch(`${config.API_ENDPOINT}/api/users/searchByUsername/getId/${newUser.username}`)
                                     .then(res => res.json())
                                     .then(json => {
 
@@ -109,19 +109,9 @@ class SidebarHome extends React.Component {
             username: login_email.value,
             password: login_password.value,
         }
-        fetch(`${config.API_ENDPOINT}/api/login`, {
-            method: 'POST',
-            credentials: 'include',
-            headers: {
-                'content-type' : 'application/json',
-            },
-            body: JSON.stringify(userLogin),
-        })
-            .then(res => {
-                if (!res.ok)
-                    return res.json().then(e => Promise.reject(e))
-
-                else {
+        fetch(`${config.API_ENDPOINT}/api/users/login/userAuth?username=${userLogin.username}&password=${userLogin.password}`)
+        .then(res => res.json())
+            .then(json => {
                     fetch(`${config.API_ENDPOINT}/api/users`)
                         .then(res => res.json())
                         .then(json => {
@@ -150,7 +140,7 @@ class SidebarHome extends React.Component {
                         .then(
                             document.getElementById('overlay').classList.add('is-visible'),
                             document.getElementById('modal').classList.add('is-visible')
-                        )}
+                        )
             })
             .catch(error => {
                 console.error({error})
