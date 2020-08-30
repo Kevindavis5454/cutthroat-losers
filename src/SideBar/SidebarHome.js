@@ -68,7 +68,7 @@ class SidebarHome extends React.Component {
                                             goal_weight: goal_weight.value,
                                             display_name: signup_name.value
                                         }
-                                        fetch(`${config.API_ENDPOINT}/api/addToCurrentStats`,{
+                                        fetch(`${config.API_ENDPOINT}/api/currentstats`,{
                                             method: 'POST',
                                             credentials: 'include',
                                             headers: {

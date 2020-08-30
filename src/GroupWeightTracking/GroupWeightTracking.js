@@ -45,7 +45,7 @@ class GroupWeightTracking extends React.Component {
                     }
 
                     const getContestantInfo = () => {
-                        return fetch(`${config.API_ENDPOINT}/api/contestInfo/groupWeightPageStats?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[0]}`)
+                        return fetch(`${config.API_ENDPOINT}/api/currentstats/contestUserId/displayname?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[0]}`)
                             .then(res => res.json())
                     }
                     getWeightInfo()
@@ -74,7 +74,7 @@ class GroupWeightTracking extends React.Component {
                             .then(res => res.json())
                     }
                     const getContestantInfo = () => {
-                        return fetch(`${config.API_ENDPOINT}/api/contestInfo/groupWeightPageStats?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[1]}`)
+                        return fetch(`${config.API_ENDPOINT}/api/currentstats/contestUserId/displayname?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[1]}`)
                             .then(res => res.json())
                     }
                     getWeightInfo()
@@ -103,7 +103,7 @@ class GroupWeightTracking extends React.Component {
                             .then(res => res.json())
                     }
                     const getContestantInfo = () => {
-                        return fetch(`${config.API_ENDPOINT}/api/contestInfo/groupWeightPageStats?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[2]}`)
+                        return fetch(`${config.API_ENDPOINT}/api/currentstats/contestUserId/displayname?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[2]}`)
                             .then(res => res.json())
                     }
                     getWeightInfo()
@@ -132,7 +132,7 @@ class GroupWeightTracking extends React.Component {
                             .then(res => res.json())
                     }
                     const getContestantInfo = () => {
-                        return fetch(`${config.API_ENDPOINT}/api/contestInfo/groupWeightPageStats?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[3]}`)
+                        return fetch(`${config.API_ENDPOINT}/api/currentstats/contestUserId/displayname?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[3]}`)
                             .then(res => res.json())
                     }
                     getWeightInfo()
@@ -161,7 +161,7 @@ class GroupWeightTracking extends React.Component {
                             .then(res => res.json())
                     }
                     const getContestantInfo = () => {
-                        return fetch(`${config.API_ENDPOINT}/api/contestInfo/groupWeightPageStats?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[4]}`)
+                        return fetch(`${config.API_ENDPOINT}/api/currentstats/contestUserId/displayname?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[4]}`)
                             .then(res => res.json())
                     }
                     getWeightInfo()
@@ -190,7 +190,7 @@ class GroupWeightTracking extends React.Component {
                             .then(res => res.json())
                     }
                     const getContestantInfo = () => {
-                        return fetch(`${config.API_ENDPOINT}/api/contestInfo/groupWeightPageStats?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[5]}`)
+                        return fetch(`${config.API_ENDPOINT}/api/currentstats/contestUserId/displayname?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[5]}`)
                             .then(res => res.json())
                     }
                     getWeightInfo()

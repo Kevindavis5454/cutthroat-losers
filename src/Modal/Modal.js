@@ -34,7 +34,7 @@ class ContestSelectModal extends React.Component {
                 if (!res.ok)
                     return res.json().then(e => Promise.reject(e));
                 const getContestId = () => {
-                    return fetch(`${config.API_ENDPOINT}/api/getNewContest?contest_name=${newContest.contest_name}`)
+                    return fetch(`${config.API_ENDPOINT}/api/contests/contestByName/getId?contest_name=${newContest.contest_name}`)
                         .then(res => res.json())
                 }
                 alert(`${newContest.contest_name} has been added as a contest!`)
@@ -125,14 +125,7 @@ class ContestSelectModal extends React.Component {
     }
     handleContestSelect = contestName => {
        function getContestId() {
-           return fetch(`${config.API_ENDPOINT}/api/contests/getContestId`, {
-               method: 'POST',
-               credentials: 'include',
-               headers: {
-                   'content-type': 'application/json',
-               },
-               body: JSON.stringify(contestName),
-           })
+           return fetch(`${config.API_ENDPOINT}/api/contests/contestName/${contestName.contest_name}`)
                .then(res => res.json())
        }
 

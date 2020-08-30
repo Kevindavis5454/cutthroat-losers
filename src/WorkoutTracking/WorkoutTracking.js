@@ -209,7 +209,7 @@ class WorkoutTracking extends React.Component {
                 })
             })
         const getUserInfo = () => {
-            return fetch(`${config.API_ENDPOINT}/api/contestInfo/weightPageStats?contest_id=${localStorage.getItem("contest Id")}&user_id=${localStorage.getItem("user Id")}`)
+            return fetch(`${config.API_ENDPOINT}/api/currentstats/contestUserId/weightPageStats?contest_id=${localStorage.getItem("contest Id")}&user_id=${localStorage.getItem("user Id")}`)
                 .then(res => res.json())
         }
 

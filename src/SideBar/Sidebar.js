@@ -22,7 +22,7 @@ class Sidebar extends React.Component {
     componentDidMount() {
 
         const getSideBarInfo = () => {
-            return fetch(`${config.API_ENDPOINT}/api/contestInfo/sidebarStats?contest_id=${localStorage.getItem("contest Id")}`)
+            return fetch(`${config.API_ENDPOINT}/api/currentstats/contestId/${localStorage.getItem("contest Id")}`)
                 .then(res => res.json())
         }
 
