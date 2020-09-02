@@ -34,8 +34,9 @@ import './groupgraph.css'
                 })
                 if (this.state.contestants[0] !== undefined) {
                     const getUserPoints = () => {
-                        return fetch(`${config.API_ENDPOINT}api/points/totalUserPoints?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[0]}`)
-                            .then(res => res.json())
+                        return fetch(`${config.API_ENDPOINT}/api/points/totalUserPoints?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[0]}`)
+                            .then(res => 
+                                res.json())
                     }
 
                     const getContestantInfo = () => {
@@ -51,9 +52,7 @@ import './groupgraph.css'
                                     chartData.push({x: "Contestant 1", y: parseInt(formattedPointsStomach), fill: "#34bf49"})
                                     getContestantInfo()
                                         .then((contestantInfo)=> {
-                                            let contestantName = contestantInfo.map(name => {
-                                                return name.display_name
-                                            })
+                                            let contestantName = contestantInfo
                                             this.setState({
                                                 user1Name: contestantName
                                             })
@@ -63,7 +62,7 @@ import './groupgraph.css'
                 }
                 if (this.state.contestants[1] !== undefined) {
                     const getUserPoints = () => {
-                        return fetch(`${config.API_ENDPOINT}api/points/totalUserPoints?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[1]}`)
+                        return fetch(`${config.API_ENDPOINT}/api/points/totalUserPoints?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[1]}`)
                             .then(res => res.json())
                     }
 
@@ -79,9 +78,7 @@ import './groupgraph.css'
                                     chartData.push({x: "Contestant 2", y: parseInt(formattedPointsStomach), fill: "#da4453"})
                                     getContestantInfo()
                                         .then((contestantInfo)=> {
-                                            let contestantName = contestantInfo.map(name => {
-                                                return name.display_name
-                                            })
+                                            let contestantName = contestantInfo
                                             this.setState({
                                                 user2Name: contestantName
                                             })
@@ -91,7 +88,7 @@ import './groupgraph.css'
                 }
                 if (this.state.contestants[2] !== undefined) {
                     const getUserPoints = () => {
-                        return fetch(`${config.API_ENDPOINT}api/points/totalUserPoints?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[2]}`)
+                        return fetch(`${config.API_ENDPOINT}/api/points/totalUserPoints?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[2]}`)
                             .then(res => res.json())
                     }
 
@@ -110,9 +107,7 @@ import './groupgraph.css'
 
                                     getContestantInfo()
                                         .then((contestantInfo)=> {
-                                            let contestantName = contestantInfo.map(name => {
-                                                return name.display_name
-                                            })
+                                            let contestantName = contestantInfo
                                             this.setState({
                                                 user3Name: contestantName
                                             })
@@ -122,7 +117,7 @@ import './groupgraph.css'
                 }
                 if (this.state.contestants[3] !== undefined) {
                     const getUserPoints = () => {
-                        return fetch(`${config.API_ENDPOINT}api/points/totalUserPoints?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[3]}`)
+                        return fetch(`${config.API_ENDPOINT}/api/points/totalUserPoints?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[3]}`)
                             .then(res => res.json())
                     }
 
@@ -138,9 +133,7 @@ import './groupgraph.css'
                             chartData.push({x: "Contestant 4", y: parseInt(formattedPointsStomach), fill: "#48cfad"})
                             getContestantInfo()
                                 .then((contestantInfo)=> {
-                                    let contestantName = contestantInfo.map(name => {
-                                        return name.display_name
-                                    })
+                                    let contestantName = contestantInfo
                                     this.setState({
                                         user4Name: contestantName
                                     })
