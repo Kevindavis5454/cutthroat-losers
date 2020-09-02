@@ -44,7 +44,7 @@ class ContestSelectModal extends React.Component {
                             user_id : parseInt(localStorage.getItem("user Id")),
                             contest_id: parseInt(contestId[0].contest_id)
                         }
-                        fetch(`${config.API_ENDPOINT}/api/admin/addUserToContest`, {
+                        fetch(`${config.API_ENDPOINT}/api/contesttouser`, {
                             method: 'POST',
                             credentials: 'include',
                             headers: {

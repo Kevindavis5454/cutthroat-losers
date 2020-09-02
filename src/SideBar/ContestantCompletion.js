@@ -16,7 +16,7 @@ class ContestantCompletion extends React.Component {
 
 
         const getContest = () => {
-                return fetch(`${config.API_ENDPOINT}/api/contestInfo/weightProgress?user_id=${this.props.user_id}`)
+                return fetch(`${config.API_ENDPOINT}/api/weighins/getUserWeights?user_id=${this.props.user_id}`)
                     .then(res => res.json())
             }
 

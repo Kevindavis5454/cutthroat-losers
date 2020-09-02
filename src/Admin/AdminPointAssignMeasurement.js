@@ -4,7 +4,7 @@ import config from "../config";
 class AdminPointAssignMeasurement extends React.Component {
 
     handleFetchPostPoints = (postBody, placement) => {
-        fetch(`${config.API_ENDPOINT}/api/contestInfo/logPoints`, {
+        fetch(`${config.API_ENDPOINT}/api/points/`, {
             method: 'POST',
             credentials: 'include',
             headers: {

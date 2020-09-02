@@ -26,7 +26,7 @@ class GroupMeasurements extends React.Component {
     componentDidMount() {
 
         const getContestants = () => {
-            return fetch(`${config.API_ENDPOINT}/api/contestInfo/contestUserIds?contest_id=${localStorage.getItem("contest Id")}`)
+            return fetch(`${config.API_ENDPOINT}/api/contesttouser/getOnlyUserId?contest_id=${localStorage.getItem("contest Id")}`)
                 .then(res => res.json())
         }
 

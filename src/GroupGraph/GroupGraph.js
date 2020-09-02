@@ -19,7 +19,7 @@ import './groupgraph.css'
     componentDidMount() {
 
         const getContestants = () => {
-            return fetch(`${config.API_ENDPOINT}/api/contestInfo/contestUserIds?contest_id=${localStorage.getItem("contest Id")}`)
+            return fetch(`${config.API_ENDPOINT}/api/contesttouser/getOnlyUserId?contest_id=${localStorage.getItem("contest Id")}`)
                 .then(res => res.json())
         }
 
@@ -34,7 +34,7 @@ import './groupgraph.css'
                 })
                 if (this.state.contestants[0] !== undefined) {
                     const getUserPoints = () => {
-                        return fetch(`${config.API_ENDPOINT}/api/contestInfo/getUserPoints?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[0]}`)
+                        return fetch(`${config.API_ENDPOINT}api/points/totalUserPoints?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[0]}`)
                             .then(res => res.json())
                     }
 
@@ -63,7 +63,7 @@ import './groupgraph.css'
                 }
                 if (this.state.contestants[1] !== undefined) {
                     const getUserPoints = () => {
-                        return fetch(`${config.API_ENDPOINT}/api/contestInfo/getUserPoints?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[1]}`)
+                        return fetch(`${config.API_ENDPOINT}api/points/totalUserPoints?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[1]}`)
                             .then(res => res.json())
                     }
 
@@ -91,7 +91,7 @@ import './groupgraph.css'
                 }
                 if (this.state.contestants[2] !== undefined) {
                     const getUserPoints = () => {
-                        return fetch(`${config.API_ENDPOINT}/api/contestInfo/getUserPoints?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[2]}`)
+                        return fetch(`${config.API_ENDPOINT}api/points/totalUserPoints?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[2]}`)
                             .then(res => res.json())
                     }
 
@@ -122,7 +122,7 @@ import './groupgraph.css'
                 }
                 if (this.state.contestants[3] !== undefined) {
                     const getUserPoints = () => {
-                        return fetch(`${config.API_ENDPOINT}/api/contestInfo/getUserPoints?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[3]}`)
+                        return fetch(`${config.API_ENDPOINT}api/points/totalUserPoints?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[3]}`)
                             .then(res => res.json())
                     }
 

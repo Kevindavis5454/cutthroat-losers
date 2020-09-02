@@ -47,7 +47,7 @@ class WorkoutTracking extends React.Component {
         let newDate = new Date(localStorage.getItem("contest StartDate"));
 
         const getUserStrengthWorkouts = () => {
-            return fetch(`${config.API_ENDPOINT}/api/contestInfo/contestUserWorkouts?contest_id=${localStorage.getItem("contest Id")}&user_id=${localStorage.getItem("user Id")}&category=strength`)
+            return fetch(`${config.API_ENDPOINT}/api/workouts/getWorkoutData?contest_id=${localStorage.getItem("contest Id")}&user_id=${localStorage.getItem("user Id")}&category=strength`)
                 .then(res => res.json())
         }
 
@@ -128,7 +128,7 @@ class WorkoutTracking extends React.Component {
             })
 
         const getUserCardioWorkouts = () => {
-            return fetch(`${config.API_ENDPOINT}/api/contestInfo/contestUserWorkouts?contest_id=${localStorage.getItem("contest Id")}&user_id=${localStorage.getItem("user Id")}&category=cardio`)
+            return fetch(`${config.API_ENDPOINT}/api/workouts/getWorkoutData?contest_id=${localStorage.getItem("contest Id")}&user_id=${localStorage.getItem("user Id")}&category=cardio`)
                 .then(res => res.json())
         }
 
@@ -266,7 +266,7 @@ class WorkoutTracking extends React.Component {
             points: 1,
             win_id: 3,
         }
-        fetch(`${config.API_ENDPOINT}/api/contestInfo/logWorkout`, {
+        fetch(`${config.API_ENDPOINT}/api/workouts`, {
             method: 'POST',
             credentials: 'include',
             headers: {
@@ -284,7 +284,7 @@ class WorkoutTracking extends React.Component {
             .catch(error => {
                 console.error({error})
             })
-        fetch(`${config.API_ENDPOINT}/api/contestInfo/logPointsWorkout`, {
+        fetch(`${config.API_ENDPOINT}/api/points/`, {
             method: 'POST',
             credentials: 'include',
             headers: {
@@ -318,7 +318,7 @@ class WorkoutTracking extends React.Component {
             points: 1,
             win_id: 3,
         }
-        fetch(`${config.API_ENDPOINT}/api/contestInfo/logWorkout`, {
+        fetch(`${config.API_ENDPOINT}/api/workouts`, {
             method: 'POST',
             credentials: 'include',
             headers: {
@@ -336,7 +336,7 @@ class WorkoutTracking extends React.Component {
             .catch(error => {
                 console.error({error})
             })
-        fetch(`${config.API_ENDPOINT}/api/contestInfo/logPointsWorkout`, {
+        fetch(`${config.API_ENDPOINT}/api/points/`, {
             method: 'POST',
             credentials: 'include',
             headers: {

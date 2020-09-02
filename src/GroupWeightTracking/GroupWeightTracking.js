@@ -26,7 +26,7 @@ class GroupWeightTracking extends React.Component {
     componentDidMount() {
 
         const getContestants = () => {
-            return fetch(`${config.API_ENDPOINT}/api/contestInfo/contestUserIds?contest_id=${localStorage.getItem("contest Id")}`)
+            return fetch(`${config.API_ENDPOINT}/api/contesttouser/getOnlyUserId?contest_id=${localStorage.getItem("contest Id")}`)
                 .then(res => res.json())
         }
 
@@ -40,7 +40,7 @@ class GroupWeightTracking extends React.Component {
                 })
                 if (this.state.contestants[0] !== undefined) {
                     const getWeightInfo = () => {
-                        return fetch(`${config.API_ENDPOINT}/api/contestInfo/userWeights?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[0]}`)
+                        return fetch(`${config.API_ENDPOINT}/api/weighins/getContestWeighins?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[0]}`)
                             .then(res => res.json())
                     }
 
@@ -70,7 +70,7 @@ class GroupWeightTracking extends React.Component {
                 }
                 if (this.state.contestants[1] !== undefined) {
                     const getWeightInfo = () => {
-                        return fetch(`${config.API_ENDPOINT}/api/contestInfo/userWeights?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[1]}`)
+                        return fetch(`${config.API_ENDPOINT}/api/weighins/getContestWeighins?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[1]}`)
                             .then(res => res.json())
                     }
                     const getContestantInfo = () => {
@@ -99,7 +99,7 @@ class GroupWeightTracking extends React.Component {
                 }
                 if (this.state.contestants[2] !== undefined) {
                     const getWeightInfo = () => {
-                        return fetch(`${config.API_ENDPOINT}/api/contestInfo/userWeights?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[2]}`)
+                        return fetch(`${config.API_ENDPOINT}/api/weighins/getContestWeighins?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[2]}`)
                             .then(res => res.json())
                     }
                     const getContestantInfo = () => {
@@ -128,7 +128,7 @@ class GroupWeightTracking extends React.Component {
                 }
                 if (this.state.contestants[3] !== undefined) {
                     const getWeightInfo = () => {
-                        return fetch(`${config.API_ENDPOINT}/api/contestInfo/userWeights?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[3]}`)
+                        return fetch(`${config.API_ENDPOINT}/api/weighins/getContestWeighins?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[3]}`)
                             .then(res => res.json())
                     }
                     const getContestantInfo = () => {
@@ -157,7 +157,7 @@ class GroupWeightTracking extends React.Component {
                 }
                 if (this.state.contestants[4] !== undefined) {
                     const getWeightInfo = () => {
-                        return fetch(`${config.API_ENDPOINT}/api/contestInfo/userWeights?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[4]}`)
+                        return fetch(`${config.API_ENDPOINT}/api/weighins/getContestWeighins?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[4]}`)
                             .then(res => res.json())
                     }
                     const getContestantInfo = () => {
@@ -186,7 +186,7 @@ class GroupWeightTracking extends React.Component {
                 }
                 if (this.state.contestants[5] !== undefined) {
                     const getWeightInfo = () => {
-                        return fetch(`${config.API_ENDPOINT}/api/contestInfo/userWeights?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[5]}`)
+                        return fetch(`${config.API_ENDPOINT}/api/weighins/getContestWeighins?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[5]}`)
                             .then(res => res.json())
                     }
                     const getContestantInfo = () => {

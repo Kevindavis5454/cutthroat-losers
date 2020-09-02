@@ -29,7 +29,7 @@ class AdminContestToUser extends React.Component {
             user_id: parseInt(selectedUser),
             contest_id: parseInt(localStorage.getItem("contest Id"))
         }
-        fetch(`${config.API_ENDPOINT}/api/admin/addUserToContest`, {
+        fetch(`${config.API_ENDPOINT}/api/contesttouser`, {
             method: 'POST',
             credentials: 'include',
             headers: {

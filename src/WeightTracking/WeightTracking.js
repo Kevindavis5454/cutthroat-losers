@@ -17,7 +17,7 @@ class WeightTracking extends React.Component {
     componentDidMount() {
 
         const getWeightInfo = () => {
-            return fetch(`${config.API_ENDPOINT}/api/contestInfo/userWeights?contest_id=${localStorage.getItem("contest Id")}&user_id=${localStorage.getItem("user Id")}`)
+            return fetch(`${config.API_ENDPOINT}/api/weighins/getContestWeighins?contest_id=${localStorage.getItem("contest Id")}&user_id=${localStorage.getItem("user Id")}`)
                 .then(res => res.json())
         }
 
@@ -96,7 +96,7 @@ class WeightTracking extends React.Component {
         const weightUpdate = {
             current_weight: weight_submit.value,
         }
-        fetch(`${config.API_ENDPOINT}/api/contestInfo/logWeight`, {
+        fetch(`${config.API_ENDPOINT}/api/weighins`, {
             method: 'POST',
             credentials: 'include',
             headers: {
