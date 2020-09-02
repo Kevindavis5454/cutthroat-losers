@@ -110,7 +110,8 @@ class SidebarHome extends React.Component {
             password: login_password.value,
         }
         fetch(`${config.API_ENDPOINT}/api/users/login/userAuth?username=${userLogin.username}&password=${userLogin.password}`)
-        .then(res => res.json())
+        .then(res => {
+            res.json()})
             .then(json => {
                     fetch(`${config.API_ENDPOINT}/api/users`)
                         .then(res => res.json())
@@ -118,7 +119,7 @@ class SidebarHome extends React.Component {
                             const currentUser = json.filter(user => user.username.toLowerCase() === userLogin.username.toLowerCase());
                             localStorage.setItem("user Id", `${currentUser[0].user_id}`)
                             localStorage.setItem("display Name", `${currentUser[0].display_name}`)
-                            fetch(`${config.API_ENDPOINT}/api/contest_to_user/${currentUser[0].user_id}`)
+                            fetch(`${config.API_ENDPOINT}/api/contesttouser/userId/${currentUser[0].user_id}`)
                                 .then(res => res.json())
                                 .then(json => {
                                     const contestArray = ["choose a contest"];
@@ -127,7 +128,7 @@ class SidebarHome extends React.Component {
                                         fetch(`${config.API_ENDPOINT}/api/contests/${contest.contest_id}`)
                                             .then(res => res.json())
                                             .then(json => {
-                                                contestArray.push(json[0].contest_name)
+                                                contestArray.push(json.contest_name)
                                             })
                                             .then(json => {
                                                 this.context.handleSetContests(contestArray)
