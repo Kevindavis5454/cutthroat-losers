@@ -137,21 +137,22 @@ class GroupWorkoutTracking extends React.Component {
                             groupWorkoutDateSort(javascriptFormattedDates)
                             getContestantInfo()
                                 .then((contestantInfo)=> {
-                                    let contestantName = contestantInfo.map(name => {
-                                        formattedWeek1Data.push({x: name.display_name, y: week1Data.length, fill: "#34bf49"})
-                                        formattedWeek2Data.push({x: name.display_name, y: week2Data.length, fill: "#34bf49"})
-                                        formattedWeek3Data.push({x: name.display_name, y: week3Data.length, fill: "#34bf49"})
-                                        formattedWeek4Data.push({x: name.display_name, y: week4Data.length, fill: "#34bf49"})
-                                        formattedWeek5Data.push({x: name.display_name, y: week5Data.length, fill: "#34bf49"})
-                                        formattedWeek6Data.push({x: name.display_name, y: week6Data.length, fill: "#34bf49"})
-                                        formattedWeek7Data.push({x: name.display_name, y: week7Data.length, fill: "#34bf49"})
-                                        formattedWeek8Data.push({x: name.display_name, y: week8Data.length, fill: "#34bf49"})
-                                        formattedWeek9Data.push({x: name.display_name, y: week9Data.length, fill: "#34bf49"})
-                                        formattedWeek10Data.push({x: name.display_name, y: week10Data.length, fill: "#34bf49"})
-                                        formattedWeek11Data.push({x: name.display_name, y: week11Data.length, fill: "#34bf49"})
-                                        formattedWeek12Data.push({x: name.display_name, y: week12Data.length, fill: "#34bf49"})
-                                        return name.display_name
-                                    })
+                                    let contestantName = contestantInfo
+                                    
+                                        formattedWeek1Data.push({x: contestantName, y: week1Data.length, fill: "#34bf49"})
+                                        formattedWeek2Data.push({x: contestantName, y: week2Data.length, fill: "#34bf49"})
+                                        formattedWeek3Data.push({x: contestantName, y: week3Data.length, fill: "#34bf49"})
+                                        formattedWeek4Data.push({x: contestantName, y: week4Data.length, fill: "#34bf49"})
+                                        formattedWeek5Data.push({x: contestantName, y: week5Data.length, fill: "#34bf49"})
+                                        formattedWeek6Data.push({x: contestantName, y: week6Data.length, fill: "#34bf49"})
+                                        formattedWeek7Data.push({x: contestantName, y: week7Data.length, fill: "#34bf49"})
+                                        formattedWeek8Data.push({x: contestantName, y: week8Data.length, fill: "#34bf49"})
+                                        formattedWeek9Data.push({x: contestantName, y: week9Data.length, fill: "#34bf49"})
+                                        formattedWeek10Data.push({x: contestantName, y: week10Data.length, fill: "#34bf49"})
+                                        formattedWeek11Data.push({x: contestantName, y: week11Data.length, fill: "#34bf49"})
+                                        formattedWeek12Data.push({x: contestantName, y: week12Data.length, fill: "#34bf49"})
+                                        
+                                    
                                     this.setState({
                                         user1Info: contestantName
                                     })
@@ -229,21 +230,20 @@ class GroupWorkoutTracking extends React.Component {
                             groupWorkoutDateSort(javascriptFormattedDates)
                             getContestantInfo()
                                 .then((contestantInfo)=> {
-                                    let contestantName = contestantInfo.map(name => {
-                                        formattedWeek1Data.push({x: name.display_name, y: week1Data.length, fill: "#da4453"})
-                                        formattedWeek2Data.push({x: name.display_name, y: week2Data.length, fill: "#da4453"})
-                                        formattedWeek3Data.push({x: name.display_name, y: week3Data.length, fill: "#da4453"})
-                                        formattedWeek4Data.push({x: name.display_name, y: week4Data.length, fill: "#da4453"})
-                                        formattedWeek5Data.push({x: name.display_name, y: week5Data.length, fill: "#da4453"})
-                                        formattedWeek6Data.push({x: name.display_name, y: week6Data.length, fill: "#da4453"})
-                                        formattedWeek7Data.push({x: name.display_name, y: week7Data.length, fill: "#da4453"})
-                                        formattedWeek8Data.push({x: name.display_name, y: week8Data.length, fill: "#da4453"})
-                                        formattedWeek9Data.push({x: name.display_name, y: week9Data.length, fill: "#da4453"})
-                                        formattedWeek10Data.push({x: name.display_name, y: week10Data.length, fill: "#da4453"})
-                                        formattedWeek11Data.push({x: name.display_name, y: week11Data.length, fill: "#da4453"})
-                                        formattedWeek12Data.push({x: name.display_name, y: week12Data.length, fill: "#da4453"})
-                                        return name.display_name
-                                    })
+                                    let contestantName = contestantInfo
+                                        formattedWeek1Data.push({x: contestantName, y: week1Data.length, fill: "#da4453"})
+                                        formattedWeek2Data.push({x: contestantName, y: week2Data.length, fill: "#da4453"})
+                                        formattedWeek3Data.push({x: contestantName, y: week3Data.length, fill: "#da4453"})
+                                        formattedWeek4Data.push({x: contestantName, y: week4Data.length, fill: "#da4453"})
+                                        formattedWeek5Data.push({x: contestantName, y: week5Data.length, fill: "#da4453"})
+                                        formattedWeek6Data.push({x: contestantName, y: week6Data.length, fill: "#da4453"})
+                                        formattedWeek7Data.push({x: contestantName, y: week7Data.length, fill: "#da4453"})
+                                        formattedWeek8Data.push({x: contestantName, y: week8Data.length, fill: "#da4453"})
+                                        formattedWeek9Data.push({x: contestantName, y: week9Data.length, fill: "#da4453"})
+                                        formattedWeek10Data.push({x: contestantName, y: week10Data.length, fill: "#da4453"})
+                                        formattedWeek11Data.push({x: contestantName, y: week11Data.length, fill: "#da4453"})
+                                        formattedWeek12Data.push({x: contestantName, y: week12Data.length, fill: "#da4453"})
+                                    
                                     this.setState({
                                         user2Info: contestantName
                                     })
@@ -321,21 +321,20 @@ class GroupWorkoutTracking extends React.Component {
                             groupWorkoutDateSort(javascriptFormattedDates)
                             getContestantInfo()
                                 .then((contestantInfo)=> {
-                                    let contestantName = contestantInfo.map(name => {
-                                        formattedWeek1Data.push({x: name.display_name, y: week1Data.length, fill: "#ffce54"})
-                                        formattedWeek2Data.push({x: name.display_name, y: week2Data.length, fill: "#ffce54"})
-                                        formattedWeek3Data.push({x: name.display_name, y: week3Data.length, fill: "#ffce54"})
-                                        formattedWeek4Data.push({x: name.display_name, y: week4Data.length, fill: "#ffce54"})
-                                        formattedWeek5Data.push({x: name.display_name, y: week5Data.length, fill: "#ffce54"})
-                                        formattedWeek6Data.push({x: name.display_name, y: week6Data.length, fill: "#ffce54"})
-                                        formattedWeek7Data.push({x: name.display_name, y: week7Data.length, fill: "#ffce54"})
-                                        formattedWeek8Data.push({x: name.display_name, y: week8Data.length, fill: "#ffce54"})
-                                        formattedWeek9Data.push({x: name.display_name, y: week9Data.length, fill: "#ffce54"})
-                                        formattedWeek10Data.push({x: name.display_name, y: week10Data.length, fill: "#ffce54"})
-                                        formattedWeek11Data.push({x: name.display_name, y: week11Data.length, fill: "#ffce54"})
-                                        formattedWeek12Data.push({x: name.display_name, y: week12Data.length, fill: "#ffce54"})
-                                        return name.display_name
-                                    })
+                                    let contestantName = contestantInfo
+                                        formattedWeek1Data.push({x: contestantName, y: week1Data.length, fill: "#ffce54"})
+                                        formattedWeek2Data.push({x: contestantName, y: week2Data.length, fill: "#ffce54"})
+                                        formattedWeek3Data.push({x: contestantName, y: week3Data.length, fill: "#ffce54"})
+                                        formattedWeek4Data.push({x: contestantName, y: week4Data.length, fill: "#ffce54"})
+                                        formattedWeek5Data.push({x: contestantName, y: week5Data.length, fill: "#ffce54"})
+                                        formattedWeek6Data.push({x: contestantName, y: week6Data.length, fill: "#ffce54"})
+                                        formattedWeek7Data.push({x: contestantName, y: week7Data.length, fill: "#ffce54"})
+                                        formattedWeek8Data.push({x: contestantName, y: week8Data.length, fill: "#ffce54"})
+                                        formattedWeek9Data.push({x: contestantName, y: week9Data.length, fill: "#ffce54"})
+                                        formattedWeek10Data.push({x: contestantName, y: week10Data.length, fill: "#ffce54"})
+                                        formattedWeek11Data.push({x: contestantName, y: week11Data.length, fill: "#ffce54"})
+                                        formattedWeek12Data.push({x: contestantName, y: week12Data.length, fill: "#ffce54"})
+                                        
                                     this.setState({
                                         user3Info: contestantName
                                     })
@@ -413,21 +412,20 @@ class GroupWorkoutTracking extends React.Component {
                             groupWorkoutDateSort(javascriptFormattedDates)
                             getContestantInfo()
                                 .then((contestantInfo)=> {
-                                    let contestantName = contestantInfo.map(name => {
-                                        formattedWeek1Data.push({x: name.display_name, y: week1Data.length, fill: "#48cfad"})
-                                        formattedWeek2Data.push({x: name.display_name, y: week2Data.length, fill: "#48cfad"})
-                                        formattedWeek3Data.push({x: name.display_name, y: week3Data.length, fill: "#48cfad"})
-                                        formattedWeek4Data.push({x: name.display_name, y: week4Data.length, fill: "#48cfad"})
-                                        formattedWeek5Data.push({x: name.display_name, y: week5Data.length, fill: "#48cfad"})
-                                        formattedWeek6Data.push({x: name.display_name, y: week6Data.length, fill: "#48cfad"})
-                                        formattedWeek7Data.push({x: name.display_name, y: week7Data.length, fill: "#48cfad"})
-                                        formattedWeek8Data.push({x: name.display_name, y: week8Data.length, fill: "#48cfad"})
-                                        formattedWeek9Data.push({x: name.display_name, y: week9Data.length, fill: "#48cfad"})
-                                        formattedWeek10Data.push({x: name.display_name, y: week10Data.length, fill: "#48cfad"})
-                                        formattedWeek11Data.push({x: name.display_name, y: week11Data.length, fill: "#48cfad"})
-                                        formattedWeek12Data.push({x: name.display_name, y: week12Data.length, fill: "#48cfad"})
-                                        return name.display_name
-                                    })
+                                    let contestantName = contestantInfo
+                                        formattedWeek1Data.push({x: contestantName, y: week1Data.length, fill: "#48cfad"})
+                                        formattedWeek2Data.push({x: contestantName, y: week2Data.length, fill: "#48cfad"})
+                                        formattedWeek3Data.push({x: contestantName, y: week3Data.length, fill: "#48cfad"})
+                                        formattedWeek4Data.push({x: contestantName, y: week4Data.length, fill: "#48cfad"})
+                                        formattedWeek5Data.push({x: contestantName, y: week5Data.length, fill: "#48cfad"})
+                                        formattedWeek6Data.push({x: contestantName, y: week6Data.length, fill: "#48cfad"})
+                                        formattedWeek7Data.push({x: contestantName, y: week7Data.length, fill: "#48cfad"})
+                                        formattedWeek8Data.push({x: contestantName, y: week8Data.length, fill: "#48cfad"})
+                                        formattedWeek9Data.push({x: contestantName, y: week9Data.length, fill: "#48cfad"})
+                                        formattedWeek10Data.push({x: contestantName, y: week10Data.length, fill: "#48cfad"})
+                                        formattedWeek11Data.push({x: contestantName, y: week11Data.length, fill: "#48cfad"})
+                                        formattedWeek12Data.push({x: contestantName, y: week12Data.length, fill: "#48cfad"})
+                                       
                                     this.setState({
                                         user4Info: contestantName
                                     })

@@ -129,7 +129,8 @@ class WorkoutTracking extends React.Component {
 
         const getUserCardioWorkouts = () => {
             return fetch(`${config.API_ENDPOINT}/api/workouts/getWorkoutData?contest_id=${localStorage.getItem("contest Id")}&user_id=${localStorage.getItem("user Id")}&category=cardio`)
-                .then(res => res.json())
+                .then(res => 
+                    res.json())
         }
 
         getUserCardioWorkouts()

@@ -39,7 +39,7 @@ class GroupPoints extends React.Component {
                         })
                 if (this.state.contestants[0] !== undefined) {
                     const getPoints = () => {
-                        return fetch(`${config.API_ENDPOINT}api/points/totalUserPoints?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[0]}`)
+                        return fetch(`${config.API_ENDPOINT}/api/points/totalUserPoints?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[0]}`)
                             .then(res => res.json())
                     }
 
@@ -54,9 +54,7 @@ class GroupPoints extends React.Component {
                             })
                             getContestantInfo()
                                 .then((contestantInfo)=> {
-                                    let contestantName = contestantInfo.map(name => {
-                                        return name.display_name
-                                    })
+                                    let contestantName = contestantInfo
                                     this.setState({
                                         user1Name: contestantName,
                                         user1Info: formattedPoints
@@ -67,7 +65,7 @@ class GroupPoints extends React.Component {
                 }
                 if (this.state.contestants[1] !== undefined) {
                     const getPoints = () => {
-                        return fetch(`${config.API_ENDPOINT}api/points/totalUserPoints?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[1]}`)
+                        return fetch(`${config.API_ENDPOINT}/api/points/totalUserPoints?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[1]}`)
                             .then(res => res.json())
                     }
 
@@ -82,9 +80,7 @@ class GroupPoints extends React.Component {
                             })
                             getContestantInfo()
                                 .then((contestantInfo)=> {
-                                    let contestantName = contestantInfo.map(name => {
-                                        return name.display_name
-                                    })
+                                    let contestantName = contestantInfo
                                     this.setState({
                                         user2Name: contestantName,
                                         user2Info: formattedPoints
@@ -95,7 +91,7 @@ class GroupPoints extends React.Component {
                 }
                 if (this.state.contestants[2] !== undefined) {
                     const getPoints = () => {
-                        return fetch(`${config.API_ENDPOINT}api/points/totalUserPoints?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[2]}`)
+                        return fetch(`${config.API_ENDPOINT}/api/points/totalUserPoints?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[2]}`)
                             .then(res => res.json())
                     }
 
@@ -110,9 +106,7 @@ class GroupPoints extends React.Component {
                             })
                             getContestantInfo()
                                 .then((contestantInfo)=> {
-                                    let contestantName = contestantInfo.map(name => {
-                                        return name.display_name
-                                    })
+                                    let contestantName = contestantInfo
                                     this.setState({
                                         user3Name: contestantName,
                                         user3Info: formattedPoints
@@ -123,7 +117,7 @@ class GroupPoints extends React.Component {
                 }
                 if (this.state.contestants[3] !== undefined) {
                     const getPoints = () => {
-                        return fetch(`${config.API_ENDPOINT}api/points/totalUserPoints?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[3]}`)
+                        return fetch(`${config.API_ENDPOINT}/api/points/totalUserPoints?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[3]}`)
                             .then(res => res.json())
                     }
 
@@ -138,9 +132,7 @@ class GroupPoints extends React.Component {
                             })
                             getContestantInfo()
                                 .then((contestantInfo)=> {
-                                    const contestantName = contestantInfo.map(name => {
-                                            return name.display_name
-                                        })
+                                    const contestantName = contestantInfo
                                     this.setState({
                                         user4Name: contestantName,
                                         user4Info: formattedPoints
@@ -152,7 +144,7 @@ class GroupPoints extends React.Component {
                 }
                 if (this.state.contestants[4] !== undefined) {
                     const getPoints = () => {
-                        return fetch(`${config.API_ENDPOINT}api/points/totalUserPoints?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[4]}`)
+                        return fetch(`${config.API_ENDPOINT}/api/points/totalUserPoints?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[4]}`)
                             .then(res => res.json())
                     }
 
@@ -168,9 +160,7 @@ class GroupPoints extends React.Component {
                             getContestantInfo()
                                 .then((contestantInfo)=> {
                                     const contestantName =
-                                        contestantInfo.map(name => {
-                                            return name.display_name
-                                        })
+                                        contestantInfo
                                     this.setState({
                                         user5Name: contestantName,
                                         user5Info: formattedPoints
@@ -181,7 +171,7 @@ class GroupPoints extends React.Component {
                 }
                 if (this.state.contestants[5] !== undefined) {
                     const getPoints = () => {
-                        return fetch(`${config.API_ENDPOINT}api/points/totalUserPoints?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[5]}`)
+                        return fetch(`${config.API_ENDPOINT}/api/points/totalUserPoints?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[5]}`)
                             .then(res => res.json())
                     }
 
@@ -197,9 +187,7 @@ class GroupPoints extends React.Component {
                             getContestantInfo()
                                 .then((contestantInfo)=> {
                                     const contestantName =
-                                        contestantInfo.map(name => {
-                                            return name.display_name
-                                        })
+                                        contestantInfo.map
                                     this.setState({
                                         user5Name: contestantName,
                                         user6Info: formattedPoints

@@ -59,9 +59,7 @@ class GroupWeightTracking extends React.Component {
                             })
                             getContestantInfo()
                                 .then((contestantInfo)=> {
-                                    let contestantName = contestantInfo.map(name => {
-                                        return name.display_name
-                                    })
+                                    let contestantName = contestantInfo
                                     this.setState({
                                         user1Info: contestantName
                                     })
@@ -88,9 +86,7 @@ class GroupWeightTracking extends React.Component {
                             })
                             getContestantInfo()
                                 .then((contestantInfo)=> {
-                                    let contestantName = contestantInfo.map(name => {
-                                        return name.display_name
-                                    })
+                                    let contestantName = contestantInfo
                                     this.setState({
                                         user2Info: contestantName
                                     })
@@ -117,9 +113,7 @@ class GroupWeightTracking extends React.Component {
                             })
                             getContestantInfo()
                                 .then((contestantInfo)=> {
-                                    let contestantName = contestantInfo.map(name => {
-                                        return name.display_name
-                                    })
+                                    let contestantName = contestantInfo
                                     this.setState({
                                         user3Info: contestantName
                                     })
@@ -146,9 +140,7 @@ class GroupWeightTracking extends React.Component {
                             })
                             getContestantInfo()
                                 .then((contestantInfo)=> {
-                                    let contestantName = contestantInfo.map(name => {
-                                        return name.display_name
-                                    })
+                                    let contestantName = contestantInfo
                                     this.setState({
                                         user4Info: contestantName
                                     })
@@ -175,9 +167,7 @@ class GroupWeightTracking extends React.Component {
                             })
                             getContestantInfo()
                                 .then((contestantInfo)=> {
-                                    let contestantName = contestantInfo.map(name => {
-                                        return name.display_name
-                                    })
+                                    let contestantName = contestantInfo
                                     this.setState({
                                         user5Info: contestantName
                                     })
@@ -204,9 +194,7 @@ class GroupWeightTracking extends React.Component {
                             })
                             getContestantInfo()
                                 .then((contestantInfo)=> {
-                                    let contestantName = contestantInfo.map(name => {
-                                        return name.display_name
-                                    })
+                                    let contestantName = contestantInfo
                                     this.setState({
                                         user6Info: contestantName
                                     })

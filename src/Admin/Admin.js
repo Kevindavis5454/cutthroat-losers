@@ -130,9 +130,7 @@ class Admin extends React.Component {
                                     formattedDateMeasurement()
                                     getContestantInfo()
                                         .then((contestantInfo)=> {
-                                            let contestantName = contestantInfo.map(name => {
-                                                return name.display_name
-                                            })
+                                            let contestantName = contestantInfo
                                             this.setState({
                                                 user1Info: contestantName
                                             })
@@ -191,9 +189,7 @@ class Admin extends React.Component {
                                     formattedDateMeasurement()
                                     getContestantInfo()
                                         .then((contestantInfo)=> {
-                                            let contestantName = contestantInfo.map(name => {
-                                                return name.display_name
-                                            })
+                                            let contestantName = contestantInfo
                                             this.setState({
                                                 user2Info: contestantName
                                             })
@@ -253,9 +249,7 @@ class Admin extends React.Component {
                                     formattedDateMeasurement()
                                     getContestantInfo()
                                         .then((contestantInfo)=> {
-                                            let contestantName = contestantInfo.map(name => {
-                                                return name.display_name
-                                            })
+                                            let contestantName = contestantInfo
                                             this.setState({
                                                 user3Info: contestantName
                                             })
@@ -315,9 +309,7 @@ class Admin extends React.Component {
                                     formattedDateMeasurement()
                                     getContestantInfo()
                                         .then((contestantInfo)=> {
-                                            let contestantName = contestantInfo.map(name => {
-                                                return name.display_name
-                                            })
+                                            let contestantName = contestantInfo
                                             this.setState({
                                                 user4Info: contestantName
                                             })

@@ -63,7 +63,7 @@ class SidebarHome extends React.Component {
                                     .then(json => {
 
                                         const userStats = {
-                                            user_id: json[0].user_id,
+                                            user_id: json.user_id,
                                             current_weight: current_weight.value,
                                             goal_weight: goal_weight.value,
                                             display_name: signup_name.value

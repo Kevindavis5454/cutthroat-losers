@@ -13,7 +13,7 @@ class Points extends React.Component {
     componentDidMount() {
 
         const getPoints = () => {
-            return fetch(`${config.API_ENDPOINT}api/points/totalUserPoints?contest_id=${localStorage.getItem("contest Id")}&user_id=${localStorage.getItem("user Id")}`)
+            return fetch(`${config.API_ENDPOINT}/api/points/totalUserPoints?contest_id=${localStorage.getItem("contest Id")}&user_id=${localStorage.getItem("user Id")}`)
                 .then(res => res.json())
         }
 
