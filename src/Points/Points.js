@@ -1,6 +1,5 @@
 import React from "react";
 import "./points.css"
-import { VictoryChart, VictoryBar, VictoryAxis } from 'victory'
 import config from "../config";
 
 class Points extends React.Component {
@@ -42,16 +41,16 @@ class Points extends React.Component {
 
     }
     renderPlayername = () => {
-        if (this.state.name == localStorage.getItem("player1")) {
+        if (this.state.name === localStorage.getItem("player1")) {
             return "player1"
         }
-        if (this.state.name == localStorage.getItem("player2")) {
+        if (this.state.name === localStorage.getItem("player2")) {
             return "player2"
         }
-        if (this.state.name == localStorage.getItem("player3")) {
+        if (this.state.name === localStorage.getItem("player3")) {
             return "player3"
         }
-        if (this.state.name == localStorage.getItem("player4")) {
+        if (this.state.name === localStorage.getItem("player4")) {
             return "player4"
         }
     }

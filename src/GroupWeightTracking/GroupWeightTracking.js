@@ -15,18 +15,13 @@ class GroupWeightTracking extends React.Component {
         user3Weights: [],
         user3Info: [],
         user4Weights: [],
-        user4Info: [],
-        user5Weights: [],
-        user5Info: [],
-        user6Weights: [],
-        user6Info: [],
-
+        user4Info: []
     }
 
     componentDidMount() {
 
         const getContestants = () => {
-            return fetch(`${config.API_ENDPOINT}/api/contesttouser/getOnlyUserId?contest_id=${localStorage.getItem("contest Id")}`)
+            return fetch(`${config.API_ENDPOINT}/api/currentstats/contestId/${localStorage.getItem("contest Id")}`)
                 .then(res => res.json())
         }
 
@@ -147,61 +142,6 @@ class GroupWeightTracking extends React.Component {
                                 })
                         })
                 }
-                if (this.state.contestants[4] !== undefined) {
-                    const getWeightInfo = () => {
-                        return fetch(`${config.API_ENDPOINT}/api/weighins/getContestWeighins?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[4]}`)
-                            .then(res => res.json())
-                    }
-                    const getContestantInfo = () => {
-                        return fetch(`${config.API_ENDPOINT}/api/currentstats/contestUserId/displayname?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[4]}`)
-                            .then(res => res.json())
-                    }
-                    getWeightInfo()
-                        .then((userWeight)=> {
-                            const formattedDates = userWeight.map(date => {
-                                let dateMoment = moment(date.date_created)
-                                return {x: `${dateMoment.format('YYYY/MM/DD')}`, y: date.weight}
-                            })
-                            this.setState({
-                                user5Weights: formattedDates
-                            })
-                            getContestantInfo()
-                                .then((contestantInfo)=> {
-                                    let contestantName = contestantInfo
-                                    this.setState({
-                                        user5Info: contestantName
-                                    })
-                                })
-                        })
-                }
-                if (this.state.contestants[5] !== undefined) {
-                    const getWeightInfo = () => {
-                        return fetch(`${config.API_ENDPOINT}/api/weighins/getContestWeighins?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[5]}`)
-                            .then(res => res.json())
-                    }
-                    const getContestantInfo = () => {
-                        return fetch(`${config.API_ENDPOINT}/api/currentstats/contestUserId/displayname?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[5]}`)
-                            .then(res => res.json())
-                    }
-                    getWeightInfo()
-                        .then((userWeight)=> {
-                            const formattedDates = userWeight.map(date => {
-                                let dateMoment = moment(date.date_created)
-                                return {x: `${dateMoment.format('YYYY/MM/DD')}`, y: date.weight}
-                            })
-                            this.setState({
-                                user6Weights: formattedDates
-                            })
-                            getContestantInfo()
-                                .then((contestantInfo)=> {
-                                    let contestantName = contestantInfo
-                                    this.setState({
-                                        user6Info: contestantName
-                                    })
-                                })
-                        })
-                }
-
             })
 
     }
@@ -272,36 +212,6 @@ class GroupWeightTracking extends React.Component {
                                         />
                                     }
                                     data={this.state.user4Weights}
-                                >
-                                    <VictoryLine/>
-                                    <VictoryScatter
-                                        size={({ active }) => active ? 8 : 3}
-                                    />
-                                </VictoryGroup>
-                                <VictoryGroup
-                                    color="#ffce54"
-                                    labels={({ datum }) => `Weight: ${datum.y} Date: ${datum.x}`}
-                                    labelComponent={
-                                        <VictoryTooltip
-                                            style={{ fontSize: 10 }}
-                                        />
-                                    }
-                                    data={this.state.user5Weights}
-                                >
-                                    <VictoryLine/>
-                                    <VictoryScatter
-                                        size={({ active }) => active ? 8 : 3}
-                                    />
-                                </VictoryGroup>
-                                <VictoryGroup
-                                    color="#ffce54"
-                                    labels={({ datum }) => `Weight: ${datum.y} Date: ${datum.x}`}
-                                    labelComponent={
-                                        <VictoryTooltip
-                                            style={{ fontSize: 10 }}
-                                        />
-                                    }
-                                    data={this.state.user6Weights}
                                 >
                                     <VictoryLine/>
                                     <VictoryScatter

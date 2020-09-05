@@ -49,31 +49,31 @@ class Measurements extends React.Component {
     }
 
     renderPlayername = () => {
-        if (this.state.name == localStorage.getItem("player1")) {
+        if (this.state.name === localStorage.getItem("player1")) {
             return "player1"
         }
-        if (this.state.name == localStorage.getItem("player2")) {
+        if (this.state.name === localStorage.getItem("player2")) {
             return "player2"
         }
-        if (this.state.name == localStorage.getItem("player3")) {
+        if (this.state.name === localStorage.getItem("player3")) {
             return "player3"
         }
-        if (this.state.name == localStorage.getItem("player4")) {
+        if (this.state.name === localStorage.getItem("player4")) {
             return "player4"
         }
     }
 
     renderPlayerColor = () => {
-        if (this.state.name == localStorage.getItem("player1")) {
+        if (this.state.name === localStorage.getItem("player1")) {
             return "#34bf49"
         }
-        if (this.state.name == localStorage.getItem("player2")) {
+        if (this.state.name === localStorage.getItem("player2")) {
             return "#da4453"
         }
-        if (this.state.name == localStorage.getItem("player3")) {
+        if (this.state.name === localStorage.getItem("player3")) {
             return "#ffce54"
         }
-        if (this.state.name == localStorage.getItem("player4")) {
+        if (this.state.name === localStorage.getItem("player4")) {
             return "#48cfad"
         }
     }

@@ -1,9 +1,8 @@
 import React from "react";
-import { Route, BrowserRouter } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import WeightTracking from "../WeightTracking/WeightTracking";
 import PersonalPageHome from "./PersonalPageHome";
 import WorkoutTracking from "../WorkoutTracking/WorkoutTracking";
-import PersonalSabotages from "../PersonalSabotages/PersonalSabotages";
 import Points from "../Points/Points";
 import Contact from "../ContactPage/Contact";
 import Home from "../Home/Home";

@@ -11,8 +11,6 @@ class GroupWorkoutTracking extends React.Component {
         user2Info: [],
         user3Info: [],
         user4Info: [],
-        user5Info: [],
-        user6Info: [],
         week1Data : [],
         week2Data : [],
         week3Data : [],
@@ -53,7 +51,7 @@ class GroupWorkoutTracking extends React.Component {
 
 
         const getContestants = () => {
-            return fetch(`${config.API_ENDPOINT}/api/contesttouser/getOnlyUserId?contest_id=${localStorage.getItem("contest Id")}`)
+            return fetch(`${config.API_ENDPOINT}/api/currentstats/contestId/${localStorage.getItem("contest Id")}`)
                 .then(res => res.json())
         }
 
@@ -432,191 +430,6 @@ class GroupWorkoutTracking extends React.Component {
                                 })
                         })
                 }
-                if (this.state.contestants[4] !== undefined) {
-                    const getWorkoutInfo = () => {
-                        return fetch(`${config.API_ENDPOINT}/api/workouts/getDates?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[4]}`)
-                            .then(res => res.json())
-                    }
-                    const getContestantInfo = () => {
-                        return fetch(`${config.API_ENDPOINT}/api/currentstats/contestUserId/displayname?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[4]}`)
-                            .then(res => res.json())
-                    }
-                    getWorkoutInfo()
-                        .then((workoutData)=> {
-                            const javascriptFormattedDates = workoutData.map(dateCompare => {
-                                return new Date(dateCompare.date_created)
-                            })
-                            const week1Data = []
-                            const week2Data = []
-                            const week3Data = []
-                            const week4Data = []
-                            const week5Data = []
-                            const week6Data = []
-                            const week7Data = []
-                            const week8Data = []
-                            const week9Data = []
-                            const week10Data = []
-                            const week11Data = []
-                            const week12Data = []
-                            const groupWorkoutDateSort = (formatted) => {
-                                formatted.map(date => {
-                                    if (date < newDate.addDays(7)) {
-                                        return week1Data.push(date)
-                                    }
-                                    if (date >= newDate.addDays(7) && date < newDate.addDays(14)) {
-                                        return week2Data.push(date)
-                                    }
-                                    if (date >= newDate.addDays(14) && date < newDate.addDays(21)) {
-                                        return week3Data.push(date)
-                                    }
-                                    if (date >= newDate.addDays(21) && date < newDate.addDays(28)) {
-                                        return week4Data.push(date)
-                                    }
-                                    if (date >= newDate.addDays(28) && date < newDate.addDays(35)) {
-                                        return week5Data.push(date)
-                                    }
-                                    if (date >= newDate.addDays(35) && date < newDate.addDays(42)) {
-                                        return week6Data.push(date)
-                                    }
-                                    if (date >= newDate.addDays(42) && date < newDate.addDays(49)) {
-                                        return week7Data.push(date)
-                                    }
-                                    if (date >= newDate.addDays(49) && date < newDate.addDays(56)) {
-                                        return week8Data.push(date)
-                                    }
-                                    if (date >= newDate.addDays(56) && date < newDate.addDays(63)) {
-                                        return week9Data.push(date)
-                                    }
-                                    if (date >= newDate.addDays(63) && date < newDate.addDays(70)) {
-                                        return week10Data.push(date)
-                                    }
-                                    if (date >= newDate.addDays(70) && date < newDate.addDays(77)) {
-                                        return week11Data.push(date)
-                                    }
-                                    if (date >= newDate.addDays(77) && date < newDate.addDays(84)) {
-                                        return week12Data.push(date)
-                                    } else {
-                                        return 'No dates in this range'
-                                    }
-                                })
-                            }
-                            groupWorkoutDateSort(javascriptFormattedDates)
-                            getContestantInfo()
-                                .then((contestantInfo)=> {
-                                    let contestantName = contestantInfo.map(name => {
-                                        formattedWeek1Data.push({x: name.display_name, y: week1Data.length})
-                                        formattedWeek2Data.push({x: name.display_name, y: week2Data.length})
-                                        formattedWeek3Data.push({x: name.display_name, y: week3Data.length})
-                                        formattedWeek4Data.push({x: name.display_name, y: week4Data.length})
-                                        formattedWeek5Data.push({x: name.display_name, y: week5Data.length})
-                                        formattedWeek6Data.push({x: name.display_name, y: week6Data.length})
-                                        formattedWeek7Data.push({x: name.display_name, y: week7Data.length})
-                                        formattedWeek8Data.push({x: name.display_name, y: week8Data.length})
-                                        formattedWeek9Data.push({x: name.display_name, y: week9Data.length})
-                                        formattedWeek10Data.push({x: name.display_name, y: week10Data.length})
-                                        formattedWeek11Data.push({x: name.display_name, y: week11Data.length})
-                                        formattedWeek12Data.push({x: name.display_name, y: week12Data.length})
-                                        return name.display_name
-                                    })
-                                    this.setState({
-                                        user5Info: contestantName
-                                    })
-                                })
-                        })
-                }
-                if (this.state.contestants[5] !== undefined) {
-                    const getWorkoutInfo = () => {
-                        return fetch(`${config.API_ENDPOINT}/api/workouts/getDates?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[5]}`)
-                            .then(res => res.json())
-                    }
-                    const getContestantInfo = () => {
-                        return fetch(`${config.API_ENDPOINT}/api/currentstats/contestUserId/displayname?contest_id=${localStorage.getItem("contest Id")}&user_id=${this.state.contestants[5]}`)
-                            .then(res => res.json())
-                    }
-                    getWorkoutInfo()
-                        .then((workoutData)=> {
-                            const javascriptFormattedDates = workoutData.map(dateCompare => {
-                                return new Date(dateCompare.date_created)
-                            })
-                            const week1Data = []
-                            const week2Data = []
-                            const week3Data = []
-                            const week4Data = []
-                            const week5Data = []
-                            const week6Data = []
-                            const week7Data = []
-                            const week8Data = []
-                            const week9Data = []
-                            const week10Data = []
-                            const week11Data = []
-                            const week12Data = []
-                            const groupWorkoutDateSort = (formatted) => {
-                                formatted.map(date => {
-                                    if (date < newDate.addDays(7)) {
-                                        return week1Data.push(date)
-                                    }
-                                    if (date >= newDate.addDays(7) && date < newDate.addDays(14)) {
-                                        return week2Data.push(date)
-                                    }
-                                    if (date >= newDate.addDays(14) && date < newDate.addDays(21)) {
-                                        return week3Data.push(date)
-                                    }
-                                    if (date >= newDate.addDays(21) && date < newDate.addDays(28)) {
-                                        return week4Data.push(date)
-                                    }
-                                    if (date >= newDate.addDays(28) && date < newDate.addDays(35)) {
-                                        return week5Data.push(date)
-                                    }
-                                    if (date >= newDate.addDays(35) && date < newDate.addDays(42)) {
-                                        return week6Data.push(date)
-                                    }
-                                    if (date >= newDate.addDays(42) && date < newDate.addDays(49)) {
-                                        return week7Data.push(date)
-                                    }
-                                    if (date >= newDate.addDays(49) && date < newDate.addDays(56)) {
-                                        return week8Data.push(date)
-                                    }
-                                    if (date >= newDate.addDays(56) && date < newDate.addDays(63)) {
-                                        return week9Data.push(date)
-                                    }
-                                    if (date >= newDate.addDays(63) && date < newDate.addDays(70)) {
-                                        return week10Data.push(date)
-                                    }
-                                    if (date >= newDate.addDays(70) && date < newDate.addDays(77)) {
-                                        return week11Data.push(date)
-                                    }
-                                    if (date >= newDate.addDays(77) && date < newDate.addDays(84)) {
-                                        return week12Data.push(date)
-                                    } else {
-                                        return 'No dates in this range'
-                                    }
-                                })
-                            }
-                            groupWorkoutDateSort(javascriptFormattedDates)
-                            getContestantInfo()
-                                .then((contestantInfo)=> {
-                                    let contestantName = contestantInfo.map(name => {
-                                        formattedWeek1Data.push({x: name.display_name, y: week1Data.length})
-                                        formattedWeek2Data.push({x: name.display_name, y: week2Data.length})
-                                        formattedWeek3Data.push({x: name.display_name, y: week3Data.length})
-                                        formattedWeek4Data.push({x: name.display_name, y: week4Data.length})
-                                        formattedWeek5Data.push({x: name.display_name, y: week5Data.length})
-                                        formattedWeek6Data.push({x: name.display_name, y: week6Data.length})
-                                        formattedWeek7Data.push({x: name.display_name, y: week7Data.length})
-                                        formattedWeek8Data.push({x: name.display_name, y: week8Data.length})
-                                        formattedWeek9Data.push({x: name.display_name, y: week9Data.length})
-                                        formattedWeek10Data.push({x: name.display_name, y: week10Data.length})
-                                        formattedWeek11Data.push({x: name.display_name, y: week11Data.length})
-                                        formattedWeek12Data.push({x: name.display_name, y: week12Data.length})
-                                        return name.display_name
-                                    })
-                                    this.setState({
-                                        user6Info: contestantName
-                                    })
-                                })
-                        })
-                }
-
                 })
                 this.setState({
                     week1Data : formattedWeek1Data,

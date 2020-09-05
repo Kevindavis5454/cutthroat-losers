@@ -1,9 +1,8 @@
 import React from "react";
 import "./admin.css"
 import Sidebar from "../SideBar/Sidebar";
-import { Route, BrowserRouter, Router } from 'react-router-dom'
+import { Route } from 'react-router-dom'
 import GroupWorkoutTracking from "../GroupWorkoutTracking/GroupWorkoutTracking";
-import GroupWeightTracking from "../GroupWeightTracking/GroupWeightTracking";
 import AdminPointAssignWeight from "./AdminPointAssignWeight";
 import config from "../config";
 import moment from "moment";
@@ -42,7 +41,7 @@ class Admin extends React.Component {
 
     componentDidMount() {
         const getContestants = () => {
-            return fetch(`${config.API_ENDPOINT}/api/contesttouser/getOnlyUserId?contest_id=${localStorage.getItem("contest Id")}`)
+            return fetch(`${config.API_ENDPOINT}/api/currentstats/contestId/${localStorage.getItem("contest Id")}`)
                 .then(res => res.json())
         }
 
@@ -100,12 +99,12 @@ class Admin extends React.Component {
                         .then((weight) => {
                             const formattedDateWeight = () => weight.map((date, index) => {
                                 let dateMoment = moment(date.date_created)
-                                if (index == 0) {
+                                if (index === 0) {
                                     return this.setState({
                                         user1WeightCurrent: {date: `${dateMoment.format('YYYY/MM/DD')}`, weight: date.weight}
                                     })
                                 }
-                                if (index == 1) {
+                                if (index === 1) {
                                     return this.setState({
                                         user1WeightPrev: {date: `${dateMoment.format('YYYY/MM/DD')}`, weight: date.weight}
                                     })
@@ -116,12 +115,12 @@ class Admin extends React.Component {
                                 .then((measurement) => {
                                     const formattedDateMeasurement = () => measurement.map((date, index) => {
                                         let dateMoment = moment(date.date_created)
-                                        if (index == 0) {
+                                        if (index === 0) {
                                             return this.setState({
                                                 user1MeasurementCurrent: {date: `${dateMoment.format('YYYY/MM/DD')}`, measurement: date.measurement}
                                             })
                                         }
-                                        if (index == 1) {
+                                        if (index === 1) {
                                             return this.setState({
                                                 user1MeasurementPrev: {date: `${dateMoment.format('YYYY/MM/DD')}`, measurement: date.measurement}
                                             })
@@ -159,12 +158,12 @@ class Admin extends React.Component {
                         .then((weight) => {
                             const formattedDateWeight = () => weight.map((date, index) => {
                                 let dateMoment = moment(date.date_created)
-                                if (index == 0) {
+                                if (index === 0) {
                                     return this.setState({
                                         user2WeightCurrent: {date: `${dateMoment.format('YYYY/MM/DD')}`, weight: date.weight}
                                     })
                                 }
-                                if (index == 1) {
+                                if (index === 1) {
                                     return this.setState({
                                         user2WeightPrev: {date: `${dateMoment.format('YYYY/MM/DD')}`, weight: date.weight}
                                     })
@@ -175,12 +174,12 @@ class Admin extends React.Component {
                                 .then((measurement) => {
                                     const formattedDateMeasurement = () => measurement.map((date, index) => {
                                         let dateMoment = moment(date.date_created)
-                                        if (index == 0) {
+                                        if (index === 0) {
                                             return this.setState({
                                                 user2MeasurementCurrent: {date: `${dateMoment.format('YYYY/MM/DD')}`, measurement: date.measurement}
                                             })
                                         }
-                                        if (index == 1) {
+                                        if (index === 1) {
                                             return this.setState({
                                                 user2MeasurementPrev: {date: `${dateMoment.format('YYYY/MM/DD')}`, measurement: date.measurement}
                                             })
@@ -219,12 +218,12 @@ class Admin extends React.Component {
                         .then((weight) => {
                             const formattedDateWeight = () => weight.map((date, index) => {
                                 let dateMoment = moment(date.date_created)
-                                if (index == 0) {
+                                if (index === 0) {
                                     return this.setState({
                                         user3WeightCurrent: {date: `${dateMoment.format('YYYY/MM/DD')}`, weight: date.weight}
                                     })
                                 }
-                                if (index == 1) {
+                                if (index === 1) {
                                     return this.setState({
                                         user3WeightPrev: {date: `${dateMoment.format('YYYY/MM/DD')}`, weight: date.weight}
                                     })
@@ -235,12 +234,12 @@ class Admin extends React.Component {
                                 .then((measurement) => {
                                     const formattedDateMeasurement = () => measurement.map((date, index) => {
                                         let dateMoment = moment(date.date_created)
-                                        if (index == 0) {
+                                        if (index === 0) {
                                             return this.setState({
                                                 user3MeasurementCurrent: {date: `${dateMoment.format('YYYY/MM/DD')}`, measurement: date.measurement}
                                             })
                                         }
-                                        if (index == 1) {
+                                        if (index === 1) {
                                             return this.setState({
                                                 user3MeasurementPrev: {date: `${dateMoment.format('YYYY/MM/DD')}`, measurement: date.measurement}
                                             })
@@ -279,12 +278,12 @@ class Admin extends React.Component {
                         .then((weight) => {
                             const formattedDateWeight = () => weight.map((date, index) => {
                                 let dateMoment = moment(date.date_created)
-                                if (index == 0) {
+                                if (index === 0) {
                                     return this.setState({
                                         user4WeightCurrent: {date: `${dateMoment.format('YYYY/MM/DD')}`, weight: date.weight}
                                     })
                                 }
-                                if (index == 1) {
+                                if (index === 1) {
                                     return this.setState({
                                         user4WeightPrev: {date: `${dateMoment.format('YYYY/MM/DD')}`, weight: date.weight}
                                     })
@@ -295,12 +294,12 @@ class Admin extends React.Component {
                                 .then((measurement) => {
                                     const formattedDateMeasurement = () => measurement.map((date, index) => {
                                         let dateMoment = moment(date.date_created)
-                                        if (index == 0) {
+                                        if (index === 0) {
                                             return this.setState({
                                                 user4MeasurementCurrent: {date: `${dateMoment.format('YYYY/MM/DD')}`, measurement: date.measurement}
                                             })
                                         }
-                                        if (index == 1) {
+                                        if (index === 1) {
                                             return this.setState({
                                                 user4MeasurementPrev: {date: `${dateMoment.format('YYYY/MM/DD')}`, measurement: date.measurement}
                                             })

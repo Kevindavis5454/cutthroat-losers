@@ -1,5 +1,5 @@
 import React from "react";
-import {Link, BrowserRouter} from "react-router-dom";
+import {Link} from "react-router-dom";
 import WeightTracking from "../WeightTracking/WeightTracking";
 import WorkoutTracking from "../WorkoutTracking/WorkoutTracking";
 import Points from "../Points/Points";

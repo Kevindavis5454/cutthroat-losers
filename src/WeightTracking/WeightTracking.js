@@ -56,31 +56,31 @@ class WeightTracking extends React.Component {
     }
 
     renderPlayername = () => {
-        if (this.state.name == localStorage.getItem("player1")) {
+        if (this.state.name === localStorage.getItem("player1")) {
             return "player1"
         }
-        if (this.state.name == localStorage.getItem("player2")) {
+        if (this.state.name === localStorage.getItem("player2")) {
             return "player2"
         }
-        if (this.state.name == localStorage.getItem("player3")) {
+        if (this.state.name === localStorage.getItem("player3")) {
             return "player3"
         }
-        if (this.state.name == localStorage.getItem("player4")) {
+        if (this.state.name === localStorage.getItem("player4")) {
             return "player4"
         }
     }
 
     renderPlayerColor = () => {
-        if (this.state.name == localStorage.getItem("player1")) {
+        if (this.state.name === localStorage.getItem("player1")) {
             return "#34bf49"
         }
-        if (this.state.name == localStorage.getItem("player2")) {
+        if (this.state.name === localStorage.getItem("player2")) {
             return "#da4453"
         }
-        if (this.state.name == localStorage.getItem("player3")) {
+        if (this.state.name === localStorage.getItem("player3")) {
             return "#ffce54"
         }
-        if (this.state.name == localStorage.getItem("player4")) {
+        if (this.state.name === localStorage.getItem("player4")) {
             return "#48cfad"
         }
     }
@@ -126,10 +126,6 @@ class WeightTracking extends React.Component {
     }
 
     render() {
-
-        function keyPress (event)  {
-            return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))
-        }
 
         return (
             <div className='weight-tracker-box'>

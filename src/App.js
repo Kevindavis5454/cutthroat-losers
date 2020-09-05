@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, BrowserRouter } from "react-router-dom";
+import { Route } from "react-router-dom";
 import Header from "./Header/Header";
 import PersonalPage from "./PersonalPage/PersonalPage";
 import "./main.css"
@@ -9,7 +9,7 @@ import Footer from "./Footer/Footer";
 import LandingPage from "./LandingPage/LandingPage";
 import Admin from "./Admin/Admin";
 import ApiContext from "./ApiContext";
-import ErrorPage from "./ErrorBoundary/ErrorPage"
+import Error from "./Error"
 
 class App extends React.Component {
 
@@ -87,6 +87,7 @@ class App extends React.Component {
 
         return (
             <ApiContext.Provider value={value}>
+                <Error>
             <div className='main-div'>
                 <div className='header-div'>
                     <Route exact path='/' component={HeaderLogin} />
@@ -142,6 +143,7 @@ class App extends React.Component {
                     <Route path='/' component={Footer} />
                 </div>
             </div>
+            </Error>
             </ApiContext.Provider>
         );
     }

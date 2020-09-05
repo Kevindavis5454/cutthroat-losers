@@ -26,42 +26,46 @@ class AdminPointAssignWeight extends React.Component {
     }
 
     handlePointAssignment = (placement, user_id, contest_id, category) => {
-        if ( placement == '1st Place') {
+        if ( placement === '1st Place') {
             const postBody = {
                 contest_id: contest_id,
                 user_id: user_id,
                 category: category,
                 points: 7,
+                description: 'Placement Points',
                 win_id: 1,
             }
             this.handleFetchPostPoints(postBody, placement)
         }
-        if ( placement == '2nd Place') {
+        if ( placement === '2nd Place') {
             const postBody = {
                 contest_id: contest_id,
                 user_id: user_id,
                 category: category,
                 points: 5,
+                description: 'Placement Points',
                 win_id: 1,
             }
             this.handleFetchPostPoints(postBody, placement)
         }
-        if ( placement == '3rd Place') {
+        if ( placement === '3rd Place') {
             const postBody = {
                 contest_id: contest_id,
                 user_id: user_id,
                 category: category,
                 points: 3,
+                description: 'Placement Points',
                 win_id: 1,
             }
             this.handleFetchPostPoints(postBody, placement)
         }
-        if ( placement == '4th Place') {
+        if ( placement === '4th Place') {
             const postBody = {
                 contest_id: contest_id,
                 user_id: user_id,
                 category: category,
                 points: 1,
+                description: 'Placement Points',
                 win_id: 1,
             }
             this.handleFetchPostPoints(postBody, placement)

@@ -1,9 +1,8 @@
 import React from "react";
-import { Route, BrowserRouter } from "react-router-dom"
+import { Route } from "react-router-dom"
 import GroupPageHome from "./GroupPageHome";
 import GroupWeightTracking from "../GroupWeightTracking/GroupWeightTracking";
 import GroupWorkoutTracking from "../GroupWorkoutTracking/GroupWorkoutTracking";
-import GroupSabotages from "../GroupSabotages/GroupSabotages";
 import GroupPoints from "../GroupPoints/GroupPoints";
 import Sidebar from "../SideBar/Sidebar";
 import GroupMeasurements from "../GroupMeasurements/GroupMeasurements";

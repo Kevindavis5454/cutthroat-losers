@@ -1,5 +1,3 @@
-/*FROM APP.CSS*/
-/*cacdd6*/
 html, body {
     height: 100%;
     margin: 0;
@@ -19,7 +17,6 @@ a {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /*min-height: 100%;*/
 }
 
 .header-div {
@@ -32,8 +29,6 @@ a {
 .footer-div {
     background-color: #173f5f;
 }
-
-/*FROM PERSONALPAGE.CSS*/
 
 .personal-sidebar {
     display: flex;
@@ -67,8 +62,6 @@ a {
 }
 .flex-container {
     display: flex;
-    /*justify-content: start;*/
-    /*align-items: flex-start;*/
     flex-wrap: wrap;
 }
 
@@ -102,12 +95,9 @@ a {
     padding-top: 100%;
 }
 
-/*#77808d*/
-
 .flex-item {
     flex: 1 1 auto;
     border: 1px solid black;
-    /*background: #77808d;*/
     background-image: linear-gradient(to bottom right, #1c4c74, #648cac );
     color: white;
     display: flex;
@@ -117,7 +107,171 @@ a {
     border-radius: 8px;
 }
 
-/*#206a7a*/
+.player1 {
+    color: #34bf49;
+}
+
+
+.player2 {
+    color: #da4453;
+}
+
+
+.player3 {
+    color: #ffce54;
+}
+
+.player4 {
+    color: #48cfad;
+}
+
+.flex-container-workout {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.flex-cell-workout {
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    padding: 0.5rem;
+    box-sizing: border-box;
+}
+
+.flex-cell-workout:before {
+    content: '';
+    display: table;
+    padding-top: 100%;
+}
+
+
+.flex-item-workout {
+    flex: 1 1 auto;
+    border: 1px solid black;
+    background-image: linear-gradient(to bottom right, #364c59, #59717f);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 5px 2px rgba(0,0,0,.35);
+    border-radius: 8px;
+}
+
+.flex-container-sidebar {
+    display: flex;
+    flex-direction: row;
+    min-width: 100%;
+    flex-wrap: wrap;
+}
+
+.flex-cell-sidebar {
+    flex: 0 0 25%;
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    padding: 0.8rem;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+.sidebar-home {
+    flex: 0 0 50%;
+}
+
+.flex-cell-sidebar:before {
+    content: '';
+    display: table;
+    padding-top: 100%;
+}
+
+.flex-item-sidebar {
+    flex: 1 1 auto;
+    border: 1px solid black;
+    background-image: linear-gradient(to bottom right, #364c59, #59717f );
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 0 5px 2px rgba(0,0,0,.35);
+    border-radius: 8px;
+    font-size: .25em;
+
+}
+
+.workout-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.button-left {
+    margin-right: 5em;
+}
+
+.button-right {
+    margin-left: 5em;
+}
+
+.glow-on-hover {
+    width: 9em;
+    height: 3em;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+}
+
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.glow-on-hover:active {
+    color: #000
+}
+
+.glow-on-hover:active:after {
+    background: transparent;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
 
 @media screen and (min-width: 78em) {
 
@@ -141,13 +295,108 @@ a {
         height: 100vw;
     }
 
+    .flex-cell-workout{
+        flex: 0 0 50%;
+    }
+
+    .weight-tracker-single {
+        flex: 1 1 auto;
+    }
+
+    .group-weight-tracker {
+        flex: 1 1 auto;
+    }
+
+    .personal-sabotages {
+        flex: 1 1 auto;
+    }
+
+    .personal-points {
+        flex: 1 1 auto;
+    }
+
+    .sign-up {
+        flex: 1 1 auto;
+    }
+
+    .admin-cell {
+        flex: 1 1 auto;
+    }
+    .contact-cell {
+        flex: 1 1 auto;
+    }
+    .point-tracker-full {
+        flex: 1 1 auto;
+    }
+    .weight-point-calc {
+        flex: 1 1 auto;
+    }
+
+    .flex-container-sidebar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 100vw;
+        flex-wrap: nowrap;
+    }
+
+    .flex-item-sidebar {
+        font-size: .8em;
+    }
+
+    .flex-cell-sidebar {
+        flex: 1 1 auto;
+    }
+
+    .flex-cell.contestant-completion {
+        flex: 0 0 100%;
+    }
 
 }
+
+
 
 @media screen and (min-width: 80em) {
 
     .flex-cell {
         flex: 0 0 50%;
+    }
+
+    .flex-cell-workout {
+        flex: 0 0 50%;
+    }
+
+    .weight-tracker-single {
+        flex: 1 1 auto;
+    }
+
+    .group-weight-tracker {
+        flex: 1 1 auto;
+    }
+
+    .personal-sabotages {
+        flex: 1 1 auto;
+    }
+
+    .personal-points {
+        flex: 1 1 auto;
+    }
+    .sign-up {
+        flex: 1 1 auto;
+    }
+
+    .admin-cell {
+        flex: 1 1 auto;
+    }
+    .contact-cell {
+        flex: 1 1 auto;
+    }
+    .point-tracker-full {
+        flex: 1 1 auto;
+    }
+
+    .weight-point-calc {
+        flex: 1 1 auto;
     }
 
 }

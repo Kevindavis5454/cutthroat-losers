@@ -25,7 +25,7 @@ class GroupPoints extends React.Component {
     componentDidMount() {
 
         const getContestants = () => {
-                    return fetch(`${config.API_ENDPOINT}/api/contesttouser/getOnlyUserId?contest_id=${localStorage.getItem("contest Id")}`)
+                    return fetch(`${config.API_ENDPOINT}/api/currentstats/contestId/${localStorage.getItem("contest Id")}`)
                         .then(res => res.json())
                 }
 

@@ -1,6 +1,5 @@
 import React from "react";
 import config from "../config";
-import Contestant from "../SideBar/Contestant";
 
 class AdminContestToUser extends React.Component {
 
