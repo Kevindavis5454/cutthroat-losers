@@ -2,7 +2,7 @@ CUTTHROAT LOSERS
 
 Live App: https://cutthroat-losers-app.herokuapp.com/
 
-API Repo: 
+API Repo: https://github.com/LadyLudo/KT_CutthroatLosers-api.git
 
 ![Alt text](/src/Images/CLosers1.png?raw=true "Optional Title")
 ![Alt text](/src/Images/CLosers2.png?raw=true "Optional Title")
