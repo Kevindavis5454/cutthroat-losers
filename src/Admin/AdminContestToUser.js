@@ -69,6 +69,10 @@ class AdminContestToUser extends React.Component {
                             <span>Select a user to add</span>
 
                             <form className='addUser'>
+                                <div className='divideDiv2'>
+                                    <br></br>
+                                    <button onClick={this.handleAddUserToContest} className='glow-on-hover' name='' id=''>Add User</button>
+                                </div>
                                 <div className='divideDiv1'>
                                     <br></br>
                                     <select id='userSelectContest' defaultValue='Not Selected'>
@@ -76,10 +80,7 @@ class AdminContestToUser extends React.Component {
                                         {userOptionsRender}
                                     </select>
                                 </div>
-                                <div className='divideDiv2'>
-                                    <br></br>
-                                    <button onClick={this.handleAddUserToContest} className='glow-on-hover' name='' id=''>Add User</button>
-                                </div>
+                                
                             </form>
                         </div>
                     </div>

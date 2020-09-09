@@ -207,13 +207,13 @@ class SidebarHome extends React.Component {
                                                className="button"
                                                value="Login"/>
                                     </p>
-                                    <ul>
+                                </form>
+                                <ul>
                                     <li>Demo Credentials:</li>
                                         <li>Username: Kevin@gmail.com</li>
                                         <li>Password: test123</li>
                                         <li>Contest: Family Losers</li>
                                     </ul>
-                                </form>
                             </div>
                         </div>
                     </div>

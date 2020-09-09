@@ -23,28 +23,33 @@
     border-right: 1px solid #cccccc;
     border-style: solid;
     border-width: 1px;
+    display: block;
     margin: 0 0 1vw;
     padding: 2.2vw;
-    width: 35vw;
+    width: 45vw;
 }
 
+
 @media screen and (min-width: 44em) {
+
+    .login-block {
+        height: 110vh;
+    }
 
     .login-block input[type="text"],
     .login-block input[type="email"],
     .login-block input[type="password"] {
-
-        width: 10vw;
-        padding: 1vw;
-    }
-    .button {
-        height: 4vw;
-        width: 9vw;
-    }
-
+        border-color: #eeeeee #cccccc #cccccc #eeeeee;
+        border-right: 1px solid #cccccc;
+        border-style: solid;
+        border-width: 1px;
+        margin: 0 0 1vw;
+        padding: 2.2vw;
+        width: 37.5vw;
+}
 }
 
-@media screen and (min-width: 80em ) {
+@media screen and (min-width: 78em ) {
     .login-block input[type="text"],
     .login-block input[type="email"],
     .login-block input[type="password"] {

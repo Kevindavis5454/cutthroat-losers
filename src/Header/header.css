@@ -146,9 +146,18 @@
         padding: 1em 0em 2em 0em;
     }
 
-    @media screen and (min-width: 44em) {
+    @media screen and (min-width: 69em) {
+
         .nav a {
-            font-size: 80%;
+            font-size: 50%;
+            width: 10vw;
+        }
+    }
+
+
+    @media screen and (min-width: 78em) {
+        .nav a {
+            font-size: 70%;
             width: 10vw;
         }
     }

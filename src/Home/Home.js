@@ -9,23 +9,23 @@ class Home extends React.Component {
 
         return (
             <div className="home-container">
-                <div className="flex-container">
-                    <div className="flex-cell">
+                <div className="flex-container home-page">
+                    <div className="flex-cell homepage-cell">
                         <div className="flex-item">
                             <ProgressChart/>
                         </div>
                     </div>
-                    <div className="flex-cell">
+                    <div className="flex-cell homepage-cell">
                         <div className="flex-item">
                             <GroupGraph />
                         </div>
                     </div>
-                    <div className="flex-cell">
+                    <div className="flex-cell homepage-cell">
                         <div className="flex-item">
                             <h3>Future Feature</h3>
                         </div>
                     </div>
-                    <div className="flex-cell">
+                    <div className="flex-cell homepage-cell">
                         <div className="flex-item">
                             <h3>Future Feature</h3>
                         </div>

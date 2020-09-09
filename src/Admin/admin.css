@@ -43,10 +43,10 @@
 .addUser {
     padding: .3em;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    align-items: center;
     width: 32vw;
     height: 20vh;
-    border: 1px solid black;
     margin: .5em;
 }
 
@@ -89,16 +89,20 @@
 
 .cont1 {
     box-shadow: 0 0 5px 2px rgba(52,191,73, 10);
+    
 }
 
 .cont2 {
     box-shadow: 0 0 5px 2px rgba(218,68,83, 10);
+    
 }
 
 .cont3 {
     box-shadow: 0 0 5px 2px rgba(255,206,84, 10);
+    
 }
 
 .cont4 {
     box-shadow: 0 0 5px 2px rgba(72,207,173, 10);
+    
 }

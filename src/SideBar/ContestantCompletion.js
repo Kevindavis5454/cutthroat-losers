@@ -64,10 +64,15 @@ class ContestantCompletion extends React.Component {
                 <div className="flex-cell contestant-completion">
                     <div className="flex-item contestant">
                         <div>
-                            <div className='progress-contest-div'>
+                            <div className="contestant-wrapper">
                                 <span className={`boldSpan ${this.props.player}`}>Starting Weight: {this.state.startingWeight}</span>
+                                <br></br>
                                 <span className={`boldSpan ${this.props.player}`}>Current Weight: {this.props.weight}</span>
+                                <br></br>
                                 <span className={`boldSpan ${this.props.player}`}>Goal Weight: {this.props.goal}</span>
+                            </div>
+                            <div className='progress-sidebar-contest-div'>
+                                
                                 <svg viewBox="0 0 400 400" width="60%" height="60%">
                                     <VictoryPie
                                         standalone={false}
