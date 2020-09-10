@@ -202,10 +202,10 @@ class SidebarHome extends React.Component {
                                         />
                                     </p>
                                     <p className="submit-wrap">
-                                        <input type="submit"
+                                        <button type="submit"
                                                id="ftp-submit"
                                                className="button"
-                                               value="Login"/>
+                                               value="Login">Login</button>
                                     </p>
                                 </form>
                                 <ul>
@@ -259,10 +259,10 @@ class SidebarHome extends React.Component {
                                         />
                                     </p>
                                     <p className="submit-wrap">
-                                        <input type="submit"
+                                        <button type="submit"
                                                id="signup-submit"
                                                className="button"
-                                               value="Sign Up"/>
+                                               value="Sign Up">Sign Up</button>
                                     </p>
                                 </form>
                             </div>
