@@ -7,7 +7,6 @@
 .button {
     height: 6vw;
     width: 15vw;
-    z-index: 20;
 }
 
 .login-block form {
