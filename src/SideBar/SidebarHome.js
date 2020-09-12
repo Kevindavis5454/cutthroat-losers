@@ -106,7 +106,7 @@ class SidebarHome extends React.Component {
         }
         const { login_email, login_password } = e.target
         const userLogin = {
-            username: login_email.value,
+            username: login_email.value.toLowerCase,
             password: login_password.value,
         }
         fetch(`${config.API_ENDPOINT}/api/users/login/userAuth?username=${userLogin.username}&password=${userLogin.password}`)
