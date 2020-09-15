@@ -262,7 +262,7 @@ class SidebarHome extends React.Component {
                                         <button type="submit"
                                                id="signup-submit"
                                                className="button"
-                                               value="Sign Up">Sign Up</button>
+                                               value="Sign Up">SignUp</button>
                                     </p>
                                 </form>
                             </div>

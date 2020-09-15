@@ -9,6 +9,20 @@ html, body {
     -moz-osx-font-smoothing: grayscale;
 }
 
+p {
+    font-size: 3vw;
+}
+li {
+    font-size: 3vw;
+}
+
+span {
+    font-size: 3vw;
+}
+h3 {
+    font-size: 3vw;
+}
+
 a {
     text-decoration: none;
 }
@@ -171,7 +185,7 @@ a {
     display: flex;
     justify-content: center;
     align-items: stretch;
-    padding: 0.8rem;
+    padding: 0.2rem;
     box-sizing: border-box;
     width: 100%;
 }
@@ -306,6 +320,10 @@ a {
 
 @media screen and (min-width: 44em) {
 
+    .flex-cell-sidebar { 
+        padding: 0.8rem;
+    }
+
     .sidebar-home-container {
         display: flex;
         flex-direction: row;
@@ -329,6 +347,20 @@ a {
 }
 
 @media screen and (min-width: 78em) {
+
+    p {
+        font-size: 1vw;
+    }
+    li {
+        font-size: 1vw;
+    }
+    
+    span {
+        font-size: 1vw;
+    }
+    h3 {
+        font-size: 1vw;
+    }
 
     .flex-cell {
         flex: 0 0 50%;
